@@ -3,7 +3,7 @@
     "plugins": [
         "@typescript-eslint"
     ],
-    "extends": ["next/core-web-vitals", "airbnb", "plugin:prettier/recommended"],
+    "extends": ["next/core-web-vitals", "next", "airbnb", "plugin:prettier/recommended"],
     "overrides": [{
         "files": ["**/*.ts?(x)"],
         "rules": {
