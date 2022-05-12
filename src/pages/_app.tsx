@@ -1,8 +1,8 @@
 import { AppProps } from "next/app";
-import "../styles/globals.css";
+import "../styles/globals.scss";
 
-const MyApp = ({ Component }: AppProps) => {
+const App = ({ Component }: AppProps) => {
     return <Component />;
 };
 
-export default MyApp;
+export default App;
