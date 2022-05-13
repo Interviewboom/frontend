@@ -1,20 +1,20 @@
 @import "./src/sass/_colors.scss";
-@import "./src/sass/_font_variables.scss";
+@import "./src/sass/_variables.scss";
 
 .group {
     .label {
         color: $dark-text-color;
         display: block;
         margin-bottom: 8px;
-        font-family: $secondary-font;
+        font-family: $primary-font;
         font-weight: 400;
         font-size: 16px;
-        line-height: 125%;
+        line-height: 20px;
         color: #333;
     }
 
     .input {
-        color: $light-text-color;
+        color: $dark-text-color;
         border-radius: 4px;
         background-color: $input-background-color;
         border: 1px solid $light-grey-color;
@@ -23,9 +23,26 @@
         font-family: $primary-font;
         font-size: 14px;
         font-weight: 400;
-        line-height: 143%;
+        line-height: 20px;
+
+        &:focus {
+            border: 1px solid $input-focus-color;
+        }
+
+        &::placeholder {
+            color: $light-text-color;
+        }
     }
-    .input:focus {
-        color: $dark-text-color;
+
+    .inputError {
+        border: 1px solid $light-error-color;
+    }
+
+    .errorText {
+        margin-top: 3px;
+        color: $dark-error-color;
+        font-family: $primary-font;
+        font-size: 12px;
+        line-height: 14.63px;
     }
 }

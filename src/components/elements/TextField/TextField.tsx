@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FC, useId } from "react";
+import React, { ChangeEventHandler, FC, useCallback, useId, useState } from "react";
 import styles from "./TextField.module.scss";
 
 interface TextFieldProps {
@@ -9,20 +9,46 @@ interface TextFieldProps {
     isDisable?: boolean;
     isReadonly?: boolean;
     isRequired?: boolean;
+    error?: string;
     onChange: ChangeEventHandler<HTMLInputElement>;
+}
+
+interface attributesType {
+    placeholder?: string;
+    isDisable?: boolean;
+    isReadonly?: boolean;
+    isRequired?: boolean;
 }
 
 export const TextField: FC<TextFieldProps> = ({
     value,
     type = "text",
-    placeholder,
     onChange,
+    placeholder,
     caption,
     isDisable,
     isReadonly,
     isRequired,
+    error,
 }) => {
     const id = useId();
+    const [isPasswordVisible, setisPasswordVisible] = useState(false);
+
+    const conditionalAttributes = {
+        placeholder,
+        error,
+        required: isRequired,
+        readOnly: isReadonly,
+        disabled: isDisable,
+    };
+
+    const toggleVisibility = () => {
+        setisPasswordVisible((prev: boolean) => !prev);
+    };
+
+    const getExistingAttributes = useCallback((obj: attributesType): attributesType => {
+        return Object.fromEntries(Object.entries(obj).filter(arr => !(arr[1] === undefined)));
+    }, []);
 
     return (
         <div className={styles.group}>
@@ -32,25 +58,29 @@ export const TextField: FC<TextFieldProps> = ({
                 </label>
             )}
             <input
-                type={type}
+                type={isPasswordVisible ? "text" : type}
                 id={id}
                 value={value}
-                placeholder={placeholder}
                 onChange={onChange}
-                className={styles.input}
-                required={isRequired}
-                readOnly={isReadonly}
-                disabled={isDisable}
+                className={`${styles.input} ${error ? styles.inputError : ""}`}
+                {...getExistingAttributes(conditionalAttributes)}
             />
+            {type === "password" && (
+                <button type="button" onClick={toggleVisibility}>
+                    toggle
+                </button>
+            )}
+            {error && <div className={styles.errorText}>{error}</div>}
         </div>
     );
 };
 
 TextField.defaultProps = {
     type: "text",
-    placeholder: "",
     caption: "",
+    placeholder: "",
     isDisable: false,
     isReadonly: false,
-    isRequired: true,
+    isRequired: false,
+    error: "",
 };
