@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FC, useCallback, useId, useState } from "react";
+import React, { ChangeEventHandler, FC, useCallback, useId } from "react";
 import styles from "./TextField.module.scss";
 
 interface TextFieldProps {
@@ -32,19 +32,18 @@ export const TextField: FC<TextFieldProps> = ({
     error,
 }) => {
     const id = useId();
-    const [isPasswordVisible, setisPasswordVisible] = useState(false);
+    // const [isPasswordVisible, setisPasswordVisible] = useState(false);
 
     const conditionalAttributes = {
         placeholder,
-        error,
         required: isRequired,
         readOnly: isReadonly,
         disabled: isDisable,
     };
 
-    const toggleVisibility = () => {
-        setisPasswordVisible((prev: boolean) => !prev);
-    };
+    // const toggleVisibility = () => {
+    //     setisPasswordVisible((prev: boolean) => !prev);
+    // };
 
     const getExistingAttributes = useCallback((obj: attributesType): attributesType => {
         return Object.fromEntries(Object.entries(obj).filter(arr => !(arr[1] === undefined)));
@@ -58,19 +57,19 @@ export const TextField: FC<TextFieldProps> = ({
                 </label>
             )}
             <input
-                type={isPasswordVisible ? "text" : type}
+                type={type}
                 id={id}
                 value={value}
                 onChange={onChange}
                 className={`${styles.input} ${error ? styles.inputError : ""}`}
                 {...getExistingAttributes(conditionalAttributes)}
             />
-            {type === "password" && (
-                <button type="button" onClick={toggleVisibility}>
-                    toggle
+            {/* {type === "password" && (
+                <button type="button" className={styles.inputToggler} onClick={toggleVisibility}>
+                    <Icon svgUrl="/../../Icon/assets/eye.svg" width={22} height={16} />
                 </button>
-            )}
-            {error && <div className={styles.errorText}>{error}</div>}
+            )} */}
+            {error && <div className={styles.error}>{error}</div>}
         </div>
     );
 };
