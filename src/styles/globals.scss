@@ -3,8 +3,8 @@
 
 html,
 body {
-    font-family: "Montserrat";
-    color: #333;
+    font-family: $primary-font, sans-serif;
+    color: $dark-text-color;
 }
 
 *,
