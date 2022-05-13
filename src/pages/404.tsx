@@ -1,3 +1,9 @@
-export default () => {
-    return <h1>404 - Page Not Found</h1>;
+import type { NextPage } from "next";
+
+import { DefaultLayout } from "@layouts/DefaultLayout";
+
+const NotFoundPage: NextPage = () => {
+    return <DefaultLayout>404 - Page Not Found</DefaultLayout>;
 };
+
+export default NotFoundPage;
