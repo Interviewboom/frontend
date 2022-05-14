@@ -3,17 +3,19 @@ import styles from "./Text.module.scss";
 
 interface TextProps {
     children: ReactNode;
-    isBlock?: boolean;
-    textType: "textStyle1" | "textStyle2" | "textStyle3";
+    isParagraph?: boolean;
+    textType: "textBig" | "textMedium" | "textSmall";
+    colorClass?: string;
 }
 
-export const Text: FC<TextProps> = ({ children, isBlock, textType }) => {
-    if (isBlock) {
-        return <div className={styles[textType]}>{children}</div>;
+export const Text: FC<TextProps> = ({ children, isParagraph, textType, colorClass }) => {
+    if (isParagraph) {
+        return <p className={`general ${styles[textType]} ${colorClass}`}>{children}</p>;
     }
-    return <span className={styles[textType]}>{children}</span>;
+    return <span className={`general ${styles[textType]} ${colorClass}`}>{children}</span>;
 };
 
 Text.defaultProps = {
-    isBlock: false,
+    isParagraph: false,
+    colorClass: "dark-text-color",
 };
