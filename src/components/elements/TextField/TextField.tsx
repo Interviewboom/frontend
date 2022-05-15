@@ -1,5 +1,6 @@
-import React, { ChangeEventHandler, FC, useCallback, useId } from "react";
+import React, { ChangeEventHandler, FC, useCallback, useId, useState } from "react";
 import styles from "./TextField.module.scss";
+import { Icon } from "../Icon/Icon";
 
 interface TextFieldProps {
     value: string;
@@ -32,7 +33,7 @@ export const TextField: FC<TextFieldProps> = ({
     error,
 }) => {
     const id = useId();
-    // const [isPasswordVisible, setisPasswordVisible] = useState(false);
+    const [isPasswordVisible, setisPasswordVisible] = useState(false);
 
     const conditionalAttributes = {
         placeholder,
@@ -41,9 +42,9 @@ export const TextField: FC<TextFieldProps> = ({
         disabled: isDisable,
     };
 
-    // const toggleVisibility = () => {
-    //     setisPasswordVisible((prev: boolean) => !prev);
-    // };
+    const toggleVisibility = () => {
+        setisPasswordVisible((prev: boolean) => !prev);
+    };
 
     const getExistingAttributes = useCallback((obj: attributesType): attributesType => {
         return Object.fromEntries(Object.entries(obj).filter(arr => !(arr[1] === undefined)));
@@ -56,20 +57,32 @@ export const TextField: FC<TextFieldProps> = ({
                     {caption}
                 </label>
             )}
-            <input
-                type={type}
-                id={id}
-                value={value}
-                onChange={onChange}
-                className={`${styles.input} ${error ? styles.inputError : ""}`}
-                {...getExistingAttributes(conditionalAttributes)}
-            />
-            {/* {type === "password" && (
-                <button type="button" className={styles.inputToggler} onClick={toggleVisibility}>
-                    <Icon svgUrl="/../../Icon/assets/eye.svg" width={22} height={16} />
-                </button>
-            )} */}
-            {error && <div className={styles.error}>{error}</div>}
+            <div className={styles.inputWrapper}>
+                <input
+                    type={isPasswordVisible ? "text" : type}
+                    id={id}
+                    value={value}
+                    onChange={onChange}
+                    className={`${styles.input} ${error ? styles.inputError : ""}`}
+                    {...getExistingAttributes(conditionalAttributes)}
+                />
+                {type === "password" && (
+                    <button type="button" className={styles.inputToggler} onClick={toggleVisibility}>
+                        <Icon
+                            svgUrl={`/assets/images/${isPasswordVisible ? "eye" : "eye-crossed"}.svg`}
+                            width={22}
+                            height={16}
+                            alt="eye"
+                        />
+                    </button>
+                )}
+            </div>
+            {error && (
+                <div className={styles.errorWrapper}>
+                    <Icon svgUrl="/assets/images/error.svg" width={14} height={15} alt="error" />
+                    <p className={styles.errorText}>{error}</p>
+                </div>
+            )}
         </div>
     );
 };
