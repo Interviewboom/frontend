@@ -5,17 +5,17 @@ interface TextProps {
     children: ReactNode;
     isParagraph?: boolean;
     textType: "textBig" | "textMedium" | "textSmall";
-    colorClass?: string;
+    color?: "dark-text-color" | "light-text-color";
 }
 
-export const Text: FC<TextProps> = ({ children, isParagraph, textType, colorClass }) => {
+export const Text: FC<TextProps> = ({ children, isParagraph, textType, color }) => {
     if (isParagraph) {
-        return <p className={`general ${styles[textType]} ${colorClass}`}>{children}</p>;
+        return <p className={`general ${styles[textType]} ${color}`}>{children}</p>;
     }
-    return <span className={`general ${styles[textType]} ${colorClass}`}>{children}</span>;
+    return <span className={`general ${styles[textType]} ${color}`}>{children}</span>;
 };
 
 Text.defaultProps = {
     isParagraph: false,
-    colorClass: "dark-text-color",
+    color: "dark-text-color",
 };
