@@ -33,7 +33,7 @@ export const TextField: FC<TextFieldProps> = ({
     error,
 }) => {
     const id = useId();
-    const [isPasswordVisible, setisPasswordVisible] = useState(false);
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     const conditionalAttributes = {
         placeholder,
@@ -43,7 +43,7 @@ export const TextField: FC<TextFieldProps> = ({
     };
 
     const toggleVisibility = () => {
-        setisPasswordVisible((prev: boolean) => !prev);
+        setIsPasswordVisible((prev: boolean) => !prev);
     };
 
     const getExistingAttributes = useCallback((obj: attributesType): attributesType => {

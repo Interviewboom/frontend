@@ -17,7 +17,7 @@ export const Icon: FC<IconProps> = ({ svgUrl, width, height, alt }) => {
 };
 
 Icon.defaultProps = {
-    width: 25,
-    height: 25,
+    width: 24,
+    height: 24,
     alt: "icon",
 };
