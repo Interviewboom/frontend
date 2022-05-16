@@ -42,9 +42,9 @@ export const TextField: FC<TextFieldProps> = ({
         disabled: isDisable,
     };
 
-    const toggleVisibility = () => {
+    const toggleVisibility = useCallback(() => {
         setIsPasswordVisible((prev: boolean) => !prev);
-    };
+    }, []);
 
     const getExistingAttributes = useCallback((obj: attributesType): attributesType => {
         return Object.fromEntries(Object.entries(obj).filter(arr => !(arr[1] === undefined)));
