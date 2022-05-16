@@ -6,7 +6,7 @@ interface TextProps {
     isParagraph?: boolean;
     textType?: "big" | "medium" | "small";
     color?: "dark-text-color" | "light-text-color";
-    bold?: boolean;
+    bold?: true | false;
 }
 
 export const Text: FC<TextProps> = ({
