@@ -71,7 +71,7 @@ export const TextField: FC<TextFieldProps> = ({
                         <Icon
                             svgUrl={`/assets/images/${isPasswordVisible ? "eye" : "eye-crossed"}.svg`}
                             width={22}
-                            height={16}
+                            height={isPasswordVisible ? 16 : 19}
                             alt="eye"
                         />
                     </button>
