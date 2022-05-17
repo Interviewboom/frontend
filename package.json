@@ -7,7 +7,8 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "build-ts": "tsc"
     },
     "dependencies": {
         "@typescript-eslint/eslint-plugin": "^5.22.0",
