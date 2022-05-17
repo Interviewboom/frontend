@@ -13,7 +13,14 @@ pipelines:
                     caches:
                         - node
                     script:
-                        - yarn install
+                        - yarn install 
+                        - yarn global add typescript
+              - step:
+                    name: "Typescript"
+                    caches:
+                        - node
+                    script:
+                        - tsc          
               - step:
                     name: "Lint"
                     caches:
