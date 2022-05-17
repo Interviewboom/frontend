@@ -7,23 +7,23 @@ image: node:16
 
 pipelines:
     default:
+        - step:
+            name: "Install dependencies"
+            caches:
+                - node
+            script:
+                - yarn install 
+                - yarn global add typescript
         - parallel:
-              - step:
-                    name: "Install dependencies"
-                    caches:
-                        - node
-                    script:
-                        - yarn install 
-                        - yarn global add typescript
-              - step:
-                    name: "Typescript"
-                    caches:
-                        - node
-                    script:
-                        - tsc          
-              - step:
-                    name: "Lint"
-                    caches:
-                        - node
-                    script:
-                        - yarn lint
+          - step:
+                name: "Typescript"
+                caches:
+                    - node
+                script:
+                    - tsc          
+          - step:
+                name: "Lint"
+                caches:
+                    - node
+                script:
+                    - yarn lint
