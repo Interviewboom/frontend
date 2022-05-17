@@ -7,16 +7,22 @@ image: node:16
 
 pipelines:
     default:
+        - step:
+            name: "Install dependencies"
+            caches:
+                - node
+            script:
+                - yarn install --frozen-lockfile
         - parallel:
-              - step:
-                    name: "Install dependencies"
-                    caches:
-                        - node
-                    script:
-                        - yarn install
-              - step:
-                    name: "Lint"
-                    caches:
-                        - node
-                    script:
-                        - yarn lint
+          - step:
+                name: "Typescript"
+                caches:
+                    - node
+                script:
+                    - yarn run build-ts         
+          - step:
+                name: "Lint"
+                caches:
+                    - node
+                script:
+                    - yarn lint
