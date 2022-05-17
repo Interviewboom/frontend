@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from "react";
 import styles from "./Title.module.scss";
-import { getClassnames } from "../../utils/getClassnames";
+import { getClassnames } from "../../../utils/getClassnames";
 
 interface TitleProps {
     level?: 1 | 2 | 3;
