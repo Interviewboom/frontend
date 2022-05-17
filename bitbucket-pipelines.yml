@@ -12,14 +12,14 @@ pipelines:
             caches:
                 - node
             script:
-                - yarn install 
-                - yarn global add typescript
+                - yarn install --frozen-lockfile
         - parallel:
           - step:
                 name: "Typescript"
                 caches:
                     - node
                 script:
+                    - yarn global add typescript
                     - tsc          
           - step:
                 name: "Lint"
