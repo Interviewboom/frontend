@@ -2,20 +2,32 @@
 @import "./src/sass/_variables.scss";
 
 .button {
-    background-color: #27ae60;
     border-radius: 4px;
-    color: $most-light-color;
     height: 60px;
     width: 320px;
-    font-family: "Montserrat";
+    font-family: $primary-font;
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 22px;
     padding: 19px 20px;
+}
+
+.green {
+    background-color: $light-green-color;
+    color: $most-light-color;
 
     &:hover {
-        background-color: #219653;
+        background-color: $dark-green-color;
+    }
+}
+
+.grey {
+    background-color: $button-background-color;
+    color: $button-text-color;
+
+    &:hover {
+        background-color: $light-grey-color;
     }
 }
 

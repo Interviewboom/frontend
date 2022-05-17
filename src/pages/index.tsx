@@ -7,10 +7,10 @@ const HomePage: NextPage = () => {
     return (
         <DefaultLayout>
             Home{" "}
-            <Button onClick={() => {}} text="увыйти" width="width248">
+            <Button onClick={() => {}} width="width248">
                 buu
             </Button>
-            <Button onClick={() => {}} text="увыйти" link="/hhh">
+            <Button onClick={() => {}} link="/hhh" color="grey">
                 link
             </Button>
         </DefaultLayout>
