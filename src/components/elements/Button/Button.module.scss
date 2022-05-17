@@ -10,7 +10,7 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 22px;
-    padding: 19px 20px;
+    padding: 19px 12px;
 }
 
 .green {
@@ -43,10 +43,16 @@
     width: 232px;
 }
 
+.mobile {
+    width: 100%;
+}
+
 .heightBig {
     height: 60px;
 }
 
 .heightSmall {
-    height: 60px;
+    height: 40px;
+    padding: 8px 18px;
+    line-height: 19.5px;
 }
