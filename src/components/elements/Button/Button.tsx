@@ -1,14 +1,14 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, MouseEventHandler } from "react";
 import Link from "next/link";
 import styles from "./Button.module.scss";
 
 type ButtonProps = {
     children: ReactNode;
     link?: string;
-    width?: "width320" | "width248";
+    width?: "big" | "medium" | "small";
     height?: "heightBig" | "heightSmall";
     color?: "green" | "grey";
-    onClick: () => void;
+    onClick: MouseEventHandler<HTMLButtonElement>;
 
     type?: "button" | "submit";
 };
@@ -17,33 +17,31 @@ export const Button: React.FC<ButtonProps> = ({
     children,
     type = "button",
     onClick,
-    width = "width320",
+    width = "big",
     link,
     height = "heightBig",
     color = "green",
 }) => {
-    if (link) {
-        <Link href={link}>
-            <button
-                className={`${styles.button} ${styles[width]} ${styles[color]} ${styles[height]} `}
-                onClick={onClick}
-                type={type ? "button" : "submit"}
-            >
-                {children}
-            </button>
-        </Link>;
-    }
-
-    return (
-        <button className={`${styles.button} ${styles[width]}`} onClick={onClick} type="button">
+    const button = (
+        <button
+            type={type === "submit" ? "submit" : "button"}
+            className={`${styles.button} ${styles[width]} ${styles[color]} ${styles[height]} `}
+            onClick={onClick}
+        >
             {children}
         </button>
     );
+
+    if (link) {
+        <Link href={link}>{button}</Link>;
+    }
+
+    return button;
 };
 
 Button.defaultProps = {
     type: "button",
-    width: "width320",
+    width: "big",
     height: "heightBig",
     link: "",
     color: "green",
