@@ -1,5 +1,6 @@
-import React, { FC, ReactNode, useCallback } from "react";
+import React, { FC, ReactNode } from "react";
 import styles from "./Text.module.scss";
+import { getClassnames } from "../../utils/getClassnames";
 
 interface TextProps {
     children: ReactNode;
@@ -16,13 +17,6 @@ export const Text: FC<TextProps> = ({
     color = "dark-text-color",
     bold = false,
 }) => {
-    const getClassnames = useCallback((obj: { [key: string]: boolean }): string => {
-        return Object.entries(obj)
-            .filter(arr => arr[1])
-            .map(arr => arr[0])
-            .join(" ");
-    }, []);
-
     const TextClasses = getClassnames({
         general: true,
         [styles[textType]]: true,
