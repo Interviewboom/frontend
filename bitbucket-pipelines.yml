@@ -19,8 +19,7 @@ pipelines:
                 caches:
                     - node
                 script:
-                    - yarn global add typescript
-                    - tsc          
+                    - yarn run build-ts         
           - step:
                 name: "Lint"
                 caches:
