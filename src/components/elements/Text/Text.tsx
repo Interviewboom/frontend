@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC, ReactNode, useMemo } from "react";
 import styles from "./Text.module.scss";
 import { getClassnames } from "../../../utils/getClassnames";
 
@@ -17,17 +17,15 @@ export const Text: FC<TextProps> = ({
     color = "dark-text-color",
     bold = false,
 }) => {
-    const TextClasses = getClassnames({
-        general: true,
-        [styles[textType]]: true,
-        bold,
-        [color]: true,
-    });
+    const textClasses = useMemo(
+        () => getClassnames([styles.general, styles[textType], bold && styles.bold, color]),
+        [bold, color, textType]
+    );
 
     if (isParagraph) {
-        return <p className={TextClasses}>{children}</p>;
+        return <p className={textClasses}>{children}</p>;
     }
-    return <span className={TextClasses}>{children}</span>;
+    return <span className={textClasses}>{children}</span>;
 };
 
 Text.defaultProps = {

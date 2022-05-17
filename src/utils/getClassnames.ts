@@ -1,6 +1,3 @@
-export const getClassnames = (obj: { [key: string]: boolean }): string => {
-    return Object.entries(obj)
-        .filter(arr => arr[1])
-        .map(arr => arr[0])
-        .join(" ");
+export const getClassnames = (array: Array<string | boolean>): string => {
+    return array.filter(arrItem => arrItem).join(" ");
 };
