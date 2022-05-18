@@ -1,0 +1,33 @@
+@import "./src/sass/_colors.scss";
+@import "./src/sass/_variables.scss";
+
+.section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: $most-light-color;
+    font-family: $primary-font;
+}
+
+.wrapper {
+    background-color: rgb(156, 184, 156);
+    display: flex;
+    justify-content: center;
+    padding: 100px 15px;
+    max-width: $desktop-content-width;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.content {
+    max-width: 588px;
+    text-align: center;
+
+    & > *:not(:first-child) {
+        margin-top: 40px;
+    }
+
+    & p {
+        line-height: 28px;
+    }
+}
