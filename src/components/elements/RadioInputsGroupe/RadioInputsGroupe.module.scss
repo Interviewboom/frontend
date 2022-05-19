@@ -1,0 +1,27 @@
+@import "./src/sass/_colors.scss";
+@import "./src/sass/_variables.scss";
+
+.group {
+    .row:not(:last-child) {
+        margin-bottom: 16px;
+    }
+
+    .circle {
+        margin-right: 16px;
+        width: 24px;
+        height: 24px;
+        background-color: green;
+    }
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid $light-grey-color;
+    padding: 16px;
+}
+
+.checked {
+    border: 1px solid green;
+}
