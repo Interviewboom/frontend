@@ -25,6 +25,7 @@
 .grey {
     background-color: $button-background-color;
     color: $button-text-color;
+    font-size: 18px;
 
     &:hover {
         background-color: $light-grey-color;
