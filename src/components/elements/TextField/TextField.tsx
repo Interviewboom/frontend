@@ -1,8 +1,6 @@
 import React, { ChangeEventHandler, FC, useCallback, useId, useState } from "react";
+import { Icon } from "@elements/Icon";
 import styles from "./TextField.module.scss";
-import ErrorIcon from "../../../../public/assets/images/error.svg";
-import Eye from "../../../../public/assets/images/eye.svg";
-import EyeCrossed from "../../../../public/assets/images/eye-crossed.svg";
 
 interface TextFieldProps {
     value: string;
@@ -70,13 +68,18 @@ export const TextField: FC<TextFieldProps> = ({
                 />
                 {type === "password" && (
                     <button type="button" className={styles.inputToggler} onClick={toggleVisibility}>
-                        {isPasswordVisible ? <Eye width={22} height={16} /> : <EyeCrossed width={22} height={19} />}
+                        {isPasswordVisible ? (
+                            <Icon width={22} height={19} name="eye" />
+                        ) : (
+                            <Icon width={22} height={19} name="eye-crossed" />
+                        )}
                     </button>
                 )}
             </div>
             {error && (
                 <div className={styles.errorWrapper}>
-                    <ErrorIcon />
+                    <Icon name="error" height={15} width={14} />
+
                     <p className={styles.errorText}>{error}</p>
                 </div>
             )}

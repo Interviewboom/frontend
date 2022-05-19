@@ -1,17 +1,26 @@
-import Image from "next/image";
-import React, { FC } from "react";
+import dynamic from "next/dynamic";
+import React, { ComponentType, FC, SVGProps } from "react";
+import styles from "./Icon.module.scss";
 
 interface IconProps {
-    svgUrl: string;
+    name: string;
     width?: number;
     height?: number;
-    alt?: string;
+    color?: string;
 }
 
-export const Icon: FC<IconProps> = ({ svgUrl, width, height, alt }) => {
+export const Icon: FC<IconProps> = ({ name, width = 24, height = 24, color }) => {
+    let IconComponent: ComponentType<SVGProps<SVGElement>>;
+
+    try {
+        IconComponent = dynamic(() => import(`./icons/${name}.svg`));
+    } catch (error) {
+        return <span>icon</span>;
+    }
+
     return (
-        <span>
-            <Image src={svgUrl} width={width} height={height} alt={alt} />
+        <span className={color ? styles.wrapper : ""}>
+            <IconComponent width={width} height={height} color={color} />
         </span>
     );
 };
@@ -19,5 +28,5 @@ export const Icon: FC<IconProps> = ({ svgUrl, width, height, alt }) => {
 Icon.defaultProps = {
     width: 24,
     height: 24,
-    alt: "icon",
+    color: "",
 };
