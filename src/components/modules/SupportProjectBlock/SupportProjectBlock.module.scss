@@ -10,13 +10,14 @@
 }
 
 .wrapper {
-    background-color: rgb(156, 184, 156);
+    background-color: $light-lime-color;
     display: flex;
     justify-content: center;
     padding: 100px 15px;
     max-width: $desktop-content-width;
     width: 100%;
     border-radius: 8px;
+    border: 1px solid $light-grey-color;
 }
 
 .content {
@@ -25,9 +26,5 @@
 
     & > *:not(:first-child) {
         margin-top: 40px;
-    }
-
-    & p {
-        line-height: 28px;
     }
 }

@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./Donate.module.scss";
-import { Title } from "../../elements/Title/Title";
-import { Text } from "../../elements/Text/Text";
+import { Title } from "@elements/Title/Title";
+import { Text } from "@elements/Text/Text";
+import styles from "./SupportProjectBlock.module.scss";
 
-const Donate = () => {
+export const SupportProjectBlock = () => {
     return (
         <section className={styles.section}>
             <div className={styles.wrapper}>
@@ -19,5 +19,3 @@ const Donate = () => {
         </section>
     );
 };
-
-export default Donate;
