@@ -29,7 +29,11 @@ export const Button: React.FC<ButtonProps> = ({
     );
 
     const button = (
-        <button type={type === "submit" ? "submit" : "button"} className={buttonClasses} onClick={onClick}>
+        <button
+            type={type === "submit" ? "submit" : "button"}
+            className={buttonClasses}
+            {...(onClick ? { onClick } : {})}
+        >
             {children}
         </button>
     );
