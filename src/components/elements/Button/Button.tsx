@@ -6,8 +6,8 @@ import styles from "./Button.module.scss";
 type ButtonProps = {
     children: ReactNode;
     link?: string;
-    width?: "big" | "medium" | "small" | "mobile";
-    height?: "heightBig" | "heightSmall";
+    sizes?: "big" | "medium" | "small";
+    isMobile?: boolean;
     color?: "green" | "grey";
     onClick?: MouseEventHandler<HTMLButtonElement>;
 
@@ -18,14 +18,14 @@ export const Button: React.FC<ButtonProps> = ({
     children,
     type = "button",
     onClick,
-    width = "big",
+    sizes = "big",
     link,
-    height = "heightBig",
+    isMobile = false,
     color = "green",
 }) => {
     const buttonClasses = useMemo(
-        () => getClassnames([styles.button, styles[width], styles[color], styles[height]]),
-        [width, color, height]
+        () => getClassnames([styles.button, styles[sizes], styles[color], isMobile && styles.mobile]),
+        [sizes, color, isMobile]
     );
 
     const button = (
@@ -47,9 +47,9 @@ export const Button: React.FC<ButtonProps> = ({
 
 Button.defaultProps = {
     type: "button",
-    width: "big",
-    height: "heightBig",
+    sizes: "big",
     link: "",
+    isMobile: false,
     color: "green",
     onClick: () => {},
 };
