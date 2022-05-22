@@ -5,7 +5,7 @@ import styles from "./TextField.module.scss";
 interface TextFieldProps {
     value: string;
     caption?: string;
-    type?: "text" | "password";
+    type?: "text" | "password" | "email";
     placeholder?: string;
     isDisable?: boolean;
     isReadonly?: boolean;

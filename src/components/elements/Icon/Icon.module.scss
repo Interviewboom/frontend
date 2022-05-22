@@ -3,10 +3,8 @@
 
 .wrapper {
     svg {
-        fill: currentColor;
-
         path {
-            fill: currentColor;
+            fill: inherit;
         }
     }
 }
