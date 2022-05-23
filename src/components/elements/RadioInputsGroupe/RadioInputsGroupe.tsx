@@ -1,7 +1,6 @@
 import React, { ChangeEventHandler, FC } from "react";
 import { Text } from "@elements/Text/Text";
 import styles from "./RadioInputsGroupe.module.scss";
-import { getClassnames } from "../../../utils/getClassnames";
 
 export type choiceType = {
     caption: string;
@@ -19,7 +18,7 @@ const RadioInputsGroupe: FC<RadioInputsGroupeProps> = ({ name, onChange, value, 
     return (
         <div className={styles.group}>
             {choices.map(item => (
-                <div className={getClassnames([styles.row, value === item.value && styles.checked])} key={item.value}>
+                <div className={styles.row} key={item.value}>
                     <input
                         type="radio"
                         name={name}
@@ -27,9 +26,12 @@ const RadioInputsGroupe: FC<RadioInputsGroupeProps> = ({ name, onChange, value, 
                         checked={value === item.value}
                         className={styles.circle}
                         onChange={onChange}
+                        id={item.caption}
                     />
-
-                    <Text textType="medium">{item.caption}</Text>
+                    <div className={styles.customCircle} />
+                    <label htmlFor={item.caption}>
+                        <Text textType="medium">{item.caption}</Text>
+                    </label>
                 </div>
             ))}
         </div>
