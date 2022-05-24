@@ -1,13 +1,13 @@
-import React, { ReactNode, MouseEventHandler, useMemo } from "react";
+import React, { ReactNode, MouseEventHandler } from "react";
 import Link from "next/link";
-import { getClassnames } from "src/utils/getClassnames";
 import styles from "./Button.module.scss";
+import { useCssClasses } from "../../../utils/getClassnames";
 
 type ButtonProps = {
     children: ReactNode;
     link?: string;
-    sizes?: "big" | "medium" | "small";
-    isMobile?: boolean;
+    size?: "big" | "medium" | "small";
+    isAdaptive?: boolean;
     color?: "green" | "grey";
     onClick?: MouseEventHandler<HTMLButtonElement>;
 
@@ -18,17 +18,24 @@ export const Button: React.FC<ButtonProps> = ({
     children,
     type = "button",
     onClick,
-    sizes = "big",
+    size = "big",
     link,
-    isMobile = false,
+    isAdaptive = false,
     color = "green",
 }) => {
-    const buttonClasses = useMemo(
-        () => getClassnames([styles.button, styles[sizes], styles[color], isMobile && styles.mobile]),
-        [sizes, color, isMobile]
-    );
+    const buttonClasses = useCssClasses([styles.button, styles[size], styles[color], isAdaptive && styles.adaptive]);
 
-    const button = (
+    if (link) {
+        return (
+            <Link href={link}>
+                <a className={buttonClasses} href={link}>
+                    {children}
+                </a>
+            </Link>
+        );
+    }
+
+    return (
         <button
             type={type === "submit" ? "submit" : "button"}
             className={buttonClasses}
@@ -37,19 +44,13 @@ export const Button: React.FC<ButtonProps> = ({
             {children}
         </button>
     );
-
-    if (link) {
-        return <Link href={link}>{button}</Link>;
-    }
-
-    return button;
 };
 
 Button.defaultProps = {
     type: "button",
-    sizes: "big",
+    size: "big",
     link: "",
-    isMobile: false,
+    isAdaptive: false,
     color: "green",
     onClick: () => {},
 };

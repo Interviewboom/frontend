@@ -3,6 +3,7 @@
 
 .button {
     border-radius: 4px;
+    display: inline-block;
     height: 60px;
     width: 320px;
     font-family: $primary-font;
@@ -11,6 +12,7 @@
     font-size: 16px;
     line-height: 22px;
     padding: 19px 12px;
+    text-align: center;
 }
 
 .green {
@@ -19,6 +21,7 @@
 
     &:hover {
         background-color: $dark-green-color;
+        color: $most-light-color;
     }
 }
 
@@ -29,6 +32,7 @@
 
     &:hover {
         background-color: $light-grey-color;
+        color: $button-text-color;
     }
 }
 
@@ -45,8 +49,9 @@
     height: 40px;
     padding: 8px 18px;
     line-height: 19.5px;
+    font-size: 16px;
 }
 
-.mobile {
+.adaptive {
     width: 100%;
 }
