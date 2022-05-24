@@ -2,6 +2,7 @@ import React, { ReactNode, MouseEventHandler } from "react";
 import Link from "next/link";
 import styles from "./Button.module.scss";
 import { useCssClasses } from "../../../utils/getClassnames";
+import { ButtonLink } from "./ButtonLink";
 
 type ButtonProps = {
     children: ReactNode;
@@ -27,10 +28,10 @@ export const Button: React.FC<ButtonProps> = ({
 
     if (link) {
         return (
-            <Link href={link}>
-                <a className={buttonClasses} href={link}>
+            <Link href={link} passHref>
+                <ButtonLink href={link} className={buttonClasses}>
                     {children}
-                </a>
+                </ButtonLink>
             </Link>
         );
     }
@@ -44,13 +45,4 @@ export const Button: React.FC<ButtonProps> = ({
             {children}
         </button>
     );
-};
-
-Button.defaultProps = {
-    type: "button",
-    size: "big",
-    link: "",
-    isAdaptive: false,
-    color: "green",
-    onClick: () => {},
 };
