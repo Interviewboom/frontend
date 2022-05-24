@@ -1,16 +1,18 @@
 import React, { MouseEventHandler, ReactNode } from "react";
-
+/* eslint  "jsx-a11y/anchor-is-valid": 0  
+  "jsx-a11y/click-events-have-key-events": "off" ,
+  "jsx-a11y/no-static-element-interactions": "off" 
+ */
 type ButtonLinkProps = {
-    onClick?: MouseEventHandler<HTMLAnchorElement>;
-    href: string;
     className: string;
     children: ReactNode;
+    onClick?: MouseEventHandler<HTMLAnchorElement>;
 };
 
 export const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
-    ({ onClick, href, className, children }, ref) => {
+    ({ className, children, onClick }, ref) => {
         return (
-            <a href={href} onClick={onClick} ref={ref} className={className}>
+            <a ref={ref} className={className} onClick={onClick}>
                 {children}
             </a>
         );

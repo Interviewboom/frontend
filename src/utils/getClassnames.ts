@@ -5,6 +5,5 @@ export const getClassnames = (array: Array<string | boolean>): string => {
 };
 
 export const useCssClasses = (array: Array<string | boolean>): string => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    return useMemo(() => getClassnames(array), [...array]);
+    return useMemo(() => getClassnames(array), [array]);
 };
