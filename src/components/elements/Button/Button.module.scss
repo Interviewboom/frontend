@@ -16,7 +16,7 @@
     padding: 19px 12px;
 }
 
-.green {
+.button.green {
     background-color: $light-green-color;
     color: $most-light-color;
 
@@ -26,7 +26,7 @@
     }
 }
 
-.grey {
+.button.grey {
     background-color: $button-background-color;
     color: $button-text-color;
     font-size: 18px;

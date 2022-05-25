@@ -2,6 +2,8 @@ import React from "react";
 import { Title } from "@elements/Title/Title";
 import { Text } from "@elements/Text/Text";
 import Image from "next/image";
+import { Button } from "@elements/Button/Button";
+
 import styles from "./GetReadyBlock.module.scss";
 
 export const GetReadyBlock = () => {
@@ -9,6 +11,7 @@ export const GetReadyBlock = () => {
         <section className={styles.section}>
             <div className={styles.wrapper}>
                 <div className={styles.imageContainer}>
+                    <div className={styles.gradient} />
                     <Image
                         src="/assets/images/getReadyToInterview.png"
                         layout="fill"
@@ -22,7 +25,7 @@ export const GetReadyBlock = () => {
                     <Text textType="big" isParagraph>
                         Платформа яка допоможе підготовки до технічної співбесіди в міжнародну компанію
                     </Text>
-                    <button type="button">Розпочати</button>
+                    <Button link="all-tests">Розпочати</Button>
                 </div>
             </div>
         </section>
