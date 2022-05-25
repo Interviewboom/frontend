@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 type ButtonLinkProps = {
     className: string;
     children: ReactNode;
-    href: string;
+    href?: string;
 };
 
 export const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(({ className, children, href }, ref) => {
