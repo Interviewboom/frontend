@@ -25,7 +25,7 @@ export const GetReadyBlock = () => {
                     <Text textType="big" isParagraph>
                         Платформа яка допоможе підготовки до технічної співбесіди в міжнародну компанію
                     </Text>
-                    <Button link="all-tests">Розпочати</Button>
+                    <Button link="tests-categories">Розпочати</Button>
                 </div>
             </div>
         </section>
