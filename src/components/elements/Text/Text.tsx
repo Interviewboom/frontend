@@ -1,26 +1,23 @@
-import React, { FC, ReactNode, useMemo } from "react";
+import React, { FC, ReactNode } from "react";
 import styles from "./Text.module.scss";
-import { getClassnames } from "../../../utils/getClassnames";
+import { useCssClasses } from "../../../utils/getClassnames";
 
 interface TextProps {
     children: ReactNode;
     isParagraph?: boolean;
-    textType?: "big" | "medium" | "small";
-    color?: "dark-text-color" | "light-text-color";
+    size?: "big" | "medium" | "small";
+    color?: "dark-text-color" | "light-text-color" | "most-light-color";
     bold?: true | false;
 }
 
 export const Text: FC<TextProps> = ({
     children,
     isParagraph,
-    textType = "medium",
+    size = "medium",
     color = "dark-text-color",
     bold = false,
 }) => {
-    const textClasses = useMemo(
-        () => getClassnames([styles.general, styles[textType], bold && styles.bold, color]),
-        [bold, color, textType]
-    );
+    const textClasses = useCssClasses([styles.general, styles[size], bold && styles.bold, styles[color]]);
 
     if (isParagraph) {
         return <p className={textClasses}>{children}</p>;
@@ -32,5 +29,5 @@ Text.defaultProps = {
     isParagraph: false,
     color: "dark-text-color",
     bold: false,
-    textType: "medium",
+    size: "medium",
 };
