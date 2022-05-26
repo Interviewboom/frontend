@@ -20,24 +20,24 @@
     }
 }
 
-.circle:checked {
-    border: 1px solid green;
-
-    & ~ .customCircle::after {
-        content: "";
-        width: 100%;
-        height: 100%;
-        background-color: green;
-        border-radius: 50%;
-        display: block;
-    }
+.circle:checked ~ .customCircle::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: $light-green-color;
+    border-radius: 50%;
+    display: block;
 }
 
 .customCircle {
     width: 24px;
     height: 24px;
-    border: 1px solid green;
+    border: 1px solid $light-green-color;
     border-radius: 50%;
     padding: 5px;
     margin-right: 16px;
+}
+
+.highlightedBorder {
+    border: 1px solid $light-green-color;
 }
