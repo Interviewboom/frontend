@@ -3,9 +3,9 @@ import { Title } from "@elements/Title/Title";
 import { Text } from "@elements/Text/Text";
 import { Button } from "@elements/Button/Button";
 
-import styles from "./SupportProjectBlock.module.scss";
+import styles from "./DonationInfoSection.module.scss";
 
-export const SupportProjectBlock = () => {
+export const DonationInfoSection = () => {
     return (
         <section className={styles.section}>
             <div className={styles.wrapper}>
