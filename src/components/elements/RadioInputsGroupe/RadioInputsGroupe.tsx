@@ -18,7 +18,7 @@ const RadioInputsGroupe: FC<RadioInputsGroupeProps> = ({ name, onChange, value, 
     return (
         <div className={styles.group}>
             {choices.map(item => (
-                <div className={styles.row} key={item.value}>
+                <label htmlFor={item.value} className={styles.row} key={item.value}>
                     <input
                         type="radio"
                         name={name}
@@ -26,13 +26,12 @@ const RadioInputsGroupe: FC<RadioInputsGroupeProps> = ({ name, onChange, value, 
                         checked={value === item.value}
                         className={styles.circle}
                         onChange={onChange}
-                        id={item.caption}
+                        id={item.value}
                     />
                     <div className={styles.customCircle} />
-                    <label htmlFor={item.caption}>
-                        <Text textType="medium">{item.caption}</Text>
-                    </label>
-                </div>
+
+                    <Text textType="medium">{item.caption}</Text>
+                </label>
             ))}
         </div>
     );
