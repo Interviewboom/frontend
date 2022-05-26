@@ -4,9 +4,9 @@ import { Text } from "@elements/Text/Text";
 import Image from "next/image";
 import { Button } from "@elements/Button/Button";
 
-import styles from "./GetReadyBlock.module.scss";
+import styles from "./FrontGreetingSection.module.scss";
 
-export const GetReadyBlock = () => {
+export const FrontGreetingSection = () => {
     return (
         <section className={styles.section}>
             <div className={styles.wrapper}>
@@ -17,15 +17,15 @@ export const GetReadyBlock = () => {
                         layout="fill"
                         objectFit="cover"
                         objectPosition="top"
-                        alt="get ready to interview bgd"
+                        alt="get ready to interview background"
                     />
                 </div>
                 <div className={styles.content}>
                     <Title level={1}>Підготуйся до сіпвбесіди!</Title>
-                    <Text textType="big" isParagraph>
+                    <Text size="big" isParagraph>
                         Платформа яка допоможе підготовки до технічної співбесіди в міжнародну компанію
                     </Text>
-                    <Button link="tests-categories">Розпочати</Button>
+                    <Button link="/tests-categories">Розпочати</Button>
                 </div>
             </div>
         </section>
