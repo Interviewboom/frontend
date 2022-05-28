@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 
 import { DefaultLayout } from "@layouts/DefaultLayout";
-import RadioInputsGroupe from "../components/elements/RadioInputsGroupe/RadioInputsGroupe";
+import { RadioInputsGroupe } from "../components/elements/RadioInputsGroupe/RadioInputsGroupe";
 
 const HomePage: NextPage = () => {
     return (

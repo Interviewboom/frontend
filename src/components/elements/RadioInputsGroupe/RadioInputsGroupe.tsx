@@ -1,7 +1,6 @@
 import React, { ChangeEventHandler, FC } from "react";
 import { Text } from "@elements/Text/Text";
 import styles from "./RadioInputsGroupe.module.scss";
-import { useCssClasses } from "src/utils/getClassnames";
 
 export type choiceType = {
     caption: string;
@@ -15,7 +14,7 @@ interface RadioInputsGroupeProps {
     value: string | number;
 }
 
-const RadioInputsGroupe: FC<RadioInputsGroupeProps> = ({ name, onChange, value, choices }) => {
+export const RadioInputsGroupe: FC<RadioInputsGroupeProps> = ({ name, onChange, value, choices }) => {
     return (
         <div className={styles.group}>
             {choices.map(item => (
@@ -41,5 +40,3 @@ const RadioInputsGroupe: FC<RadioInputsGroupeProps> = ({ name, onChange, value, 
         </div>
     );
 };
-
-export default RadioInputsGroupe;
