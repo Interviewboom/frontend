@@ -6,7 +6,7 @@ import styles from "./RadioInput.module.scss";
 
 interface RadioInputProps {
     value: string | number;
-    caption: string;
+    text: string;
     name: string;
     onChange: ChangeEventHandler<HTMLInputElement>;
     checked: boolean;
@@ -17,7 +17,7 @@ interface RadioInputProps {
 export const RadioInput: FC<RadioInputProps> = ({
     value,
     name,
-    caption,
+    text,
     onChange,
     checked,
     answerStatus,
@@ -46,7 +46,7 @@ export const RadioInput: FC<RadioInputProps> = ({
 
             {!isTestCompleted && <div className={styles.customCircle} />}
 
-            <Text size="medium">{caption}</Text>
+            <Text size="medium">{text}</Text>
             {isTestCompleted && answerStatus === false && checked && <span className={styles.close} />}
             {isTestCompleted && answerStatus && (
                 <span className={styles.rightAnswerMark}>
