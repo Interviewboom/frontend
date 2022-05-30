@@ -1,0 +1,62 @@
+import React, { ChangeEventHandler, FC, useId } from "react";
+import { Text } from "@elements/Text/Text";
+import { useCssClasses } from "src/utils/getClassnames";
+
+import styles from "./RadioInput.module.scss";
+
+interface RadioInputProps {
+    value: string | number;
+    text: string;
+    name: string;
+    onChange: ChangeEventHandler<HTMLInputElement>;
+    checked: boolean;
+    answerStatus?: boolean;
+    isResultShown?: boolean;
+    disabled?: boolean;
+}
+
+export const RadioInput: FC<RadioInputProps> = ({
+    value,
+    name,
+    text,
+    onChange,
+    disabled,
+    checked,
+    answerStatus,
+    isResultShown,
+}) => {
+    const classes = useCssClasses([
+        styles.row,
+        checked && styles.highlightedBorder,
+        isResultShown && answerStatus && styles.green,
+        isResultShown && answerStatus === false && checked && styles.red,
+    ]);
+
+    const id = useId();
+
+    return (
+        <label htmlFor={id} className={classes}>
+            <input
+                type="radio"
+                name={name}
+                value={value}
+                checked={checked}
+                className={styles.circle}
+                onChange={onChange}
+                disabled={disabled}
+                id={id}
+            />
+
+            {!isResultShown && <div className={styles.customCircle} />}
+
+            <Text size="medium">{text}</Text>
+            {isResultShown && answerStatus === false && checked && <span className={styles.close} />}
+            {isResultShown && answerStatus && (
+                <span className={styles.rightAnswerMark}>
+                    <span className={styles.checkSign1} />
+                    <span className={styles.checkSign2} />
+                </span>
+            )}
+        </label>
+    );
+};
