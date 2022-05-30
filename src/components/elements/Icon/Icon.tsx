@@ -29,10 +29,3 @@ export const Icon: FC<IconProps> = ({ name, width = 24, height = 24, color, stro
         </span>
     );
 };
-
-Icon.defaultProps = {
-    width: 24,
-    height: 24,
-    color: "",
-    stroke: "",
-};
