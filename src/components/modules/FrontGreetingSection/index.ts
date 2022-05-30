@@ -1,0 +1,1 @@
+export { FrontGreetingSection } from "./FrontGreetingSection";
