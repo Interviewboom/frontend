@@ -11,7 +11,8 @@ interface RadioInputProps {
     onChange: ChangeEventHandler<HTMLInputElement>;
     checked: boolean;
     answerStatus?: boolean;
-    isTestCompleted?: boolean;
+    isResultShown?: boolean;
+    disabled?: boolean;
 }
 
 export const RadioInput: FC<RadioInputProps> = ({
@@ -19,18 +20,20 @@ export const RadioInput: FC<RadioInputProps> = ({
     name,
     text,
     onChange,
+    disabled,
     checked,
     answerStatus,
-    isTestCompleted,
+    isResultShown,
 }) => {
     const classes = useCssClasses([
         styles.row,
         checked && styles.highlightedBorder,
-        isTestCompleted && answerStatus && styles.green,
-        isTestCompleted && answerStatus === false && checked && styles.red,
+        isResultShown && answerStatus && styles.green,
+        isResultShown && answerStatus === false && checked && styles.red,
     ]);
 
     const id = useId();
+
     return (
         <label htmlFor={id} className={classes}>
             <input
@@ -40,15 +43,15 @@ export const RadioInput: FC<RadioInputProps> = ({
                 checked={checked}
                 className={styles.circle}
                 onChange={onChange}
-                disabled={isTestCompleted}
+                disabled={disabled}
                 id={id}
             />
 
-            {!isTestCompleted && <div className={styles.customCircle} />}
+            {!isResultShown && <div className={styles.customCircle} />}
 
             <Text size="medium">{text}</Text>
-            {isTestCompleted && answerStatus === false && checked && <span className={styles.close} />}
-            {isTestCompleted && answerStatus && (
+            {isResultShown && answerStatus === false && checked && <span className={styles.close} />}
+            {isResultShown && answerStatus && (
                 <span className={styles.rightAnswerMark}>
                     <span className={styles.checkSign1} />
                     <span className={styles.checkSign2} />
