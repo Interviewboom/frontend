@@ -1,0 +1,58 @@
+@import "./src/sass/_colors.scss";
+@import "./src/sass/_variables.scss";
+
+.button {
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 320px;
+    font-family: $primary-font;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 19px 12px;
+}
+
+.button.green {
+    background-color: $light-green-color;
+    color: $most-light-color;
+
+    &:hover {
+        background-color: $dark-green-color;
+        color: $most-light-color;
+    }
+}
+
+.button.grey {
+    background-color: $button-background-color;
+    color: $button-text-color;
+    font-size: 18px;
+
+    &:hover {
+        background-color: $light-grey-color;
+        color: $button-text-color;
+    }
+}
+
+.medium {
+    width: 248px;
+}
+
+.big {
+    width: 320px;
+}
+
+.small {
+    width: 232px;
+    height: 40px;
+    padding: 8px 18px;
+    line-height: 19.5px;
+    font-size: 16px;
+}
+
+.adaptive {
+    width: 100%;
+}
