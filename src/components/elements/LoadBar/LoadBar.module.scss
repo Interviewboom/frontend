@@ -41,14 +41,14 @@
 
 .closeContainer {
     position: relative;
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
 }
 
 .leftRight,
 .rightLeft {
     height: 1.4px;
-    width: 22px;
+    width: 24px;
     position: absolute;
     border-radius: 1.4px;
     background-color: $dark-text-color;
