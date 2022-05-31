@@ -7,7 +7,7 @@ interface LoadBarProps {
     numberOfQuestions: number;
 }
 
-const LoadBar: FC<LoadBarProps> = ({ currentQuestionNumber, numberOfQuestions }) => {
+export const LoadBar: FC<LoadBarProps> = ({ currentQuestionNumber, numberOfQuestions }) => {
     const onTestClose = () => {};
 
     return (
@@ -26,5 +26,3 @@ const LoadBar: FC<LoadBarProps> = ({ currentQuestionNumber, numberOfQuestions })
         </div>
     );
 };
-
-export default LoadBar;
