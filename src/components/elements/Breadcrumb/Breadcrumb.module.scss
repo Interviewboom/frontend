@@ -1,0 +1,15 @@
+@import "./src/sass/_colors.scss";
+@import "./src/sass/_variables.scss";
+
+.list {
+    display: flex;
+    align-items: center;
+}
+
+.linkItem {
+    padding: 0 14px;
+}
+
+.home {
+    padding-right: 16px;
+}
