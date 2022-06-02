@@ -8,6 +8,10 @@
 
 .linkItem {
     padding: 0 14px;
+
+    &:last-child {
+        padding-right: 0;
+    }
 }
 
 .home {

@@ -9,7 +9,7 @@ import { Text } from "../Text/Text";
 
 type LinkType = { link: string; name: string };
 
-const Breadcrumb = () => {
+export const Breadcrumb = () => {
     const router = useRouter();
     const [breadcrumbs, setBreadcrumbs] = useState<LinkType[]>([]);
 
@@ -53,5 +53,3 @@ const Breadcrumb = () => {
         </div>
     );
 };
-
-export default Breadcrumb;
