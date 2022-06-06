@@ -1,0 +1,10 @@
+@import "@sass/_colors.scss";
+
+.list {
+    display: flex;
+    color: $most-light-color;
+}
+
+.item {
+    padding: 0 16px;
+}

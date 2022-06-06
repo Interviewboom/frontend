@@ -1,0 +1,18 @@
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+
+.footer {
+    width: 100%;
+    background-color: $dark-background;
+}
+
+.content {
+    padding: 100px 15px 80px;
+    max-width: $desktop-content-width;
+}
+
+.navigation {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
