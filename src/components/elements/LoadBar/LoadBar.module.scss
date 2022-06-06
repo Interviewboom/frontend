@@ -1,0 +1,60 @@
+@import "./src/sass/_colors.scss";
+@import "./src/sass/_variables.scss";
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.alarm {
+    margin-right: 10px;
+}
+
+.progress {
+    flex-grow: 1;
+    height: 24px;
+    margin: 0 51px 0 38px;
+
+    &::-webkit-progress-bar {
+        background-color: $button-background-color;
+        border-radius: 10px;
+    }
+    &::-webkit-progress-value {
+        border-radius: 10px 0 0 10px;
+        background-color: $light-green-color;
+    }
+
+    &::-moz-progress-bar {
+        background-color: $button-background-color;
+        border-radius: 10px;
+    }
+
+    &::-moz-progress-value {
+        border-radius: 10px 0 0 10px;
+        background-color: $light-green-color;
+    }
+}
+
+.closeContainer {
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+.leftRight,
+.rightLeft {
+    height: 1.4px;
+    width: 24px;
+    position: absolute;
+    border-radius: 1.4px;
+    background-color: $dark-text-color;
+}
+
+.rightLeft {
+    transform: rotate(-45deg);
+}
+
+.leftRight {
+    transform: rotate(45deg);
+}

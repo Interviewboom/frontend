@@ -1,0 +1,117 @@
+@import "./src/sass/_colors.scss";
+@import "./src/sass/_variables.scss";
+
+.circle {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.row {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid $light-grey-color;
+    padding: 16px;
+    margin-bottom: 16px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.circle:checked ~ .customCircle {
+    border: 2px solid $light-green-color;
+
+    &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: $light-green-color;
+        border-radius: 50%;
+        display: block;
+    }
+}
+
+.customCircle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid $grey-color;
+    border-radius: 50%;
+    padding: 3px;
+    margin-right: 16px;
+}
+
+.highlightedBorder {
+    border: 1px solid $light-green-color;
+}
+
+.green,
+.red {
+    border: none;
+}
+
+.green {
+    background: rgba($light-green-color, 0.1);
+}
+
+.red {
+    background: rgba($light-error-color, 0.1);
+}
+
+//close icon
+.close {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    margin-left: auto;
+
+    &::before,
+    &::after {
+        position: absolute;
+        left: 8px;
+        background-color: $light-error-color;
+        content: "";
+        height: 20px;
+        width: 1.4px;
+        border-radius: 2px;
+    }
+    &::before {
+        transform: rotate(45deg);
+    }
+    &::after {
+        transform: rotate(-45deg);
+    }
+}
+
+.rightAnswerMark {
+    position: relative;
+    width: 20px;
+    height: 15px;
+    margin-left: auto;
+
+    &::before,
+    &::after {
+        background: $light-green-color;
+        position: absolute;
+        content: " ";
+        border-radius: 2px;
+    }
+
+    &::before {
+        left: 8px;
+        height: 19px;
+        width: 1.4px;
+        top: 0;
+        bottom: 0;
+        transform: rotate(45deg);
+    }
+
+    &::after {
+        width: 10px;
+        top: 11px;
+        left: -6px;
+        height: 1.4px;
+        transform: rotate(-130deg);
+        bottom: 0;
+    }
+}
