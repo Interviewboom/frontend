@@ -21,11 +21,11 @@ export const FrontGreetingSection = () => {
                     />
                 </div>
                 <div className={styles.content}>
-                    <Title level={1}>Підготуйся до сіпвбесіди!</Title>
+                    <Title level={1}>Get ready for future interview</Title>
                     <Text size="big" isParagraph>
-                        Платформа яка допоможе підготовки до технічної співбесіди в міжнародну компанію
+                        This platform helps prepare for a technical interview with an international company.
                     </Text>
-                    <Button link="/tests-categories">Розпочати</Button>
+                    <Button link="/tests-categories">Start</Button>
                 </div>
             </div>
         </section>

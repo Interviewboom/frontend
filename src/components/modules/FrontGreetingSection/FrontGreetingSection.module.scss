@@ -1,12 +1,11 @@
-@import "./src/sass/_colors.scss";
-@import "./src/sass/_variables.scss";
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
 
 .section {
     min-height: 600px;
     display: flex;
     justify-content: center;
     width: 100%;
-    position: relative;
 }
 
 .wrapper {
