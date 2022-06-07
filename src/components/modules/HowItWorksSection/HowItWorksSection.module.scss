@@ -1,0 +1,22 @@
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+
+.section {
+    background-color: $most-light-color;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.wrapper {
+    padding: 0px 15px 200px;
+    max-width: $desktop-content-width;
+    width: 100%;
+}
+
+.stepsContainer {
+    padding: 0px 35px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

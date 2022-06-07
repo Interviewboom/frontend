@@ -1,0 +1,17 @@
+@import "@sass/_colors.scss";
+
+.step {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    border: 1px solid $light-grey-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5px;
+    margin-bottom: 24px;
+}
+
+.caption {
+    text-align: center;
+}
