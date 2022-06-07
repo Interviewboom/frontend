@@ -12,7 +12,7 @@ interface stepProps {
 
 export const Step: FC<stepProps> = ({ size, caption, iconName }) => {
     return (
-        <div>
+        <div className={styles.stepWrapper}>
             <div className={styles.step}>
                 <Icon name={iconName} width={size} height={size} />
             </div>
