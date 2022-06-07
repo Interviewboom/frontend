@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Icon } from "../Icon/Icon";
@@ -9,13 +9,22 @@ import { Text } from "../Text/Text";
 
 type LinkType = { link: string; name: string };
 
-export const Breadcrumb = () => {
+interface BreadcrumbProps {
+    url?: string;
+}
+
+export const Breadcrumb: FC<BreadcrumbProps> = ({ url = "" }) => {
     const router = useRouter();
     const [breadcrumbs, setBreadcrumbs] = useState<LinkType[]>([]);
+    let urlString = "";
+
+    if (url) {
+        urlString = url;
+    }
+    urlString = router.asPath;
 
     useEffect(() => {
-        const pathArray = router.asPath.split("/").filter(path => path !== "");
-        console.log(pathArray);
+        const pathArray = urlString.split("/").filter(path => path !== "");
 
         const links = pathArray.map((path, index) => {
             const link = `/${pathArray.slice(0, index + 1).join("/")}`;
@@ -25,7 +34,7 @@ export const Breadcrumb = () => {
             };
         });
         setBreadcrumbs(links);
-    }, [router.asPath]);
+    }, [urlString]);
 
     return (
         <div className={styles.wrapper}>
