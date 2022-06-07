@@ -5,10 +5,10 @@ import { Button } from "../../elements/Button/Button";
 import { Title } from "../../elements/Title/Title";
 import { Step } from "./Step";
 
-const HowItWorksSection = () => {
+export const HowItWorksSection = () => {
     const steps = useMemo(
         () => [
-            { size: 66, iconName: "list", caption: "1.Choose the test" },
+            { size: 66, iconName: "list", caption: "1. Choose the test" },
             { size: 88, iconName: "test-checked", caption: "2. Take the test by the end" },
             { size: 88, iconName: "school-hat", caption: "3. Improve your knowledge" },
             { size: 88, iconName: "celebration", caption: "4. Successfully pass the interview" },
@@ -30,5 +30,3 @@ const HowItWorksSection = () => {
         </section>
     );
 };
-
-export default HowItWorksSection;

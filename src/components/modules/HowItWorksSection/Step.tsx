@@ -16,9 +16,10 @@ export const Step: FC<stepProps> = ({ size, caption, iconName }) => {
             <div className={styles.step}>
                 <Icon name={iconName} width={size} height={size} />
             </div>
-            <figcaption className={styles.caption}>
-                <Text size="big">{caption}</Text>
-            </figcaption>
+
+            <Text size="big" isParagraph>
+                {caption}
+            </Text>
         </div>
     );
 };

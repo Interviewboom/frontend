@@ -13,6 +13,9 @@
     max-width: $desktop-content-width;
     width: 100%;
     text-align: center;
+    h2 {
+        text-align: left;
+    }
 }
 
 .stepsContainer {
