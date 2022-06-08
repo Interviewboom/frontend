@@ -22,7 +22,7 @@ export const HowItWorksSection = () => {
                 <Title level={2}>How does it work?</Title>
                 <div className={styles.stepsContainer}>
                     {steps.map(item => (
-                        <Step size={item.size} iconName={item.iconName} caption={item.caption} />
+                        <Step size={item.size} iconName={item.iconName} caption={item.caption} key={item.caption} />
                     ))}
                 </div>
                 <Button link="/test-categories">Take tests</Button>
