@@ -15,6 +15,7 @@ interface IconProps {
 export const Icon: FC<IconProps> = ({ name, width = 24, height = 24, color, stroke }) => {
     let IconComponent: ComponentType<SVGProps<SVGElement>>;
     const defaultComponent = useMemo(() => <DefaultIcon width={width} height={height} />, [height, width]);
+
     const iconClasses = useCssClasses([styles.wrapper, color && styles.applyColor]);
 
     try {

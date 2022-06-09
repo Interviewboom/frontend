@@ -6,35 +6,25 @@ import { Icon } from "../Icon/Icon";
 import styles from "./Breadcrumb.module.scss";
 import { IconLink } from "./IconLink";
 import { Text } from "../Text/Text";
-
-type LinkType = { link: string; name: string };
+import { parseUrl, LinkType } from "../../../utils/parseUrl";
 
 interface BreadcrumbProps {
-    url?: string;
+    linksArray?: LinkType[];
 }
 
-export const Breadcrumb: FC<BreadcrumbProps> = ({ url = "" }) => {
+export const Breadcrumb: FC<BreadcrumbProps> = ({ linksArray }) => {
     const router = useRouter();
     const [breadcrumbs, setBreadcrumbs] = useState<LinkType[]>([]);
-    let urlString = "";
-
-    if (url) {
-        urlString = url;
-    }
-    urlString = router.asPath;
 
     useEffect(() => {
-        const pathArray = urlString.split("/").filter(path => path !== "");
-
-        const links = pathArray.map((path, index) => {
-            const link = `/${pathArray.slice(0, index + 1).join("/")}`;
-            return {
-                link,
-                name: path.charAt(0).toUpperCase() + path.slice(1),
-            };
-        });
-        setBreadcrumbs(links);
-    }, [urlString]);
+        if (!linksArray) {
+            const urlString = router.asPath;
+            const pathArray = parseUrl(urlString);
+            setBreadcrumbs(pathArray);
+        } else {
+            setBreadcrumbs(linksArray);
+        }
+    }, [router.asPath, linksArray]);
 
     return (
         <div className={styles.wrapper}>
