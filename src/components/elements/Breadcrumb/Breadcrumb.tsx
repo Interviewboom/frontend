@@ -10,9 +10,10 @@ import { parseUrl, LinkType } from "../../../utils/parseUrl";
 
 interface BreadcrumbProps {
     linksArray?: LinkType[];
+    captions: string[];
 }
 
-export const Breadcrumb: FC<BreadcrumbProps> = ({ linksArray }) => {
+export const Breadcrumb: FC<BreadcrumbProps> = ({ linksArray, captions }) => {
     const router = useRouter();
     const [breadcrumbs, setBreadcrumbs] = useState<LinkType[]>([]);
 
@@ -34,12 +35,12 @@ export const Breadcrumb: FC<BreadcrumbProps> = ({ linksArray }) => {
                         <Icon name="home" width={18} height={17} />
                     </IconLink>
                 </li>
-                {breadcrumbs.map(item => (
+                {breadcrumbs.map((item, index) => (
                     <>
                         <Icon name="arrowRight" width={5} height={8} />
                         <li className={styles.linkItem}>
                             <Text size="small" color="grey-text-color">
-                                <Link href={item.link}>{item.name}</Link>
+                                <Link href={item.link}>{captions[index] ?? item.name}</Link>
                             </Text>
                         </li>
                     </>
