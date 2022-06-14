@@ -10,12 +10,12 @@ export const DonationInfoSection = () => {
         <section className={styles.section}>
             <div className={styles.wrapper}>
                 <div className={styles.content}>
-                    <Title level={2}>Підтримайте наш проект</Title>
+                    <Title level={2}>Support our project</Title>
                     <Text size="big" isParagraph>
-                        Підтримайте наш проєкт, щоб ми могли змогу оновлювати бази тестів та додавати нові круті
-                        категорії на сайт. Ось наш Patreon для отримання донатів лояльної аудиторії.
+                        Support our project so we can update tests and add new categories to the site. Here is our
+                        Patreon for donating from like-minded people.
                     </Text>
-                    <Button>Підтримати</Button>
+                    <Button link="/patreon.com">Support</Button>
                 </div>
             </div>
         </section>
