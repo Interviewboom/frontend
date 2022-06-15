@@ -2,6 +2,13 @@
 @import "./src/sass/_variables.scss";
 
 .wrapper {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 0;
+    top: 0;
+}
+
+.applyColor {
     svg {
         path {
             fill: inherit;
