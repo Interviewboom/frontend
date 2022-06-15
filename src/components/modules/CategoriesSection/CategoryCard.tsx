@@ -19,7 +19,7 @@ const CategoryCard: FC<CategoryCardProps> = ({ category }) => {
         <div className={styles.card}>
             <div className={styles.image}>
                 <Image
-                    src={`/assets/images/${category.name}.png`}
+                    src={`/assets/images/categories/${category.name}.jpg`}
                     layout="responsive"
                     width={347}
                     height={283}
