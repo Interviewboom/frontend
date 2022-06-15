@@ -7,10 +7,10 @@ import { Text } from "../Text/Text";
 import { LinkType } from "../../../utils/parseUrl";
 
 interface BreadcrumbProps {
-    linksArray: LinkType[];
+    links: LinkType[];
 }
 
-export const Breadcrumb: FC<BreadcrumbProps> = ({ linksArray }) => {
+export const Breadcrumb: FC<BreadcrumbProps> = ({ links }) => {
     return (
         <div className={styles.wrapper}>
             <ul className={styles.list}>
@@ -19,7 +19,7 @@ export const Breadcrumb: FC<BreadcrumbProps> = ({ linksArray }) => {
                         <Icon name="home" width={18} height={17} />
                     </IconLink>
                 </li>
-                {linksArray.map(item => (
+                {links.map(item => (
                     <>
                         <Icon name="arrowRight" width={5} height={8} />
                         <li className={styles.linkItem}>
