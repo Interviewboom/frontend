@@ -23,7 +23,7 @@ export const CategoriesSection: FC<CategoriesProps> = ({ categories }) => {
                             </Link>
                         ))
                     ) : (
-                        <Text>failed to fetch</Text>
+                        <Text>failed to fetch categories</Text>
                     )}
                 </div>
 
