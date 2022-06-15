@@ -6,7 +6,7 @@ interface TextProps {
     children: ReactNode;
     isParagraph?: boolean;
     size?: "big" | "medium" | "small";
-    color?: "dark-text-color" | "light-text-color" | "most-light-color";
+    color?: "dark-text-color" | "light-text-color" | "grey-text-color" | "most-light-color";
     bold?: true | false;
 }
 
