@@ -1,28 +1,25 @@
-import React, { useMemo } from "react";
+import React, { FC } from "react";
 import styles from "./TestsSection.module.scss";
-import { TestCard } from "./TestCard";
+import { TestCard, TestType } from "./TestCard";
 import { Title } from "../../elements/Title/Title";
 import { Button } from "../../elements/Button/Button";
+import { Text } from "../../elements/Text/Text";
 
-export const TestsSection = () => {
-    const tests = useMemo(
-        () => [
-            { title: "Start java script", id: 1, numberOfQuestions: 20, numberOfPassings: 0 },
-            { title: "С++", id: 2, numberOfQuestions: 20, numberOfPassings: 10 },
-            { title: "Start java script", id: 1, numberOfQuestions: 20, numberOfPassings: 0 },
-            { title: "С++", id: 2, numberOfQuestions: 20 },
-        ],
-        []
-    );
+type TestsSectionsProps = {
+    tests: TestType[];
+};
 
+export const TestsSection: FC<TestsSectionsProps> = ({ tests }) => {
     return (
         <section className={styles.section}>
             <div className={styles.wrapper}>
                 <Title level={2}>Popular tests</Title>
                 <div className={styles.categories}>
-                    {tests.map(item => (
-                        <TestCard test={item} key={item.id} />
-                    ))}
+                    {tests ? (
+                        tests.map(item => <TestCard test={item} key={item.id} />)
+                    ) : (
+                        <Text>failed to load testa</Text>
+                    )}
                 </div>
 
                 <div className={styles.btnWrapper}>

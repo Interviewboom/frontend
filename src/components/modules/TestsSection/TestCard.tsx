@@ -1,45 +1,50 @@
 import Image from "next/image";
-import React, { FC } from "react";
+import React, { forwardRef } from "react";
 import styles from "./TestCard.module.scss";
 import { Text } from "../../elements/Text/Text";
 
 export type TestType = {
     id?: number;
     title: string;
-    numberOfQuestions?: number;
-    numberOfPassings?: number;
+    questions: [];
 };
 
 type TestCardProps = {
     test: TestType;
+    numberOfPassings?: number;
+    href?: string;
 };
 
-export const TestCard: FC<TestCardProps> = ({ test }) => {
+export const TestCard = forwardRef<HTMLAnchorElement, TestCardProps>(({ test, numberOfPassings = 0, href }, ref) => {
     return (
-        <div className={styles.card}>
-            <div className={styles.image}>
-                <Image
-                    src={`/assets/images/${test.title}.png`}
-                    layout="responsive"
-                    width={347}
-                    height={200}
-                    objectFit="cover"
-                    objectPosition="center"
-                    alt={test.title}
-                />
+        <a href={href} ref={ref}>
+            <div className={styles.card}>
+                <div className={styles.image}>
+                    <Image
+                        src={`/assets/images/${test.title}.png`}
+                        layout="responsive"
+                        width={347}
+                        height={200}
+                        objectFit="cover"
+                        objectPosition="center"
+                        alt={test.title}
+                    />
+                </div>
+                <div className={styles.content}>
+                    <div className={styles.caption}>
+                        <Text bold>{test.title}</Text>
+                    </div>
+                    <div className={styles.questions}>
+                        <Text size="small" color="grey-text-color">
+                            {test.questions?.length} questions
+                        </Text>
+                    </div>
+                    <div className={styles.line} />
+                    <div className={styles.performed}>
+                        <Text size="small">{numberOfPassings} performed</Text>
+                    </div>
+                </div>
             </div>
-            <div className={styles.content}>
-                <div className={styles.caption}>
-                    <Text bold>{test.title}</Text>
-                </div>
-                <div className={styles.questions}>
-                    <Text>{test.numberOfQuestions} questions</Text>
-                </div>
-                <div className={styles.line} />
-                <div className={styles.performed}>
-                    <Text>{test.numberOfPassings ?? 0} performed</Text>
-                </div>
-            </div>
-        </div>
+        </a>
     );
-};
+});
