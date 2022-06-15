@@ -1,20 +1,30 @@
 import { FC } from "react";
-import CategoryCard, { TestCategory } from "./CategoryCard";
+import Link from "next/link";
+import { Text } from "@elements/Text/Text";
 import { Title } from "../../elements/Title/Title";
 import { Button } from "../../elements/Button/Button";
 import styles from "./CategoriesSection.module.scss";
+import { CategoryCard, TestCategory } from "./CategoryCard";
 
 type CategoriesProps = {
     categories: TestCategory[];
 };
 
-const CategoriesSection: FC<CategoriesProps> = ({ categories }) => {
+export const CategoriesSection: FC<CategoriesProps> = ({ categories }) => {
     return (
         <section className={styles.section}>
             <div className={styles.wrapper}>
                 <Title level={2}>Test categories</Title>
                 <div className={styles.categories}>
-                    {categories && categories.map(item => <CategoryCard category={item} key={item.id} />)}
+                    {categories ? (
+                        categories.map(item => (
+                            <Link href={`${item.name}-category`} key={item.id} passHref>
+                                <CategoryCard category={item} />
+                            </Link>
+                        ))
+                    ) : (
+                        <Text>failed to fetch</Text>
+                    )}
                 </div>
 
                 <div className={styles.btnWrapper}>
@@ -24,4 +34,3 @@ const CategoriesSection: FC<CategoriesProps> = ({ categories }) => {
         </section>
     );
 };
-export default CategoriesSection;

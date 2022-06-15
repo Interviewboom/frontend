@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { FC } from "react";
+import React, { forwardRef } from "react";
 import styles from "./CategoryCard.module.scss";
 import { Text } from "../../elements/Text/Text";
 
@@ -12,28 +12,29 @@ export type TestCategory = {
 
 type CategoryCardProps = {
     category: TestCategory;
+    href?: string;
 };
 
-const CategoryCard: FC<CategoryCardProps> = ({ category }) => {
+export const CategoryCard = forwardRef<HTMLAnchorElement, CategoryCardProps>(({ category, href }, ref) => {
     return (
-        <div className={styles.card}>
-            <div className={styles.image}>
-                <Image
-                    src={`/assets/images/categories/${category.name}.jpg`}
-                    layout="responsive"
-                    width={347}
-                    height={283}
-                    objectFit="cover"
-                    objectPosition="center"
-                    alt={category.name}
-                />
-            </div>
+        <a href={href} ref={ref}>
+            <div className={styles.card}>
+                <div className={styles.image}>
+                    <Image
+                        src={`/assets/images/categories/${category.name}.jpg`}
+                        layout="responsive"
+                        width={347}
+                        height={283}
+                        objectFit="cover"
+                        objectPosition="center"
+                        alt={category.name}
+                    />
+                </div>
 
-            <div className={styles.caption}>
-                <Text bold>{category.title}</Text>
+                <div className={styles.caption}>
+                    <Text bold>{category.title}</Text>
+                </div>
             </div>
-        </div>
+        </a>
     );
-};
-
-export default CategoryCard;
+});
