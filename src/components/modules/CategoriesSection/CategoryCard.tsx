@@ -1,7 +1,8 @@
 import Image from "next/image";
 import React, { forwardRef } from "react";
+import { Text } from "@elements/Text/Text";
+
 import styles from "./CategoryCard.module.scss";
-import { Text } from "../../elements/Text/Text";
 
 export type TestCategory = {
     id?: number;

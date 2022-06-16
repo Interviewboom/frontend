@@ -36,11 +36,7 @@ const HomePage: NextPage<HomePageProps> = ({
 export const getServerSideProps: GetServerSideProps = async () => {
     const categories = await getCategories(4);
     const tests = await getTests(4);
-    if (!categories && !tests) {
-        return {
-            notFound: true,
-        };
-    }
+
     return { props: { tests, categories } };
 };
 

@@ -1,9 +1,11 @@
 import React, { FC } from "react";
 import Link from "next/link";
+import { Title } from "@elements/Title/Title";
+import { Text } from "@elements/Text/Text";
+import { Button } from "@elements/Button/Button";
+
 import { TestCard, TestType } from "./TestCard";
-import { Title } from "../../elements/Title/Title";
-import { Button } from "../../elements/Button/Button";
-import { Text } from "../../elements/Text/Text";
+
 import styles from "./TestsSection.module.scss";
 
 type TestsSectionsProps = {

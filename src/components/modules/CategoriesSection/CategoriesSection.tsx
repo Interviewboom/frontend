@@ -1,8 +1,8 @@
 import { FC } from "react";
 import Link from "next/link";
 import { Text } from "@elements/Text/Text";
-import { Title } from "../../elements/Title/Title";
-import { Button } from "../../elements/Button/Button";
+import { Title } from "@elements/Title/Title";
+import { Button } from "@elements/Button/Button";
 import styles from "./CategoriesSection.module.scss";
 import { CategoryCard, TestCategory } from "./CategoryCard";
 
@@ -23,7 +23,7 @@ export const CategoriesSection: FC<CategoriesProps> = ({ categories }) => {
                             </Link>
                         ))
                     ) : (
-                        <Text>failed to fetch categories</Text>
+                        <Text>failed to load categories</Text>
                     )}
                 </div>
 
