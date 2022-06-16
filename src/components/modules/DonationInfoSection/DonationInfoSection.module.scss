@@ -25,12 +25,8 @@
     max-width: 618px;
     text-align: center;
     padding: 0 15px;
+}
 
-    & > * {
-        margin-top: 40px;
-    }
-
-    & :first-child {
-        margin-top: 0;
-    }
+.textMargin {
+    margin: 40px 0;
 }

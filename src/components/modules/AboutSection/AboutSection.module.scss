@@ -20,23 +20,13 @@
 .titleWrapper {
     display: flex;
     align-items: center;
-
-    *:first-child {
-        margin-right: 15px;
-    }
+    margin-bottom: 35px;
 }
 
 .text {
     flex-shrink: 2;
-    max-width: 633px;
+    max-width: 643px;
     padding-right: 10px;
-    & > * {
-        margin-bottom: 30px;
-
-        &:last-child {
-            margin-bottom: 0px;
-        }
-    }
 }
 
 .image {
@@ -44,4 +34,12 @@
     border-radius: 8px;
     overflow: hidden;
     max-width: 736px;
+}
+
+.titleMargin {
+    margin-right: 15px;
+}
+
+.pMargin {
+    margin-bottom: 30px;
 }

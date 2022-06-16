@@ -12,11 +12,13 @@ export const AboutSection = () => {
             <div className={styles.wrapper}>
                 <div className={styles.text}>
                     <div className={styles.titleWrapper}>
-                        <Title level={2}>About</Title>
+                        <Title level={2} className={styles.titleMargin}>
+                            About
+                        </Title>
                         <Logo />
                     </div>
 
-                    <Text isParagraph>
+                    <Text isParagraph className={styles.pMargin}>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
                         the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of
                         type and scrambled it to make a type specimen book. It has survived not only five centuries, but

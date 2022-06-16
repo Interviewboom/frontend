@@ -6,12 +6,13 @@ interface TitleProps {
     level?: 1 | 2 | 3;
     children: ReactNode;
     color?: "dark-text-color" | "light-text-color" | "most-light-color";
+    className?: string;
 }
 
 type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
-export const Title: FC<TitleProps> = ({ level = 3, children, color = "dark-text-color" }: TitleProps) => {
-    const titleClasses = useCssClasses([styles.heading, styles[`heading${level}`], styles[color]]);
+export const Title: FC<TitleProps> = ({ level = 3, children, color = "dark-text-color", className }) => {
+    const titleClasses = useCssClasses([styles.heading, styles[`heading${level}`], styles[color], className]);
 
     const Tag = `h${level}` as HeadingTag;
 
