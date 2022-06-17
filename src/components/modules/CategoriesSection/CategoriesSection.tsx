@@ -14,7 +14,9 @@ export const CategoriesSection: FC<CategoriesProps> = ({ categories }) => {
     return (
         <section className={styles.section}>
             <div className={styles.wrapper}>
-                <Title level={2}>Test categories</Title>
+                <Title level={2} className={styles.titleMargin}>
+                    Test categories
+                </Title>
                 <div className={styles.categories}>
                     {categories ? (
                         categories.map(item => (

@@ -5,10 +5,11 @@ import { Text } from "@elements/Text/Text";
 import styles from "./CategoryCard.module.scss";
 
 export type TestCategory = {
-    id?: number;
-    name?: string;
-    parent_id?: number;
+    id: number;
+    name: string;
+    parent_id: number;
     title: string;
+    parent: string | null;
 };
 
 type CategoryCardProps = {

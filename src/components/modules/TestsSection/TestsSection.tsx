@@ -16,8 +16,10 @@ export const TestsSection: FC<TestsSectionsProps> = ({ tests }) => {
     return (
         <section className={styles.section}>
             <div className={styles.wrapper}>
-                <Title level={2}>Popular tests</Title>
-                <div className={styles.categories}>
+                <Title level={2} className={styles.titleMargin}>
+                    Popular tests
+                </Title>
+                <div className={styles.tests}>
                     {tests ? (
                         tests.map(item => (
                             <Link href={`${item.title}-test`} key={item.id} passHref>

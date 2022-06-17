@@ -4,10 +4,23 @@ import { Text } from "@elements/Text/Text";
 
 import styles from "./TestCard.module.scss";
 
-export type TestType = {
-    id?: number;
+export type QuestionType = {
+    id: number;
     title: string;
-    questions: [];
+    test_id: number;
+    question: string;
+    level: number;
+    is_multiselect: boolean;
+};
+
+export type TestType = {
+    id: number;
+    title: string;
+    questions: QuestionType[];
+    test_category_id: number;
+    description: string;
+    created_at: string;
+    updated_at: string;
 };
 
 type TestCardProps = {
@@ -20,30 +33,31 @@ export const TestCard = forwardRef<HTMLAnchorElement, TestCardProps>(({ test, nu
     return (
         <a href={href} ref={ref}>
             <div className={styles.card}>
-                <div className={styles.image}>
+                <div className={styles.imageContainer}>
                     <Image
                         src={`/assets/images/${test.title}.png`}
-                        layout="responsive"
                         width={347}
                         height={200}
+                        layout="responsive"
                         objectFit="cover"
                         objectPosition="center"
                         alt={test.title}
                     />
                 </div>
                 <div className={styles.content}>
-                    <div className={styles.caption}>
-                        <Text bold>{test.title}</Text>
-                    </div>
-                    <div className={styles.questions}>
-                        <Text size="small" color="grey-text-color">
-                            {test.questions?.length} questions
-                        </Text>
-                    </div>
+                    <Text bold className={styles.paddings} isParagraph>
+                        {test.title}
+                    </Text>
+
+                    <Text size="small" color="grey-text-color" className={styles.paddings} isParagraph>
+                        {test.questions?.length} questions
+                    </Text>
+
                     <div className={styles.line} />
-                    <div className={styles.performed}>
-                        <Text size="small">{numberOfPassings} performed</Text>
-                    </div>
+
+                    <Text size="small" className={styles.paddings} isParagraph>
+                        {numberOfPassings} performed
+                    </Text>
                 </div>
             </div>
         </a>

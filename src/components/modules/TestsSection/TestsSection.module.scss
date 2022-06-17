@@ -13,13 +13,9 @@
     padding: 0px 15px;
     max-width: $desktop-content-width;
     width: 100%;
-
-    h2 {
-        margin-bottom: 40px;
-    }
 }
 
-.categories {
+.tests {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 36px;
@@ -28,4 +24,8 @@
 .btnWrapper {
     text-align: center;
     margin-top: 40px;
+}
+
+.titleMargin {
+    margin-bottom: 40px;
 }

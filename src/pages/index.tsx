@@ -8,7 +8,7 @@ import { CategoriesSection } from "@modules/CategoriesSection/CategoriesSection"
 import { TestsSection } from "@modules/TestsSection/TestsSection";
 import { TestCategory } from "@modules/CategoriesSection/CategoryCard";
 import { getCategories, getTests } from "@utils/fetcher";
-import { TestType } from "../components/modules/TestsSection/TestCard";
+import { TestType } from "@modules/TestsSection/TestCard";
 
 type HomePageProps = {
     categories: TestCategory[];
