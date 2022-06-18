@@ -35,7 +35,7 @@ export const TestCard = forwardRef<HTMLAnchorElement, TestCardProps>(({ test, nu
             <div className={styles.card}>
                 <div className={styles.imageContainer}>
                     <Image
-                        src={`/assets/images/${test.title}.png`}
+                        src={`/assets/images/tests/${test.id}.jpg`}
                         width={347}
                         height={200}
                         layout="responsive"
