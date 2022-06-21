@@ -9,6 +9,7 @@ interface TextProps {
     color?: "dark-text-color" | "light-text-color" | "grey-text-color" | "most-light-color";
     bold?: true | false;
     className?: string;
+    height?: "heightBig" | "heightMedium" | "heightSmall";
 }
 
 export const Text: FC<TextProps> = ({
@@ -17,9 +18,17 @@ export const Text: FC<TextProps> = ({
     size = "medium",
     color = "dark-text-color",
     bold = false,
+    height = "",
     className,
 }) => {
-    const textClasses = useCssClasses([styles.general, styles[size], bold && styles.bold, styles[color], className]);
+    const textClasses = useCssClasses([
+        styles.general,
+        styles[size],
+        bold && styles.bold,
+        styles[color],
+        styles[height],
+        className,
+    ]);
 
     if (isParagraph) {
         return <p className={textClasses}>{children}</p>;

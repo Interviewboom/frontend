@@ -31,7 +31,7 @@ export const AboutSection = () => {
                         also the leap into electronic typesetting, remaining essentially unchanged.
                     </Text>
                 </div>
-                <div className="image">
+                <div className={styles.image}>
                     <Image src="/assets/images/about.png" alt="laptop" width={736} height={356} />
                 </div>
             </div>
