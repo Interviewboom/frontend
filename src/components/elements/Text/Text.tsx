@@ -8,6 +8,8 @@ interface TextProps {
     size?: "big" | "medium" | "small";
     color?: "dark-text-color" | "light-text-color" | "grey-text-color" | "most-light-color";
     bold?: true | false;
+    className?: string;
+    lineHeight?: 17 | 20 | 22 | 24 | 28 | 32;
 }
 
 export const Text: FC<TextProps> = ({
@@ -16,18 +18,20 @@ export const Text: FC<TextProps> = ({
     size = "medium",
     color = "dark-text-color",
     bold = false,
+    lineHeight = "",
+    className,
 }) => {
-    const textClasses = useCssClasses([styles.general, styles[size], bold && styles.bold, styles[color]]);
+    const textClasses = useCssClasses([
+        styles.general,
+        styles[size],
+        bold && styles.bold,
+        styles[color],
+        styles[`lineHeight${lineHeight}`],
+        className,
+    ]);
 
     if (isParagraph) {
         return <p className={textClasses}>{children}</p>;
     }
     return <span className={textClasses}>{children}</span>;
-};
-
-Text.defaultProps = {
-    isParagraph: false,
-    color: "dark-text-color",
-    bold: false,
-    size: "medium",
 };
