@@ -10,13 +10,14 @@ interface IconProps {
     height?: number;
     color?: string;
     stroke?: string;
+    className?: string;
 }
 
-export const Icon: FC<IconProps> = ({ name, width = 24, height = 24, color, stroke }) => {
+export const Icon: FC<IconProps> = ({ name, width = 24, height = 24, color, stroke, className }) => {
     let IconComponent: ComponentType<SVGProps<SVGElement>>;
     const defaultComponent = useMemo(() => <DefaultIcon width={width} height={height} />, [height, width]);
 
-    const iconClasses = useCssClasses([styles.wrapper, color && styles.applyColor]);
+    const iconClasses = useCssClasses([styles.wrapper, color && styles.applyColor, className]);
 
     try {
         IconComponent = dynamic(() => import(`./icons/${name}.svg`), {
