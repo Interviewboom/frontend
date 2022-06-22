@@ -20,7 +20,7 @@
 }
 
 .bold {
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .dark-text-color {
@@ -39,6 +39,7 @@
     color: $most-light-color;
 }
 
+<<<<<<< HEAD
 .heightBig {
     line-height: 28px;
 }
@@ -50,3 +51,28 @@
 .heightSmall {
     line-height: 20px;
 }
+=======
+.lineHeight32 {
+    line-height: 32px;
+}
+
+.lineHeight28 {
+    line-height: 28px;
+}
+
+.lineHeight24 {
+    line-height: 24px;
+}
+
+.lineHeight22 {
+    line-height: 22px;
+}
+
+.lineHeight20 {
+    line-height: 20px;
+}
+
+.lineHeight17 {
+    line-height: 17px;
+}
+>>>>>>> develop
