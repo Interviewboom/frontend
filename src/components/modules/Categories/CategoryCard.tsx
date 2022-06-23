@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React, { forwardRef } from "react";
-import { Text } from "@elements/Text/Text";
+
+import { Title } from "@elements/Title/Title";
 
 import styles from "./CategoryCard.module.scss";
 
@@ -34,7 +35,7 @@ export const CategoryCard = forwardRef<HTMLAnchorElement, CategoryCardProps>(({ 
                 </div>
 
                 <div className={styles.caption}>
-                    <Text bold>{category.title}</Text>
+                    <Title level={5}>{category.title}</Title>
                 </div>
             </div>
         </a>

@@ -1,10 +1,8 @@
 import React, { FC } from "react";
-import Link from "next/link";
 import { Title } from "@elements/Title/Title";
-import { Text } from "@elements/Text/Text";
 import { Button } from "@elements/Button/Button";
-
-import { TestCard, TestType } from "./TestCard";
+import { Tests } from "@modules/Tests/Tests";
+import { TestType } from "@modules/Tests/TestCard";
 
 import styles from "./TestsSection.module.scss";
 
@@ -19,18 +17,7 @@ export const TestsSection: FC<TestsSectionsProps> = ({ tests }) => {
                 <Title level={2} className={styles.titleMargin}>
                     Popular tests
                 </Title>
-                <div className={styles.tests}>
-                    {tests ? (
-                        tests.map(item => (
-                            <Link href={`${item.title}-test`} key={item.id} passHref>
-                                <TestCard test={item} />
-                            </Link>
-                        ))
-                    ) : (
-                        <Text>failed to load tests</Text>
-                    )}
-                </div>
-
+                <Tests tests={tests} />
                 <div className={styles.btnWrapper}>
                     <Button link="/all-tests">More tests</Button>
                 </div>

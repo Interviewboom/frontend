@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React, { forwardRef } from "react";
+
 import { Text } from "@elements/Text/Text";
+import { Title } from "@elements/Title/Title";
 
 import styles from "./TestCard.module.scss";
 
@@ -45,17 +47,23 @@ export const TestCard = forwardRef<HTMLAnchorElement, TestCardProps>(({ test, nu
                     />
                 </div>
                 <div className={styles.content}>
-                    <Text bold className={styles.paddings} isParagraph>
+                    <Title level={5} className={styles.paddingsTitle}>
                         {test.title}
-                    </Text>
+                    </Title>
 
-                    <Text size="small" color="grey-text-color" className={styles.paddings} isParagraph>
+                    <Text
+                        size="small"
+                        color="grey-text-color"
+                        className={styles.paddingsText}
+                        isParagraph
+                        lineHeight={17}
+                    >
                         {test.questions?.length} questions
                     </Text>
 
                     <div className={styles.line} />
 
-                    <Text size="small" className={styles.paddings} isParagraph>
+                    <Text size="small" className={styles.paddingsText} isParagraph lineHeight={17}>
                         {numberOfPassings} performed
                     </Text>
                 </div>

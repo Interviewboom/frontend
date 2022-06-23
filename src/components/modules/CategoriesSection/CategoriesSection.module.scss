@@ -15,17 +15,12 @@
     width: 100%;
 }
 
-.categories {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 36px;
-}
-
 .btnWrapper {
     text-align: center;
     margin-top: 40px;
 }
 
 .titleMargin {
+    padding: 8px 0;
     margin-bottom: 40px;
 }
