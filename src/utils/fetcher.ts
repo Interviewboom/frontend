@@ -1,5 +1,5 @@
-import { TestCategory } from "@modules/CategoriesSection/CategoryCard";
-import { TestType } from "@modules/TestsSection/TestCard";
+import { TestCategory } from "@modules/Categories/CategoryCard";
+import { TestType } from "@modules/Tests/TestCard";
 import axios from "axios";
 
 export const getCategories = async (numberOfCategories: number) => {
