@@ -11,8 +11,8 @@ type ButtonProps = {
     isAdaptive?: boolean;
     color?: "green" | "grey";
     onClick?: MouseEventHandler<HTMLButtonElement>;
-
     type?: "button" | "submit";
+    className?: string;
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -23,8 +23,15 @@ export const Button: React.FC<ButtonProps> = ({
     link,
     isAdaptive = false,
     color = "green",
+    className,
 }) => {
-    const buttonClasses = useCssClasses([styles.button, styles[size], styles[color], isAdaptive && styles.adaptive]);
+    const buttonClasses = useCssClasses([
+        styles.button,
+        styles[size],
+        styles[color],
+        isAdaptive && styles.adaptive,
+        className,
+    ]);
 
     if (link) {
         return (
