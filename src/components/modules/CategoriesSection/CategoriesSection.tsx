@@ -20,7 +20,7 @@ export const CategoriesSection: FC<CategoriesProps> = ({ categories }) => {
                 </Title>
                 <Categories categories={categories} />
                 <div className={styles.btnWrapper}>
-                    <Button link="/all-categories">More categories</Button>
+                    <Button link="/test-categories">More categories</Button>
                 </div>
             </div>
         </section>
