@@ -38,12 +38,13 @@
 
 .content {
     max-width: 448px;
+}
 
-    & > * {
-        margin-bottom: 20px;
+.marginTitle {
+    margin-bottom: 20px;
+    padding: 11px 0;
+}
 
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
+.marginText {
+    margin-bottom: 30px;
 }
