@@ -2,16 +2,9 @@ import Image from "next/image";
 import React, { forwardRef } from "react";
 
 import { Title } from "@elements/Title/Title";
+import { TestCategory } from "@utils/apiTypes";
 
 import styles from "./CategoryCard.module.scss";
-
-export type TestCategory = {
-    id: number;
-    name: string;
-    parent_id: number;
-    title: string;
-    parent: string | null;
-};
 
 type CategoryCardProps = {
     category: TestCategory;

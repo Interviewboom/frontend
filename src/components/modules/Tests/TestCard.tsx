@@ -3,27 +3,9 @@ import React, { forwardRef } from "react";
 
 import { Text } from "@elements/Text/Text";
 import { Title } from "@elements/Title/Title";
+import { TestType } from "@utils/apiTypes";
 
 import styles from "./TestCard.module.scss";
-
-export type QuestionType = {
-    id: number;
-    title: string;
-    test_id: number;
-    question: string;
-    level: number;
-    is_multiselect: boolean;
-};
-
-export type TestType = {
-    id: number;
-    title: string;
-    questions: QuestionType[];
-    test_category_id: number;
-    description: string;
-    created_at: string;
-    updated_at: string;
-};
 
 type TestCardProps = {
     test: TestType;

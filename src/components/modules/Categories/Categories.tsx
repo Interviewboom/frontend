@@ -1,8 +1,9 @@
 import React, { FC } from "react";
 import Link from "next/link";
+import { TestCategory } from "@utils/apiTypes";
 
 import { Text } from "@elements/Text/Text";
-import { CategoryCard, TestCategory } from "./CategoryCard";
+import { CategoryCard } from "./CategoryCard";
 
 import styles from "./Categories.module.scss";
 

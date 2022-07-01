@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Title } from "@elements/Title/Title";
 import { Button } from "@elements/Button/Button";
 import { Tests } from "@modules/Tests/Tests";
-import { TestType } from "@modules/Tests/TestCard";
+import { TestType } from "@utils/apiTypes";
 
 import styles from "./TestsSection.module.scss";
 

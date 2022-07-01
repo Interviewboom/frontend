@@ -3,7 +3,7 @@ import { FC } from "react";
 import { Title } from "@elements/Title/Title";
 import { Button } from "@elements/Button/Button";
 import { Categories } from "@modules/Categories/Categories";
-import { TestCategory } from "@modules/Categories/CategoryCard";
+import { TestCategory } from "@utils/apiTypes";
 
 import styles from "./CategoriesSection.module.scss";
 

@@ -1,8 +1,9 @@
 import React, { FC } from "react";
 import { Text } from "@elements/Text/Text";
 import Link from "next/link";
+import { TestType } from "@utils/apiTypes";
 
-import { TestType, TestCard } from "./TestCard";
+import { TestCard } from "./TestCard";
 import styles from "./Tests.module.scss";
 
 type TestsProps = {

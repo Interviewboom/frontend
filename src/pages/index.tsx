@@ -6,9 +6,8 @@ import { DonationInfoSection } from "@modules/DonationInfoSection";
 import { HowItWorksSection } from "@modules/HowItWorksSection/HowItWorksSection";
 import { CategoriesSection } from "@modules/CategoriesSection/CategoriesSection";
 import { TestsSection } from "@modules/TestsSection/TestsSection";
-import { TestCategory } from "@modules/Categories/CategoryCard";
 import { getCategories, getTests } from "@utils/fetcher";
-import { TestType } from "@modules/Tests/TestCard";
+import { TestCategory, TestType } from "@utils/apiTypes";
 
 type HomePageProps = {
     categories: TestCategory[];
