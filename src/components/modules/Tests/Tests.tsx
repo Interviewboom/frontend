@@ -15,7 +15,7 @@ export const Tests: FC<TestsProps> = ({ tests }) => {
         <div className={styles.tests}>
             {tests ? (
                 tests.map(item => (
-                    <Link href={`/all-tests/${item.title}`} key={item.id} passHref>
+                    <Link href={`/categories/${item.test_category_id}/tests/${item.id}`} key={item.id} passHref>
                         <TestCard test={item} />
                     </Link>
                 ))

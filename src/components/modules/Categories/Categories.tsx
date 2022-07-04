@@ -16,7 +16,7 @@ export const Categories: FC<CategoriesProps> = ({ categories }) => {
         <div className={styles.categories}>
             {categories ? (
                 categories.map(item => (
-                    <Link href={`/test-categories/${item.name}`} key={item.id} passHref>
+                    <Link href={`/all-categories/${item.id}`} key={item.id} passHref>
                         <CategoryCard category={item} />
                     </Link>
                 ))
