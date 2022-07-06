@@ -1,7 +1,5 @@
 import React, { FC } from "react";
-import { Text } from "@elements/Text/Text";
-import Link from "next/link";
-import { TestType } from "@utils/apiTypes";
+import { TestType } from "src/api/apiTypes";
 
 import { TestCard } from "./TestCard";
 import styles from "./Tests.module.scss";
@@ -11,17 +9,5 @@ type TestsProps = {
 };
 
 export const Tests: FC<TestsProps> = ({ tests }) => {
-    return (
-        <div className={styles.tests}>
-            {tests ? (
-                tests.map(item => (
-                    <Link href={`/categories/${item.test_category_id}/test/${item.id}`} key={item.id} passHref>
-                        <TestCard test={item} />
-                    </Link>
-                ))
-            ) : (
-                <Text>failed to load tests</Text>
-            )}
-        </div>
-    );
+    return <div className={styles.tests}> {tests && tests.map(item => <TestCard test={item} />)}</div>;
 };

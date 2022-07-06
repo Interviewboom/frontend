@@ -1,21 +1,21 @@
 import Image from "next/image";
-import React, { forwardRef } from "react";
+import { FC } from "react";
 
 import { Text } from "@elements/Text/Text";
 import { Title } from "@elements/Title/Title";
 import { TestType } from "@utils/apiTypes";
+import Link from "next/link";
 
 import styles from "./TestCard.module.scss";
 
 type TestCardProps = {
     test: TestType;
     numberOfPassings?: number;
-    href?: string;
 };
 
-export const TestCard = forwardRef<HTMLAnchorElement, TestCardProps>(({ test, numberOfPassings = 0, href }, ref) => {
+export const TestCard: FC<TestCardProps> = ({ test, numberOfPassings = 0 }) => {
     return (
-        <a href={href} ref={ref}>
+        <Link href={`/categories/${test.test_category_id}/test/${test.id}`}>
             <div className={styles.card}>
                 <div className={styles.imageContainer}>
                     <Image
@@ -50,6 +50,6 @@ export const TestCard = forwardRef<HTMLAnchorElement, TestCardProps>(({ test, nu
                     </Text>
                 </div>
             </div>
-        </a>
+        </Link>
     );
-});
+};

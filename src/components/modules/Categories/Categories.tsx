@@ -1,10 +1,6 @@
 import React, { FC } from "react";
-import Link from "next/link";
-import { TestCategory } from "@utils/apiTypes";
-
-import { Text } from "@elements/Text/Text";
+import { TestCategory } from "src/api/apiTypes";
 import { CategoryCard } from "./CategoryCard";
-
 import styles from "./Categories.module.scss";
 
 type CategoriesProps = {
@@ -14,15 +10,9 @@ type CategoriesProps = {
 export const Categories: FC<CategoriesProps> = ({ categories }) => {
     return (
         <div className={styles.categories}>
-            {categories ? (
-                categories.map(item => (
-                    <Link href={`/categories/${item.id}`} key={item.id} passHref>
-                        <CategoryCard category={item} />
-                    </Link>
-                ))
-            ) : (
-                <Text>failed to load categories</Text>
-            )}
+            {categories.map(item => (
+                <CategoryCard category={item} />
+            ))}
         </div>
     );
 };

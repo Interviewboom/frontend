@@ -6,8 +6,8 @@ import { DonationInfoSection } from "@modules/DonationInfoSection";
 import { HowItWorksSection } from "@modules/HowItWorksSection/HowItWorksSection";
 import { CategoriesSection } from "@modules/CategoriesSection/CategoriesSection";
 import { TestsSection } from "@modules/TestsSection/TestsSection";
-import { getCategories, getTests } from "@utils/fetcher";
-import { TestCategory, TestType } from "@utils/apiTypes";
+import { getCategories, getTests } from "src/api/tests";
+import { TestCategory, TestType } from "src/api/apiTypes";
 
 type HomePageProps = {
     categories: TestCategory[];
@@ -22,7 +22,7 @@ const HomePage: NextPage<HomePageProps> = ({
     tests: TestType[];
 }) => {
     return (
-        <DefaultLayout>
+        <DefaultLayout error={(!Array.isArray(tests) && tests) || (!Array.isArray(categories) && categories) || ""}>
             <FrontGreetingSection />
             <CategoriesSection categories={categories} />
             <TestsSection tests={tests} />
@@ -33,9 +33,8 @@ const HomePage: NextPage<HomePageProps> = ({
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const categories = await getCategories(4);
-    const tests = await getTests(4);
-
+    const categories = await getCategories({ limit: "4" });
+    const tests = await getTests({ limit: "4" });
     return { props: { tests, categories } };
 };
 
