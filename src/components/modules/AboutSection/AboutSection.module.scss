@@ -1,0 +1,47 @@
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: $most-light-color;
+    margin-bottom: 100px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 100px 15px 66px;
+    width: $desktop-content-width;
+}
+
+.titleWrapper {
+    display: flex;
+    align-items: center;
+
+    padding: 8px 0;
+    margin-bottom: 30px;
+}
+
+.text {
+    flex-shrink: 2;
+    max-width: 643px;
+    padding-right: 10px;
+}
+
+.image {
+    flex-shrink: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 736px;
+}
+
+.titleMargin {
+    margin-right: 15px;
+}
+
+.pMargin {
+    margin-bottom: 30px;
+}

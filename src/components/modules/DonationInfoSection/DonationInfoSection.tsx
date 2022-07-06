@@ -13,7 +13,7 @@ export const DonationInfoSection = () => {
                     <Title level={2} className={styles.paddings}>
                         Support our project
                     </Title>
-                    <Text size="big" isParagraph className={styles.paddings} lineHeight={24}>
+                    <Text size="big" isParagraph className={styles.textMargin} lineHeight={24}>
                         Support our project so we can update tests and add new categories to the site. Here is our
                         Patreon for donating from like-minded people.
                     </Text>
