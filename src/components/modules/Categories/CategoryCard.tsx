@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import Link from "next/link";
 
 import { Title } from "@elements/Title/Title";
-import { TestCategory } from "@utils/apiTypes";
+import { TestCategory } from "src/api/apiTypes";
 
 import styles from "./CategoryCard.module.scss";
 

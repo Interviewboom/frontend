@@ -3,7 +3,7 @@ import { FC } from "react";
 
 import { Text } from "@elements/Text/Text";
 import { Title } from "@elements/Title/Title";
-import { TestType } from "@utils/apiTypes";
+import { TestType } from "src/api/apiTypes";
 import Link from "next/link";
 
 import styles from "./TestCard.module.scss";
