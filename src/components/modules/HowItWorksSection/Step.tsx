@@ -17,7 +17,7 @@ export const Step: FC<stepProps> = ({ size, caption, iconName }) => {
                 <Icon name={iconName} width={size} height={size} />
             </div>
 
-            <Text size="big" isParagraph>
+            <Text size="big" isParagraph lineHeight={22}>
                 {caption}
             </Text>
         </div>

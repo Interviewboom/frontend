@@ -21,8 +21,10 @@ export const FrontGreetingSection = () => {
                     />
                 </div>
                 <div className={styles.content}>
-                    <Title level={1}>Get ready for future interview</Title>
-                    <Text size="big" isParagraph>
+                    <Title level={1} className={styles.marginTitle}>
+                        Get ready for future interview
+                    </Title>
+                    <Text size="big" isParagraph className={styles.marginTitle}>
                         This platform helps to prepare for a technical interview with an international company.
                     </Text>
                     <Button link="/tests-categories">Start</Button>
