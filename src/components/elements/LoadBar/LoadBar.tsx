@@ -15,7 +15,7 @@ export const LoadBar: FC<LoadBarProps> = ({ onClose, currentQuestionNumber, numb
             <div className={styles.alarm}>
                 <Icon name="alarm" />
             </div>
-            <Text size="small">
+            <Text size="small" lineHeight={24}>
                 {currentQuestionNumber}/{numberOfQuestions}
             </Text>
             <progress className={styles.progress} max="1" value={currentQuestionNumber / numberOfQuestions} />

@@ -22,15 +22,15 @@
 }
 
 .content {
-    max-width: 618px;
+    max-width: 658px;
     text-align: center;
     padding: 0 15px;
+}
 
-    & > * {
-        margin-top: 40px;
-    }
-
-    & :first-child {
-        margin-top: 0;
-    }
+.textMargin {
+    margin: 40px 0;
+}
+.paddings {
+    margin-bottom: 40px;
+    padding: 8px 0;
 }

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { forwardRef } from "react";
+import React, { FC } from "react";
 import Link from "next/link";
 
 import { Title } from "@elements/Title/Title";
@@ -11,7 +11,7 @@ type CategoryCardProps = {
     category: TestCategory;
 };
 
-export const CategoryCard = forwardRef<HTMLAnchorElement, CategoryCardProps>(({ category }) => {
+export const CategoryCard: FC<CategoryCardProps> = ({ category }) => {
     return (
         <Link href={`/categories/${category.id}`} key={category.id} passHref>
             <div className={styles.card}>
@@ -33,4 +33,4 @@ export const CategoryCard = forwardRef<HTMLAnchorElement, CategoryCardProps>(({ 
             </div>
         </Link>
     );
-});
+};

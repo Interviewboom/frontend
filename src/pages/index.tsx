@@ -8,6 +8,7 @@ import { CategoriesSection } from "@modules/CategoriesSection/CategoriesSection"
 import { TestsSection } from "@modules/TestsSection/TestsSection";
 import { getCategories, getTests } from "src/api/tests";
 import { TestCategory, TestType } from "src/api/apiTypes";
+import { AboutSection } from "@modules/AboutSection/AboutSection";
 
 type HomePageProps = {
     categories: TestCategory[];
@@ -28,6 +29,7 @@ const HomePage: NextPage<HomePageProps> = ({
             <TestsSection tests={tests} />
             <HowItWorksSection />
             <DonationInfoSection />
+            <AboutSection />
         </DefaultLayout>
     );
 };

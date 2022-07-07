@@ -7,9 +7,11 @@ export const getCategories = async (paramsObj: paramsType) => {
     try {
         const res = await api.get<TestCategory[]>(`test-categories${stringifyParams(paramsObj)}`);
         const categories: TestCategory[] = res.data;
+
         return categories;
     } catch (error) {
         const err = error as AxiosError;
+
         if (err.message) {
             return err.message;
         }
@@ -24,6 +26,7 @@ export const getTests = async (paramsObj: paramsType) => {
         return tests;
     } catch (error) {
         const err = error as AxiosError;
+
         if (err.message) {
             return err.message;
         }

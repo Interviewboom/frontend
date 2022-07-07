@@ -14,9 +14,6 @@
     max-width: $desktop-content-width;
     width: 100%;
     text-align: center;
-    h2 {
-        text-align: left;
-    }
 }
 
 .stepsContainer {
@@ -24,4 +21,9 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.paddings {
+    text-align: left;
+    padding: 8px 0;
 }
