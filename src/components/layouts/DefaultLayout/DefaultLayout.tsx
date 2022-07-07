@@ -5,13 +5,14 @@ import { Footer } from "@modules/Footer";
 
 interface DefaultLayoutProps {
     children: ReactNode;
+    error?: string;
 }
 
-export const DefaultLayout: FC<DefaultLayoutProps> = ({ children }) => {
+export const DefaultLayout: FC<DefaultLayoutProps> = ({ children, error }) => {
     return (
         <div>
             <Header />
-            <div>{children}</div>
+            <div>{error || children}</div>
             <Footer />
         </div>
     );
