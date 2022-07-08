@@ -19,6 +19,22 @@ export const getCategories = async (paramsObj: paramsType) => {
     }
 };
 
+export const getCategory = async (paramsObj: paramsType, id: string) => {
+    try {
+        const res = await api.get<TestCategory[]>(`test-categories/${id}${stringifyParams(paramsObj)}`);
+        const categories: TestCategory[] = res.data;
+
+        return categories;
+    } catch (error) {
+        const err = error as AxiosError;
+
+        if (err.message) {
+            return err.message;
+        }
+        return "error ocurred while loading categories";
+    }
+};
+
 export const getTests = async (paramsObj: paramsType) => {
     try {
         const res = await api.get<TestType[]>(`tests${stringifyParams(paramsObj)}`);
