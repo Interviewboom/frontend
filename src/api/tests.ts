@@ -49,3 +49,18 @@ export const getTests = async (paramsObj: paramsType) => {
         return "error ocurred while loading tests";
     }
 };
+
+export const getOneTest = async (id: string, paramsObj: paramsType) => {
+    try {
+        const res = await api.get<TestType>(`tests/${id}${stringifyParams(paramsObj)}`);
+        const test: TestType = res.data;
+        return test;
+    } catch (error) {
+        const err = error as AxiosError;
+
+        if (err.message) {
+            return err.message;
+        }
+        return "error ocurred while loading tests";
+    }
+};

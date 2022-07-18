@@ -1,0 +1,64 @@
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: $most-light-color;
+    margin-bottom: 100px;
+}
+.wrapper {
+    padding: 0 15px;
+    width: $desktop-content-width;
+}
+
+.breadcrumbsWrapper {
+    padding: 30px 0 58px;
+}
+
+.socialsWrapper {
+    margin-bottom: 23px;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .share,
+    .favorites {
+        display: flex;
+        align-items: center;
+    }
+
+    .favorites {
+        margin-right: 43px;
+    }
+}
+
+.iconMargin {
+    margin-right: 8px;
+}
+
+.title {
+    margin-bottom: 16px;
+    padding: 8px 0;
+}
+
+.row {
+    display: flex;
+}
+
+.imgWrapper {
+    flex-shrink: 1;
+    min-width: 600px;
+}
+
+.content {
+    flex-grow: 1;
+    max-width: 792px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    flex-shrink: 2;
+}
