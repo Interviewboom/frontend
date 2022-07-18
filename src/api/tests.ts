@@ -19,9 +19,9 @@ export const getCategories = async (paramsObj: paramsType) => {
     }
 };
 
-export const getCategory = async (paramsObj: paramsType, id: string) => {
+export const getCategory = async (id: string) => {
     try {
-        const res = await api.get<TestCategory[]>(`test-categories/${id}${stringifyParams(paramsObj)}`);
+        const res = await api.get<TestCategory[]>(`test-categories/${id}`);
         const categories: TestCategory[] = res.data;
 
         return categories;
@@ -31,7 +31,7 @@ export const getCategory = async (paramsObj: paramsType, id: string) => {
         if (err.message) {
             return err.message;
         }
-        return "error ocurred while loading categories";
+        return "error ocurred while loading category";
     }
 };
 
@@ -50,9 +50,9 @@ export const getTests = async (paramsObj: paramsType) => {
     }
 };
 
-export const getOneTest = async (id: string, paramsObj: paramsType) => {
+export const getOneTest = async (id: string) => {
     try {
-        const res = await api.get<TestType>(`tests/${id}${stringifyParams(paramsObj)}`);
+        const res = await api.get<TestType>(`tests/${id}`);
         const test: TestType = res.data;
         return test;
     } catch (error) {
@@ -61,6 +61,6 @@ export const getOneTest = async (id: string, paramsObj: paramsType) => {
         if (err.message) {
             return err.message;
         }
-        return "error ocurred while loading tests";
+        return "error ocurred while loading test";
     }
 };

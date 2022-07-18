@@ -31,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
     if (typeof categoryId === "string") {
         const tests = await getTests({ categoryId });
-        const category = await getCategory({}, categoryId);
+        const category = await getCategory(categoryId);
 
         return { props: { tests, category } };
     }

@@ -26,8 +26,8 @@ export const getServerSideProps: GetServerSideProps = async context => {
     const categoryId = context?.params?.categoryId;
 
     if (typeof categoryId === "string" && typeof testId === "string") {
-        const test = await getOneTest(testId, {});
-        const category = await getCategory({}, categoryId);
+        const test = await getOneTest(testId);
+        const category = await getCategory(categoryId);
 
         return { props: { test, category } };
     }
