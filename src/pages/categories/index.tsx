@@ -23,7 +23,7 @@ const AllCategoriesPage: NextPage<PageProps> = ({ categories }: { categories: Te
 export default AllCategoriesPage;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const categories = await getCategories({});
+    const categories = await getCategories();
 
     return { props: { categories } };
 };

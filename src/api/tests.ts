@@ -3,9 +3,9 @@ import { TestCategory, TestType } from "./apiTypes";
 import { paramsType, stringifyParams } from "./stringifyParams";
 import api from "./index";
 
-export const getCategories = async (paramsObj: paramsType) => {
+export const getCategories = async () => {
     try {
-        const res = await api.get<TestCategory[]>(`test-categories${stringifyParams(paramsObj)}`);
+        const res = await api.get<TestCategory[]>("test-categories");
         const categories: TestCategory[] = res.data;
 
         return categories;
