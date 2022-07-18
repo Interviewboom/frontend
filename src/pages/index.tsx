@@ -9,21 +9,16 @@ import { TestsSection } from "@modules/TestsSection/TestsSection";
 import { getCategories, getTests } from "src/api/tests";
 import { TestCategory, TestType } from "src/api/apiTypes";
 import { AboutSection } from "@modules/AboutSection/AboutSection";
+import { errorObjectType } from "@utils/errorHandler";
 
 type HomePageProps = {
-    categories: TestCategory[];
-    tests: TestType[];
+    categories: TestCategory[] & errorObjectType;
+    tests: TestType[] & errorObjectType;
 };
 
-const HomePage: NextPage<HomePageProps> = ({
-    categories,
-    tests,
-}: {
-    categories: TestCategory[];
-    tests: TestType[];
-}) => {
+const HomePage: NextPage<HomePageProps> = ({ categories, tests }: HomePageProps) => {
     return (
-        <DefaultLayout error={(!Array.isArray(tests) && tests) || (!Array.isArray(categories) && categories) || ""}>
+        <DefaultLayout error={tests.message ?? categories.message ?? ""}>
             <FrontGreetingSection />
             <CategoriesSection categories={categories} />
             <TestsSection tests={tests} />
@@ -37,6 +32,7 @@ const HomePage: NextPage<HomePageProps> = ({
 export const getServerSideProps: GetServerSideProps = async () => {
     const categories = await getCategories({ limit: "4" });
     const tests = await getTests({ limit: "4" });
+
     return { props: { tests, categories } };
 };
 

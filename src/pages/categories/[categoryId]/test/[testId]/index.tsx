@@ -10,7 +10,7 @@ type PageProps = {
     test: TestType;
 };
 
-const TestDetailsPage: NextPage<PageProps> = ({ test, category }: { test: TestType; category: TestCategory }) => {
+const TestDetailsPage: NextPage<PageProps> = ({ test, category }: PageProps) => {
     return (
         <DefaultLayout>
             <OneTestSection test={test} category={category} />
@@ -22,8 +22,8 @@ const TestDetailsPage: NextPage<PageProps> = ({ test, category }: { test: TestTy
 export default TestDetailsPage;
 
 export const getServerSideProps: GetServerSideProps = async context => {
-    const testId = context?.params?.testId;
-    const categoryId = context?.params?.categoryId;
+    const testId = context.params?.testId;
+    const categoryId = context.params?.categoryId;
 
     if (typeof categoryId === "string" && typeof testId === "string") {
         const test = await getOneTest(testId);

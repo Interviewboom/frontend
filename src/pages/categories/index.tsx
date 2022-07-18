@@ -6,14 +6,15 @@ import { DonationInfoSection } from "@modules/DonationInfoSection";
 import { AllCategoriesSection } from "@modules/AllCategoriesSection/AllCategoriesSection";
 import { TestCategory } from "src/api/apiTypes";
 import { getCategories } from "src/api/tests";
+import { errorObjectType } from "@utils/errorHandler";
 
 type PageProps = {
-    categories: TestCategory[];
+    categories: TestCategory[] & errorObjectType;
 };
 
-const AllCategoriesPage: NextPage<PageProps> = ({ categories }: { categories: TestCategory[] }) => {
+const AllCategoriesPage: NextPage<PageProps> = ({ categories }: PageProps) => {
     return (
-        <DefaultLayout>
+        <DefaultLayout error={categories.message ?? ""}>
             <AllCategoriesSection categories={categories} />
             <DonationInfoSection />
         </DefaultLayout>

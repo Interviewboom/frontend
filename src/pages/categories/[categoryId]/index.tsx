@@ -10,13 +10,7 @@ type PageProps = {
     tests: TestType[];
 };
 
-const TestsByCategoryPage: NextPage<PageProps> = ({
-    tests,
-    category,
-}: {
-    tests: TestType[];
-    category: TestCategory;
-}) => {
+const TestsByCategoryPage: NextPage<PageProps> = ({ tests, category }: PageProps) => {
     return (
         <DefaultLayout>
             <TestsByCategorySection tests={tests} category={category} />
@@ -27,7 +21,7 @@ const TestsByCategoryPage: NextPage<PageProps> = ({
 export default TestsByCategoryPage;
 
 export const getServerSideProps: GetServerSideProps = async context => {
-    const categoryId = context?.params?.categoryId;
+    const categoryId = context.params?.categoryId;
 
     if (typeof categoryId === "string") {
         const tests = await getTests({ categoryId });

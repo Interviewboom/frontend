@@ -1,6 +1,8 @@
-import { AxiosError } from "axios";
+import { handleRequestError } from "@utils/errorHandler";
+
 import { TestCategory, TestType } from "./apiTypes";
 import { paramsType, stringifyParams } from "./stringifyParams";
+
 import api from "./index";
 
 export const getCategories = async (paramsObj: paramsType = {}) => {
@@ -10,12 +12,7 @@ export const getCategories = async (paramsObj: paramsType = {}) => {
 
         return categories;
     } catch (error) {
-        const err = error as AxiosError;
-
-        if (err.message) {
-            return err.message;
-        }
-        return "error ocurred while loading categories";
+        return handleRequestError(error);
     }
 };
 
@@ -26,12 +23,7 @@ export const getCategory = async (id: string) => {
 
         return categories;
     } catch (error) {
-        const err = error as AxiosError;
-
-        if (err.message) {
-            return err.message;
-        }
-        return "error ocurred while loading category";
+        return handleRequestError(error);
     }
 };
 
@@ -41,12 +33,7 @@ export const getTests = async (paramsObj: paramsType) => {
         const tests: TestType[] = res.data;
         return tests;
     } catch (error) {
-        const err = error as AxiosError;
-
-        if (err.message) {
-            return err.message;
-        }
-        return "error ocurred while loading tests";
+        return handleRequestError(error);
     }
 };
 
@@ -54,13 +41,9 @@ export const getOneTest = async (id: string) => {
     try {
         const res = await api.get<TestType>(`tests/${id}`);
         const test: TestType = res.data;
+
         return test;
     } catch (error) {
-        const err = error as AxiosError;
-
-        if (err.message) {
-            return err.message;
-        }
-        return "error ocurred while loading test";
+        return handleRequestError(error);
     }
 };
