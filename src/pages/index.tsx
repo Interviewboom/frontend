@@ -6,7 +6,7 @@ import { DonationInfoSection } from "@modules/DonationInfoSection";
 import { HowItWorksSection } from "@modules/HowItWorksSection/HowItWorksSection";
 import { CategoriesSection } from "@modules/CategoriesSection/CategoriesSection";
 import { TestsSection } from "@modules/TestsSection/TestsSection";
-import { getCategories, getTests } from "src/api/CategoriesTestsInfo";
+import { getCategories, getTests } from "src/api/categoriesTestsInfo";
 
 import { TestCategory, TestType } from "src/api/apiTypes";
 import { AboutSection } from "@modules/AboutSection/AboutSection";
