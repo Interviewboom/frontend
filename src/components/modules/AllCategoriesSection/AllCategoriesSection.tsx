@@ -1,27 +1,24 @@
-import { FC } from "react";
-
-import { Title } from "@elements/Title/Title";
-import { Button } from "@elements/Button/Button";
+import React, { FC } from "react";
 import { Categories } from "@modules/Categories/Categories";
+import { Title } from "@elements/Title/Title";
+import { Breadcrumb } from "@elements/Breadcrumb/Breadcrumb";
 import { TestCategory } from "src/api/apiTypes";
 
-import styles from "./CategoriesSection.module.scss";
+import styles from "./AllCategoriesSection.module.scss";
 
-type CategoriesProps = {
+type AllCategoriesSectionsProps = {
     categories: TestCategory[];
 };
 
-export const CategoriesSection: FC<CategoriesProps> = ({ categories }) => {
+export const AllCategoriesSection: FC<AllCategoriesSectionsProps> = ({ categories }) => {
     return (
         <section className={styles.section}>
             <div className={styles.wrapper}>
+                <Breadcrumb links={[{ link: "/categories", name: "Test categories" }]} />
                 <Title level={2} className={styles.titleMargin}>
                     Test categories
                 </Title>
                 <Categories categories={categories} />
-                <div className={styles.btnWrapper}>
-                    <Button link="/categories">More categories</Button>
-                </div>
             </div>
         </section>
     );

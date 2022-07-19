@@ -1,0 +1,21 @@
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+
+.section {
+    background-color: $most-light-color;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 200px;
+}
+
+.wrapper {
+    padding: 33px 15px 0;
+    max-width: $desktop-content-width;
+    width: 100%;
+}
+
+.titleMargin {
+    margin: 55px 0 40px;
+    padding: 8px 0;
+}

@@ -6,27 +6,23 @@ import { DonationInfoSection } from "@modules/DonationInfoSection";
 import { HowItWorksSection } from "@modules/HowItWorksSection/HowItWorksSection";
 import { CategoriesSection } from "@modules/CategoriesSection/CategoriesSection";
 import { TestsSection } from "@modules/TestsSection/TestsSection";
-import { getCategories, getTests } from "src/api/tests";
+import { getCategories, getTests } from "src/api/categoriesTestsInfo";
+
 import { TestCategory, TestType } from "src/api/apiTypes";
 import { AboutSection } from "@modules/AboutSection/AboutSection";
+import { errorObjectType } from "@utils/errorHandler";
 
 type HomePageProps = {
-    categories: TestCategory[];
-    tests: TestType[];
+    categories: TestCategory[] & errorObjectType;
+    popularTests: TestType[] & errorObjectType;
 };
 
-const HomePage: NextPage<HomePageProps> = ({
-    categories,
-    tests,
-}: {
-    categories: TestCategory[];
-    tests: TestType[];
-}) => {
+const HomePage: NextPage<HomePageProps> = ({ categories, popularTests }: HomePageProps) => {
     return (
-        <DefaultLayout error={(!Array.isArray(tests) && tests) || (!Array.isArray(categories) && categories) || ""}>
+        <DefaultLayout error={popularTests.message ?? categories.message ?? ""}>
             <FrontGreetingSection />
             <CategoriesSection categories={categories} />
-            <TestsSection tests={tests} />
+            <TestsSection popularTests={popularTests} />
             <HowItWorksSection />
             <DonationInfoSection />
             <AboutSection />
@@ -36,8 +32,9 @@ const HomePage: NextPage<HomePageProps> = ({
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const categories = await getCategories({ limit: "4" });
-    const tests = await getTests({ limit: "4" });
-    return { props: { tests, categories } };
+    const popularTests = await getTests({ limit: "4" });
+
+    return { props: { popularTests, categories } };
 };
 
 export default HomePage;

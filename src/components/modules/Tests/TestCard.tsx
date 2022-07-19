@@ -9,28 +9,28 @@ import Link from "next/link";
 import styles from "./TestCard.module.scss";
 
 type TestCardProps = {
-    test: TestType;
+    testInfo: TestType;
     numberOfPassings?: number;
 };
 
-export const TestCard: FC<TestCardProps> = ({ test, numberOfPassings = 0 }) => {
+export const TestCard: FC<TestCardProps> = ({ testInfo, numberOfPassings = 0 }) => {
     return (
-        <Link href={`/categories/${test.test_category_id}/test/${test.id}`}>
+        <Link href={`/categories/${testInfo.test_category_id}/test/${testInfo.id}`}>
             <div className={styles.card}>
                 <div className={styles.imageContainer}>
                     <Image
-                        src={`/assets/images/tests/${test.id}.jpg`}
+                        src={`/assets/images/tests/${testInfo.id}.jpg`}
                         width={347}
                         height={200}
                         layout="responsive"
                         objectFit="cover"
                         objectPosition="center"
-                        alt={test.title}
+                        alt={testInfo.title}
                     />
                 </div>
                 <div className={styles.content}>
                     <Title level={5} className={styles.paddingsTitle}>
-                        {test.title}
+                        {testInfo.title}
                     </Title>
 
                     <Text
@@ -40,7 +40,7 @@ export const TestCard: FC<TestCardProps> = ({ test, numberOfPassings = 0 }) => {
                         isParagraph
                         lineHeight={17}
                     >
-                        {test.questions?.length} questions
+                        {testInfo.questions?.length} questions
                     </Text>
 
                     <div className={styles.line} />
