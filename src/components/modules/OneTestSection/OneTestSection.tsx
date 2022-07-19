@@ -26,7 +26,7 @@ export const OneTestSection: FC<OneTestSectionProps> = ({ oneTestInfo, category 
                             links={[
                                 { name: "Test categories", link: "/categories" },
                                 { name: category.title, link: `/categories/${category.id}` },
-                                { name: oneTestInfo.title, link: `/categories/${category.id}/${oneTestInfo.title}` },
+                                { name: oneTestInfo.title, link: `/categories/${category.id}/test/${oneTestInfo.id}` },
                             ]}
                         />
                     </div>
