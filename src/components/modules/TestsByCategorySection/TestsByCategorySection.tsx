@@ -7,11 +7,11 @@ import { TestCategory, TestType } from "src/api/apiTypes";
 import styles from "./TestsByCategorySection.module.scss";
 
 type TestsByCategorySectionProps = {
-    tests: TestType[];
+    testsByCategory: TestType[];
     category: TestCategory;
 };
 
-export const TestsByCategorySection: FC<TestsByCategorySectionProps> = ({ tests, category }) => {
+export const TestsByCategorySection: FC<TestsByCategorySectionProps> = ({ testsByCategory, category }) => {
     return (
         <section className={styles.section}>
             <div className={styles.wrapper}>
@@ -24,7 +24,7 @@ export const TestsByCategorySection: FC<TestsByCategorySectionProps> = ({ tests,
                 <Title level={2} className={styles.titleMargin}>
                     {category.title}
                 </Title>
-                <Tests tests={tests} />
+                <Tests testsArray={testsByCategory} />
             </div>
         </section>
     );

@@ -3,17 +3,17 @@ import { GetServerSideProps, NextPage } from "next";
 
 import { TestsByCategorySection } from "@modules/TestsByCategorySection/TestsByCategorySection";
 import { TestCategory, TestType } from "src/api/apiTypes";
-import { getTests, getCategory } from "src/api/tests";
+import { getTests, getCategory } from "src/api/categoriesTestsInfo";
 
 type PageProps = {
     category: TestCategory;
-    tests: TestType[];
+    testsByCategory: TestType[];
 };
 
-const TestsByCategoryPage: NextPage<PageProps> = ({ tests, category }: PageProps) => {
+const TestsByCategoryPage: NextPage<PageProps> = ({ testsByCategory, category }: PageProps) => {
     return (
         <DefaultLayout>
-            <TestsByCategorySection tests={tests} category={category} />
+            <TestsByCategorySection testsByCategory={testsByCategory} category={category} />
         </DefaultLayout>
     );
 };
@@ -24,11 +24,11 @@ export const getServerSideProps: GetServerSideProps = async context => {
     const categoryId = context.params?.categoryId;
 
     if (typeof categoryId === "string") {
-        const tests = await getTests({ categoryId });
+        const testsByCategory = await getTests({ categoryId });
         const category = await getCategory(categoryId);
 
-        return { props: { tests, category } };
+        return { props: { testsByCategory, category } };
     }
 
-    return { props: { tests: null, category: null } };
+    return { props: { testsByCategory: null, category: null } };
 };

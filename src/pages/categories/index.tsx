@@ -5,7 +5,8 @@ import { DefaultLayout } from "@layouts/DefaultLayout";
 import { DonationInfoSection } from "@modules/DonationInfoSection";
 import { AllCategoriesSection } from "@modules/AllCategoriesSection/AllCategoriesSection";
 import { TestCategory } from "src/api/apiTypes";
-import { getCategories } from "src/api/tests";
+import { getCategories } from "src/api/categoriesTestsInfo";
+
 import { errorObjectType } from "@utils/errorHandler";
 
 type PageProps = {

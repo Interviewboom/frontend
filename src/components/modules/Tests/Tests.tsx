@@ -5,9 +5,9 @@ import { TestCard } from "./TestCard";
 import styles from "./Tests.module.scss";
 
 type TestsProps = {
-    tests: TestType[];
+    testsArray: TestType[];
 };
 
-export const Tests: FC<TestsProps> = ({ tests }) => {
-    return <div className={styles.tests}> {tests && tests.map(item => <TestCard test={item} />)}</div>;
+export const Tests: FC<TestsProps> = ({ testsArray }) => {
+    return <div className={styles.tests}> {testsArray && testsArray.map(item => <TestCard testInfo={item} />)}</div>;
 };

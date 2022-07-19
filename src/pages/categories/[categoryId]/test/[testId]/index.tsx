@@ -2,18 +2,18 @@ import { DefaultLayout } from "@layouts/DefaultLayout";
 import { OneTestSection } from "@modules/OneTestSection/OneTestSection";
 import { DonationInfoSection } from "@modules/DonationInfoSection/DonationInfoSection";
 import { GetServerSideProps, NextPage } from "next";
-import { getCategory, getOneTest } from "src/api/tests";
+import { getCategory, getOneTest } from "src/api/categoriesTestsInfo";
 import { TestType, TestCategory } from "src/api/apiTypes";
 
 type PageProps = {
     category: TestCategory;
-    test: TestType;
+    oneTestInfo: TestType;
 };
 
-const TestDetailsPage: NextPage<PageProps> = ({ test, category }: PageProps) => {
+const TestDetailsPage: NextPage<PageProps> = ({ oneTestInfo, category }: PageProps) => {
     return (
         <DefaultLayout>
-            <OneTestSection test={test} category={category} />
+            <OneTestSection oneTestInfo={oneTestInfo} category={category} />
             <DonationInfoSection />
         </DefaultLayout>
     );
@@ -26,11 +26,11 @@ export const getServerSideProps: GetServerSideProps = async context => {
     const categoryId = context.params?.categoryId;
 
     if (typeof categoryId === "string" && typeof testId === "string") {
-        const test = await getOneTest(testId);
+        const oneTestInfo = await getOneTest(testId);
         const category = await getCategory(categoryId);
 
-        return { props: { test, category } };
+        return { props: { oneTestInfo, category } };
     }
 
-    return { props: { test: null, category: null } };
+    return { props: { oneTestInfo: null, category: null } };
 };

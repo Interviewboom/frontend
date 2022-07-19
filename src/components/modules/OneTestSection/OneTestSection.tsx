@@ -12,21 +12,21 @@ import { TestDetails } from "./TestDetails";
 import styles from "./OneTestSection.module.scss";
 
 type OneTestSectionProps = {
-    test: TestType;
+    oneTestInfo: TestType;
     category: TestCategory;
 };
 
-export const OneTestSection: FC<OneTestSectionProps> = ({ test, category }) => {
+export const OneTestSection: FC<OneTestSectionProps> = ({ oneTestInfo, category }) => {
     return (
         <section className={styles.section}>
-            {test && (
+            {oneTestInfo && (
                 <div className={styles.wrapper}>
                     <div className={styles.breadcrumbsWrapper}>
                         <Breadcrumb
                             links={[
                                 { name: "Test categories", link: "/categories" },
                                 { name: category.title, link: `/categories/${category.id}` },
-                                { name: test.title, link: `/categories/${category.id}/${test.title}` },
+                                { name: oneTestInfo.title, link: `/categories/${category.id}/${oneTestInfo.title}` },
                             ]}
                         />
                     </div>
@@ -46,7 +46,7 @@ export const OneTestSection: FC<OneTestSectionProps> = ({ test, category }) => {
                         <div className={styles.imgWrapper}>
                             <Image
                                 src="/assets/images/tests/2.jpg"
-                                alt={test.title}
+                                alt={oneTestInfo.title}
                                 width={600}
                                 height={348}
                                 layout="responsive"
@@ -56,14 +56,14 @@ export const OneTestSection: FC<OneTestSectionProps> = ({ test, category }) => {
                         </div>
                         <div className={styles.content}>
                             <Title level={2} className={styles.title}>
-                                {test.title}
+                                {oneTestInfo.title}
                             </Title>
 
                             <Text isParagraph lineHeight={24} className={styles.textMargin}>
-                                {test.description}
+                                {oneTestInfo.description}
                             </Text>
 
-                            <TestDetails numOfQuestions={test.questions?.length} />
+                            <TestDetails numOfQuestions={oneTestInfo.questions?.length} />
                         </div>
                     </div>
                 </div>
