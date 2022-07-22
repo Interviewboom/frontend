@@ -9,10 +9,10 @@ export type TestCategory = {
 export type QuestionType = {
     id: number;
     title?: string;
-    test_id?: number;
+    test_id: number;
     question: string;
     level?: number;
-    is_multiselect?: boolean;
+    is_multiselect: boolean;
 };
 
 export type TestType = {
@@ -30,4 +30,21 @@ export type answerType = {
     question_id: 1;
     answer: string;
     is_correct: boolean;
+};
+
+export type TestFlowType = {
+    id: string;
+    test_id: number;
+    status: string;
+};
+
+export type questionAllDataType = { question: QuestionType; count: number; countAnswered: number };
+
+export type TestFlowData = {
+    testId: number;
+};
+
+export type SendAnswersData = {
+    questionId: number;
+    answerIds: number[] | string[];
 };

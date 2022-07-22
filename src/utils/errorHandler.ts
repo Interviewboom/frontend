@@ -2,10 +2,10 @@ import { AxiosError } from "axios";
 
 export type errorObjectType = { message: string };
 
-export const handleRequestError = (error: unknown): errorObjectType => {
+export const handleRequestError = (error: unknown) => {
     if (error instanceof AxiosError) {
-        return { message: error.response?.data?.message ?? error.message };
+        return new Error(error.response?.data?.message ?? error.message);
     }
 
-    return { message: "something gone wrong" };
+    return new Error("something gone wrong");
 };

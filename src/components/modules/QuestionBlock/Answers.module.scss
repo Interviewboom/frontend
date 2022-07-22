@@ -1,0 +1,28 @@
+.answersWrapper {
+    max-width: 900px;
+    width: 100%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonMargin {
+    margin-top: 48px;
+    align-self: flex-end;
+}
+
+.question {
+    padding: 14px 0;
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 32px;
+}
+
+.questionCode {
+    margin-bottom: 10px;
+}
+
+.choose {
+    margin-bottom: 16px;
+}
