@@ -13,15 +13,19 @@ export const TestDetails: FC<{ numOfQuestions?: number }> = ({ numOfQuestions })
     const router = useRouter();
 
     const startTesting = async () => {
-        if (typeof router.query?.testId !== "string") return;
+        if (typeof router.query?.testId !== "string") {
+            return;
+        }
 
         const sessionData = await startSession({
             testId: Number(router.query?.testId),
         });
 
-        if (sessionData.id) {
-            router.push(`${router.asPath}/session/${sessionData.id}`);
+        if (sessionData instanceof Error) {
+            return;
         }
+
+        router.push(`${router.asPath}/session/${sessionData.id}`);
     };
 
     return (

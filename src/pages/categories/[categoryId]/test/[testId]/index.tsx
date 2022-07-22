@@ -32,5 +32,5 @@ export const getServerSideProps: GetServerSideProps = async context => {
         return { props: { oneTestInfo, category } };
     }
 
-    return { props: { oneTestInfo: null, category: null } };
+    return { notFound: true };
 };
