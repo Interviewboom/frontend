@@ -1,0 +1,54 @@
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+
+.section {
+    background-color: $most-light-color;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 200px;
+    padding-top: 30px;
+}
+
+.wrapper {
+    padding: 0px 15px;
+    max-width: $desktop-content-width;
+    width: 100%;
+}
+
+.list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(7, 48px);
+    gap: 24px;
+}
+
+.btnWrapper {
+    text-align: right;
+    margin-top: 30px;
+}
+
+.titleMargin {
+    padding: 8px 0;
+    margin-bottom: 30px;
+}
+
+.listItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.margRight {
+    margin-right: 24px;
+    flex-shrink: 0;
+}
+
+.textClass {
+    margin-bottom: 25px;
+}

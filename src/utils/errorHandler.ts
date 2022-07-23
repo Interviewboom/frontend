@@ -1,6 +1,8 @@
 import { AxiosError } from "axios";
 
-export type errorObjectType = { message: string };
+export interface errorObjectType {
+    message: string;
+}
 
 export const handleRequestError = (error: unknown) => {
     if (error instanceof AxiosError) {

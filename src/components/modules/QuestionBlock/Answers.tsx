@@ -53,7 +53,9 @@ export const Answers: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => 
                 {questionInfo.title}
             </Title>
 
-            <div className={styles.questionCode} dangerouslySetInnerHTML={{ __html: questionInfo.question }} />
+            {questionInfo.question?.replace(/(<([^>]+)>)/gi, "") && (
+                <div className={styles.questionCode} dangerouslySetInnerHTML={{ __html: questionInfo.question }} />
+            )}
 
             <Text size="small" isParagraph color="grey-text-color" className={styles.choose}>
                 Choose one correct answer

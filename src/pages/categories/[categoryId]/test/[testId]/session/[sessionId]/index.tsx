@@ -30,7 +30,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
                 notFound: true,
             };
 
-        const answers = await getQuestionAnswers(nextQuestionInfo.question.test_id, nextQuestionInfo.question.id);
+        const answers = await getQuestionAnswers(nextQuestionInfo.question?.test_id, nextQuestionInfo.question?.id);
 
         return { props: { questionData: nextQuestionInfo, answers } };
     }

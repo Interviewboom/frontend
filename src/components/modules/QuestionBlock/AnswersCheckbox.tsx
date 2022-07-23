@@ -52,7 +52,9 @@ export const AnswersCheckbox: FC<AnswersProps> = ({ questionInfo, isLast, answer
             <Title className={styles.question} level={4}>
                 {questionInfo.title}
             </Title>
-            <div className={styles.questionCode} dangerouslySetInnerHTML={{ __html: questionInfo.question }} />
+            {questionInfo.question.replace(/(<([^>]+)>)/gi, "") && (
+                <div className={styles.questionCode} dangerouslySetInnerHTML={{ __html: questionInfo.question }} />
+            )}
 
             <Text size="small" isParagraph color="grey-text-color" className={styles.choose}>
                 Choose several answers
