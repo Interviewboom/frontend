@@ -9,6 +9,7 @@
 .content {
     padding: 100px 15px 80px;
     max-width: $desktop-content-width;
+    margin: 0 auto;
 }
 
 .navigation {
@@ -18,7 +19,15 @@
 }
 
 @media screen and (max-width: 660px) {
-    .footer {
-        display: none;
+    .content {
+        padding: 40px 15px 55px;
+        max-width: $desktop-content-width;
+    }
+    .navigation {
+        flex-direction: column;
+
+        div {
+            margin-top: 40px;
+        }
     }
 }

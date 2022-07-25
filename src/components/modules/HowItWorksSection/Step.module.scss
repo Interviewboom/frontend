@@ -16,3 +16,13 @@
     align-items: center;
     margin-bottom: 24px;
 }
+
+@media screen and (max-width: 1200px) {
+    .stepWrapper {
+        max-width: 150px;
+    }
+    .step {
+        width: 140px;
+        height: 140px;
+    }
+}

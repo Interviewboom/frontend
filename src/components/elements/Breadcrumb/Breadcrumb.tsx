@@ -21,7 +21,7 @@ export const Breadcrumb: FC<BreadcrumbProps> = ({ links }) => {
                 </li>
                 {links.map(item => (
                     <>
-                        <Icon name="arrowRight" width={5} height={8} />
+                        <Icon name="arrowRight" width={5} height={8} className={styles.arrow} />
                         <li className={styles.linkItem}>
                             <Text size="small" color="grey-text-color">
                                 <Link href={item.link}>{item.name}</Link>

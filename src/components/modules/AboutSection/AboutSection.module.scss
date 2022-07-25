@@ -45,3 +45,14 @@
 .pMargin {
     margin-bottom: 30px;
 }
+
+@media screen and (max-width: 1300px) {
+    .wrapper {
+        flex-direction: column-reverse;
+        padding: 0 15px;
+    }
+
+    .section {
+        margin-bottom: 80px;
+    }
+}

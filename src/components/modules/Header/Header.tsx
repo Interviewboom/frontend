@@ -1,8 +1,8 @@
 import { Logo } from "@elements/Logo";
 import { Auth } from "./Auth";
 import { Navigation } from "./Navigation";
-
 import styles from "./Header.module.scss";
+import MobileMenu from "./MobileMenu";
 
 export const Header = () => {
     return (
@@ -12,6 +12,7 @@ export const Header = () => {
                 <Navigation />
                 <Auth />
             </div>
+            <MobileMenu />
         </header>
     );
 };

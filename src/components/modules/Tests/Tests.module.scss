@@ -1,5 +1,12 @@
 .tests {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+    justify-content: center;
     gap: 36px;
+}
+
+@media screen and (max-width: 1200px) {
+    .tests {
+        gap: 16px;
+    }
 }
