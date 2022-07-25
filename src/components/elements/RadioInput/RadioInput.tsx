@@ -1,6 +1,7 @@
 import React, { ChangeEventHandler, FC, useId } from "react";
 import { Text } from "@elements/Text/Text";
 import { useCssClasses } from "src/utils/getClassnames";
+import { Icon } from "@elements/Icon/Icon";
 
 import styles from "./RadioInput.module.scss";
 
@@ -13,6 +14,7 @@ interface RadioInputProps {
     answerStatus?: boolean;
     isResultShown?: boolean;
     disabled?: boolean;
+    type?: "radio" | "checkbox";
 }
 
 export const RadioInput: FC<RadioInputProps> = ({
@@ -24,6 +26,7 @@ export const RadioInput: FC<RadioInputProps> = ({
     checked,
     answerStatus,
     isResultShown,
+    type = "radio",
 }) => {
     const classes = useCssClasses([
         styles.row,
@@ -32,12 +35,14 @@ export const RadioInput: FC<RadioInputProps> = ({
         isResultShown && answerStatus === false && checked && styles.red,
     ]);
 
+    const custominputClasses = useCssClasses([styles.customHollowInput, type === "checkbox" && styles.checkBoxInput]);
+
     const id = useId();
 
     return (
         <label htmlFor={id} className={classes}>
             <input
-                type="radio"
+                type={type}
                 name={name}
                 value={value}
                 checked={checked}
@@ -47,9 +52,14 @@ export const RadioInput: FC<RadioInputProps> = ({
                 id={id}
             />
 
-            {!isResultShown && <div className={styles.customCircle} />}
+            {!isResultShown && (
+                <div className={custominputClasses}>
+                    {checked && type === "radio" && <div className={styles.innerCircle} />}
+                    {checked && type === "checkbox" && <Icon name="checkMark" width={25} height={25} />}
+                </div>
+            )}
 
-            <Text size="medium">{text}</Text>
+            <Text size="small">{text}</Text>
             {isResultShown && answerStatus === false && checked && <span className={styles.close} />}
             {isResultShown && answerStatus && (
                 <span className={styles.rightAnswerMark}>

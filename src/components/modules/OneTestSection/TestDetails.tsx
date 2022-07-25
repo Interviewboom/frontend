@@ -3,10 +3,31 @@ import React, { FC } from "react";
 import { Text } from "@elements/Text";
 import { Icon } from "@elements/Icon";
 import { Button } from "@elements/Button/Button";
+import { startSession } from "src/api/testFlow";
+
+import { useRouter } from "next/router";
 
 import styles from "./TestDetails.module.scss";
 
 export const TestDetails: FC<{ numOfQuestions?: number }> = ({ numOfQuestions }) => {
+    const router = useRouter();
+
+    const startTesting = async () => {
+        if (typeof router.query?.testId !== "string") {
+            return;
+        }
+
+        const sessionData = await startSession({
+            testId: Number(router.query?.testId),
+        });
+
+        if (sessionData instanceof Error) {
+            return;
+        }
+
+        router.push(`${router.asPath}/session/${sessionData.id}`);
+    };
+
     return (
         <>
             <div className={styles.infoWrapper}>
@@ -24,7 +45,7 @@ export const TestDetails: FC<{ numOfQuestions?: number }> = ({ numOfQuestions })
                 <Text>English, Ukrainian</Text>
             </div>
             <div className={styles.button}>
-                <Button>Start the test</Button>
+                <Button onClick={startTesting}>Start the test</Button>
             </div>
         </>
     );
