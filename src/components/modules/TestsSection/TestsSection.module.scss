@@ -7,12 +7,14 @@
     justify-content: center;
     width: 100%;
     margin-bottom: 200px;
+    overflow: hidden;
 }
 
 .wrapper {
     padding: 0px 15px;
     max-width: $desktop-content-width;
     width: 100%;
+    overflow-x: scroll;
 }
 
 .tests {
