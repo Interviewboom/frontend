@@ -18,7 +18,7 @@ export const CategoriesSection: FC<CategoriesProps> = ({ categories }) => {
                 <Title level={2} className={styles.titleMargin}>
                     Test categories
                 </Title>
-                <Categories categories={categories} />
+                <Categories categories={categories} areScrollable />
                 <div className={styles.btnWrapper}>
                     <Button link="/categories">More categories</Button>
                 </div>

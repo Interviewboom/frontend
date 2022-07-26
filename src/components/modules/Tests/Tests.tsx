@@ -3,11 +3,15 @@ import { TestType } from "src/api/apiTypes";
 
 import { TestCard } from "./TestCard";
 import styles from "./Tests.module.scss";
+import { useCssClasses } from "../../../utils/getClassnames";
 
 type TestsProps = {
     testsArray: TestType[];
+    areScrollable?: boolean;
 };
 
-export const Tests: FC<TestsProps> = ({ testsArray }) => {
-    return <div className={styles.tests}> {testsArray && testsArray.map(item => <TestCard testInfo={item} />)}</div>;
+export const Tests: FC<TestsProps> = ({ testsArray, areScrollable }) => {
+    const classes = useCssClasses([styles.tests, areScrollable && styles.noWrap]);
+
+    return <div className={classes}> {testsArray && testsArray.map(item => <TestCard testInfo={item} />)}</div>;
 };

@@ -1,12 +1,17 @@
 .categories {
     display: grid;
-    grid-template-columns: repeat(4, minmax(240px, 345px));
+    grid-template-columns: repeat(4, 1fr);
     gap: 36px;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 768px) {
     .categories {
         gap: 16px;
-        overflow-x: scroll;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
+}
+
+.noWrap {
+    overflow-x: scroll;
+    grid-template-columns: repeat(4, minmax(240px, 345px));
 }
