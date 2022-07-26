@@ -13,5 +13,9 @@ type TestsProps = {
 export const Tests: FC<TestsProps> = ({ testsArray, areScrollable }) => {
     const classes = useCssClasses([styles.tests, areScrollable && styles.noWrap]);
 
-    return <div className={classes}> {testsArray && testsArray.map(item => <TestCard testInfo={item} />)}</div>;
+    return (
+        <div className={styles.testsWrapper}>
+            <div className={classes}> {testsArray && testsArray.map(item => <TestCard testInfo={item} />)}</div>
+        </div>
+    );
 };

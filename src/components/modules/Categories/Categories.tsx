@@ -13,10 +13,12 @@ export const Categories: FC<CategoriesProps> = ({ categories, areScrollable }) =
     const classes = useCssClasses([styles.categories, areScrollable && styles.noWrap]);
 
     return (
-        <div className={classes}>
-            {categories.map(item => (
-                <CategoryCard category={item} />
-            ))}
+        <div className={styles.categoriesWrapper}>
+            <div className={classes}>
+                {categories.map(item => (
+                    <CategoryCard category={item} />
+                ))}
+            </div>
         </div>
     );
 };
