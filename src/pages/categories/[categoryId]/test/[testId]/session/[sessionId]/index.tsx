@@ -4,16 +4,16 @@ import { QuestionType, answerType } from "src/api/apiTypes";
 import { getNextQuestion, getQuestionAnswers } from "src/api/testFlow";
 
 import { QuestionBlock } from "@modules/QuestionBlock/QuestionBlock";
-import { errorObjectType } from "@utils/errorHandler";
 
 type PageProps = {
-    questionData: { question: QuestionType; count: number; countAnswered: number } & errorObjectType;
-    answers: answerType[] & errorObjectType;
+    questionData: { question: QuestionType; count: number; countAnswered: number };
+    answers: answerType[];
+    error: string;
 };
 
-const QuestionPage: NextPage<PageProps> = ({ questionData, answers }: PageProps) => {
+const QuestionPage: NextPage<PageProps> = ({ questionData, answers, error }: PageProps) => {
     return (
-        <DefaultLayout error={questionData.message || answers.message || ""}>
+        <DefaultLayout error={error}>
             <QuestionBlock questionData={questionData} answers={answers} />
         </DefaultLayout>
     );
@@ -25,12 +25,15 @@ export const getServerSideProps: GetServerSideProps = async context => {
     if (typeof context.params?.sessionId === "string") {
         const nextQuestionInfo = await getNextQuestion(context.params.sessionId);
 
-        if (nextQuestionInfo instanceof Error)
-            return {
-                notFound: true,
-            };
+        if (nextQuestionInfo instanceof Error) {
+            return { props: { error: { message: nextQuestionInfo.message } } };
+        }
 
         const answers = await getQuestionAnswers(nextQuestionInfo.question?.test_id, nextQuestionInfo.question?.id);
+
+        if (answers instanceof Error) {
+            return { props: { error: answers.message } };
+        }
 
         return { props: { questionData: nextQuestionInfo, answers } };
     }
