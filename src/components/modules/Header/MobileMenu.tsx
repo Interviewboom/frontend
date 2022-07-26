@@ -12,20 +12,15 @@ const MobileMenu = () => {
     return (
         <div className={styles.mobileWrapper}>
             <div className={styles.mobileMenuTop}>
-                {menuOpened ? (
-                    <button
-                        type="button"
-                        onClick={() => {
-                            setMenuOpened(false);
-                        }}
-                    >
-                        <Icon name="close" />
-                    </button>
-                ) : (
-                    <button type="button" onClick={() => setMenuOpened(true)} className={styles.openMenuButton}>
-                        <Icon name="menuIcon" />
-                    </button>
-                )}
+                <button
+                    type="button"
+                    onClick={() => {
+                        setMenuOpened(prev => !prev);
+                    }}
+                >
+                    <Icon name={menuOpened ? "close" : "menuIcon"} />
+                </button>
+
                 <div className={styles.mobileLogo}>
                     <Logo />
                 </div>
