@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import { TestType } from "src/api/apiTypes";
-
+import { useCssClasses } from "@utils/getClassnames";
 import { TestCard } from "./TestCard";
+
 import styles from "./Tests.module.scss";
-import { useCssClasses } from "../../../utils/getClassnames";
 
 type TestsProps = {
     testsArray: TestType[];
