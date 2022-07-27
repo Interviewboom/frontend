@@ -15,12 +15,6 @@
     width: 100%;
 }
 
-.tests {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 36px;
-}
-
 .btnWrapper {
     text-align: center;
     margin-top: 40px;
@@ -29,4 +23,15 @@
 .titleMargin {
     margin-bottom: 40px;
     padding: 8px 0;
+}
+
+@media screen and (max-width: 992px) {
+    .titleMargin {
+        padding: 8px 0;
+        margin-bottom: 24px;
+    }
+
+    .section {
+        margin-bottom: 100px;
+    }
 }

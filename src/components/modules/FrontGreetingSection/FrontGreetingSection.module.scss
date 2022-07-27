@@ -48,3 +48,18 @@
 .marginText {
     margin-bottom: 30px;
 }
+
+@media screen and (max-width: 992px) {
+    .section {
+        min-height: 400px;
+        margin-bottom: 50px;
+
+        .wrapper {
+            padding: 50px 15px;
+        }
+    }
+
+    .imageContainer {
+        opacity: 0.5;
+    }
+}

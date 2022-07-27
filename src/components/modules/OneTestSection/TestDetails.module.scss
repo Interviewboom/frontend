@@ -24,3 +24,22 @@
 .marginRight {
     margin-right: 12px;
 }
+
+@media screen and (max-width: 1350px) {
+    .infoWrapper {
+        flex-direction: column;
+        margin: 10px 0 0 0;
+    }
+    .button {
+        margin: 10px 0 30px;
+        order: -1;
+    }
+
+    .iconCaption {
+        margin-top: 16px;
+
+        &:first-child {
+            margin-top: 30px;
+        }
+    }
+}

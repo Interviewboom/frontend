@@ -17,7 +17,7 @@ export const TestsSection: FC<TestsSectionsProps> = ({ popularTests }) => {
                 <Title level={2} className={styles.titleMargin}>
                     Popular tests
                 </Title>
-                <Tests testsArray={popularTests} />
+                <Tests testsArray={popularTests} areScrollable />
                 <div className={styles.btnWrapper}>
                     <Button link="/all-tests">More tests</Button>
                 </div>
