@@ -50,8 +50,8 @@
 }
 
 .imgWrapper {
-    flex-shrink: 1;
-    min-width: 600px;
+    max-width: 600px;
+    width: 100%;
 }
 
 .content {
@@ -61,4 +61,23 @@
     flex-direction: column;
     padding-left: 40px;
     flex-shrink: 2;
+}
+
+@media screen and (max-width: 1350px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .content {
+        padding: 0;
+    }
+    .title {
+        order: -1;
+        margin-top: 16px;
+        margin-bottom: 0;
+    }
+
+    .socialsWrapper {
+        justify-content: space-between;
+    }
 }

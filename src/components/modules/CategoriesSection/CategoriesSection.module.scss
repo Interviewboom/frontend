@@ -24,3 +24,14 @@
     padding: 8px 0;
     margin-bottom: 40px;
 }
+
+@media screen and (max-width: 992px) {
+    .titleMargin {
+        padding: 8px 0;
+        margin-bottom: 24px;
+    }
+
+    .section {
+        margin-bottom: 100px;
+    }
+}

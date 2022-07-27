@@ -27,7 +27,7 @@ export const FrontGreetingSection = () => {
                     <Text size="big" isParagraph className={styles.marginTitle}>
                         This platform helps to prepare for a technical interview with an international company.
                     </Text>
-                    <Button link="/tests-categories">Start</Button>
+                    <Button link="/categories">Start</Button>
                 </div>
             </div>
         </section>

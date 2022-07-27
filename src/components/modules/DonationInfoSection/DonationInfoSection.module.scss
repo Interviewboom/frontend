@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    padding: 0 15px;
     background: $most-light-color;
     font-family: $primary-font;
     margin-bottom: 200px;
@@ -30,7 +31,24 @@
 .textMargin {
     margin: 40px 0;
 }
+
 .paddings {
     margin-bottom: 40px;
     padding: 8px 0;
+}
+
+@media screen and (max-width: 992px) {
+    .wrapper {
+        padding: 40px 15px;
+    }
+    .paddings {
+        margin: 0;
+    }
+
+    .textMargin {
+        margin-top: 24px;
+    }
+    .section {
+        margin-bottom: 100px;
+    }
 }
