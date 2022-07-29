@@ -8,11 +8,12 @@ import { getTests, getCategory } from "src/api/categoriesTestsInfo";
 type PageProps = {
     category: TestCategory;
     testsByCategory: TestType[];
+    error?: string;
 };
 
-const TestsByCategoryPage: NextPage<PageProps> = ({ testsByCategory, category }: PageProps) => {
+const TestsByCategoryPage: NextPage<PageProps> = ({ testsByCategory, category, error }: PageProps) => {
     return (
-        <DefaultLayout>
+        <DefaultLayout error={error}>
             <TestsByCategorySection testsByCategory={testsByCategory} category={category} />
         </DefaultLayout>
     );
@@ -25,10 +26,19 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
     if (typeof categoryId === "string") {
         const testsByCategory = await getTests({ categoryId });
+
+        if (testsByCategory instanceof Error) {
+            return { props: { error: testsByCategory.message } };
+        }
+
         const category = await getCategory(categoryId);
+
+        if (category instanceof Error) {
+            return { props: { error: category.message } };
+        }
 
         return { props: { testsByCategory, category } };
     }
 
-    return { props: { testsByCategory: null, category: null } };
+    return { notFound: true };
 };

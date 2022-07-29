@@ -13,6 +13,7 @@
 @media screen and (max-width: 768px) {
     .categories {
         width: 100%;
+        overflow-x: scroll;
         gap: 16px;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
@@ -20,5 +21,4 @@
 
 .noWrap {
     grid-template-columns: repeat(4, minmax(240px, 345px));
-    overflow-x: scroll;
 }

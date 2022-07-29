@@ -7,6 +7,11 @@
     justify-content: center;
     width: 100%;
     margin-bottom: 200px;
+    padding: 14px 0;
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 32px;
 }
 
 .wrapper {
@@ -21,26 +26,12 @@
     margin-bottom: 48px;
 }
 
-.answersWrapper {
-    min-width: 900px;
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-}
+@media screen and (max-width: 992px) {
+    .wrapper {
+        padding-top: 24px;
+    }
 
-.buttonMargin {
-    margin-top: 48px;
-    align-self: flex-end;
-}
-
-.question {
-    padding: 14px 0;
-    margin-bottom: 12px;
-    font-size: 18px;
-    font-weight: 800;
-    line-height: 32px;
-}
-
-.choose {
-    margin-bottom: 16px;
+    .barWrapper {
+        margin-bottom: 24px;
+    }
 }

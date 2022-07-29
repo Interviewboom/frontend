@@ -1,0 +1,45 @@
+@import "@sass/_colors.scss";
+
+.textClass {
+    margin-bottom: 25px;
+}
+
+.listItem {
+    display: flex;
+    align-items: center;
+    padding: 24px;
+    margin-bottom: 14px;
+    border-radius: 10px;
+    border: 1px solid $light-grey-color;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.list {
+    column-count: 2;
+    margin-bottom: 100px;
+}
+
+.margRight {
+    margin-right: 24px;
+    flex-shrink: 0;
+}
+
+@media screen and (max-width: 992px) {
+    .list {
+        column-count: unset;
+        margin-bottom: 40px;
+    }
+
+    .listItem {
+        padding: 15px 20px 15px 15px;
+    }
+    .margRight {
+        margin-right: 24px;
+        flex-shrink: 0;
+        flex-basis: 24px;
+        align-self: flex-start;
+    }
+}

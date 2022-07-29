@@ -11,11 +11,12 @@ import { errorObjectType } from "@utils/errorHandler";
 
 type PageProps = {
     categories: TestCategory[] & errorObjectType;
+    error: string;
 };
 
-const AllCategoriesPage: NextPage<PageProps> = ({ categories }: PageProps) => {
+const AllCategoriesPage: NextPage<PageProps> = ({ categories, error }: PageProps) => {
     return (
-        <DefaultLayout error={categories.message ?? ""}>
+        <DefaultLayout error={error}>
             <AllCategoriesSection categories={categories} />
             <DonationInfoSection />
         </DefaultLayout>
@@ -26,6 +27,8 @@ export default AllCategoriesPage;
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const categories = await getCategories();
-
+    if (categories instanceof Error) {
+        return { props: { error: categories.message } };
+    }
     return { props: { categories } };
 };

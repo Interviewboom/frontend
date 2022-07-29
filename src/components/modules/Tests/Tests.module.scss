@@ -12,10 +12,10 @@
 @media screen and (max-width: 992px) {
     .tests {
         gap: 16px;
+        overflow-x: scroll;
     }
 }
 
 .noWrap {
-    overflow-x: scroll;
     grid-template-columns: repeat(4, minmax(230px, 345px));
 }

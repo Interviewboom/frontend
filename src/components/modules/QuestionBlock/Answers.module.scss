@@ -26,3 +26,13 @@
 .choose {
     margin-bottom: 16px;
 }
+
+@media screen and (max-width: 992px) {
+    .question {
+        margin: 0;
+    }
+
+    .buttonMargin {
+        margin-top: 24px;
+    }
+}
