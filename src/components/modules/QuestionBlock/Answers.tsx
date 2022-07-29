@@ -27,6 +27,8 @@ type AnswersProps = {
 export const Answers: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => {
     const router = useRouter();
 
+    const htmlWithoutTags = questionInfo.question?.replace(/(<([^>]+)>)/gi, "");
+
     const submitHandler = async (values: MyFormValues) => {
         if (typeof router.query?.sessionId !== "string") return;
 
@@ -53,7 +55,7 @@ export const Answers: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => 
                 {questionInfo.title}
             </Title>
 
-            {questionInfo.question?.replace(/(<([^>]+)>)/gi, "") && (
+            {htmlWithoutTags && (
                 <div className={styles.questionCode} dangerouslySetInnerHTML={{ __html: questionInfo.question }} />
             )}
 
