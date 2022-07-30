@@ -2,6 +2,7 @@ import { DefaultLayout } from "@layouts/DefaultLayout";
 import { GetServerSideProps, NextPage } from "next";
 import { QuestionType, answerType } from "src/api/apiTypes";
 import { getNextQuestion, getQuestionAnswers } from "src/api/testFlow";
+import "tinymce/skins/ui/oxide-dark/content.css";
 
 import { QuestionBlock } from "@modules/QuestionBlock/QuestionBlock";
 
