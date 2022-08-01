@@ -27,7 +27,7 @@ const MobileMenu = () => {
             </div>
 
             {menuOpened && (
-                <nav className={styles.menuList}>
+                <nav className={styles.menuList} {...(menuOpened ? { onClick: () => setMenuOpened(false) } : {})}>
                     <ul>
                         {NAVIGATION_ITEMS.map(item => (
                             <li className={styles.navigationItem}>
