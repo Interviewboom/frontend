@@ -17,7 +17,7 @@
                 {
                     "svg": "always"
               ,
-                    "css":0
+                    "css":"never"
                 }
             ],
             "react/jsx-filename-extension": [
