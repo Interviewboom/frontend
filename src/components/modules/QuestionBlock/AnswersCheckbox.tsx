@@ -27,6 +27,8 @@ type AnswersProps = {
 export const AnswersCheckbox: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => {
     const router = useRouter();
 
+    const htmlWithoutTags = questionInfo.question?.replace(/(<([^>]+)>)/gi, "");
+
     const submitHandler = async (values: MyFormValues) => {
         if (typeof router.query?.sessionId !== "string") return;
 
@@ -52,7 +54,9 @@ export const AnswersCheckbox: FC<AnswersProps> = ({ questionInfo, isLast, answer
             <Title className={styles.question} level={4}>
                 {questionInfo.title}
             </Title>
-            <div className={styles.questionCode} dangerouslySetInnerHTML={{ __html: questionInfo.question }} />
+            {htmlWithoutTags && (
+                <div className={styles.questionCode} dangerouslySetInnerHTML={{ __html: questionInfo.question }} />
+            )}
 
             <Text size="small" isParagraph color="grey-text-color" className={styles.choose}>
                 Choose several answers

@@ -1,0 +1,33 @@
+@import "@sass/_colors.scss";
+
+.stats {
+    display: flex;
+    align-items: center;
+    margin-bottom: 100px;
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid $light-grey-color;
+    text-align: center;
+}
+
+.btn {
+    margin-left: auto;
+}
+
+.iconCls {
+    margin-right: 40px;
+}
+
+@media screen and (max-width: 992px) {
+    .stats {
+        flex-direction: column;
+        margin-bottom: 24px;
+        padding: 24px 15px 15px;
+    }
+    .btn {
+        margin: 24px 0 0;
+    }
+    .iconCls {
+        margin: 0 0 14px;
+    }
+}

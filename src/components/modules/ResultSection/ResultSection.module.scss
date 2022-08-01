@@ -1,37 +1,40 @@
 @import "@sass/_colors.scss";
 @import "@sass/_variables.scss";
 
-.question {
+.section {
     background-color: $most-light-color;
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-bottom: 200px;
-    padding: 14px 0;
-    margin-bottom: 12px;
-    font-size: 18px;
-    font-weight: 800;
-    line-height: 32px;
+    margin-bottom: 100px;
+    padding-top: 30px;
 }
 
 .wrapper {
-    padding: 100px 15px 50px;
+    padding: 0px 15px;
     max-width: $desktop-content-width;
     width: 100%;
+}
+
+.titleMargin {
+    padding: 8px 0;
+    margin: 20px 0 24px;
+}
+
+.statsTitleShareWrapper {
     display: flex;
     flex-direction: column;
 }
 
-.barWrapper {
-    margin-bottom: 48px;
+.share {
+    align-self: flex-end;
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
 }
 
 @media screen and (max-width: 992px) {
-    .wrapper {
-        padding-top: 24px;
-    }
-
-    .barWrapper {
-        margin-bottom: 24px;
+    .share {
+        order: 1;
     }
 }

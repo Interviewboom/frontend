@@ -8,11 +8,12 @@ import { TestType, TestCategory } from "src/api/apiTypes";
 type PageProps = {
     category: TestCategory;
     oneTestInfo: TestType;
+    error?: string;
 };
 
-const TestDetailsPage: NextPage<PageProps> = ({ oneTestInfo, category }: PageProps) => {
+const TestDetailsPage: NextPage<PageProps> = ({ oneTestInfo, category, error }: PageProps) => {
     return (
-        <DefaultLayout>
+        <DefaultLayout error={error}>
             <OneTestSection oneTestInfo={oneTestInfo} category={category} />
             <DonationInfoSection />
         </DefaultLayout>
@@ -27,7 +28,16 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
     if (typeof categoryId === "string" && typeof testId === "string") {
         const oneTestInfo = await getOneTest(testId);
+
+        if (oneTestInfo instanceof Error) {
+            return { props: { error: oneTestInfo.message } };
+        }
+
         const category = await getCategory(categoryId);
+
+        if (category instanceof Error) {
+            return { props: { error: category.message } };
+        }
 
         return { props: { oneTestInfo, category } };
     }

@@ -12,9 +12,8 @@ interface LoadBarProps {
 export const LoadBar: FC<LoadBarProps> = ({ onClose, currentQuestionNumber, numberOfQuestions }) => {
     return (
         <div className={styles.wrapper}>
-            <div className={styles.alarm}>
-                <Icon name="alarm" />
-            </div>
+            <Icon name="alarm" className={styles.alarm} />
+
             <Text size="small" lineHeight={24}>
                 {currentQuestionNumber}/{numberOfQuestions}
             </Text>
