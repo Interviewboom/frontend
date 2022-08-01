@@ -17,7 +17,7 @@ export const HowItWorksSection = () => {
     );
 
     return (
-        <section className={styles.section}>
+        <section className={styles.section} id="how-it-works">
             <div className={styles.wrapper}>
                 <Title level={2} className={styles.paddings}>
                     How does it work?

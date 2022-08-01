@@ -12,7 +12,7 @@ type TestsSectionsProps = {
 
 export const TestsSection: FC<TestsSectionsProps> = ({ popularTests }) => {
     return (
-        <section className={styles.section}>
+        <section className={styles.section} id="popular-tests">
             <div className={styles.wrapper}>
                 <Title level={2} className={styles.titleMargin}>
                     Popular tests

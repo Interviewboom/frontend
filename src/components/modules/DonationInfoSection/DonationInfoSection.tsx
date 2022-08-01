@@ -7,7 +7,7 @@ import styles from "./DonationInfoSection.module.scss";
 
 export const DonationInfoSection = () => {
     return (
-        <section className={styles.section}>
+        <section className={styles.section} id="support-the-project">
             <div className={styles.wrapper}>
                 <div className={styles.content}>
                     <Title level={2} className={styles.paddings}>
