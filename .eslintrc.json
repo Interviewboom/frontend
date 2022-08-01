@@ -11,15 +11,7 @@
             "react/jsx-props-no-spreading": "off",
             "react/require-default-props": "off" ,
             "react/no-array-index-key": "off",
-            "import/extensions": [
-                "error",
-                "never",
-                {
-                    "svg": "always"
-              ,
-                    "css":"never"
-                }
-            ],
+            "import/extensions": 0,
             "react/jsx-filename-extension": [
                 1,
                 {
