@@ -17,6 +17,6 @@ export const useNewSession = () => {
             return;
         }
 
-        router.push(`/categories/${router.query?.categoryId}/test/${router.query?.testId}/session/${sessionData.id}`);
+        router.push(`/categories/${router.query.categoryId}/test/${router.query.testId}/session/${sessionData?.id}`);
     };
 };
