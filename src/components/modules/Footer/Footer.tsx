@@ -8,10 +8,15 @@ import styles from "./Footer.module.scss";
 
 export const Footer = () => {
     const companyItems = useMemo(
-        () => [{ name: "Всі тести" }, { name: "Як це працює?" }, { name: "Про проект" }, { name: "Підтримати проект" }],
+        () => [
+            { name: "All tests" },
+            { name: "How does it work?" },
+            { name: "About the project" },
+            { name: "Support the project" },
+        ],
         []
     );
-    const supportItems = useMemo(() => [{ name: "Зворотній зв’язок" }, { name: "denisostapiv@gmail.com" }], []);
+    const supportItems = useMemo(() => [{ name: "Feedback" }, { name: "denisostapiv@gmail.com" }], []);
 
     return (
         <footer className={styles.footer}>
@@ -19,9 +24,9 @@ export const Footer = () => {
                 <Logo template="light" />
 
                 <div className={styles.navigation}>
-                    <NavigationList title="Ми в соц мережах" />
-                    <NavigationList title="Компанія" items={companyItems} />
-                    <NavigationList title="Тех. підртрика" items={supportItems} />
+                    <NavigationList title="We are on social networks" />
+                    <NavigationList title="Company" items={companyItems} />
+                    <NavigationList title="Technical support" items={supportItems} />
                 </div>
             </div>
 
