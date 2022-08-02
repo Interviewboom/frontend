@@ -27,7 +27,7 @@ export const getCategory = async (id: string) => {
     }
 };
 
-export const getTests = async (paramsObj: paramsType) => {
+export const getTests = async (paramsObj: paramsType = {}) => {
     try {
         const res = await api.get<TestType[]>(`tests${stringifyParams(paramsObj)}`);
         const tests: TestType[] = res.data;
