@@ -3,10 +3,7 @@ import { useMemo } from "react";
 import styles from "./UserPolicy.module.scss";
 
 export const UserPolicy = () => {
-    const list = useMemo(
-        () => [{ name: "Файли cookie" }, { name: "Клієнтська угода" }, { name: "Політика конфіденційності" }],
-        []
-    );
+    const list = useMemo(() => [{ name: "Cookies" }, { name: "Terms of Service" }, { name: "Privacy Policy" }], []);
 
     return (
         <ul className={styles.list}>
