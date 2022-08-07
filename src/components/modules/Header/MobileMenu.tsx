@@ -5,25 +5,37 @@ import { Logo } from "@elements/Logo";
 
 import styles from "./MobileMenu.module.scss";
 import { NAVIGATION_ITEMS } from "./const";
+import { Auth } from "./Auth";
 
 const MobileMenu = () => {
     const [menuOpened, setMenuOpened] = useState(false);
+    const [authOpened, setAuthOpened] = useState(false);
+
+    const onMenuClick = () => {
+        setMenuOpened(prev => !prev);
+        setAuthOpened(false);
+    };
+
+    const onAuthClick = () => {
+        setAuthOpened(prev => !prev);
+        setMenuOpened(false);
+    };
 
     return (
         <div className={styles.mobileWrapper}>
             <div className={styles.mobileMenuTop}>
-                <button
-                    type="button"
-                    onClick={() => {
-                        setMenuOpened(prev => !prev);
-                    }}
-                >
+                <button type="button" onClick={onMenuClick}>
                     <Icon name={menuOpened ? "close" : "menuIcon"} />
                 </button>
 
-                <div className={styles.mobileLogo}>
-                    <Logo />
-                </div>
+                <Link href="/">
+                    <div className={styles.mobileLogo}>
+                        <Logo />
+                    </div>
+                </Link>
+                <button type="button" onClick={onAuthClick}>
+                    <Icon name="avatar" />
+                </button>
             </div>
 
             {menuOpened && (
@@ -37,6 +49,8 @@ const MobileMenu = () => {
                     </ul>
                 </nav>
             )}
+
+            {authOpened && <Auth />}
         </div>
     );
 };
