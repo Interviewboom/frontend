@@ -5,7 +5,7 @@ import { getNextQuestion, getQuestionAnswers } from "src/api/testFlow";
 import { QuestionBlock } from "@modules/QuestionBlock/QuestionBlock";
 
 type PageProps = {
-    questionData: { question: QuestionType; count: number; countAnswered: number };
+    questionData: { question: QuestionType; count: number; countAnswered: number; test_id: number };
     answers: answerType[];
     error: string;
 };
@@ -28,7 +28,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
             return { props: { error: { message: nextQuestionInfo.message } } };
         }
 
-        const answers = await getQuestionAnswers(nextQuestionInfo.question?.test_id, nextQuestionInfo.question?.id);
+        const answers = await getQuestionAnswers(nextQuestionInfo?.test_id, nextQuestionInfo.question?.id);
 
         if (answers instanceof Error) {
             return { props: { error: answers.message } };
