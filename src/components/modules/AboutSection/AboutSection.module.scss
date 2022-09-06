@@ -13,7 +13,6 @@
 .wrapper {
     display: grid;
     grid-template-columns: minmax(400px, 633px) minmax(500px, 736px);
-    grid-template-rows: repeat(3, min-content);
     justify-content: space-between;
     column-gap: 25px;
     padding: 100px 15px 66px;
@@ -52,23 +51,21 @@
 
 @media screen and (max-width: 1200px) {
     .wrapper {
-        display: flex;
-        flex-direction: column;
+        grid-template-columns: 1fr;
         padding: 0 15px;
     }
 
+    .image {
+        grid-row: 2/3;
+        grid-column: unset;
+        margin-bottom: 24px;
+    }
     .logo {
         max-width: 200px;
     }
 
     .titleWrapper {
-        order: -2;
         margin-bottom: 20px;
-    }
-
-    .image {
-        order: -1;
-        margin-bottom: 24px;
     }
 
     .section {

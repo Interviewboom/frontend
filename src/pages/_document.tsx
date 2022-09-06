@@ -10,6 +10,7 @@ export default () => {
                     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap"
                     rel="stylesheet"
                 />
+                <link rel="shortcut icon" href="/icon_InterviewBoom.ico" />
             </Head>
             <body>
                 <Main />
