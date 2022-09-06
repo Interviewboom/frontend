@@ -8,7 +8,7 @@ import styles from "./AboutSection.module.scss";
 
 export const AboutSection = () => {
     return (
-        <section className={styles.section}>
+        <section className={styles.section} id="about-us">
             <div className={styles.wrapper}>
                 {/* <div className={styles.text}> */}
                 <div className={styles.titleWrapper}>

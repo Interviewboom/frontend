@@ -1,8 +1,8 @@
 // Navigation links
 const LINK_ALL_TESTS = "/all-tests";
-const LINK_HOW_IT_WORKS = "/how-it-works";
-const LINK_ABOUT_US = "/about-us";
-const LINK_SUPPORT_THE_PROJECT = "/support-the-project";
+const LINK_HOW_IT_WORKS = "#how-it-works";
+const LINK_ABOUT_US = "#about-us";
+const LINK_SUPPORT_THE_PROJECT = "#support-the-project";
 
 const NAVIGATION_ALL_TESTS = { name: "All tests", link: LINK_ALL_TESTS };
 const NAVIGATION_HOW_IT_WORKS = { name: "How does it work?", link: LINK_HOW_IT_WORKS };

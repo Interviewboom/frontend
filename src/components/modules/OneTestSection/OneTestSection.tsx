@@ -5,7 +5,7 @@ import { Text } from "@elements/Text";
 import { Title } from "@elements/Title/Title";
 import { Icon } from "@elements/Icon";
 import { TestCategory, TestType } from "src/api/apiTypes";
-
+import { ShareButton } from "@elements/ShareButton";
 import { Breadcrumb } from "@elements/Breadcrumb/Breadcrumb";
 import { TestDetails } from "./TestDetails";
 
@@ -36,10 +36,7 @@ export const OneTestSection: FC<OneTestSectionProps> = ({ oneTestInfo, category 
                             <Text>Favorites</Text>
                         </div>
 
-                        <div className={styles.share}>
-                            <Icon name="share" width={18} height={15} className={styles.iconMargin} />
-                            <Text>Share</Text>
-                        </div>
+                        <ShareButton />
                     </div>
 
                     <div className={styles.row}>

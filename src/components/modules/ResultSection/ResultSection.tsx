@@ -1,8 +1,7 @@
 import { FC, useMemo } from "react";
 import { useRouter } from "next/router";
 import { TestResultsType } from "src/api/apiTypes";
-import { Icon } from "@elements/Icon";
-import { Text } from "@elements/Text/Text";
+import { ShareButton } from "@elements/ShareButton";
 import { Title } from "@elements/Title/Title";
 import { Breadcrumb } from "@elements/Breadcrumb";
 
@@ -35,10 +34,7 @@ export const ResultSection: FC<ResultProps> = ({ testResults }) => {
                         ]}
                     />
 
-                    <div className={styles.share}>
-                        <Icon name="share" width={18} height={15} className={styles.iconMargin} />
-                        <Text>Share</Text>
-                    </div>
+                    <ShareButton className={styles.share} />
                     <Title level={2} className={styles.titleMargin}>
                         Final result of {`"${testResults.test}"`} test
                     </Title>

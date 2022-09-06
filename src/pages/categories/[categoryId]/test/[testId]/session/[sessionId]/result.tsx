@@ -28,7 +28,9 @@ export const getServerSideProps: GetServerSideProps = async context => {
             return { props: { error: testResults.message } };
         }
 
-        return { props: { testResults } };
+        if (testResults) {
+            return { props: { testResults } };
+        }
     }
 
     return {
