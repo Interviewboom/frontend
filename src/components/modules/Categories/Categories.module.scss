@@ -17,8 +17,8 @@
         gap: 16px;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
-}
 
-.noWrap {
-    grid-template-columns: repeat(4, minmax(240px, 345px));
+    .noWrap {
+        grid-template-columns: repeat(4, minmax(240px, 345px));
+    }
 }

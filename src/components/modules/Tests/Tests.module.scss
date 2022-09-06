@@ -14,8 +14,8 @@
         gap: 16px;
         overflow-x: scroll;
     }
-}
 
-.noWrap {
-    grid-template-columns: repeat(4, minmax(230px, 345px));
+    .noWrap {
+        grid-template-columns: repeat(4, minmax(230px, 345px));
+    }
 }

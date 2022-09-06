@@ -1,0 +1,47 @@
+@import "@sass/_colors.scss";
+
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($dark-text-color, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+.form {
+    z-index: 13;
+    background-color: $most-light-color;
+    border: 1px solid $light-grey-color;
+    border-radius: 10px;
+    max-width: 568px;
+    padding: 0 0 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textClass {
+    padding: 10px 0;
+    margin: 24px 50px;
+    max-width: 500px;
+}
+
+.closeBtn {
+    margin: 0 30px 20px 0;
+}
+
+@media screen and (max-width: 992px) {
+    .overlay {
+        align-items: flex-start;
+        padding-top: 200px;
+    }
+}
