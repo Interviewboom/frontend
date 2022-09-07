@@ -32,7 +32,6 @@ export const AboutSection = () => {
                     and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
                     leap into electronic typesetting, remaining essentially unchanged.
                 </Text>
-                {/* </div> */}
                 <div className={styles.image}>
                     <Image src="/assets/images/about.png" alt="laptop" width={736} height={356} />
                 </div>
