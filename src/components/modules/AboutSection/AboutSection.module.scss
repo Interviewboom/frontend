@@ -11,8 +11,10 @@
 }
 
 .wrapper {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(400px, 633px) minmax(500px, 736px);
     justify-content: space-between;
+    column-gap: 25px;
     padding: 100px 15px 66px;
     width: $desktop-content-width;
 }
@@ -32,7 +34,8 @@
 }
 
 .image {
-    flex-shrink: 1;
+    grid-row: 1/4;
+    grid-column: 2/3;
     border-radius: 8px;
     overflow: hidden;
     max-width: 736px;
@@ -48,8 +51,21 @@
 
 @media screen and (max-width: 1200px) {
     .wrapper {
-        flex-direction: column-reverse;
+        grid-template-columns: 1fr;
         padding: 0 15px;
+    }
+
+    .image {
+        grid-row: 2/3;
+        grid-column: unset;
+        margin-bottom: 24px;
+    }
+    .logo {
+        max-width: 200px;
+    }
+
+    .titleWrapper {
+        margin-bottom: 20px;
     }
 
     .section {
