@@ -31,12 +31,12 @@ const HomePage: NextPage<HomePageProps> = ({ categories, popularTests, error }: 
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const categories = await getCategories({ limit: "4" });
-    const popularTests = await getTests({ limit: "4" });
+    const [categories, popularTests] = await Promise.all([getCategories({ limit: "4" }), getTests({ limit: "4" })]);
 
     if (categories instanceof Error && popularTests instanceof Error) {
         return { props: { error: categories.message } };
     }
+
     return { props: { popularTests, categories } };
 };
 

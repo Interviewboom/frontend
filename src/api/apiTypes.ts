@@ -38,7 +38,7 @@ export type TestFlowType = {
     status: string;
 };
 
-export type questionAllDataType = { question: QuestionType; count: number; countAnswered: number };
+export type questionAllDataType = { question: QuestionType; count: number; test_id: number; countAnswered: number };
 
 export type TestFlowData = {
     testId: number;
