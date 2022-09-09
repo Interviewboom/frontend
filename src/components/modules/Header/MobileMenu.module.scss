@@ -11,7 +11,7 @@
 .mobileMenuTop {
     display: grid;
     gap: 10px;
-    grid-template-columns: 18px 1fr 18px;
+    grid-template-columns: 20px 1fr 20px;
     justify-items: center;
     align-items: center;
     padding: 14px 19px;
@@ -26,17 +26,17 @@
     width: 100%;
     background-color: $most-light-color;
     bottom: 0;
-    top: 48px;
+    top: 49px;
     left: 0;
     right: 0;
-    padding: 0 19px;
+    padding: 0 15px;
 }
 
 .navigationItem {
-    margin-top: 20px;
+    margin-top: 24px;
 
     &:first-child {
-        margin-top: 40px;
+        margin-top: 30px;
     }
 }
 

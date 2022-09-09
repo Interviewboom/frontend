@@ -25,3 +25,24 @@
         padding-right: 0;
     }
 }
+
+@media screen and (max-width: 992px) {
+    .navigationList {
+        flex-direction: column;
+        padding: 0 15px;
+        background-color: $most-light-color;
+        position: fixed;
+        top: 49px;
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+    }
+
+    .navigationItem {
+        padding: 12px 0;
+
+        &:first-child {
+            margin-top: 20px;
+        }
+    }
+}
