@@ -19,7 +19,7 @@ export const NavigationList: FC<NavigationListProps> = ({ title, items }) => {
             {items && (
                 <ul className={styles.list}>
                     {items.map(item => (
-                        <li className={styles.item}>
+                        <li key={item.name} className={styles.item}>
                             <Text color="most-light-color">{item.name}</Text>
                         </li>
                     ))}

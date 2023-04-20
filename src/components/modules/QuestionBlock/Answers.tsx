@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { FormikProps, useFormik } from "formik";
+import { FormikProps, useFormik, Form, Formik } from "formik";
 import { useRouter } from "next/router";
 
 import { answerType, QuestionType } from "src/api/apiTypes";
@@ -31,14 +31,14 @@ export const Answers: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => 
 
     const submitHandler = async (values: MyFormValues) => {
         if (typeof router.query?.sessionId !== "string") return;
-
+        console.log("single value", values);
         await postUserAnswers(router.query.sessionId, {
             answerIds: [Number(values.answerId)],
             questionId: questionInfo.id,
         });
 
         if (!isLast) {
-            router.reload();
+            router.replace(router.asPath);
         } else {
             router.push(`${router.asPath}/result`);
         }
@@ -50,35 +50,37 @@ export const Answers: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => 
     });
 
     return (
-        <form className={styles.answersWrapper} onSubmit={formik.handleSubmit}>
-            <Title className={styles.question} level={4}>
-                {questionInfo.title}
-            </Title>
+        <Formik initialValues={initialValues} onSubmit={submitHandler}>
+            <Form className={styles.answersWrapper} onSubmit={formik.handleSubmit}>
+                <Title className={styles.question} level={4}>
+                    {questionInfo.title}
+                </Title>
 
-            {htmlWithoutTags && (
-                <div className={styles.questionCode} dangerouslySetInnerHTML={{ __html: questionInfo.question }} />
-            )}
+                {htmlWithoutTags && (
+                    <div className={styles.questionCode} dangerouslySetInnerHTML={{ __html: questionInfo.question }} />
+                )}
 
-            <Text size="small" isParagraph color="grey-text-color" className={styles.choose}>
-                Choose one correct answer
-            </Text>
-            {answers &&
-                answers.map(item => {
-                    return (
-                        <RadioInput
-                            text={item.answer}
-                            key={item.id}
-                            type="radio"
-                            value={item.id}
-                            checked={Number(formik.values.answerId) === item.id}
-                            onChange={formik.handleChange}
-                            name="answerId"
-                        />
-                    );
-                })}
-            <Button type="submit" size="medium" className={styles.buttonMargin}>
-                {isLast ? "Finish" : "Next"}
-            </Button>
-        </form>
+                <Text size="small" isParagraph color="grey-text-color" className={styles.choose}>
+                    Choose one correct answer
+                </Text>
+                {answers &&
+                    answers.map(item => {
+                        return (
+                            <RadioInput
+                                text={item.answer}
+                                key={item.id}
+                                type="radio"
+                                value={item.id}
+                                checked={Number(formik.values.answerId) === item.id}
+                                onChange={formik.handleChange}
+                                name="answerId"
+                            />
+                        );
+                    })}
+                <Button type="submit" size="medium" className={styles.buttonMargin} disabled={formik.isSubmitting}>
+                    {isLast ? "Finish" : "Next"}
+                </Button>
+            </Form>
+        </Formik>
     );
 };
