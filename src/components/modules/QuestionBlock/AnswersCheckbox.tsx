@@ -30,7 +30,7 @@ export const AnswersCheckbox: FC<AnswersProps> = ({ questionInfo, isLast, answer
 
     const submitHandler = async (values: MyFormValues) => {
         if (typeof router.query?.sessionId !== "string") return;
-        console.log("multi values", values);
+
         await postUserAnswers(router.query.sessionId, {
             answerIds: values.answerIds,
             questionId: questionInfo.id,

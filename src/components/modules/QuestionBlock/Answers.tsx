@@ -31,7 +31,7 @@ export const Answers: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => 
 
     const submitHandler = async (values: MyFormValues) => {
         if (typeof router.query?.sessionId !== "string") return;
-        console.log("single value", values);
+
         await postUserAnswers(router.query.sessionId, {
             answerIds: [Number(values.answerId)],
             questionId: questionInfo.id,
