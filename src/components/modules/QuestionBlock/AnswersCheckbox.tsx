@@ -61,20 +61,19 @@ export const AnswersCheckbox: FC<AnswersProps> = ({ questionInfo, isLast, answer
                 <Text size="small" isParagraph color="grey-text-color" className={styles.choose}>
                     Choose several answers
                 </Text>
-                {answers &&
-                    answers.map(item => {
-                        return (
-                            <RadioInput
-                                text={item.answer}
-                                key={item.id}
-                                type="checkbox"
-                                value={item.id}
-                                checked={formik.values.answerIds.includes(item.id.toString())}
-                                onChange={formik.handleChange}
-                                name="answerIds"
-                            />
-                        );
-                    })}
+                {answers?.map(item => {
+                    return (
+                        <RadioInput
+                            text={item.answer}
+                            key={item.id}
+                            type="checkbox"
+                            value={item.id}
+                            checked={formik.values.answerIds.includes(item.id.toString())}
+                            onChange={formik.handleChange}
+                            name="answerIds"
+                        />
+                    );
+                })}
                 <Button type="submit" size="medium" className={styles.buttonMargin} disabled={formik.isSubmitting}>
                     {isLast ? "Finish" : "Next"}
                 </Button>
