@@ -1,8 +1,9 @@
 import { DefaultLayout } from "@layouts/DefaultLayout";
 import { GetServerSideProps, NextPage } from "next";
 import { QuestionType, answerType } from "src/api/apiTypes";
-import { getNextQuestion, getQuestionAnswers } from "src/api/testFlow";
 import { QuestionBlock } from "@modules/QuestionBlock/QuestionBlock";
+import { wrapper } from "src/store/store";
+import { fetchQuestionData } from "src/store/features/question/questionSlice";
 
 type PageProps = {
     questionData: { question: QuestionType; count: number; countAnswered: number; test_id: number };
@@ -20,24 +21,16 @@ const QuestionPage: NextPage<PageProps> = ({ questionData, answers, error }: Pag
 
 export default QuestionPage;
 
-export const getServerSideProps: GetServerSideProps = async context => {
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async context => {
     if (typeof context.params?.sessionId === "string") {
-        const nextQuestionInfo = await getNextQuestion(context.params.sessionId);
+        store.dispatch(fetchQuestionData(context.params?.sessionId));
 
-        if (nextQuestionInfo instanceof Error) {
-            return { props: { error: { message: nextQuestionInfo.message } } };
-        }
+        const { question } = store.getState();
 
-        const answers = await getQuestionAnswers(nextQuestionInfo?.test_id, nextQuestionInfo.question?.id);
-
-        if (answers instanceof Error) {
-            return { props: { error: answers.message } };
-        }
-
-        return { props: { questionData: nextQuestionInfo, answers } };
+        return { props: { questionData: question.data.questionData, answers: question.data.answers } };
     }
 
     return {
         notFound: true,
     };
-};
+});

@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-
 import { DefaultLayout } from "@layouts/DefaultLayout";
 
 const NotFoundPage: NextPage = () => {

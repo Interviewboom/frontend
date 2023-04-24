@@ -62,7 +62,7 @@ export const AnswersCheckbox: FC<AnswersProps> = ({ questionInfo, isLast, answer
                     Choose several answers
                 </Text>
                 {answers &&
-                    answers.map(item => {
+                    answers?.map(item => {
                         return (
                             <RadioInput
                                 text={item.answer}

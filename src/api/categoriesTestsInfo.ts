@@ -18,10 +18,10 @@ export const getCategories = async (paramsObj: paramsType = {}) => {
 
 export const getCategory = async (id: string) => {
     try {
-        const res = await api.get<TestCategory[]>(`test-categories/${id}`);
-        const categories: TestCategory[] = res.data;
+        const res = await api.get<TestCategory>(`test-categories/${id}`);
+        const category: TestCategory = res.data;
 
-        return categories;
+        return category;
     } catch (error) {
         return handleRequestError(error);
     }

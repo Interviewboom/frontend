@@ -1,9 +1,11 @@
+import React, { FC } from "react";
 import { DefaultLayout } from "@layouts/DefaultLayout";
 import { OneTestSection } from "@modules/OneTestSection/OneTestSection";
 import { DonationInfoSection } from "@modules/DonationInfoSection/DonationInfoSection";
-import { GetServerSideProps, NextPage } from "next";
-import { getCategory, getOneTest } from "src/api/categoriesTestsInfo";
 import { TestType, TestCategory } from "src/api/apiTypes";
+import { wrapper } from "src/store/store";
+import { GetServerSideProps } from "next";
+import { fetchOneTestInfo, fetchCategory } from "src/store/features/tests/testDetailsSlice";
 
 type PageProps = {
     category: TestCategory;
@@ -11,7 +13,7 @@ type PageProps = {
     error?: string;
 };
 
-const TestDetailsPage: NextPage<PageProps> = ({ oneTestInfo, category, error }: PageProps) => {
+const TestDetailsPage: FC<PageProps> = ({ oneTestInfo, category, error }) => {
     return (
         <DefaultLayout error={error}>
             <OneTestSection oneTestInfo={oneTestInfo} category={category} />
@@ -20,27 +22,18 @@ const TestDetailsPage: NextPage<PageProps> = ({ oneTestInfo, category, error }: 
     );
 };
 
-export default TestDetailsPage;
-
-export const getServerSideProps: GetServerSideProps = async context => {
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async context => {
     const testId = context.params?.testId;
     const categoryId = context.params?.categoryId;
-
     if (typeof categoryId === "string" && typeof testId === "string") {
-        const oneTestInfo = await getOneTest(testId);
+        store.dispatch(fetchOneTestInfo(testId));
+        store.dispatch(fetchCategory(categoryId));
 
-        if (oneTestInfo instanceof Error) {
-            return { props: { error: oneTestInfo.message } };
-        }
+        const { testDetails } = store.getState();
 
-        const category = await getCategory(categoryId);
-
-        if (category instanceof Error) {
-            return { props: { error: category.message } };
-        }
-
-        return { props: { oneTestInfo, category } };
+        return { props: { oneTestInfo: testDetails.oneTestInfo, category: testDetails.category } };
     }
-
     return { notFound: true };
-};
+});
+
+export default TestDetailsPage;
