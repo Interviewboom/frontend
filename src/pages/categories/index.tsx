@@ -5,9 +5,9 @@ import { DefaultLayout } from "@layouts/DefaultLayout";
 import { DonationInfoSection } from "@modules/DonationInfoSection";
 import { AllCategoriesSection } from "@modules/AllCategoriesSection/AllCategoriesSection";
 import { TestCategory } from "src/api/apiTypes";
-import { getCategories } from "src/api/categoriesTestsInfo";
-
 import { errorObjectType } from "@utils/errorHandler";
+import { wrapper } from "src/store/store";
+import { fetchCategories } from "src/store/features/categories/categoriesSlice";
 
 type PageProps = {
     categories: TestCategory[] & errorObjectType;
@@ -25,10 +25,10 @@ const AllCategoriesPage: NextPage<PageProps> = ({ categories, error }: PageProps
 
 export default AllCategoriesPage;
 
-export const getServerSideProps: GetServerSideProps = async () => {
-    const categories = await getCategories();
-    if (categories instanceof Error) {
-        return { props: { error: categories.message } };
-    }
-    return { props: { categories } };
-};
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async () => {
+    await store.dispatch(fetchCategories());
+    const {
+        categoriesState: { categories, error },
+    } = store.getState();
+    return { props: { categories, error } };
+});

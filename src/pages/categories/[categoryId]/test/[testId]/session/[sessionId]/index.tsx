@@ -23,11 +23,15 @@ export default QuestionPage;
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async context => {
     if (typeof context.params?.sessionId === "string") {
-        store.dispatch(fetchQuestionData(context.params?.sessionId));
+        await store.dispatch(fetchQuestionData(context.params?.sessionId));
 
-        const { question } = store.getState();
+        const {
+            questionState: { data, error },
+        } = store.getState();
 
-        return { props: { questionData: question.data.questionData, answers: question.data.answers } };
+        return {
+            props: { questionData: data?.questionData ?? null, answers: data?.answers ?? null, error },
+        };
     }
 
     return {

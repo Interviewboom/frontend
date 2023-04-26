@@ -2,12 +2,15 @@ import { Action, configureStore, ThunkAction, combineReducers, Store } from "@re
 import { createWrapper } from "next-redux-wrapper";
 
 import testDetailsReducer from "./features/tests/testDetailsSlice";
-
 import questionReducer from "./features/question/questionSlice";
+import categoriesReducer from "./features/categories/categoriesSlice";
+import testByCategoryReducer from "./features/tests/testByCategorySlice";
 
 const rootReducer = combineReducers({
-    testDetails: testDetailsReducer,
-    question: questionReducer,
+    testDetailsState: testDetailsReducer,
+    questionState: questionReducer,
+    categoriesState: categoriesReducer,
+    testByCategoryState: testByCategoryReducer,
 });
 
 const makeStore = () =>

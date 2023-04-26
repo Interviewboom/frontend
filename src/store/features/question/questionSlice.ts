@@ -1,58 +1,47 @@
-import { AsyncThunkAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { QuestionType, answerType } from "src/api/apiTypes";
 import { getNextQuestion, getQuestionAnswers } from "src/api/testFlow";
 
-type PageProps = {
-    questionData: { question: QuestionType; count: number; countAnswered: number; test_id: number };
-    answers: answerType[];
-    error: string;
+type DataType = {
+    questionData: { question: QuestionType; count: number; countAnswered: number; test_id: number } | null;
+    answers: answerType[] | null;
 };
 
 interface QuestionState {
-    data: PageProps;
-    status: "idle" | "loading" | "succeeded" | "failed";
-    error: string | null;
+    data: DataType | null;
+    error?: string | null;
 }
+
 const initialState: QuestionState = {
-    data: {
-        questionData: {
-            question: {
-                id: 0,
-                title: "",
-                test_id: 0,
-                question: "",
-                level: 0,
-                is_multiselect: false,
-            },
-            count: 0,
-            countAnswered: 0,
-            test_id: 0,
-        },
-        answers: [],
-        error: "",
-    },
-    status: "idle",
+    data: null,
     error: null,
 };
 
-export const fetchQuestionData = createAsyncThunk<PageProps, string>(
-    "questionPage/fetchQuestionData",
-    async (sessionId: string) => {
+export const fetchQuestionData = createAsyncThunk<
+    DataType | Error,
+    string,
+    {
+        rejectValue: string;
+    }
+>("questionPage/fetchQuestionData", async (sessionId: string, { rejectWithValue }) => {
+    try {
         const nextQuestionInfo = await getNextQuestion(sessionId);
 
         if (nextQuestionInfo instanceof Error) {
-            throw new Error(nextQuestionInfo.message);
+            return rejectWithValue(nextQuestionInfo.message);
         }
 
         const answers = await getQuestionAnswers(nextQuestionInfo?.test_id, nextQuestionInfo.question?.id);
 
         if (answers instanceof Error) {
-            throw new Error(answers.message);
+            return rejectWithValue(answers.message);
         }
 
-        return { questionData: nextQuestionInfo, answers } as PageProps;
+        return { questionData: nextQuestionInfo, answers } as DataType;
+    } catch (error) {
+        return rejectWithValue("Something went wrong");
     }
-);
+});
 
 export const questionSlice = createSlice({
     name: "questionPage",
@@ -60,16 +49,12 @@ export const questionSlice = createSlice({
     reducers: {},
     extraReducers: builder => {
         builder
-            .addCase(fetchQuestionData.pending, state => {
-                state.status = "loading";
-            })
+            .addCase(fetchQuestionData.pending, state => {})
             .addCase(fetchQuestionData.fulfilled, (state, action) => {
-                state.status = "succeeded";
-                state.data = action.payload;
+                state.data = action.payload as DataType;
                 state.error = null;
             })
             .addCase(fetchQuestionData.rejected, (state, action) => {
-                state.status = "failed";
                 state.error = action.error.message ?? "Something went wrong";
             });
     },

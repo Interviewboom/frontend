@@ -63,20 +63,19 @@ export const Answers: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => 
                 <Text size="small" isParagraph color="grey-text-color" className={styles.choose}>
                     Choose one correct answer
                 </Text>
-                {answers &&
-                    answers.map(item => {
-                        return (
-                            <RadioInput
-                                text={item.answer}
-                                key={item.id}
-                                type="radio"
-                                value={item.id}
-                                checked={Number(formik.values.answerId) === item.id}
-                                onChange={formik.handleChange}
-                                name="answerId"
-                            />
-                        );
-                    })}
+                {answers?.map(item => {
+                    return (
+                        <RadioInput
+                            text={item.answer}
+                            key={item.id}
+                            type="radio"
+                            value={item.id}
+                            checked={Number(formik.values.answerId) === item.id}
+                            onChange={formik.handleChange}
+                            name="answerId"
+                        />
+                    );
+                })}
                 <Button type="submit" size="medium" className={styles.buttonMargin} disabled={formik.isSubmitting}>
                     {isLast ? "Finish" : "Next"}
                 </Button>

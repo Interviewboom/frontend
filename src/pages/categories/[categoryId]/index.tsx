@@ -3,7 +3,8 @@ import { GetServerSideProps, NextPage } from "next";
 
 import { TestsByCategorySection } from "@modules/TestsByCategorySection/TestsByCategorySection";
 import { TestCategory, TestType } from "src/api/apiTypes";
-import { getTests, getCategory } from "src/api/categoriesTestsInfo";
+import { wrapper } from "src/store/store";
+import { fetchTestsByCategory } from "src/store/features/tests/testByCategorySlice";
 
 type PageProps = {
     category: TestCategory;
@@ -21,24 +22,15 @@ const TestsByCategoryPage: NextPage<PageProps> = ({ testsByCategory, category, e
 
 export default TestsByCategoryPage;
 
-export const getServerSideProps: GetServerSideProps = async context => {
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async context => {
     const categoryId = context.params?.categoryId;
-
     if (typeof categoryId === "string") {
-        const testsByCategory = await getTests({ categoryId });
+        await store.dispatch(fetchTestsByCategory(categoryId));
 
-        if (testsByCategory instanceof Error) {
-            return { props: { error: testsByCategory.message } };
-        }
-
-        const category = await getCategory(categoryId);
-
-        if (category instanceof Error) {
-            return { props: { error: category.message } };
-        }
-
-        return { props: { testsByCategory, category } };
+        const {
+            testByCategoryState: { testsByCategory, category, error },
+        } = store.getState();
+        return { props: { testsByCategory, category, error } };
     }
-
     return { notFound: true };
-};
+});
