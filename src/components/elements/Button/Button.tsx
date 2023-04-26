@@ -35,7 +35,7 @@ export const Button: React.FC<ButtonProps> = ({
 
     if (link) {
         return (
-            <Link href={link} passHref>
+            <Link href={link} passHref legacyBehavior>
                 <ButtonLink className={buttonClasses}>{children}</ButtonLink>
             </Link>
         );

@@ -28,7 +28,7 @@ const MobileMenu = () => {
                     <Icon name={menuOpened ? "close" : "menuIcon"} />
                 </button>
 
-                <Link href="/">
+                <Link href="/" legacyBehavior>
                     <div className={styles.mobileLogo}>
                         <Logo />
                     </div>
@@ -43,7 +43,9 @@ const MobileMenu = () => {
                     <ul>
                         {NAVIGATION_ITEMS.map(item => (
                             <li className={styles.navigationItem}>
-                                <Link href={item.link}>{item.name}</Link>
+                                <Link href={item.link} legacyBehavior>
+                                    {item.name}
+                                </Link>
                             </li>
                         ))}
                     </ul>

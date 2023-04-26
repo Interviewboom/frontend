@@ -21,8 +21,8 @@
             "@modules/*": ["./src/components/modules/*"],
             "@templates/*": ["./src/components/templates/*"],
             "@sass/*": ["./src/sass/*"],
-            "@utils/*": ["./src/utils/*"],
-        },
+            "@utils/*": ["./src/utils/*"]
+        }
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
     "exclude": ["node_modules"]

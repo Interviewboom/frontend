@@ -9,7 +9,9 @@ export const Navigation = () => {
             <ul className={styles.navigationList}>
                 {NAVIGATION_ITEMS.map(item => (
                     <li className={styles.navigationItem}>
-                        <Link href={item.link}>{item.name}</Link>
+                        <Link href={item.link} legacyBehavior>
+                            {item.name}
+                        </Link>
                     </li>
                 ))}
             </ul>

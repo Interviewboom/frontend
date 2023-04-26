@@ -13,7 +13,7 @@ type CategoryCardProps = {
 
 export const CategoryCard: FC<CategoryCardProps> = ({ category }) => {
     return (
-        <Link href={`/categories/${category.id}`} key={category.id} passHref>
+        <Link href={`/categories/${category.id}`} key={category.id} passHref legacyBehavior>
             <div className={styles.card}>
                 <div className={styles.image}>
                     <Image
