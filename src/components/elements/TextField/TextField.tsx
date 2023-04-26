@@ -62,7 +62,9 @@ export const TextField: FC<TextFieldProps> = ({
                     id={id}
                     value={value}
                     onChange={onChange}
-                    className={`${styles.input} ${error && styles.inputError}`}
+                    className={`${styles.input} ${error && styles.inputError} ${
+                        type !== "password" && !error && styles.inputRemoveExtraRightPadding
+                    }`}
                     {...getExistingAttributes(conditionalAttributes)}
                 />
                 {type === "password" && !error && (
