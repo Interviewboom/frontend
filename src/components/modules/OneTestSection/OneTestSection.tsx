@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Text } from "@elements/Text";
 import { Title } from "@elements/Title/Title";
 import { Icon } from "@elements/Icon";
