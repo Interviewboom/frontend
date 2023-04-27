@@ -6,11 +6,11 @@ export const useNewSession = () => {
     const {
         query: { categoryId, testId },
     } = router;
-    const [createSession, { isSuccess, data }] = useCreateSessionMutation();
+    const [createSessionRequest, { isSuccess, data }] = useCreateSessionMutation();
 
     if (isSuccess) {
         router.push(`/categories/${categoryId}/test/${testId}/session/${data?.id}`);
     }
 
-    return () => createSession({ testId: Number(testId) });
+    return () => createSessionRequest({ testId: Number(testId) });
 };

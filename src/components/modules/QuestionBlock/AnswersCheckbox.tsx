@@ -3,13 +3,13 @@ import { FormikProps, useFormik } from "formik";
 import { useRouter } from "next/router";
 
 import { answerType, QuestionType } from "src/api/apiTypes";
-import { postUserAnswers } from "src/api/testFlow";
 
 import { RadioInput } from "@elements/RadioInput/RadioInput";
 import { Button } from "@elements/Button";
 import { Title } from "@elements/Title/Title";
 import { Text } from "@elements/Text";
 
+import { useSubmitSessionAnswersMutation } from "src/redux/api/sessions-api";
 import styles from "./Answers.module.scss";
 
 interface MyFormValues {
@@ -26,15 +26,19 @@ type AnswersProps = {
 
 export const AnswersCheckbox: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => {
     const router = useRouter();
+    const [submitSessionAnswersRequest] = useSubmitSessionAnswersMutation();
 
     const htmlWithoutTags = questionInfo.question?.replace(/(<([^>]+)>)/gi, "");
 
-    const submitHandler = async (values: MyFormValues) => {
+    const submitHandler = (values: MyFormValues) => {
         if (typeof router.query?.sessionId !== "string") return;
 
-        await postUserAnswers(router.query.sessionId, {
-            answerIds: values.answerIds,
-            questionId: questionInfo.id,
+        submitSessionAnswersRequest({
+            sessionId: router.query.sessionId,
+            params: {
+                answerIds: values.answerIds,
+                questionId: questionInfo.id,
+            },
         });
 
         if (!isLast) {
