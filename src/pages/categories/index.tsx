@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import { DefaultLayout } from "@layouts/DefaultLayout";
 import { DonationInfoSection } from "@modules/DonationInfoSection";
 import { AllCategoriesSection } from "@modules/AllCategoriesSection/AllCategoriesSection";
-import { TestCategory } from "src/api/apiTypes";
+import { TestCategory } from "src/models/entities/test-category/test-category";
 
 import { errorObjectType } from "@utils/errorHandler";
 
@@ -27,18 +27,10 @@ const AllCategoriesPage: NextPage<PageProps> = ({ categories, error }: PageProps
 export default AllCategoriesPage;
 
 export const getServerSideProps = wrapper.getServerSideProps(store => async () => {
-    try {
-        const { data } = await store.dispatch(getTestCategories.initiate({}));
-        await Promise.all(store.dispatch(getRunningQueriesThunk()));
-
-        return {
-            props: { categories: data },
-        };
-    } catch (e) {
-        console.log("e", e);
-    }
+    const { data: categories, isError } = await store.dispatch(getTestCategories.initiate({}));
+    await Promise.all(store.dispatch(getRunningQueriesThunk()));
 
     return {
-        props: { categories: [] },
+        props: { categories, error: isError && "ups, something went wrong" },
     };
 });

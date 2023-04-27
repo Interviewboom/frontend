@@ -1,4 +1,4 @@
-import type { GetServerSideProps, NextPage } from "next";
+import type { NextPage } from "next";
 
 import { DefaultLayout } from "@layouts/DefaultLayout";
 import { FrontGreetingSection } from "@modules/FrontGreetingSection";
@@ -6,14 +6,16 @@ import { DonationInfoSection } from "@modules/DonationInfoSection";
 import { HowItWorksSection } from "@modules/HowItWorksSection/HowItWorksSection";
 import { CategoriesSection } from "@modules/CategoriesSection/CategoriesSection";
 import { TestsSection } from "@modules/TestsSection/TestsSection";
-import { getCategories, getTests } from "src/api/categoriesTestsInfo";
-
-import { TestCategory, TestType } from "src/api/apiTypes";
 import { AboutSection } from "@modules/AboutSection/AboutSection";
+import { getTests } from "src/redux/api/tests-api";
+import { TestCategory } from "src/models/entities/test-category/test-category";
+import { Test } from "src/models/entities/test/test";
+import { getRunningQueriesThunk, getTestCategories } from "src/redux/api/test-categories-api";
+import { wrapper } from "src/redux/store";
 
 type HomePageProps = {
     categories: TestCategory[];
-    popularTests: TestType[];
+    popularTests: Test[];
     error?: string;
 };
 
@@ -30,14 +32,20 @@ const HomePage: NextPage<HomePageProps> = ({ categories, popularTests, error }: 
     );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-    const [categories, popularTests] = await Promise.all([getCategories({ limit: "4" }), getTests({ limit: "4" })]);
+export const getServerSideProps = wrapper.getServerSideProps(store => async () => {
+    const { data: categories, isError: isCategoriesError } = await store.dispatch(
+        getTestCategories.initiate({ limit: "4" })
+    );
+    const { data: popularTests, isError: isPopularTestError } = await store.dispatch(getTests.initiate({ limit: "4" }));
+    await Promise.all(store.dispatch(getRunningQueriesThunk()));
 
-    if (categories instanceof Error && popularTests instanceof Error) {
-        return { props: { error: categories.message } };
-    }
-
-    return { props: { popularTests, categories } };
-};
+    return {
+        props: {
+            categories,
+            popularTests,
+            error: isCategoriesError && isPopularTestError && "ups, something went wrong",
+        },
+    };
+});
 
 export default HomePage;
