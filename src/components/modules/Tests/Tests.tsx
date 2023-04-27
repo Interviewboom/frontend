@@ -1,12 +1,12 @@
 import React, { FC } from "react";
-import { TestType } from "src/api/apiTypes";
+import { Test } from "src/models/entities/test/test";
 import { useCssClasses } from "@utils/getClassnames";
 import { TestCard } from "./TestCard";
 
 import styles from "./Tests.module.scss";
 
 type TestsProps = {
-    testsArray: TestType[];
+    testsArray: Test[];
     areScrollable?: boolean;
 };
 

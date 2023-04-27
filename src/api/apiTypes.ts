@@ -10,18 +10,6 @@ export type QuestionType = {
     is_multiselect: boolean;
 };
 /**
- * @deprecated, use Test instead;
- */
-export type TestType = {
-    id: number;
-    title: string;
-    questions: QuestionType[];
-    test_category_id: number;
-    description: string;
-    created_at: string;
-    updated_at: string;
-};
-/**
  * @deprecated, use Answer instead;
  */
 export type answerType = {
