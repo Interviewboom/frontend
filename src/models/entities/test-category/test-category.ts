@@ -1,4 +1,4 @@
-export interface TestCategoryResponseModel {
+export interface TestCategory {
     id: number;
     name: string;
     parent_id: number;

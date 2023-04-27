@@ -1,28 +1,39 @@
 import { api } from "src/redux/api";
-import { SessionCreateResponseModel } from "src/models/response/session-create-response-model/session-create-response-model";
-import { SessionCreateRequestModel } from "src/models/request/session-create-request-model/session-create-request-model";
-import { SessionSubmitAnswersRequestModel } from "src/models/request/session-submit-answers-request-model/session-submit-answers-request-model";
-import { SessionSubmitAnswersResponseModel } from "src/models/response/session-submit-answers-response-model/session-submit-answers-response-model";
+import { Session } from "src/models/entities/session/Session";
+import { SessionNextQuestionResponseModel } from "src/models/response/session-next-question-response-model/session-next-question-response-model";
 
-const url = "sessions";
+export interface SessionSubmitAnswersRequest {
+    sessionId: string;
+    params: {
+        questionId: number;
+        answerIds: number[] | string[];
+    };
+}
 
 export const sessionsApi = api.injectEndpoints({
     endpoints: build => ({
-        createSession: build.mutation<SessionCreateResponseModel, SessionCreateRequestModel>({
+        createSession: build.mutation<Session, { testId: string }>({
             query: params => {
                 return {
-                    url,
+                    url: "sessions",
                     method: "POST",
                     body: params,
                 };
             },
         }),
-        submitSessionAnswers: build.mutation<SessionSubmitAnswersResponseModel, SessionSubmitAnswersRequestModel>({
+        submitSessionAnswers: build.mutation<Session, SessionSubmitAnswersRequest>({
             query: ({ sessionId, params }) => {
                 return {
-                    url: `${url}/${sessionId}`,
+                    url: `sessions/${sessionId}`,
                     method: "POST",
                     body: params,
+                };
+            },
+        }),
+        getNextSessionQuestion: build.query<SessionNextQuestionResponseModel, { sessionId: string }>({
+            query: ({ sessionId }) => {
+                return {
+                    url: `sessions/${sessionId}/next-question`,
                 };
             },
         }),
@@ -33,4 +44,4 @@ export const sessionsApi = api.injectEndpoints({
 export const { useCreateSessionMutation, useSubmitSessionAnswersMutation } = sessionsApi;
 
 // export endpoints for use in SSR
-export const { createSession } = sessionsApi.endpoints;
+export const { getNextSessionQuestion } = sessionsApi.endpoints;

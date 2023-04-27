@@ -2,7 +2,9 @@ import { handleRequestError } from "@utils/errorHandler";
 import api from "./index";
 
 import { answerType, questionAllDataType, SendAnswersData, TestFlowData, TestFlowType } from "./apiTypes";
-
+/**
+ * @deprecated since RTK-Query start using;
+ */
 export const getNextQuestion = async (sessionId: string) => {
     try {
         const res = await api.get<questionAllDataType>(`sessions/${sessionId}/next-question`);

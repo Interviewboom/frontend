@@ -1,3 +1,6 @@
+/**
+ * @deprecated, use TestCategory instead;
+ */
 export type TestCategory = {
     id: number;
     name: string;
@@ -5,7 +8,9 @@ export type TestCategory = {
     title: string;
     parent: string | null;
 };
-
+/**
+ * @deprecated, use Question instead;
+ */
 export type QuestionType = {
     id: number;
     title?: string;
@@ -14,7 +19,9 @@ export type QuestionType = {
     level?: number;
     is_multiselect: boolean;
 };
-
+/**
+ * @deprecated, use Test instead;
+ */
 export type TestType = {
     id: number;
     title: string;
@@ -24,14 +31,18 @@ export type TestType = {
     created_at: string;
     updated_at: string;
 };
-
+/**
+ * @deprecated, use Answer instead;
+ */
 export type answerType = {
     id: number;
     question_id: 1;
     answer: string;
     is_correct: boolean;
 };
-
+/**
+ * @deprecated, use TestFlow instead;
+ */
 export type TestFlowType = {
     id: string;
     test_id: number;
@@ -40,6 +51,9 @@ export type TestFlowType = {
 
 export type questionAllDataType = { question: QuestionType; count: number; test_id: number; countAnswered: number };
 
+/**
+ * @deprecated
+ */
 export type TestFlowData = {
     testId: number;
 };
