@@ -19,10 +19,10 @@ export const testsApi = api.injectEndpoints({
                 };
             },
         }),
-        getTestQuestionAnswers: build.query<Test[], RequestParams>({
-            query: (paramsObj = {}) => {
+        getTestQuestionAnswers: build.query<Test[], { testId: string | number; questionId: string | number }>({
+            query: ({ testId, questionId }) => {
                 return {
-                    url: `tests${stringifyParams(paramsObj)}`,
+                    url: `tests/${testId}/questions/${questionId}/answers`,
                 };
             },
         }),
@@ -30,4 +30,4 @@ export const testsApi = api.injectEndpoints({
 });
 
 // export endpoints for use in SSR
-export const { getTests, getTest } = testsApi.endpoints;
+export const { getTests, getTest, getTestQuestionAnswers } = testsApi.endpoints;

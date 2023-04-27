@@ -15,7 +15,9 @@ export const getNextQuestion = async (sessionId: string) => {
         return handleRequestError(error);
     }
 };
-
+/**
+ * @deprecated since RTK-Query start using;
+ */
 export const getQuestionAnswers = async (testId: string | number, questionId: string | number) => {
     try {
         const res = await api.get<answerType[]>(`tests/${testId}/questions/${questionId}/answers`);
