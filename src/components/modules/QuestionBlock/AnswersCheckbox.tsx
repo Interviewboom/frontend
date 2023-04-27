@@ -2,14 +2,14 @@ import React, { FC } from "react";
 import { FormikProps, useFormik } from "formik";
 import { useRouter } from "next/router";
 
-import { answerType, QuestionType } from "src/api/apiTypes";
-
 import { RadioInput } from "@elements/RadioInput/RadioInput";
 import { Button } from "@elements/Button";
 import { Title } from "@elements/Title/Title";
 import { Text } from "@elements/Text";
 
 import { useSubmitSessionAnswersMutation } from "src/redux/api/sessions-api";
+import { Question } from "src/models/entities/question/question";
+import { Answer } from "src/models/entities/answer/answer";
 import styles from "./Answers.module.scss";
 
 interface MyFormValues {
@@ -19,9 +19,9 @@ interface MyFormValues {
 const initialValues: MyFormValues = { answerIds: [] };
 
 type AnswersProps = {
-    questionInfo: QuestionType;
+    questionInfo: Question;
     isLast: boolean;
-    answers: answerType[];
+    answers: Answer[];
 };
 
 export const AnswersCheckbox: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => {
