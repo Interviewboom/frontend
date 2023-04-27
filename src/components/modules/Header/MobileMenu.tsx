@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { Icon } from "@elements/Icon/Icon";
 import Link from "next/link";
-import { Logo } from "@elements/Logo";
 
-import styles from "./MobileMenu.module.scss";
+import { Icon } from "@elements/Icon/Icon";
+import { Logo } from "@elements/Logo";
+import { formatLink } from "@utils/formatLink";
+
 import { NAVIGATION_ITEMS } from "./const";
 import { Auth } from "./Auth";
+
+import styles from "./MobileMenu.module.scss";
 
 const MobileMenu = () => {
     const [menuOpened, setMenuOpened] = useState(false);
@@ -43,7 +46,7 @@ const MobileMenu = () => {
                     <ul>
                         {NAVIGATION_ITEMS.map(item => (
                             <li className={styles.navigationItem}>
-                                <Link href={item.link}>{item.name}</Link>
+                                <Link href={formatLink(item.link)}>{item.name}</Link>
                             </li>
                         ))}
                     </ul>
