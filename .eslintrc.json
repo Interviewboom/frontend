@@ -17,7 +17,7 @@
                         "extensions": [".tsx", ".jsx"]
                     }
                 ],
-                "import/prefer-default-export": 0,
+                "import/prefer-default-export": "off",
                 "import/no-unresolved": 0,
                 "react/function-component-definition": [
                     2,

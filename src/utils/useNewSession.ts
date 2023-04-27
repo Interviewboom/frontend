@@ -1,22 +1,16 @@
 import { useRouter } from "next/router";
-import { startSession } from "../api/testFlow";
+import { useCreateSessionMutation } from "../redux/api/sessions-api";
 
 export const useNewSession = () => {
     const router = useRouter();
+    const {
+        query: { categoryId, testId },
+    } = router;
+    const [createSession, { isSuccess, data }] = useCreateSessionMutation();
 
-    return async () => {
-        if (typeof router.query.testId !== "string") {
-            return;
-        }
+    if (isSuccess) {
+        router.push(`/categories/${categoryId}/test/${testId}/session/${data?.id}`);
+    }
 
-        const sessionData = await startSession({
-            testId: Number(router.query.testId),
-        });
-
-        if (sessionData instanceof Error) {
-            return;
-        }
-
-        router.push(`/categories/${router.query.categoryId}/test/${router.query.testId}/session/${sessionData?.id}`);
-    };
+    return () => createSession({ testId: Number(testId) });
 };

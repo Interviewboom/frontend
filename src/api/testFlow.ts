@@ -24,7 +24,9 @@ export const getQuestionAnswers = async (testId: string | number, questionId: st
         return handleRequestError(error);
     }
 };
-
+/**
+ * @deprecated since RTK-Query start using;
+ */
 export const startSession = async (bodyObject: TestFlowData) => {
     try {
         const res = await api.post<TestFlowType>("sessions", bodyObject);
