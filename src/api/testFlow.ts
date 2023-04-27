@@ -1,7 +1,7 @@
 import { handleRequestError } from "@utils/errorHandler";
 import api from "./index";
 
-import { answerType, questionAllDataType, SendAnswersData, TestFlowType } from "./apiTypes";
+import { answerType, questionAllDataType } from "./apiTypes";
 /**
  * @deprecated since RTK-Query start using;
  */
@@ -21,19 +21,6 @@ export const getNextQuestion = async (sessionId: string) => {
 export const getQuestionAnswers = async (testId: string | number, questionId: string | number) => {
     try {
         const res = await api.get<answerType[]>(`tests/${testId}/questions/${questionId}/answers`);
-        const questionAnswers = res.data;
-
-        return questionAnswers;
-    } catch (error) {
-        return handleRequestError(error);
-    }
-};
-/**
- * @deprecated since RTK-Query start using;
- */
-export const postUserAnswers = async (sessionId: string, bodyObject: SendAnswersData) => {
-    try {
-        const res = await api.post<TestFlowType>(`sessions/${sessionId}`, bodyObject);
         const questionAnswers = res.data;
 
         return questionAnswers;
