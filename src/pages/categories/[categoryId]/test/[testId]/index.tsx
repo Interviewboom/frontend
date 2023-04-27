@@ -41,7 +41,7 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async cont
             props: {
                 oneTestInfo,
                 category,
-                error: isOneTestInfoError && isTestCategoryError && "ups, something went wrong",
+                error: (isOneTestInfoError || isTestCategoryError) && "ups, something went wrong",
             },
         };
     }

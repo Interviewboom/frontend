@@ -40,7 +40,7 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async cont
             props: {
                 testsByCategory,
                 category,
-                error: isTestsErrorError && isTestCategoryError && "ups, something went wrong",
+                error: (isTestsErrorError || isTestCategoryError) && "ups, something went wrong",
             },
         };
     }

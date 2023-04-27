@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
-import { answerType, questionAllDataType } from "src/api/apiTypes";
-
 import { LoadBar } from "@elements/LoadBar/LoadBar";
+import { Question } from "src/models/entities/question/question";
+import { Answer } from "src/models/entities/answer/answer";
 import { AnswersCheckbox } from "./AnswersCheckbox";
 import { Answers } from "./Answers";
 
@@ -9,8 +9,8 @@ import styles from "./QuestionBlock.module.scss";
 import { Modal } from "./Modal";
 
 type QuestionBlockProps = {
-    questionData: questionAllDataType;
-    answers: answerType[];
+    questionData: { question: Question; count: number; countAnswered: number; test_id: number };
+    answers: Answer[];
 };
 
 export const QuestionBlock: FC<QuestionBlockProps> = ({ questionData, answers }) => {

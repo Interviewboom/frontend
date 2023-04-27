@@ -41,28 +41,6 @@ export type answerType = {
     is_correct: boolean;
 };
 /**
- * @deprecated, use TestFlow instead;
- */
-export type TestFlowType = {
-    id: string;
-    test_id: number;
-    status: string;
-};
-
-export type questionAllDataType = { question: QuestionType; count: number; test_id: number; countAnswered: number };
-
-/**
- * @deprecated
- */
-export type TestFlowData = {
-    testId: number;
-};
-
-export type SendAnswersData = {
-    questionId: number;
-    answerIds: number[] | string[];
-};
-/**
  * @deprecated
  */
 export type SessionQuestion = {
