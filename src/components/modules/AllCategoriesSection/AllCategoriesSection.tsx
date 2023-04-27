@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Categories } from "@modules/Categories/Categories";
 import { Title } from "@elements/Title/Title";
 import { Breadcrumb } from "@elements/Breadcrumb/Breadcrumb";
-import { TestCategory } from "src/api/apiTypes";
+import { TestCategory } from "src/models/entities/test-category/test-category";
 
 import styles from "./AllCategoriesSection.module.scss";
 

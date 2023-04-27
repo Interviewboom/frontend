@@ -52,4 +52,4 @@ export const sessionsApi = api.injectEndpoints({
 export const { useCreateSessionMutation, useSubmitSessionAnswersMutation } = sessionsApi;
 
 // export endpoints for use in SSR
-export const { getNextSessionQuestion } = sessionsApi.endpoints;
+export const { getNextSessionQuestion, getTestResults } = sessionsApi.endpoints;
