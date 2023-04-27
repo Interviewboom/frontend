@@ -1,12 +1,14 @@
 import { DefaultLayout } from "@layouts/DefaultLayout";
-import { GetServerSideProps, NextPage } from "next";
+import { NextPage } from "next";
 
 import { AllTestsSection } from "@modules/AllTestsSection";
-import { TestType } from "src/api/apiTypes";
-import { getTests } from "src/api/categoriesTestsInfo";
+import { wrapper } from "src/redux/store";
+import { getRunningQueriesThunk } from "src/redux/api/test-categories-api";
+import { getTests } from "src/redux/api/tests-api";
+import { Test } from "src/models/entities/test/test";
 
 type PageProps = {
-    allTests: TestType[];
+    allTests: Test[];
     error?: string;
 };
 
@@ -20,12 +22,15 @@ const AllTestsPage: NextPage<PageProps> = ({ allTests, error }: PageProps) => {
 
 export default AllTestsPage;
 
-export const getServerSideProps: GetServerSideProps = async () => {
-    const allTests = await getTests();
+export const getServerSideProps = wrapper.getServerSideProps(store => async () => {
+    const { data: allTests, isError: isAllTestsError } = await store.dispatch(getTests.initiate({}));
 
-    if (allTests instanceof Error) {
-        return { props: { error: allTests.message } };
-    }
+    await Promise.all(store.dispatch(getRunningQueriesThunk()));
 
-    return { props: { allTests } };
-};
+    return {
+        props: {
+            allTests,
+            error: isAllTestsError && "ups, something went wrong",
+        },
+    };
+});
