@@ -2,13 +2,13 @@ import React, { FC } from "react";
 import { Title } from "@elements/Title/Title";
 import { Tests } from "@modules/Tests/Tests";
 import { Breadcrumb } from "@elements/Breadcrumb/Breadcrumb";
-import { TestCategory, TestType } from "src/api/apiTypes";
-
+import { TestCategory } from "src/models/entities/test-category/test-category";
+import { Test } from "src/models/entities/test/test";
 import styles from "./TestsByCategorySection.module.scss";
 
 type TestsByCategorySectionProps = {
-    testsByCategory: TestType[];
     category: TestCategory;
+    testsByCategory: Test[];
 };
 
 export const TestsByCategorySection: FC<TestsByCategorySectionProps> = ({ testsByCategory, category }) => {

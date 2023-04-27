@@ -4,16 +4,17 @@ import Image from "next/legacy/image";
 import { Text } from "@elements/Text";
 import { Title } from "@elements/Title/Title";
 import { Icon } from "@elements/Icon";
-import { TestCategory, TestType } from "src/api/apiTypes";
 import { ShareButton } from "@elements/ShareButton";
 import { Breadcrumb } from "@elements/Breadcrumb/Breadcrumb";
+import { TestCategory } from "src/models/entities/test-category/test-category";
+import { Test } from "src/models/entities/test/test";
 import { TestDetails } from "./TestDetails";
 
 import styles from "./OneTestSection.module.scss";
 
 type OneTestSectionProps = {
-    oneTestInfo: TestType;
     category: TestCategory;
+    oneTestInfo: Test;
 };
 
 export const OneTestSection: FC<OneTestSectionProps> = ({ oneTestInfo, category }) => {

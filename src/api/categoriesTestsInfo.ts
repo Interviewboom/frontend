@@ -1,23 +1,10 @@
 import { handleRequestError } from "@utils/errorHandler";
-import { TestCategory, TestType } from "./apiTypes";
+import { TestType } from "./apiTypes";
 import { paramsType, stringifyParams } from "./stringifyParams";
 import api from "./index";
 
 /**
- * @deprecated since RTK-Query start using;
- */
-export const getCategory = async (id: string) => {
-    try {
-        const res = await api.get<TestCategory[]>(`test-categories/${id}`);
-        const categories: TestCategory[] = res.data;
-
-        return categories;
-    } catch (error) {
-        return handleRequestError(error);
-    }
-};
-/**
- * @deprecated since RTK-Query start using;
+ * @deprecated since RTK-Query start using; use getTests
  */
 export const getTests = async (paramsObj: paramsType = {}) => {
     try {
