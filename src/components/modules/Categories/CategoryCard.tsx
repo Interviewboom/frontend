@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import Link from "next/link";
 
 import { Title } from "@elements/Title/Title";
-import { TestCategory } from "src/api/apiTypes";
+import { TestCategory } from "src/models/entities/test-category/test-category";
 
 import styles from "./CategoryCard.module.scss";
 

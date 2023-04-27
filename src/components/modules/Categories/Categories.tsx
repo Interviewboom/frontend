@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { TestCategory } from "src/api/apiTypes";
+import { TestCategory } from "src/models/entities/test-category/test-category";
 import { useCssClasses } from "@utils/getClassnames";
 import { CategoryCard } from "./CategoryCard";
 import styles from "./Categories.module.scss";

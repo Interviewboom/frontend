@@ -1,14 +1,4 @@
 /**
- * @deprecated, use TestCategory instead;
- */
-export type TestCategory = {
-    id: number;
-    name: string;
-    parent_id: number;
-    title: string;
-    parent: string | null;
-};
-/**
  * @deprecated, use Question instead;
  */
 export type QuestionType = {
