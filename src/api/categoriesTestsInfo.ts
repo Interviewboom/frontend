@@ -4,7 +4,9 @@ import { TestCategory, TestType } from "./apiTypes";
 import { paramsType, stringifyParams } from "./stringifyParams";
 
 import api from "./index";
-
+/**
+ * @deprecated since RTK-Query start using;
+ */
 export const getCategories = async (paramsObj: paramsType = {}) => {
     try {
         const res = await api.get<TestCategory[]>(`test-categories${stringifyParams(paramsObj)}`);
@@ -15,7 +17,9 @@ export const getCategories = async (paramsObj: paramsType = {}) => {
         return handleRequestError(error);
     }
 };
-
+/**
+ * @deprecated since RTK-Query start using;
+ */
 export const getCategory = async (id: string) => {
     try {
         const res = await api.get<TestCategory[]>(`test-categories/${id}`);
@@ -26,7 +30,9 @@ export const getCategory = async (id: string) => {
         return handleRequestError(error);
     }
 };
-
+/**
+ * @deprecated since RTK-Query start using;
+ */
 export const getTests = async (paramsObj: paramsType = {}) => {
     try {
         const res = await api.get<TestType[]>(`tests${stringifyParams(paramsObj)}`);
@@ -37,7 +43,9 @@ export const getTests = async (paramsObj: paramsType = {}) => {
         return handleRequestError(error);
     }
 };
-
+/**
+ * @deprecated since RTK-Query start using;
+ */
 export const getOneTest = async (id: string) => {
     try {
         const res = await api.get<TestType>(`tests/${id}`);
