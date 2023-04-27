@@ -1,5 +1,4 @@
 import React, { ChangeEventHandler, FC, useCallback, useId, useState } from "react";
-import { Icon } from "@elements/Icon";
 import styles from "./TextField.module.scss";
 
 interface TextFieldProps {
@@ -52,37 +51,29 @@ export const TextField: FC<TextFieldProps> = ({
 
     return (
         <div className={styles.group}>
-            {caption && (
-                <label htmlFor={id} className={styles.label}>
-                    {caption}
-                </label>
-            )}
             <div className={styles.inputWrapper}>
+                {caption && (
+                    <label htmlFor={id} className={styles.label}>
+                        {caption}
+                    </label>
+                )}
                 <input
                     type={isPasswordVisible ? "text" : type}
                     id={id}
                     value={value}
                     onChange={onChange}
-                    className={`${styles.input} ${error ? styles.inputError : ""}`}
+                    className={`${styles.input} ${error && styles.inputError} ${
+                        type !== "password" && !error && styles.inputRemoveExtraRightPadding
+                    }`}
                     {...getExistingAttributes(conditionalAttributes)}
                 />
-                {type === "password" && (
+                {type === "password" && !error && (
                     <button type="button" className={styles.inputToggler} onClick={toggleVisibility}>
-                        {isPasswordVisible ? (
-                            <Icon width={22} height={19} name="eye" />
-                        ) : (
-                            <Icon width={22} height={19} name="eye-crossed" />
-                        )}
+                        {isPasswordVisible ? "Hide" : "Show"}
                     </button>
                 )}
+                {error && <span className={styles.errorWrapper}>Error</span>}
             </div>
-            {error && (
-                <div className={styles.errorWrapper}>
-                    <Icon name="error" height={15} width={14} />
-
-                    <p className={styles.errorText}>{error}</p>
-                </div>
-            )}
         </div>
     );
 };
