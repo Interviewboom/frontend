@@ -42,7 +42,7 @@ const MobileMenu = () => {
                 <nav className={styles.menuList} {...(menuOpened ? { onClick: () => setMenuOpened(false) } : {})}>
                     <ul>
                         {NAVIGATION_ITEMS.map(item => (
-                            <li className={styles.navigationItem}>
+                            <li key={item.name} className={styles.navigationItem}>
                                 <Link href={item.link}>{item.name}</Link>
                             </li>
                         ))}
