@@ -1,6 +1,7 @@
 import { api } from "src/redux/api";
 import { Session } from "src/models/entities/session/Session";
 import { SessionNextQuestionResponseModel } from "src/models/response/session-next-question-response-model/session-next-question-response-model";
+import { TestResultsResponseModel } from "src/models/response/test-results-response-model/test-results-response-model";
 
 export interface SessionSubmitAnswersRequest {
     sessionId: string;
@@ -34,6 +35,13 @@ export const sessionsApi = api.injectEndpoints({
             query: ({ sessionId }) => {
                 return {
                     url: `sessions/${sessionId}/next-question`,
+                };
+            },
+        }),
+        getTestResults: build.query<TestResultsResponseModel, { sessionId: string }>({
+            query: ({ sessionId }) => {
+                return {
+                    url: `sessions/${sessionId}`,
                 };
             },
         }),
