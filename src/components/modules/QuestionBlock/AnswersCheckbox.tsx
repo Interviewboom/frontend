@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { FormikProps, useFormik } from "formik";
+import { FormikProps, useFormik, Form, Formik } from "formik";
 import { useRouter } from "next/router";
 
 import { RadioInput } from "@elements/RadioInput/RadioInput";
@@ -42,7 +42,7 @@ export const AnswersCheckbox: FC<AnswersProps> = ({ questionInfo, isLast, answer
         });
 
         if (!isLast) {
-            router.reload();
+            router.replace(router.asPath);
         } else {
             router.push(`${router.asPath}/result`);
         }
@@ -54,19 +54,19 @@ export const AnswersCheckbox: FC<AnswersProps> = ({ questionInfo, isLast, answer
     });
 
     return (
-        <form className={styles.answersWrapper} onSubmit={formik.handleSubmit}>
-            <Title className={styles.question} level={4}>
-                {questionInfo.title}
-            </Title>
-            {htmlWithoutTags && (
-                <div className={styles.questionCode} dangerouslySetInnerHTML={{ __html: questionInfo.question }} />
-            )}
+        <Formik initialValues={initialValues} onSubmit={submitHandler}>
+            <Form className={styles.answersWrapper} onSubmit={formik.handleSubmit}>
+                <Title className={styles.question} level={4}>
+                    {questionInfo.title}
+                </Title>
+                {htmlWithoutTags && (
+                    <div className={styles.questionCode} dangerouslySetInnerHTML={{ __html: questionInfo.question }} />
+                )}
 
-            <Text size="small" isParagraph color="grey-text-color" className={styles.choose}>
-                Choose several answers
-            </Text>
-            {answers &&
-                answers.map(item => {
+                <Text size="small" isParagraph color="grey-text-color" className={styles.choose}>
+                    Choose several answers
+                </Text>
+                {answers?.map(item => {
                     return (
                         <RadioInput
                             text={item.answer}
@@ -79,9 +79,10 @@ export const AnswersCheckbox: FC<AnswersProps> = ({ questionInfo, isLast, answer
                         />
                     );
                 })}
-            <Button type="submit" size="medium" className={styles.buttonMargin}>
-                {isLast ? "Finish" : "Next"}
-            </Button>
-        </form>
+                <Button type="submit" size="medium" className={styles.buttonMargin} disabled={formik.isSubmitting}>
+                    {isLast ? "Finish" : "Next"}
+                </Button>
+            </Form>
+        </Formik>
     );
 };

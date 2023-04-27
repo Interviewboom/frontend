@@ -13,6 +13,7 @@ type ButtonProps = {
     onClick?: MouseEventHandler<HTMLButtonElement>;
     type?: "button" | "submit";
     className?: string;
+    disabled?: boolean;
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -24,6 +25,7 @@ export const Button: React.FC<ButtonProps> = ({
     isAdaptive = false,
     color = "green",
     className,
+    disabled = false,
 }) => {
     const buttonClasses = useCssClasses([
         styles.button,
@@ -44,6 +46,7 @@ export const Button: React.FC<ButtonProps> = ({
     return (
         <button
             type={type === "submit" ? "submit" : "button"}
+            disabled={disabled}
             className={buttonClasses}
             {...(onClick ? { onClick } : {})}
         >
