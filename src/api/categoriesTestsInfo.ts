@@ -16,16 +16,3 @@ export const getTests = async (paramsObj: paramsType = {}) => {
         return handleRequestError(error);
     }
 };
-/**
- * @deprecated since RTK-Query start using;
- */
-export const getOneTest = async (id: string) => {
-    try {
-        const res = await api.get<TestType>(`tests/${id}`);
-        const oneTestInfo: TestType = res.data;
-
-        return oneTestInfo;
-    } catch (error) {
-        return handleRequestError(error);
-    }
-};
