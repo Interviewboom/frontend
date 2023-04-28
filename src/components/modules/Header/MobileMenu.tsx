@@ -30,7 +30,7 @@ const MobileMenu = () => {
 
                 <Link href="/" legacyBehavior>
                     <div className={styles.mobileLogo}>
-                        <Logo />
+                        <Logo redirectToHome />
                     </div>
                 </Link>
                 <button type="button" onClick={onAuthClick}>
