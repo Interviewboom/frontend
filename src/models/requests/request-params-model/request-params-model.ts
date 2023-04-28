@@ -1,3 +1,3 @@
-export type RequestParams = {
+export type RequestParamsModel = {
     [index: string]: string | number;
 };

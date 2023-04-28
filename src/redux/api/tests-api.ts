@@ -1,11 +1,11 @@
 import { stringifyParams } from "@utils/api/stringifyParams";
-import { RequestParams } from "src/models/entities/request-params/request-params";
+import { RequestParamsModel } from "src/models/requests/request-params-model/request-params-model";
 import { api } from "src/redux/api";
 import { Test } from "src/models/entities/test/test";
 
 export const testsApi = api.injectEndpoints({
     endpoints: build => ({
-        getTests: build.query<Test[], RequestParams>({
+        getTests: build.query<Test[], RequestParamsModel>({
             query: (params = {}) => {
                 return {
                     url: `tests${stringifyParams(params)}`,

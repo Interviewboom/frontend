@@ -4,7 +4,7 @@ import { ShareButton } from "@elements/ShareButton";
 import { Title } from "@elements/Title/Title";
 import { Breadcrumb } from "@elements/Breadcrumb";
 
-import { TestResultsResponseModel } from "src/models/response/test-results-response-model/test-results-response-model";
+import { TestResultsResponseModel } from "src/models/responses/test-results-response-model/test-results-response-model";
 import styles from "./ResultSection.module.scss";
 import Statistics from "./Statistics";
 import { IncorrectAnswers } from "./IncorrectAnswers";
