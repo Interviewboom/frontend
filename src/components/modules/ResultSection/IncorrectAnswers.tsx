@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 import { Icon } from "@elements/Icon/Icon";
 import { Title } from "@elements/Title";
-import { SessionQuestion } from "src/models/entities/session-question/session-question";
+import { SessionQuestionModel } from "src/models/entities/session-question-model/session-question-model";
 
 import styles from "./IncorrectAnswers.module.scss";
 
 type IncorrectAnswersProps = {
-    sessionQuestions: SessionQuestion[];
+    sessionQuestions: SessionQuestionModel[];
 };
 
 export const IncorrectAnswers: FC<IncorrectAnswersProps> = ({ sessionQuestions }) => {
