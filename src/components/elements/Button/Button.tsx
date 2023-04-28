@@ -25,7 +25,7 @@ export const Button: React.FC<ButtonProps> = ({
     isAdaptive = false,
     color = "green",
     className,
-    disabled = false,
+    disabled = true,
 }) => {
     const buttonClasses = useCssClasses([
         styles.button,
