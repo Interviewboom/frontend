@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { LoadBar } from "@elements/LoadBar/LoadBar";
-import { Question } from "src/models/entities/question/question";
+import { QuestionModel } from "src/models/entities/question-model/question-model";
 import { AnswerModel } from "src/models/entities/answer-model/answer-model";
 import { AnswersCheckbox } from "./AnswersCheckbox";
 import { Answers } from "./Answers";
@@ -9,7 +9,7 @@ import styles from "./QuestionBlock.module.scss";
 import { Modal } from "./Modal";
 
 type QuestionBlockProps = {
-    questionData: { question: Question; count: number; countAnswered: number; test_id: number };
+    questionData: { question: QuestionModel; count: number; countAnswered: number; test_id: number };
     answers: AnswerModel[];
 };
 
