@@ -26,14 +26,15 @@ type AnswersProps = {
 
 export const AnswersCheckbox: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => {
     const router = useRouter();
+
     const [submitSessionAnswersRequest] = useSubmitSessionAnswersMutation();
 
     const htmlWithoutTags = questionInfo.question?.replace(/(<([^>]+)>)/gi, "");
 
-    const submitHandler = (values: MyFormValues) => {
+    const submitHandler = async (values: MyFormValues) => {
         if (typeof router.query?.sessionId !== "string") return;
 
-        submitSessionAnswersRequest({
+        await submitSessionAnswersRequest({
             sessionId: router.query.sessionId,
             params: {
                 answerIds: values.answerIds,

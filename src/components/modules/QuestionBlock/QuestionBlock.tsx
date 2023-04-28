@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { LoadBar } from "@elements/LoadBar/LoadBar";
 import { Question } from "src/models/entities/question/question";
 import { Answer } from "src/models/entities/answer/answer";
@@ -15,6 +15,7 @@ type QuestionBlockProps = {
 
 export const QuestionBlock: FC<QuestionBlockProps> = ({ questionData, answers }) => {
     const [modalOpened, setModalOpened] = useState(false);
+
     return (
         questionData &&
         answers && (
