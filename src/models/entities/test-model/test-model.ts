@@ -1,6 +1,6 @@
 import { QuestionModel } from "src/models/entities/question-model/question-model";
 
-export interface Test {
+export interface TestModel {
     id: number;
     title: string;
     questions: QuestionModel[];

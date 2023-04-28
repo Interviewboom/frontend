@@ -3,13 +3,13 @@ import { FC } from "react";
 
 import { Text } from "@elements/Text/Text";
 import { Title } from "@elements/Title/Title";
-import { Test } from "src/models/entities/test/test";
+import { TestModel } from "src/models/entities/test-model/test-model";
 import Link from "next/link";
 
 import styles from "./TestCard.module.scss";
 
 type TestCardProps = {
-    testInfo: Test;
+    testInfo: TestModel;
     numberOfPassings?: number;
 };
 

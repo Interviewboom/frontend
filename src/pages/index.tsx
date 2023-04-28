@@ -9,13 +9,13 @@ import { TestsSection } from "@modules/TestsSection/TestsSection";
 import { AboutSection } from "@modules/AboutSection/AboutSection";
 import { getTests } from "src/redux/api/tests-api";
 import { TestCategory } from "src/models/entities/test-category/test-category";
-import { Test } from "src/models/entities/test/test";
+import { TestModel } from "src/models/entities/test-model/test-model";
 import { getRunningQueriesThunk, getTestCategories } from "src/redux/api/test-categories-api";
 import { wrapper } from "src/redux/store";
 
 type HomePageProps = {
     categories: TestCategory[];
-    popularTests: Test[];
+    popularTests: TestModel[];
     error?: string;
 };
 

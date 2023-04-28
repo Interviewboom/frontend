@@ -5,10 +5,10 @@ import { AllTestsSection } from "@modules/AllTestsSection";
 import { wrapper } from "src/redux/store";
 import { getRunningQueriesThunk } from "src/redux/api/test-categories-api";
 import { getTests } from "src/redux/api/tests-api";
-import { Test } from "src/models/entities/test/test";
+import { TestModel } from "src/models/entities/test-model/test-model";
 
 type PageProps = {
-    allTests: Test[];
+    allTests: TestModel[];
     error?: string;
 };
 
