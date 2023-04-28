@@ -1,6 +1,6 @@
 import { Icon } from "@elements/Icon";
 import { Text } from "@elements/Text";
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 import styles from "./LoadBar.module.scss";
 
 interface LoadBarProps {
@@ -10,7 +10,6 @@ interface LoadBarProps {
 }
 
 export const LoadBar: FC<LoadBarProps> = ({ onClose, currentQuestionNumber, numberOfQuestions }) => {
-
     return (
         <div className={styles.wrapper}>
             <Icon name="alarm" className={styles.alarm} />
