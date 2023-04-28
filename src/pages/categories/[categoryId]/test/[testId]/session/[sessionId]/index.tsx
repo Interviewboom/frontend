@@ -6,11 +6,11 @@ import { getTestQuestionAnswers } from "src/redux/api/tests-api";
 import { wrapper } from "src/redux/store";
 import { getRunningQueriesThunk } from "src/redux/api/test-categories-api";
 import { Question } from "src/models/entities/question/question";
-import { Answer } from "src/models/entities/answer/answer";
+import { AnswerModel } from "src/models/entities/answer-model/answer-model";
 
 type PageProps = {
     questionData: { question: Question; count: number; countAnswered: number; test_id: number };
-    answers: Answer[];
+    answers: AnswerModel[];
     error: string;
 };
 

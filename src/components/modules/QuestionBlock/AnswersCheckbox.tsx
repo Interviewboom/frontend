@@ -9,7 +9,7 @@ import { Text } from "@elements/Text";
 
 import { useSubmitSessionAnswersMutation } from "src/redux/api/sessions-api";
 import { Question } from "src/models/entities/question/question";
-import { Answer } from "src/models/entities/answer/answer";
+import { AnswerModel } from "src/models/entities/answer-model/answer-model";
 import styles from "./Answers.module.scss";
 
 interface MyFormValues {
@@ -21,7 +21,7 @@ const initialValues: MyFormValues = { answerIds: [] };
 type AnswersProps = {
     questionInfo: Question;
     isLast: boolean;
-    answers: Answer[];
+    answers: AnswerModel[];
 };
 
 export const AnswersCheckbox: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => {
