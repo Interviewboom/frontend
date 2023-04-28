@@ -21,7 +21,7 @@ export const Footer = () => {
     return (
         <footer className={styles.footer}>
             <div className={styles.content}>
-                <Logo template="light" />
+                <Logo template="light" redirectToHome />
 
                 <div className={styles.navigation}>
                     <NavigationList title="We are on social networks" />

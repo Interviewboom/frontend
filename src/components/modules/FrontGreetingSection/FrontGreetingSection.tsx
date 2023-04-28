@@ -18,6 +18,7 @@ export const FrontGreetingSection = () => {
                         objectFit="cover"
                         objectPosition="top"
                         alt="get ready to interview background"
+                        priority
                     />
                 </div>
                 <div className={styles.content}>
