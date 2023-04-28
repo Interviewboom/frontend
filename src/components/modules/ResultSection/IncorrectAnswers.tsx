@@ -20,7 +20,7 @@ export const IncorrectAnswers: FC<IncorrectAnswersProps> = ({ sessionQuestions }
                     if (item.is_answered) return null;
 
                     return (
-                        <li className={styles.listItem}>
+                        <li className={styles.listItem} key={item.question_id}>
                             <Icon name="wrongCircle" width={48} height={48} className={styles.margRight} />
                             <Title level={5}>
                                 {index + 1}. {item.question}

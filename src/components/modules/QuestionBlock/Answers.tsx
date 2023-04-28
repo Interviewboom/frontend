@@ -26,6 +26,7 @@ type AnswersProps = {
 
 export const Answers: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => {
     const router = useRouter();
+
     const [submitSessionAnswersRequest] = useSubmitSessionAnswersMutation();
 
     const htmlWithoutTags = questionInfo.question?.replace(/(<([^>]+)>)/gi, "");
@@ -33,7 +34,7 @@ export const Answers: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => 
     const submitHandler = async (values: MyFormValues) => {
         if (typeof router.query?.sessionId !== "string") return;
 
-        submitSessionAnswersRequest({
+        await submitSessionAnswersRequest({
             sessionId: router.query.sessionId,
             params: {
                 answerIds: [Number(values.answerId)],

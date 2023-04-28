@@ -42,7 +42,7 @@ const MobileMenu = () => {
                 <nav className={styles.menuList} {...(menuOpened ? { onClick: () => setMenuOpened(false) } : {})}>
                     <ul>
                         {NAVIGATION_ITEMS.map(item => (
-                            <li className={styles.navigationItem}>
+                            <li className={styles.navigationItem} key={item.name}>
                                 <Link href={item.link} legacyBehavior>
                                     {item.name}
                                 </Link>

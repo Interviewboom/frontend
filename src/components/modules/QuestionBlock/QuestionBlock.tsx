@@ -15,6 +15,7 @@ type QuestionBlockProps = {
 
 export const QuestionBlock: FC<QuestionBlockProps> = ({ questionData, answers }) => {
     const [modalOpened, setModalOpened] = useState(false);
+
     return (
         questionData &&
         answers && (
