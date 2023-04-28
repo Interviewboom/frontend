@@ -8,7 +8,7 @@ export const Header = () => {
     return (
         <header className={styles.header}>
             <div className={styles.wrapper}>
-                <Logo />
+                <Logo redirectToHome />
                 <Navigation />
                 <Auth />
             </div>
