@@ -1,7 +1,7 @@
-import { Question } from "src/models/entities/question/question";
+import { QuestionModel } from "src/models/entities/question/question";
 
 export interface SessionNextQuestionResponseModel {
-    question: Question;
+    question: QuestionModel;
     count: number;
     test_id: number;
     countAnswered: number;

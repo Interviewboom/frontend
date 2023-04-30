@@ -1,5 +1,5 @@
 import { api } from "src/redux/api";
-import { Session } from "src/models/entities/session/Session";
+import { SessionModel } from "src/models/entities/session/Session";
 import { SessionNextQuestionResponseModel } from "src/models/response/session-next-question-response-model/session-next-question-response-model";
 import { TestResultsResponseModel } from "src/models/response/test-results-response-model/test-results-response-model";
 
@@ -13,7 +13,7 @@ export interface SessionSubmitAnswersRequest {
 
 export const sessionsApi = api.injectEndpoints({
     endpoints: build => ({
-        createSession: build.mutation<Session, { testId: string | number }>({
+        createSession: build.mutation<SessionModel, { testId: string | number }>({
             query: params => {
                 return {
                     url: "sessions",
@@ -22,7 +22,7 @@ export const sessionsApi = api.injectEndpoints({
                 };
             },
         }),
-        submitSessionAnswers: build.mutation<Session, SessionSubmitAnswersRequest>({
+        submitSessionAnswers: build.mutation<SessionModel, SessionSubmitAnswersRequest>({
             query: ({ sessionId, params }) => {
                 return {
                     url: `sessions/${sessionId}`,

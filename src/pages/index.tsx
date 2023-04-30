@@ -8,14 +8,14 @@ import { CategoriesSection } from "@modules/CategoriesSection/CategoriesSection"
 import { TestsSection } from "@modules/TestsSection/TestsSection";
 import { AboutSection } from "@modules/AboutSection/AboutSection";
 import { getTests } from "src/redux/api/tests-api";
-import { TestCategory } from "src/models/entities/test-category/test-category";
-import { Test } from "src/models/entities/test/test";
+import { TestCategoryModel } from "src/models/entities/test-category/test-category";
+import { TestModel } from "src/models/entities/test/test";
 import { getRunningQueriesThunk, getTestCategories } from "src/redux/api/test-categories-api";
 import { wrapper } from "src/redux/store";
 
 type HomePageProps = {
-    categories: TestCategory[];
-    popularTests: Test[];
+    categories: TestCategoryModel[];
+    popularTests: TestModel[];
     error?: string;
 };
 

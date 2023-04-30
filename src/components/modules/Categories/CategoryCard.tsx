@@ -3,12 +3,12 @@ import React, { FC } from "react";
 import Link from "next/link";
 
 import { Title } from "@elements/Title/Title";
-import { TestCategory } from "src/models/entities/test-category/test-category";
+import { TestCategoryModel } from "src/models/entities/test-category/test-category";
 
 import styles from "./CategoryCard.module.scss";
 
 type CategoryCardProps = {
-    category: TestCategory;
+    category: TestCategoryModel;
 };
 
 export const CategoryCard: FC<CategoryCardProps> = ({ category }) => {

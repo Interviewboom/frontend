@@ -5,12 +5,12 @@ import { NextPage } from "next";
 import { wrapper } from "src/redux/store";
 import { getRunningQueriesThunk, getTestCategory } from "src/redux/api/test-categories-api";
 import { getTest } from "src/redux/api/tests-api";
-import { TestCategory } from "src/models/entities/test-category/test-category";
-import { Test } from "src/models/entities/test/test";
+import { TestCategoryModel } from "src/models/entities/test-category/test-category";
+import { TestModel } from "src/models/entities/test/test";
 
 type PageProps = {
-    category: TestCategory;
-    oneTestInfo: Test;
+    category: TestCategoryModel;
+    oneTestInfo: TestModel;
     error?: string;
 };
 

@@ -2,12 +2,12 @@ import React, { FC } from "react";
 import { Title } from "@elements/Title/Title";
 import { Button } from "@elements/Button/Button";
 import { Tests } from "@modules/Tests/Tests";
-import { Test } from "src/models/entities/test/test";
+import { TestModel } from "src/models/entities/test/test";
 
 import styles from "./TestsSection.module.scss";
 
 type TestsSectionsProps = {
-    popularTests: Test[];
+    popularTests: TestModel[];
 };
 
 export const TestsSection: FC<TestsSectionsProps> = ({ popularTests }) => {

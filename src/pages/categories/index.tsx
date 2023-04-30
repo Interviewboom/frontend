@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import { DefaultLayout } from "@layouts/DefaultLayout";
 import { DonationInfoSection } from "@modules/DonationInfoSection";
 import { AllCategoriesSection } from "@modules/AllCategoriesSection/AllCategoriesSection";
-import { TestCategory } from "src/models/entities/test-category/test-category";
+import { TestCategoryModel } from "src/models/entities/test-category/test-category";
 
 import { errorObjectType } from "@utils/errorHandler";
 
@@ -11,7 +11,7 @@ import { wrapper } from "src/redux/store";
 import { getTestCategories, getRunningQueriesThunk } from "src/redux/api/test-categories-api";
 
 type PageProps = {
-    categories: TestCategory[] & errorObjectType;
+    categories: TestCategoryModel[] & errorObjectType;
     error: string;
 };
 

@@ -6,15 +6,15 @@ import { Title } from "@elements/Title/Title";
 import { Icon } from "@elements/Icon";
 import { ShareButton } from "@elements/ShareButton";
 import { Breadcrumb } from "@elements/Breadcrumb/Breadcrumb";
-import { TestCategory } from "src/models/entities/test-category/test-category";
-import { Test } from "src/models/entities/test/test";
+import { TestCategoryModel } from "src/models/entities/test-category/test-category";
+import { TestModel } from "src/models/entities/test/test";
 import { TestDetails } from "./TestDetails";
 
 import styles from "./OneTestSection.module.scss";
 
 type OneTestSectionProps = {
-    category: TestCategory;
-    oneTestInfo: Test;
+    category: TestCategoryModel;
+    oneTestInfo: TestModel;
 };
 
 export const OneTestSection: FC<OneTestSectionProps> = ({ oneTestInfo, category }) => {

@@ -8,8 +8,8 @@ import { Title } from "@elements/Title/Title";
 import { Text } from "@elements/Text";
 
 import { useSubmitSessionAnswersMutation } from "src/redux/api/sessions-api";
-import { Question } from "src/models/entities/question/question";
-import { Answer } from "src/models/entities/answer/answer";
+import { QuestionModel } from "src/models/entities/question/question";
+import { AnswerModel } from "src/models/entities/answer/answer";
 import styles from "./Answers.module.scss";
 
 const initialValues = { answerId: -1 };
@@ -19,9 +19,9 @@ interface MyFormValues {
 }
 
 type AnswersProps = {
-    questionInfo: Question;
+    questionInfo: QuestionModel;
     isLast: boolean;
-    answers: Answer[];
+    answers: AnswerModel[];
 };
 
 export const Answers: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => {

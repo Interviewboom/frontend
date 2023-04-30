@@ -1,9 +1,9 @@
-import { Question } from "src/models/entities/question/question";
+import { QuestionModel } from "src/models/entities/question/question";
 
-export interface Test {
+export interface TestModel {
     id: number;
     title: string;
-    questions: Question[];
+    questions: QuestionModel[];
     test_category_id: number;
     description: string;
     created_at: string;

@@ -1,11 +1,11 @@
 import React, { FC } from "react";
-import { TestCategory } from "src/models/entities/test-category/test-category";
+import { TestCategoryModel } from "src/models/entities/test-category/test-category";
 import { useCssClasses } from "@utils/getClassnames";
 import { CategoryCard } from "./CategoryCard";
 import styles from "./Categories.module.scss";
 
 type CategoriesProps = {
-    categories: TestCategory[];
+    categories: TestCategoryModel[];
     areScrollable?: boolean;
 };
 

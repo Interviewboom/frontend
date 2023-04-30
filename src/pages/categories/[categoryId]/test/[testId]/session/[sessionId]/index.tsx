@@ -5,12 +5,12 @@ import { getNextSessionQuestion } from "src/redux/api/sessions-api";
 import { getTestQuestionAnswers } from "src/redux/api/tests-api";
 import { wrapper } from "src/redux/store";
 import { getRunningQueriesThunk } from "src/redux/api/test-categories-api";
-import { Question } from "src/models/entities/question/question";
-import { Answer } from "src/models/entities/answer/answer";
+import { QuestionModel } from "src/models/entities/question/question";
+import { AnswerModel } from "src/models/entities/answer/answer";
 
 type PageProps = {
-    questionData: { question: Question; count: number; countAnswered: number; test_id: number };
-    answers: Answer[];
+    questionData: { question: QuestionModel; count: number; countAnswered: number; test_id: number };
+    answers: AnswerModel[];
     error: string;
 };
 
