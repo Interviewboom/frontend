@@ -1,0 +1,74 @@
+@import "./src/sass/_colors.scss";
+@import "./src/sass/_variables.scss";
+
+.link {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: $dark-text-color;
+
+    &.white {
+        color: $most-light-color;
+
+        .icon {
+            svg {
+                path {
+                    fill: $most-light-color;
+                }
+            }
+        }
+    }
+
+    &.left {
+        .icon {
+            order: -1
+        }
+    }
+
+    &.withBorder {
+        .text {
+            border-bottom: 1px solid;
+            transition: border .2s;
+        }
+    }
+
+    @media (hover:hover) {
+        &:hover {
+            &.withBorder {
+                .text {
+                    border-color: transparent;
+                }
+            }
+
+            &.left {
+                .icon {
+                    transform: translateX(-3px);
+                }
+            }
+            
+            .icon {
+                transform: translateX(3px);
+            }
+        }
+    }
+}
+
+
+
+// Треба подумати про переробку компонента Icon
+// Якось ваожко із ним працювати
+// У кожній svg є свій колір. Думаю його краще корегувати через css
+// На мою думку не кращій варіант керегувати розміром svg через width/height
+// Простіше це робити через font-size
+.icon {
+    transition: transform .2s;
+    svg {
+        path {
+            fill: $dark-text-color;
+        }
+    }
+}

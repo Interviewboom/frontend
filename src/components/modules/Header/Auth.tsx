@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@elements/Link";
 import { AUTH_ITEMS } from "./const";
 
 import styles from "./Auth.module.scss";
