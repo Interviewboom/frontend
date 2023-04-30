@@ -3,7 +3,6 @@ import Image from "next/legacy/image";
 
 import { useRouter } from "next/router";
 
-
 import styles from "./Logo.module.scss";
 
 interface LogoProps {
