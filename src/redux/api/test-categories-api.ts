@@ -1,18 +1,18 @@
 import { stringifyParams } from "@utils/api/stringifyParams";
 import { RequestParamsModel } from "src/models/requests/request-params-model/request-params-model";
-import { TestCategory } from "src/models/entities/test-category/test-category";
+import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
 import { api } from "src/redux/api";
 
 export const testCategoriesApi = api.injectEndpoints({
     endpoints: build => ({
-        getTestCategories: build.query<TestCategory[], RequestParamsModel>({
+        getTestCategories: build.query<TestCategoryModel[], RequestParamsModel>({
             query: (paramsObj = {}) => {
                 return {
                     url: `test-categories${stringifyParams(paramsObj)}`,
                 };
             },
         }),
-        getTestCategory: build.query<TestCategory, string>({
+        getTestCategory: build.query<TestCategoryModel, string>({
             query: (id: string) => {
                 return {
                     url: `test-categories/${id}`,

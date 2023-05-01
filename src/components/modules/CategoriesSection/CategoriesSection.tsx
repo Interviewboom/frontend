@@ -3,12 +3,12 @@ import { FC } from "react";
 import { Title } from "@elements/Title/Title";
 import { Button } from "@elements/Button/Button";
 import { Categories } from "@modules/Categories/Categories";
-import { TestCategory } from "src/models/entities/test-category/test-category";
+import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
 
 import styles from "./CategoriesSection.module.scss";
 
 type CategoriesProps = {
-    categories: TestCategory[];
+    categories: TestCategoryModel[];
 };
 
 export const CategoriesSection: FC<CategoriesProps> = ({ categories }) => {

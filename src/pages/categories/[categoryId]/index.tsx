@@ -4,11 +4,11 @@ import { TestsByCategorySection } from "@modules/TestsByCategorySection/TestsByC
 import { wrapper } from "src/redux/store";
 import { getRunningQueriesThunk, getTestCategory } from "src/redux/api/test-categories-api";
 import { getTests } from "src/redux/api/tests-api";
-import { TestCategory } from "src/models/entities/test-category/test-category";
+import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
 import { TestModel } from "src/models/entities/test-model/test-model";
 
 type PageProps = {
-    category: TestCategory;
+    category: TestCategoryModel;
     testsByCategory: TestModel[];
     error?: string;
 };
