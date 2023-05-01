@@ -13,7 +13,7 @@ export interface SessionSubmitAnswersRequest {
 
 export const sessionsApi = api.injectEndpoints({
     endpoints: build => ({
-        createSession: build.mutation<SessionModel, { testId: string }>({
+        createSession: build.mutation<SessionModel, { testId: string | number }>({
             query: params => {
                 return {
                     url: "sessions",
