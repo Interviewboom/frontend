@@ -33,7 +33,7 @@ const MobileMenu = () => {
 
                 <Link href="/">
                     <div className={styles.mobileLogo}>
-                        <Logo />
+                        <Logo redirectToHome />
                     </div>
                 </Link>
                 <button type="button" onClick={onAuthClick}>
@@ -45,7 +45,7 @@ const MobileMenu = () => {
                 <nav className={styles.menuList} {...(menuOpened ? { onClick: () => setMenuOpened(false) } : {})}>
                     <ul>
                         {NAVIGATION_ITEMS.map(item => (
-                            <li className={styles.navigationItem}>
+                            <li key={item.name} className={styles.navigationItem}>
                                 <Link href={formatLink(item.link)}>{item.name}</Link>
                             </li>
                         ))}
