@@ -7,6 +7,7 @@ import { getRunningQueriesThunk, getTestCategory } from "src/redux/api/test-cate
 import { getTest } from "src/redux/api/tests-api";
 import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
 import { TestModel } from "src/models/entities/test-model/test-model";
+import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 
 type PageProps = {
     category: TestCategoryModel;
@@ -41,7 +42,7 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async cont
             props: {
                 oneTestInfo,
                 category,
-                error: (isOneTestInfoError || isTestCategoryError) && "ups, something went wrong",
+                error: getGenericErrorMessage([isOneTestInfoError, isTestCategoryError]),
             },
         };
     }

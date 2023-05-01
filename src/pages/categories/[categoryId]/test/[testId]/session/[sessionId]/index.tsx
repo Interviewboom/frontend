@@ -7,6 +7,7 @@ import { wrapper } from "src/redux/store";
 import { getRunningQueriesThunk } from "src/redux/api/test-categories-api";
 import { QuestionModel } from "src/models/entities/question-model/question-model";
 import { AnswerModel } from "src/models/entities/answer-model/answer-model";
+import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 
 type PageProps = {
     questionData: { question: QuestionModel; count: number; countAnswered: number; test_id: number };
@@ -44,7 +45,7 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async cont
             props: {
                 questionData: nextQuestionInfo,
                 answers,
-                error: (isNextQuestionInfoError || isAnswersError) && "ups, something went wrong",
+                error: getGenericErrorMessage([isNextQuestionInfoError, isAnswersError]),
             },
         };
     }

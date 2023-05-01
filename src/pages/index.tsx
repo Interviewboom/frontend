@@ -12,6 +12,7 @@ import { TestCategoryModel } from "src/models/entities/test-category-model/test-
 import { TestModel } from "src/models/entities/test-model/test-model";
 import { getRunningQueriesThunk, getTestCategories } from "src/redux/api/test-categories-api";
 import { wrapper } from "src/redux/store";
+import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 
 type HomePageProps = {
     categories: TestCategoryModel[];
@@ -43,7 +44,7 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async () =
         props: {
             categories,
             popularTests,
-            error: (isCategoriesError || isPopularTestError) && "ups, something went wrong",
+            error: getGenericErrorMessage([isCategoriesError, isPopularTestError]),
         },
     };
 });

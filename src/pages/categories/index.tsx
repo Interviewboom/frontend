@@ -9,6 +9,7 @@ import { errorObjectType } from "@utils/errorHandler";
 
 import { wrapper } from "src/redux/store";
 import { getTestCategories, getRunningQueriesThunk } from "src/redux/api/test-categories-api";
+import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 
 type PageProps = {
     categories: TestCategoryModel[] & errorObjectType;
@@ -31,6 +32,6 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async () =
     await Promise.all(store.dispatch(getRunningQueriesThunk()));
 
     return {
-        props: { categories, error: isError && "ups, something went wrong" },
+        props: { categories, error: getGenericErrorMessage(isError) },
     };
 });
