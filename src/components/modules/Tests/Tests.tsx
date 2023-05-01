@@ -16,8 +16,9 @@ export const Tests: FC<TestsProps> = ({ testsArray, areScrollable }) => {
     return (
         <div className={styles.testsWrapper}>
             <div className={classes}>
-                {" "}
-                {testsArray && testsArray.map(item => <TestCard testInfo={item} key={item.id} />)}
+                {testsArray?.map(item => (
+                    <TestCard key={item.id} testInfo={item} />
+                ))}
             </div>
         </div>
     );

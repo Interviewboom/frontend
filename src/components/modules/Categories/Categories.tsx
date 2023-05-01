@@ -16,7 +16,7 @@ export const Categories: FC<CategoriesProps> = ({ categories, areScrollable }) =
         <div className={styles.categoriesWrapper}>
             <div className={classes}>
                 {categories.map(item => (
-                    <CategoryCard category={item} key={item.name} />
+                    <CategoryCard key={item.id} category={item} />
                 ))}
             </div>
         </div>
