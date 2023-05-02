@@ -8,6 +8,7 @@ export const makeStore = () =>
             [api.reducerPath]: api.reducer,
         },
         middleware: getDefaultMiddleware => getDefaultMiddleware().concat(api.middleware),
+        devTools: process.env.NODE_ENV !== "production",
     });
 
 export type AppStore = ReturnType<typeof makeStore>;
