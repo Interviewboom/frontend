@@ -1,6 +1,7 @@
 import { FC } from "react";
+import Image from "next/legacy/image";
+
 import { useRouter } from "next/router";
-import Image from "next/image";
 
 import styles from "./Logo.module.scss";
 

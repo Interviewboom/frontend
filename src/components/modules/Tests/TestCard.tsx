@@ -1,21 +1,21 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { FC } from "react";
 
 import { Text } from "@elements/Text/Text";
 import { Title } from "@elements/Title/Title";
-import { TestType } from "src/api/apiTypes";
+import { TestModel } from "src/models/entities/test-model/test-model";
 import Link from "next/link";
 
 import styles from "./TestCard.module.scss";
 
 type TestCardProps = {
-    testInfo: TestType;
+    testInfo: TestModel;
     numberOfPassings?: number;
 };
 
 export const TestCard: FC<TestCardProps> = ({ testInfo, numberOfPassings = 0 }) => {
     return (
-        <Link href={`/categories/${testInfo.test_category_id}/test/${testInfo.id}`}>
+        <Link href={`/categories/${testInfo.test_category_id}/test/${testInfo.id}`} legacyBehavior>
             <div className={styles.card}>
                 <div className={styles.imageContainer}>
                     <Image

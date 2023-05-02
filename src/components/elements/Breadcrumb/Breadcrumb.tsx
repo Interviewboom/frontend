@@ -24,7 +24,9 @@ export const Breadcrumb: FC<BreadcrumbProps> = ({ links }) => {
                         <Icon name="arrowRight" width={5} height={8} className={styles.arrow} />
                         <li className={styles.linkItem}>
                             <Text size="small" color="grey-text-color">
-                                <Link href={item.link}>{item.name}</Link>
+                                <Link href={item.link} legacyBehavior>
+                                    {item.name}
+                                </Link>
                             </Text>
                         </li>
                     </Fragment>

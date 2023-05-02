@@ -1,19 +1,19 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React, { FC } from "react";
 import Link from "next/link";
 
 import { Title } from "@elements/Title/Title";
-import { TestCategory } from "src/api/apiTypes";
+import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
 
 import styles from "./CategoryCard.module.scss";
 
 type CategoryCardProps = {
-    category: TestCategory;
+    category: TestCategoryModel;
 };
 
 export const CategoryCard: FC<CategoryCardProps> = ({ category }) => {
     return (
-        <Link href={`/categories/${category.id}`} key={category.id} passHref>
+        <Link href={`/categories/${category.id}`} key={category.id} passHref legacyBehavior>
             <div className={styles.card}>
                 <div className={styles.image}>
                     <Image

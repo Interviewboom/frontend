@@ -1,12 +1,17 @@
 import { DefaultLayout } from "@layouts/DefaultLayout";
-import { GetServerSideProps, NextPage } from "next";
-import { QuestionType, answerType } from "src/api/apiTypes";
-import { getNextQuestion, getQuestionAnswers } from "src/api/testFlow";
+import { NextPage } from "next";
 import { QuestionBlock } from "@modules/QuestionBlock/QuestionBlock";
+import { getNextSessionQuestion } from "src/redux/api/sessions-api";
+import { getTestQuestionAnswers } from "src/redux/api/tests-api";
+import { wrapper } from "src/redux/store";
+import { getRunningQueriesThunk } from "src/redux/api/test-categories-api";
+import { QuestionModel } from "src/models/entities/question-model/question-model";
+import { AnswerModel } from "src/models/entities/answer-model/answer-model";
+import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 
 type PageProps = {
-    questionData: { question: QuestionType; count: number; countAnswered: number; test_id: number };
-    answers: answerType[];
+    questionData: { question: QuestionModel; count: number; countAnswered: number; test_id: number };
+    answers: AnswerModel[];
     error: string;
 };
 
@@ -20,24 +25,30 @@ const QuestionPage: NextPage<PageProps> = ({ questionData, answers, error }: Pag
 
 export default QuestionPage;
 
-export const getServerSideProps: GetServerSideProps = async context => {
+export const getServerSideProps = wrapper.getServerSideProps(store => async context => {
     if (typeof context.params?.sessionId === "string") {
-        const nextQuestionInfo = await getNextQuestion(context.params.sessionId);
+        const { data: nextQuestionInfo, isError: isNextQuestionInfoError } = await store.dispatch(
+            getNextSessionQuestion.initiate({ sessionId: context.params.sessionId })
+        );
 
-        if (nextQuestionInfo instanceof Error) {
-            return { props: { error: { message: nextQuestionInfo.message } } };
-        }
+        const { data: answers, isError: isAnswersError } = await store.dispatch(
+            getTestQuestionAnswers.initiate({
+                // eslint-disable-next-line no-bitwise
+                testId: nextQuestionInfo?.test_id || "",
+                questionId: nextQuestionInfo?.question?.id || "",
+            })
+        );
 
-        const answers = await getQuestionAnswers(nextQuestionInfo?.test_id, nextQuestionInfo.question?.id);
+        await Promise.all(store.dispatch(getRunningQueriesThunk()));
 
-        if (answers instanceof Error) {
-            return { props: { error: answers.message } };
-        }
-
-        return { props: { questionData: nextQuestionInfo, answers } };
+        return {
+            props: {
+                questionData: nextQuestionInfo,
+                answers,
+                error: getGenericErrorMessage([isNextQuestionInfoError, isAnswersError]),
+            },
+        };
     }
 
-    return {
-        notFound: true,
-    };
-};
+    return { notFound: true };
+});
