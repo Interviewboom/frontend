@@ -31,7 +31,7 @@ const MobileMenu = () => {
                     <Icon name={menuOpened ? "close" : "menuIcon"} />
                 </button>
 
-                <Link href="/">
+                <Link href="/" legacyBehavior>
                     <div className={styles.mobileLogo}>
                         <Logo redirectToHome />
                     </div>

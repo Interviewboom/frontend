@@ -1,19 +1,20 @@
 import { FC } from "react";
 
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Text } from "@elements/Text";
 import { Title } from "@elements/Title/Title";
 import { Icon } from "@elements/Icon";
-import { TestCategory, TestType } from "src/api/apiTypes";
 import { ShareButton } from "@elements/ShareButton";
 import { Breadcrumb } from "@elements/Breadcrumb/Breadcrumb";
+import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
+import { TestModel } from "src/models/entities/test-model/test-model";
 import { TestDetails } from "./TestDetails";
 
 import styles from "./OneTestSection.module.scss";
 
 type OneTestSectionProps = {
-    oneTestInfo: TestType;
-    category: TestCategory;
+    category: TestCategoryModel;
+    oneTestInfo: TestModel;
 };
 
 export const OneTestSection: FC<OneTestSectionProps> = ({ oneTestInfo, category }) => {

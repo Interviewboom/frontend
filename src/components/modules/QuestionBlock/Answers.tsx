@@ -2,14 +2,14 @@ import React, { FC } from "react";
 import { FormikProps, useFormik, Form, Formik } from "formik";
 import { useRouter } from "next/router";
 
-import { answerType, QuestionType } from "src/api/apiTypes";
-import { postUserAnswers } from "src/api/testFlow";
-
 import { RadioInput } from "@elements/RadioInput/RadioInput";
 import { Button } from "@elements/Button";
 import { Title } from "@elements/Title/Title";
 import { Text } from "@elements/Text";
 
+import { useSubmitSessionAnswersMutation } from "src/redux/api/sessions-api";
+import { QuestionModel } from "src/models/entities/question-model/question-model";
+import { AnswerModel } from "src/models/entities/answer-model/answer-model";
 import styles from "./Answers.module.scss";
 
 const initialValues = { answerId: -1 };
@@ -19,28 +19,33 @@ interface MyFormValues {
 }
 
 type AnswersProps = {
-    questionInfo: QuestionType;
+    questionInfo: QuestionModel;
     isLast: boolean;
-    answers: answerType[];
+    answers: AnswerModel[];
 };
 
 export const Answers: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => {
     const router = useRouter();
+
+    const [submitSessionAnswersRequest] = useSubmitSessionAnswersMutation();
 
     const htmlWithoutTags = questionInfo.question?.replace(/(<([^>]+)>)/gi, "");
 
     const submitHandler = async (values: MyFormValues) => {
         if (typeof router.query?.sessionId !== "string") return;
 
-        await postUserAnswers(router.query.sessionId, {
-            answerIds: [Number(values.answerId)],
-            questionId: questionInfo.id,
+        await submitSessionAnswersRequest({
+            sessionId: router.query.sessionId,
+            params: {
+                answerIds: [Number(values.answerId)],
+                questionId: questionInfo.id,
+            },
         });
 
         if (!isLast) {
-            router.replace(router.asPath);
+            await router.replace(router.asPath);
         } else {
-            router.push(`${router.asPath}/result`);
+            await router.push(`${router.asPath}/result`);
         }
     };
 

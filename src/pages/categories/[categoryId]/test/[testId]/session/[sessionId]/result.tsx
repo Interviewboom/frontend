@@ -1,12 +1,15 @@
 import { DefaultLayout } from "@layouts/DefaultLayout";
 import { ResultSection } from "@modules/ResultSection/ResultSection";
 
-import { GetServerSideProps, NextPage } from "next";
-import { TestResultsType } from "src/api/apiTypes";
-import { getTestReport } from "src/api/testResults";
+import { NextPage } from "next";
+import { getTestResults } from "src/redux/api/sessions-api";
+import { getRunningQueriesThunk } from "src/redux/api/test-categories-api";
+import { wrapper } from "src/redux/store";
+import { TestResultsResponseModel } from "src/models/responses/test-results-response-model/test-results-response-model";
+import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 
 type PageProps = {
-    testResults: TestResultsType;
+    testResults: TestResultsResponseModel;
     error?: string;
 };
 
@@ -20,20 +23,18 @@ const resultPage: NextPage<PageProps> = ({ testResults, error }: PageProps) => {
 
 export default resultPage;
 
-export const getServerSideProps: GetServerSideProps = async context => {
+export const getServerSideProps = wrapper.getServerSideProps(store => async context => {
     if (typeof context.params?.sessionId === "string") {
-        const testResults = await getTestReport(context.params?.sessionId);
+        const { data: testResults, isError: isTestResultsError } = await store.dispatch(
+            getTestResults.initiate({ sessionId: context.params?.sessionId })
+        );
 
-        if (testResults instanceof Error) {
-            return { props: { error: testResults.message } };
-        }
+        await Promise.all(store.dispatch(getRunningQueriesThunk()));
 
-        if (testResults) {
-            return { props: { testResults } };
-        }
+        return { props: { testResults, error: getGenericErrorMessage(isTestResultsError) } };
     }
 
     return {
         notFound: true,
     };
-};
+});

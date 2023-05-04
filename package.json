@@ -11,16 +11,19 @@
         "build-ts": "tsc"
     },
     "dependencies": {
+        "@reduxjs/toolkit": "^1.9.5",
         "@typescript-eslint/eslint-plugin": "^5.22.0",
         "@typescript-eslint/parser": "^5.22.0",
         "axios": "^0.27.2",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-prettier": "^4.0.0",
         "formik": "^2.2.9",
-        "next": "12.1.6",
+        "next": "^13.3.1",
+        "next-redux-wrapper": "^8.1.0",
         "prettier": "^2.6.2",
-        "react": "18.1.0",
-        "react-dom": "18.1.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-redux": "^8.0.5",
         "sass": "^1.51.0",
         "tinymce": "^6.1.2"
     },
