@@ -8,7 +8,7 @@ import { TestCategoryModel } from "src/models/entities/test-category-model/test-
 import { errorObjectType } from "@utils/errorHandler";
 
 import { wrapper } from "src/redux/store";
-import { getTestCategories, getRunningQueriesThunk } from "src/redux/api/test-categories-api";
+import { getTestCategories, getRunningQueriesThunk } from "src/redux/api/test-categories-api/test-categories-api";
 import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 
 type PageProps = {

@@ -1,10 +1,10 @@
 import { DefaultLayout } from "@layouts/DefaultLayout";
 import { NextPage } from "next";
 import { QuestionBlock } from "@modules/QuestionBlock/QuestionBlock";
-import { getNextSessionQuestion } from "src/redux/api/sessions-api";
-import { getTestQuestionAnswers } from "src/redux/api/tests-api";
+import { getNextSessionQuestion } from "src/redux/api/sessions-api/sessions-api";
+import { getTestQuestionAnswers } from "src/redux/api/tests-api/tests-api";
 import { wrapper } from "src/redux/store";
-import { getRunningQueriesThunk } from "src/redux/api/test-categories-api";
+import { getRunningQueriesThunk } from "src/redux/api/test-categories-api/test-categories-api";
 import { QuestionModel } from "src/models/entities/question-model/question-model";
 import { AnswerModel } from "src/models/entities/answer-model/answer-model";
 import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";

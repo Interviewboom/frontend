@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useCreateSessionMutation } from "../redux/api/sessions-api";
+import { useCreateSessionMutation } from "src/redux/api/sessions-api/sessions-api";
 
 export const useNewSession = () => {
     const router = useRouter();

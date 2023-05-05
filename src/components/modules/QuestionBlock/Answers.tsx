@@ -7,7 +7,7 @@ import { Button } from "@elements/Button";
 import { Title } from "@elements/Title/Title";
 import { Text } from "@elements/Text";
 
-import { useSubmitSessionAnswersMutation } from "src/redux/api/sessions-api";
+import { useSubmitSessionAnswersMutation } from "src/redux/api/sessions-api/sessions-api";
 import { QuestionModel } from "src/models/entities/question-model/question-model";
 import { AnswerModel } from "src/models/entities/answer-model/answer-model";
 import styles from "./Answers.module.scss";
