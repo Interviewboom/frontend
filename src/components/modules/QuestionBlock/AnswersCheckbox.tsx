@@ -80,7 +80,13 @@ export const AnswersCheckbox: FC<AnswersProps> = ({ questionInfo, isLast, answer
                         />
                     );
                 })}
-                <Button type="submit" size="medium" className={styles.buttonMargin} disabled={formik.isSubmitting}>
+                <Button
+                    type="submit"
+                    size="medium"
+                    className={styles.buttonMargin}
+                    onClick={() => setTimeout(() => formik.handleReset(), 0)}
+                    disabled={!formik.values.answerIds.length}
+                >
                     {isLast ? "Finish" : "Next"}
                 </Button>
             </Form>

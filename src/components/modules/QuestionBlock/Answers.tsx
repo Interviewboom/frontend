@@ -12,7 +12,7 @@ import { QuestionModel } from "src/models/entities/question-model/question-model
 import { AnswerModel } from "src/models/entities/answer-model/answer-model";
 import styles from "./Answers.module.scss";
 
-const initialValues = { answerId: -1 };
+const initialValues = { answerId: 0 };
 
 interface MyFormValues {
     answerId: number;
@@ -81,7 +81,13 @@ export const Answers: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => 
                         />
                     );
                 })}
-                <Button type="submit" size="medium" className={styles.buttonMargin} disabled={formik.isSubmitting}>
+                <Button
+                    type="submit"
+                    size="medium"
+                    className={styles.buttonMargin}
+                    onClick={() => setTimeout(() => formik.handleReset(), 0)}
+                    disabled={!formik.values.answerId}
+                >
                     {isLast ? "Finish" : "Next"}
                 </Button>
             </Form>
