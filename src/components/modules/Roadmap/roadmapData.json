@@ -1,0 +1,96 @@
+{
+    "name": null,
+    "markdown": "01",
+    "children": [
+        {
+            "name": "Web Development",
+            "markdown": "1",
+            "children": [
+                {
+                    "name": "Front-End Developer",
+                    "markdown": "1.1",
+                    "children": [
+                        {
+                            "name": "Javascript [Basic]",
+                            "markdown": "A",
+                            "children": [
+                                {
+                                    "name": "Fundamentals",
+                                    "markdown": "A1",
+                                    "children": [
+                                        {
+                                            "name": "Data Types",
+                                            "markdown": null,
+                                            "children": [
+                                                {
+                                                    "name": "Basic data Types",
+                                                    "horizontal": true,
+                                                    "markdown": null,
+                                                    "children": [
+                                                        {
+                                                            "name": "Numbers"
+                                                        },
+                                                        {
+                                                            "name": "Strings"
+                                                        },
+                                                        {
+                                                            "name": "Arrays",
+                                                            "children": [
+                                                                {
+                                                                    "name": "Array methods",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "name": "JSON"
+                                                        },
+                                                        {
+                                                            "name": "Date and time"
+                                                        },
+                                                        {
+                                                            "name": "Symbols"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Type Conversions"
+                                        },
+                                        {
+                                            "name": "Comparisons"
+                                        },
+                                        {
+                                            "name": "Conditional branching"
+                                        },
+                                        {
+                                            "name": "Functions"
+                                        },
+                                        {
+                                            "name": "Loops: while and for"
+                                        },
+                                        {
+                                            "name": "Variables"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "JS in Frontend Development",
+                    "markdown": "1.2",
+                    "children": [
+                        {
+                            "name": "Basic [using JS in browsers]",
+                            "markdown": "A",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

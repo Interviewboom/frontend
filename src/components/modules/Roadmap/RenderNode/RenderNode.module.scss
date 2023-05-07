@@ -1,0 +1,23 @@
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+
+.node_list {
+    font-family: $primary-font;
+    .node_name {
+        background-color: $background-secondary-light;
+        color: $input-primary-color;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 6px 12px;
+        width: max-content;
+        height: fit-content;
+        display: flex;
+        white-space: nowrap;
+        &:hover {
+            cursor: pointer;
+        }
+
+        
+    }
+}
