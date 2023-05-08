@@ -14,7 +14,7 @@ export const api = createApi({
     tagTypes: ["api"],
     endpoints: () => ({}),
     // eslint-disable-next-line consistent-return
-    extractRehydrationInfo(action, {reducerPath}) {
+    extractRehydrationInfo(action, { reducerPath }) {
         if (action.type === HYDRATE) {
             return action.payload[reducerPath];
         }
