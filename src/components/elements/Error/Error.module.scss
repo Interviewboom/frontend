@@ -1,0 +1,25 @@
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 20px;
+    padding: 19px 12px;
+    background-color: $bg-error-color;
+    border-radius: 16px;
+    font-family: $primary-font;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+.errorMessage {
+    text-align: center;
+    & > span {
+        color: $text-error-color;
+        font-weight: 600;
+    }
+  }

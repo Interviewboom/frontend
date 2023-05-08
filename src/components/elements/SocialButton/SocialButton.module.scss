@@ -1,0 +1,13 @@
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+
+.inlineBLock {
+    display: inline-block;
+}
+
+.textIconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+}

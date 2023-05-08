@@ -25,7 +25,8 @@
         "react-dom": "^18.2.0",
         "react-redux": "^8.0.5",
         "sass": "^1.51.0",
-        "tinymce": "^6.1.2"
+        "tinymce": "^6.1.2",
+        "yup": "^1.1.1"
     },
     "devDependencies": {
         "@svgr/webpack": "^6.2.1",

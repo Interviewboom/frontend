@@ -17,8 +17,8 @@ export const NAVIGATION_ITEMS = [
 ];
 
 // Auth links
-const LINK_SIGN_IN = "/sign-in";
-const LINK_SIGN_UP = "/sign-up";
+const LINK_SIGN_IN = "/auth/sign-in";
+const LINK_SIGN_UP = "/auth/sign-up";
 
 const AUTH_SIGN_IN = { name: "Sign in", link: LINK_SIGN_IN };
 const AUTH_SIGN_UP = { name: "Sign up", link: LINK_SIGN_UP };

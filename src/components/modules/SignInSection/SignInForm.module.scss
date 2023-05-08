@@ -1,0 +1,103 @@
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+
+.section {
+    padding: 2rem;
+    background-color: $button-background-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height:100vh
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 0 15px;
+    font-family: $primary-font;
+    margin-bottom: 50px;
+    max-width: 658px;
+    text-align: center;
+}
+
+.heading {
+    margin: 1.8rem;
+    & > h2 {
+        font-weight: 600;
+    }
+}
+
+.title {
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin: 1rem;
+
+    & > .signIn {
+        width: 100%;
+        border-radius: 120px;
+        align-self: center;
+    }
+}
+
+.inlineBLock {
+    display: inline-block;
+}
+
+.divider {
+    margin: 1rem 0;
+}
+
+.socialButtons {
+    margin-bottom: 2.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.8rem;
+    & > span {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+}
+
+.accountWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.textIconWrapper {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+
+    & span:nth-child(1) {
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .section {
+        width: 100%;
+        padding: 0;
+    }
+
+    .content {
+        padding: 0;
+    }
+
+}
