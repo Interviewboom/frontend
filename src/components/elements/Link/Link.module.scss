@@ -48,7 +48,7 @@ $link-hover-transform-amount: 3px;
 
             &.left {
                 .icon {
-                    transform: translateX(-3px);
+                    transform: translateX(-$link-hover-transform-amount);
                 }
             }
             
