@@ -53,7 +53,7 @@ $link-hover-transform-amount: 3px;
             }
             
             .icon {
-                transform: translateX(3px);
+                transform: translateX($link-hover-transform-amount);
             }
         }
     }
