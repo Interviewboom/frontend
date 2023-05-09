@@ -1,6 +1,8 @@
 @import "./src/sass/_colors.scss";
 @import "./src/sass/_variables.scss";
 
+$link-hover-transform-amount: 3px;
+
 .link {
     display: inline-flex;
     align-items: center;
