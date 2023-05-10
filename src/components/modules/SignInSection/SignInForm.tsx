@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import { FC } from "react";
 import { useFormik } from "formik";
 
+import { useLoginMutation } from "src/redux/api/auth-api";
+
 import { Button } from "@elements/Button";
 import { Icon } from "@elements/Icon";
 import { Text } from "@elements/Text";
@@ -20,8 +22,13 @@ interface FormValues {
 export const SignInForm: FC = () => {
     const router = useRouter();
 
+    const [loginRequest] = useLoginMutation();
+
     const submitHandler = async (values: FormValues, { setSubmitting }) => {
-        // Perform form submission logic here
+        await loginRequest({
+            email: values.email,
+            password: values.password,
+        });
 
         setSubmitting(false);
     };
@@ -60,7 +67,7 @@ export const SignInForm: FC = () => {
             description="Welcome back!"
             onSubmit={formik.handleSubmit}
             beforeContent={
-                <Button link="/forgot-password" size="small" color="transparent">
+                <Button link="/auth/reset-password" size="small" color="transparent">
                     Forgot password?
                 </Button>
             }

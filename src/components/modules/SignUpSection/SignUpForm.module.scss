@@ -3,7 +3,7 @@
 
 .section {
     padding: 2rem;
-    background-color: $button-background-color;
+    background-color: $page-background-color;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,6 +68,11 @@
         text-decoration: underline;
         text-underline-offset: 4px;
     }
+}
+
+.additionalInfo {
+    max-width: 460px;
+    margin: 0 auto;
 }
 
 .accountWrapper {

@@ -3,7 +3,7 @@
 
 .section {
     padding: 2rem;
-    background-color: $button-background-color;
+    background-color: $page-background-color;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,7 +24,7 @@
 }
 
 .heading {
-    margin: 1.8rem;
+    margin: 0 1.8rem 3rem 1.8rem;
     & > h2 {
         font-weight: 600;
     }
@@ -49,8 +49,10 @@
     }
 }
 
-.inlineBLock {
+.info {
     display: inline-block;
+    max-width: 460px;
+    margin: 0 auto;
 }
 
 .divider {

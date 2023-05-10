@@ -76,7 +76,7 @@ export const SignUpForm: FC = () => {
             isSubmitting={formik.isSubmitting}
             onSubmit={formik.handleSubmit}
             afterContent={
-                <Text>
+                <Text className={styles.additionalInfo}>
                     By creating an account, you agree to the <u className={styles.docs}>Terms of Service</u> and{" "}
                     <u className={styles.docs}>Privacy Policy</u>.
                 </Text>

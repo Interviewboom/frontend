@@ -18,7 +18,8 @@ interface AuthProps {
     beforeContent?: ReactNode;
     afterContent?: ReactNode;
     onSubmit: () => void;
-    wrongPage: ReactNode;
+    showSocials?: boolean;
+    wrongPage?: ReactNode;
 }
 
 interface SocialButtonProps {
@@ -44,6 +45,7 @@ export const Auth: React.FC<AuthProps> = ({
     beforeContent,
     afterContent,
     children,
+    showSocials = true,
     wrongPage,
 }: AuthProps) => {
     const socialButtons = [
@@ -65,13 +67,7 @@ export const Auth: React.FC<AuthProps> = ({
                     <Title level={2} className={styles.title}>
                         {title}
                     </Title>
-                    <Text
-                        size="medium"
-                        color="dark-text-color"
-                        className={styles.inlineBLock}
-                        isParagraph
-                        lineHeight={17}
-                    >
+                    <Text size="medium" color="dark-text-color" className={styles.info} isParagraph lineHeight={17}>
                         {description}
                     </Text>
                 </div>
@@ -92,16 +88,19 @@ export const Auth: React.FC<AuthProps> = ({
                     </div>
                 </form>
 
-                <div className={styles.divider}>
-                    <Text isParagraph color="grey-text-color">
-                        or
-                    </Text>
-                </div>
+                {showSocials && (
+                    <>
+                        <div className={styles.divider}>
+                            <Text isParagraph color="grey-text-color">
+                                or
+                            </Text>
+                        </div>
 
-                <div className={styles.socialButtons}>
-                    <SocialButtons buttons={socialButtons} keyword={keyword} />
-                </div>
-
+                        <div className={styles.socialButtons}>
+                            <SocialButtons buttons={socialButtons} keyword={keyword} />
+                        </div>
+                    </>
+                )}
                 {wrongPage}
             </div>
         </section>
