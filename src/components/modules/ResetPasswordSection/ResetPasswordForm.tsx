@@ -34,7 +34,7 @@ export const ResetPasswordForm: FC = () => {
             name: "email",
             placeholder: "Email",
             value: formik.values.email,
-            error: formik.touched.email && formik.errors.email ? formik.errors.email : null,
+            error: formik.touched.email && formik.errors.email ? formik.errors.email : undefined,
         },
     ];
 

@@ -55,28 +55,31 @@ export const SignUpForm: FC = () => {
             placeholder: "Name",
             name: "name",
             value: formik.values.name,
-            error: formik.touched.name && formik.errors.name ? formik.errors.name : null,
+            error: formik.touched.name && formik.errors.name ? formik.errors.name : undefined,
         },
         {
             type: "email" as const,
             placeholder: "Email",
             name: "email",
             value: formik.values.email,
-            error: formik.touched.email && formik.errors.email ? formik.errors.email : null,
+            error: formik.touched.email && formik.errors.email ? formik.errors.email : undefined,
         },
         {
             type: "password" as const,
             name: "password",
             placeholder: "Password",
             value: formik.values.password,
-            error: formik.touched.password && formik.errors.password ? formik.errors.password : null,
+            error: formik.touched.password && formik.errors.password ? formik.errors.password : undefined,
         },
         {
             type: "password" as const,
             placeholder: "Password again",
             name: "repeatPassword",
             value: formik.values.repeatPassword,
-            error: formik.touched.repeatPassword && formik.errors.repeatPassword ? formik.errors.repeatPassword : null,
+            error:
+                formik.touched.repeatPassword && formik.errors.repeatPassword
+                    ? formik.errors.repeatPassword
+                    : undefined,
         },
     ];
 

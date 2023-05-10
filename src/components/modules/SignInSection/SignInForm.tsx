@@ -51,14 +51,14 @@ export const SignInForm: FC = () => {
             name: "email",
             placeholder: "Email",
             value: formik.values.email,
-            error: formik.touched.email && formik.errors.email ? formik.errors.email : null,
+            error: formik.touched.email && formik.errors.email ? formik.errors.email : undefined,
         },
         {
             type: "password" as const,
             name: "password",
             placeholder: "Password",
             value: formik.values.password,
-            error: formik.touched.password && formik.errors.password ? formik.errors.password : null,
+            error: formik.touched.password && formik.errors.password ? formik.errors.password : undefined,
         },
     ];
 
