@@ -2,7 +2,7 @@ import { DefaultLayout } from "@layouts/DefaultLayout";
 import { NextPage } from "next";
 
 import { AllTestsSection } from "@modules/AllTestsSection";
-import { wrapper } from "src/redux/store";
+import { wrapper } from "src/redux/store/store";
 import { getRunningQueriesThunk } from "src/redux/api/test-categories-api/test-categories-api";
 import { getTests } from "src/redux/api/tests-api/tests-api";
 import { TestModel } from "src/models/entities/test-model/test-model";

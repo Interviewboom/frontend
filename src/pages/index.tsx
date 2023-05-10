@@ -11,7 +11,7 @@ import { getTests } from "src/redux/api/tests-api/tests-api";
 import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
 import { TestModel } from "src/models/entities/test-model/test-model";
 import { getRunningQueriesThunk, getTestCategories } from "src/redux/api/test-categories-api/test-categories-api";
-import { wrapper } from "src/redux/store";
+import { wrapper } from "src/redux/store/store";
 import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 
 type HomePageProps = {
@@ -42,8 +42,8 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async () =
 
     return {
         props: {
-            categories,
-            popularTests,
+            categories: categories || null,
+            popularTests: popularTests || null,
             error: getGenericErrorMessage([isCategoriesError, isPopularTestError]),
         },
     };

@@ -1,7 +1,7 @@
 import { stringifyParams } from "@utils/api/stringifyParams";
 import { RequestParamsModel } from "src/models/requests/request-params-model/request-params-model";
-import { api } from "src/redux/api";
 import { TestModel } from "src/models/entities/test-model/test-model";
+import { api } from "src/redux/api";
 
 export const testsApi = api.injectEndpoints({
     endpoints: build => ({
