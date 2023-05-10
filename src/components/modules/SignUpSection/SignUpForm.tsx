@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import { FC } from "react";
 import { useFormik } from "formik";
 
+import { useRegisterMutation } from "src/redux/api/auth-api";
+
 import { Icon } from "@elements/Icon";
 import { Text } from "@elements/Text";
 import { TextField } from "@elements/TextField";
@@ -21,8 +23,17 @@ interface FormValues {
 export const SignUpForm: FC = () => {
     const router = useRouter();
 
-    const submitHandler = async (values: FormValues, { setSubmitting }) => {
-        // Perform form submission logic here
+    const [registerRequest] = useRegisterMutation();
+
+    const submitHandler = async (
+        values: FormValues,
+        { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void } // eslint-disable-line no-unused-vars
+    ) => {
+        await registerRequest({
+            name: values.name,
+            email: values.email,
+            password: values.password,
+        });
 
         setSubmitting(false);
     };

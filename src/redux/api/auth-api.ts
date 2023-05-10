@@ -6,6 +6,12 @@ export interface SignInRequest {
     password: string;
 }
 
+export interface SignUpRequest {
+    name: string;
+    email: string;
+    password: string;
+}
+
 interface LoginResponse {
     user: User;
     token: string;
@@ -16,7 +22,16 @@ export const authApi = api.injectEndpoints({
         login: build.mutation<LoginResponse, SignInRequest>({
             query: credentials => {
                 return {
-                    url: `auth/login`,
+                    url: "auth/login",
+                    method: "POST",
+                    body: credentials,
+                };
+            },
+        }),
+        register: build.mutation<any, SignUpRequest>({
+            query: credentials => {
+                return {
+                    url: "auth/register",
                     method: "POST",
                     body: credentials,
                 };
@@ -26,7 +41,7 @@ export const authApi = api.injectEndpoints({
 });
 
 // Export hooks for usage in functional components
-export const { useLoginMutation } = authApi;
+export const { useLoginMutation, useRegisterMutation } = authApi;
 
 // export endpoints for use in SSR
 // export const { getNextSessionQuestion, getTestResults } = sessionsApi.endpoints;

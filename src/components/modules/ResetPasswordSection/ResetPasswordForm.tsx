@@ -11,7 +11,10 @@ interface FormValues {
 }
 
 export const ResetPasswordForm: FC = () => {
-    const submitHandler = async (values: FormValues, { setSubmitting }) => {
+    const submitHandler = async (
+        values: FormValues,
+        { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void } // eslint-disable-line no-unused-vars
+    ) => {
         // Perform form submission logic here
 
         setSubmitting(false);

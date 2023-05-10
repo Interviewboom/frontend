@@ -24,7 +24,10 @@ export const SignInForm: FC = () => {
 
     const [loginRequest] = useLoginMutation();
 
-    const submitHandler = async (values: FormValues, { setSubmitting }) => {
+    const submitHandler = async (
+        values: FormValues,
+        { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void } // eslint-disable-line no-unused-vars
+    ) => {
         await loginRequest({
             email: values.email,
             password: values.password,

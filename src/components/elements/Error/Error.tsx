@@ -4,7 +4,7 @@ import styles from "./Error.module.scss";
 import { useCssClasses } from "../../../utils/getClassnames";
 
 type ErrorProps = {
-    description?: string;
+    description: string;
     isAdaptive?: boolean;
     className?: string;
 };
@@ -14,7 +14,9 @@ export const Error: React.FC<ErrorProps> = ({ description, isAdaptive = false, c
 
     return (
         <div className={errorClasses}>
-            <div className={styles.errorMessage}>{description && <Text>{description}</Text>}</div>
+            <div className={styles.errorMessage}>
+                <Text>{description}</Text>
+            </div>
         </div>
     );
 };

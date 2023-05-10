@@ -1,1 +1,1 @@
-export { SocialButton } from "./SocialButton";
+export { MemoizedSocialButton as SocialButton } from "./SocialButton";

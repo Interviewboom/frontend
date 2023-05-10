@@ -8,7 +8,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height:100vh
+    min-height: 100vh;
 }
 
 .content {
@@ -16,9 +16,9 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    padding: 0 15px;
+    padding: 0 1.5rem;
     font-family: $primary-font;
-    margin-bottom: 50px;
+    margin-bottom: 5rem;
     max-width: 658px;
     text-align: center;
 }
@@ -44,7 +44,7 @@
 
     & > .signIn {
         width: 100%;
-        border-radius: 120px;
+        border-radius: 12rem;
         align-self: center;
     }
 }
@@ -66,12 +66,12 @@
     gap: 0.8rem;
     & > span {
         text-decoration: underline;
-        text-underline-offset: 4px;
+        text-underline-offset: 0.4rem;
     }
 }
 
 .additionalInfo {
-    max-width: 460px;
+    max-width: 46rem;
     margin: 0 auto;
 }
 
@@ -89,13 +89,13 @@
     gap: 0.4rem;
 
     & span {
-        text-underline-offset: 4px;
+        text-underline-offset: 0.4rem;
         text-decoration-line: underline;
     }
 }
 
 .docs {
-    text-underline-offset: 4px;
+    text-underline-offset: 0.4rem;
     text-decoration-line: underline;
     &:hover {
         cursor: pointer;
