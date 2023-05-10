@@ -33,38 +33,53 @@
         .roadmap_button_group {
             display: flex;
             gap: 0.5em;
+
             .roadmap_button {
                 width: max-content;
                 background-color: $background-secondary-light;
                 padding: 6px 12px;
-                width: 176px;
+                width: max-content;
                 height: 37px;
                 text-align: center;
                 font-size: 18px;
                 font-weight: 500;
                 color: $input-primary-color;
                 border-radius: 10px;
+
+                & > input {
+                    accent-color: $queaternarty_light;
+                    width: 14px;
+                    height: 14px;
+                    margin-left: 5px;
+                }
             }
         }
     }
 
-    @media screen and (max-width: 930px) {
+    @media screen and (max-width: 1020px) {
         padding: 0;
+
         .header {
             flex-flow: column;
+            align-items: center;
             gap: 1em;
+            
             .roadmap_title {
+                margin: 1em 1em;
+                align-self: flex-start;
                 line-height: 39px;
-                width: 315px;
+                width: fit-content;
                 padding: 4px 8px;
             }
 
             .roadmap_button_group {
+                margin-right: 1em;
                 flex-flow: column;
                 align-self: flex-end;
+
                 .roadmap_button {
                     white-space: nowrap;
-                    width: 160px;
+                    width: max-content;
                     height: 37px;
                     font-size: 16px;
                     font-weight: 500;

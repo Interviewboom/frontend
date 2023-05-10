@@ -14,9 +14,17 @@ interface RenderNodeProps {
     };
     marginLeft?: number;
     marginTop?: number;
+    completedOnly?: boolean;
+    inProgressOnly?: boolean;
 }
 
-const RenderNode: React.FC<RenderNodeProps> = ({ node, marginLeft = 10, marginTop = 5 }) => {
+const RenderNode: React.FC<RenderNodeProps> = ({
+    node,
+    marginLeft = 10,
+    marginTop = 5,
+    completedOnly,
+    inProgressOnly,
+}) => {
     const [isShown, setIsShown] = useState(true);
 
     if (!node) return null;
@@ -28,13 +36,10 @@ const RenderNode: React.FC<RenderNodeProps> = ({ node, marginLeft = 10, marginTo
     );
 
     return (
-        <ul
-            className={styles.node_list}
-            style={{ marginLeft, marginTop, display: "flex", flexFlow: node.horizontal ? "row" : "column" }}
-        >
+        <div className={styles.node_list} style={{ marginLeft, marginTop }}>
             {node.name && (
                 <Button className={styles.node_name} onClick={() => setIsShown(!isShown)}>
-                    {node?.name} {node.children?.length ? arrowIcon : null}
+                    {node.name} {node.children && node.children.length ? arrowIcon : null}
                 </Button>
             )}
             {isShown &&
@@ -42,11 +47,13 @@ const RenderNode: React.FC<RenderNodeProps> = ({ node, marginLeft = 10, marginTo
                     <RenderNode
                         key={index}
                         node={treeNode}
-                        marginLeft={node.horizontal ? marginLeft / 20 : marginLeft + 10}
+                        marginLeft={marginLeft + 15}
                         marginTop={marginTop + 5}
+                        completedOnly={completedOnly}
+                        inProgressOnly={inProgressOnly}
                     />
                 ))}
-        </ul>
+        </div>
     );
 };
 

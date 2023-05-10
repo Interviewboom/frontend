@@ -1,6 +1,6 @@
 import React from "react";
 
-import RoadmapByTarget from "@modules/Roadmap/RoadmapByTarget";
+import { RoadmapByTarget } from "@modules/Roadmap/index";
 
 import roadMapData from "@modules/Roadmap/roadmapData.json";
 
@@ -16,13 +16,13 @@ interface RoadmapProps {
 }
 
 const Roadmap: NextPage<RoadmapProps> = ({ roadmapData }: RoadmapProps) => {
-    return <RoadmapByTarget roadMapData={roadmapData} />;
+    return <RoadmapByTarget roadmapData={roadmapData} />;
 };
 
 export const getServerSideProps = async () => {
     const roadmapData = roadMapData;
 
-    if (roadmapData !== null) {
+    if (roadmapData) {
         return {
             props: {
                 roadmapData: roadmapData ?? null,
