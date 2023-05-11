@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { Icon } from "@elements/Icon/Icon";
 import Link from "next/link";
-import { Logo } from "@elements/Logo";
 
-import styles from "./MobileMenu.module.scss";
+import { Icon } from "@elements/Icon/Icon";
+import { Logo } from "@elements/Logo";
+import { formatLink } from "@utils/formatLink";
+
 import { NAVIGATION_ITEMS } from "./const";
 import { Auth } from "./Auth";
+
+import styles from "./MobileMenu.module.scss";
 
 const MobileMenu = () => {
     const [menuOpened, setMenuOpened] = useState(false);
@@ -28,7 +31,7 @@ const MobileMenu = () => {
                     <Icon name={menuOpened ? "close" : "menuIcon"} />
                 </button>
 
-                <Link href="/">
+                <Link href="/" legacyBehavior>
                     <div className={styles.mobileLogo}>
                         <Logo redirectToHome />
                     </div>
@@ -42,8 +45,8 @@ const MobileMenu = () => {
                 <nav className={styles.menuList} {...(menuOpened ? { onClick: () => setMenuOpened(false) } : {})}>
                     <ul>
                         {NAVIGATION_ITEMS.map(item => (
-                            <li className={styles.navigationItem}>
-                                <Link href={item.link}>{item.name}</Link>
+                            <li key={item.name} className={styles.navigationItem}>
+                                <Link href={formatLink(item.link)}>{item.name}</Link>
                             </li>
                         ))}
                     </ul>

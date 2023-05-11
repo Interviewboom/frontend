@@ -2,12 +2,12 @@ import React, { FC } from "react";
 import { Title } from "@elements/Title/Title";
 import { Tests } from "@modules/Tests/Tests";
 import { Breadcrumb } from "@elements/Breadcrumb/Breadcrumb";
-import { TestType } from "src/api/apiTypes";
+import { TestModel } from "src/models/entities/test-model/test-model";
 
 import styles from "./AllTestsSection.module.scss";
 
 type AllTestsSectionProps = {
-    allTests: TestType[];
+    allTests: TestModel[];
 };
 
 export const AllTestsSection: FC<AllTestsSectionProps> = ({ allTests }) => {

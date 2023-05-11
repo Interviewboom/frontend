@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 import { Icon } from "@elements/Icon/Icon";
 import { Title } from "@elements/Title";
-import { SessionQuestion } from "src/api/apiTypes";
+import { SessionQuestionModel } from "src/models/entities/session-question-model/session-question-model";
 
 import styles from "./IncorrectAnswers.module.scss";
 
 type IncorrectAnswersProps = {
-    sessionQuestions: SessionQuestion[];
+    sessionQuestions: SessionQuestionModel[];
 };
 
 export const IncorrectAnswers: FC<IncorrectAnswersProps> = ({ sessionQuestions }) => {
@@ -20,7 +20,7 @@ export const IncorrectAnswers: FC<IncorrectAnswersProps> = ({ sessionQuestions }
                     if (item.is_answered) return null;
 
                     return (
-                        <li className={styles.listItem}>
+                        <li className={styles.listItem} key={item.question_id}>
                             <Icon name="wrongCircle" width={48} height={48} className={styles.margRight} />
                             <Title level={5}>
                                 {index + 1}. {item.question}

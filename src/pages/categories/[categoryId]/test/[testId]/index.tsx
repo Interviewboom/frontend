@@ -1,13 +1,17 @@
 import { DefaultLayout } from "@layouts/DefaultLayout";
 import { OneTestSection } from "@modules/OneTestSection/OneTestSection";
 import { DonationInfoSection } from "@modules/DonationInfoSection/DonationInfoSection";
-import { GetServerSideProps, NextPage } from "next";
-import { getCategory, getOneTest } from "src/api/categoriesTestsInfo";
-import { TestType, TestCategory } from "src/api/apiTypes";
+import { NextPage } from "next";
+import { wrapper } from "src/redux/store";
+import { getRunningQueriesThunk, getTestCategory } from "src/redux/api/test-categories-api";
+import { getTest } from "src/redux/api/tests-api";
+import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
+import { TestModel } from "src/models/entities/test-model/test-model";
+import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 
 type PageProps = {
-    category: TestCategory;
-    oneTestInfo: TestType;
+    category: TestCategoryModel;
+    oneTestInfo: TestModel;
     error?: string;
 };
 
@@ -22,25 +26,26 @@ const TestDetailsPage: NextPage<PageProps> = ({ oneTestInfo, category, error }: 
 
 export default TestDetailsPage;
 
-export const getServerSideProps: GetServerSideProps = async context => {
+export const getServerSideProps = wrapper.getServerSideProps(store => async context => {
     const testId = context.params?.testId;
     const categoryId = context.params?.categoryId;
 
     if (typeof categoryId === "string" && typeof testId === "string") {
-        const oneTestInfo = await getOneTest(testId);
+        const { data: oneTestInfo, isError: isOneTestInfoError } = await store.dispatch(getTest.initiate(testId));
+        const { data: category, isError: isTestCategoryError } = await store.dispatch(
+            getTestCategory.initiate(categoryId)
+        );
 
-        if (oneTestInfo instanceof Error) {
-            return { props: { error: oneTestInfo.message } };
-        }
+        await Promise.all(store.dispatch(getRunningQueriesThunk()));
 
-        const category = await getCategory(categoryId);
-
-        if (category instanceof Error) {
-            return { props: { error: category.message } };
-        }
-
-        return { props: { oneTestInfo, category } };
+        return {
+            props: {
+                oneTestInfo,
+                category,
+                error: getGenericErrorMessage([isOneTestInfoError, isTestCategoryError]),
+            },
+        };
     }
 
     return { notFound: true };
-};
+});

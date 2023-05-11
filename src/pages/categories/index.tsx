@@ -1,16 +1,18 @@
-import { GetServerSideProps } from "next";
 import React from "react";
 import type { NextPage } from "next";
 import { DefaultLayout } from "@layouts/DefaultLayout";
 import { DonationInfoSection } from "@modules/DonationInfoSection";
 import { AllCategoriesSection } from "@modules/AllCategoriesSection/AllCategoriesSection";
-import { TestCategory } from "src/api/apiTypes";
-import { getCategories } from "src/api/categoriesTestsInfo";
+import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
 
 import { errorObjectType } from "@utils/errorHandler";
 
+import { wrapper } from "src/redux/store";
+import { getTestCategories, getRunningQueriesThunk } from "src/redux/api/test-categories-api";
+import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
+
 type PageProps = {
-    categories: TestCategory[] & errorObjectType;
+    categories: TestCategoryModel[] & errorObjectType;
     error: string;
 };
 
@@ -25,10 +27,11 @@ const AllCategoriesPage: NextPage<PageProps> = ({ categories, error }: PageProps
 
 export default AllCategoriesPage;
 
-export const getServerSideProps: GetServerSideProps = async () => {
-    const categories = await getCategories();
-    if (categories instanceof Error) {
-        return { props: { error: categories.message } };
-    }
-    return { props: { categories } };
-};
+export const getServerSideProps = wrapper.getServerSideProps(store => async () => {
+    const { data: categories, isError } = await store.dispatch(getTestCategories.initiate({}));
+    await Promise.all(store.dispatch(getRunningQueriesThunk()));
+
+    return {
+        props: { categories, error: getGenericErrorMessage(isError) },
+    };
+});

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, Fragment } from "react";
 import Link from "next/link";
 import { Icon } from "../Icon/Icon";
 import styles from "./Breadcrumb.module.scss";
@@ -20,14 +20,16 @@ export const Breadcrumb: FC<BreadcrumbProps> = ({ links }) => {
                     </IconLink>
                 </li>
                 {links.map(item => (
-                    <>
+                    <Fragment key={item.link}>
                         <Icon name="arrowRight" width={5} height={8} className={styles.arrow} />
                         <li className={styles.linkItem}>
                             <Text size="small" color="grey-text-color">
-                                <Link href={item.link}>{item.name}</Link>
+                                <Link href={item.link} legacyBehavior>
+                                    {item.name}
+                                </Link>
                             </Text>
                         </li>
-                    </>
+                    </Fragment>
                 ))}
             </ul>
         </div>

@@ -1,16 +1,16 @@
 import { FC, useMemo } from "react";
 import { useRouter } from "next/router";
-import { TestResultsType } from "src/api/apiTypes";
 import { ShareButton } from "@elements/ShareButton";
 import { Title } from "@elements/Title/Title";
 import { Breadcrumb } from "@elements/Breadcrumb";
 
+import { TestResultsResponseModel } from "src/models/responses/test-results-response-model/test-results-response-model";
 import styles from "./ResultSection.module.scss";
 import Statistics from "./Statistics";
 import { IncorrectAnswers } from "./IncorrectAnswers";
 
 type ResultProps = {
-    testResults: TestResultsType;
+    testResults: TestResultsResponseModel;
 };
 
 export const ResultSection: FC<ResultProps> = ({ testResults }) => {

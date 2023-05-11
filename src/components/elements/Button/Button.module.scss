@@ -2,27 +2,24 @@
 @import "@sass/_variables.scss";
 
 .button {
-    border-radius: 4px;
+    border-radius: 120px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 60px;
-    width: 320px;
     font-family: $primary-font;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 18px;
-    line-height: 22px;
-    padding: 19px 12px;
+    line-height: 100%;
+    padding: 30px 50px;
 }
 
 .button.green {
-    background-color: $light-green-color;
-    color: $most-light-color;
+    background-color: $button-default-color;
+    color: $button-default-text-color;
 
     &:hover {
-        background-color: $dark-green-color;
-        color: $most-light-color;
+        background-color: $button-hover-color;
     }
 }
 
@@ -33,8 +30,13 @@
 
     &:hover {
         background-color: $light-grey-color;
-        color: $button-text-color;
     }
+}
+
+.button:disabled {
+    background-color: $button-disabled-color;
+    color: $button-disabled-text-color;
+    pointer-events: none;
 }
 
 .medium {
