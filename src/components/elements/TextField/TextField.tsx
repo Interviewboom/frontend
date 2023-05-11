@@ -1,14 +1,16 @@
 import React, { ChangeEventHandler, FC, useCallback, useId, useState } from "react";
+import { Icon } from "@elements/Icon";
+
 import styles from "./TextField.module.scss";
 
 interface TextFieldProps {
     value: string;
+    name?: string;
     caption?: string;
     type?: "text" | "password" | "email";
     placeholder?: string;
     isDisable?: boolean;
     isReadonly?: boolean;
-    isRequired?: boolean;
     error?: string;
     onChange: ChangeEventHandler<HTMLInputElement>;
 }
@@ -17,18 +19,17 @@ interface attributesType {
     placeholder?: string;
     isDisable?: boolean;
     isReadonly?: boolean;
-    isRequired?: boolean;
 }
 
 export const TextField: FC<TextFieldProps> = ({
     value,
+    name,
     type = "text",
     onChange,
     placeholder,
     caption,
     isDisable,
     isReadonly,
-    isRequired,
     error,
 }) => {
     const id = useId();
@@ -36,7 +37,6 @@ export const TextField: FC<TextFieldProps> = ({
 
     const conditionalAttributes = {
         placeholder,
-        required: isRequired,
         readOnly: isReadonly,
         disabled: isDisable,
     };
@@ -60,6 +60,7 @@ export const TextField: FC<TextFieldProps> = ({
                 <input
                     type={isPasswordVisible ? "text" : type}
                     id={id}
+                    name={name}
                     value={value}
                     onChange={onChange}
                     className={`${styles.input} ${error && styles.inputError} ${
@@ -69,10 +70,14 @@ export const TextField: FC<TextFieldProps> = ({
                 />
                 {type === "password" && !error && (
                     <button type="button" className={styles.inputToggler} onClick={toggleVisibility}>
-                        {isPasswordVisible ? "Hide" : "Show"}
+                        {isPasswordVisible ? (
+                            <Icon name="eye-crossed" width={30} height={30} />
+                        ) : (
+                            <Icon name="eye" width={30} height={30} />
+                        )}
                     </button>
                 )}
-                {error && <span className={styles.errorWrapper}>Error</span>}
+                {error && <span className={styles.errorWrapper}>{error}</span>}
             </div>
         </div>
     );
@@ -84,6 +89,5 @@ TextField.defaultProps = {
     placeholder: "",
     isDisable: false,
     isReadonly: false,
-    isRequired: false,
     error: "",
 };

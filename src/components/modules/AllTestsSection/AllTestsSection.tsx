@@ -11,6 +11,8 @@ type AllTestsSectionProps = {
 };
 
 export const AllTestsSection: FC<AllTestsSectionProps> = ({ allTests }) => {
+    const sortedTests = allTests ? [...allTests].sort((a, b) => b.questions.length - a.questions.length) : [];
+
     return (
         <section className={styles.section}>
             <div className={styles.wrapper}>
@@ -19,7 +21,7 @@ export const AllTestsSection: FC<AllTestsSectionProps> = ({ allTests }) => {
                 <Title level={2} className={styles.titleMargin}>
                     All tests
                 </Title>
-                <Tests testsArray={allTests?.sort((a, b) => b.questions.length - a.questions.length)} />
+                <Tests testsArray={sortedTests} />
             </div>
         </section>
     );

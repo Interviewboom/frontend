@@ -9,7 +9,7 @@ type ButtonProps = {
     link?: string;
     size?: "big" | "medium" | "small";
     isAdaptive?: boolean;
-    color?: "green" | "grey";
+    color?: "green" | "grey" | "transparent";
     onClick?: MouseEventHandler<HTMLButtonElement>;
     type?: "button" | "submit";
     className?: string;
