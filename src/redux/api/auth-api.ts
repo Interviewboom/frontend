@@ -1,21 +1,6 @@
 import { api } from "src/redux/api";
-import { User } from "../slices/authSlice";
-
-export interface SignInRequest {
-    email: string;
-    password: string;
-}
-
-export interface SignUpRequest {
-    name: string;
-    email: string;
-    password: string;
-}
-
-interface LoginResponse {
-    user: User;
-    token: string;
-}
+import { SignUpRequest, SignInRequest } from "src/models/requests/request-params-model/request-params-model";
+import { LoginResponse } from "src/models/responses/auth-response-model/auth-response-model";
 
 export const authApi = api.injectEndpoints({
     endpoints: build => ({
