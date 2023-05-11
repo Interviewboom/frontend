@@ -1,0 +1,69 @@
+@import "./src/sass/_colors.scss";
+@import "./src/sass/_variables.scss";
+
+$link-hover-transform-amount: 3px;
+
+.link {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: $dark-text-color;
+
+    &.white {
+        color: $most-light-color;
+
+        .icon {
+            svg {
+                path {
+                    fill: $most-light-color;
+                }
+            }
+        }
+    }
+
+    &.left {
+        .icon {
+            order: -1
+        }
+    }
+
+    &.withBorder {
+        .text {
+            border-bottom: 1px solid;
+            transition: border .2s;
+        }
+    }
+
+    @media (hover:hover) {
+        &:hover {
+            &.withBorder {
+                .text {
+                    border-color: transparent;
+                }
+            }
+
+            &.left {
+                .icon {
+                    transform: translateX(-$link-hover-transform-amount);
+                }
+            }
+            
+            .icon {
+                transform: translateX($link-hover-transform-amount);
+            }
+        }
+    }
+}
+
+.icon {
+    transition: transform .2s;
+    svg {
+        path {
+            fill: $dark-text-color;
+        }
+    }
+}

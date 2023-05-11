@@ -1,0 +1,35 @@
+import { FC, ReactNode } from "react";
+import { useCssClasses } from "src/utils/getClassnames";
+import LinkNext from "next/link";
+import { Icon } from "@elements/Icon";
+import styles from "./Link.module.scss";
+
+interface LinkProps {
+    withArrow?: "left" | "right";
+    withBorder?: boolean;
+    href: string;
+    children: ReactNode;
+    className?: string;
+    color?: "white";
+}
+
+export const Link: FC<LinkProps> = ({ href, children, withArrow, className, withBorder, color }) => {
+    const iconName = {
+        left: "arrowLeftLong",
+        right: "arrowRightLong",
+    };
+
+    const linkClasses = useCssClasses([
+        styles.link,
+        className,
+        color && styles[color],
+        withArrow && styles[withArrow],
+        withBorder && styles.withBorder,
+    ]);
+    return (
+        <LinkNext href={href} className={linkClasses}>
+            <span className={styles.text}>{children}</span>
+            {withArrow ? <Icon name={iconName[withArrow]} className={styles.icon} width={12} height={12} /> : null}
+        </LinkNext>
+    );
+};
