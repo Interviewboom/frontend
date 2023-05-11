@@ -9,9 +9,7 @@ export const Auth = () => {
             <ul className={styles.navigationList}>
                 {AUTH_ITEMS.map(item => (
                     <li key={item.name} className={styles.navigationItem}>
-                        <Link legacyBehavior href={item.link}>
-                            {item.name}
-                        </Link>
+                        <Link href={item.link}>{item.name}</Link>
                     </li>
                 ))}
             </ul>

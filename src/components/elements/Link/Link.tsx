@@ -27,11 +27,9 @@ export const Link: FC<LinkProps> = ({ href, children, withArrow, className, with
         withBorder && styles.withBorder,
     ]);
     return (
-        <LinkNext href={href}>
-            <a className={linkClasses} href={href}>
-                <span className={styles.text}>{children}</span>
-                {withArrow ? <Icon name={iconName[withArrow]} className={styles.icon} width={12} height={12} /> : null}
-            </a>
+        <LinkNext href={href} className={linkClasses}>
+            <span className={styles.text}>{children}</span>
+            {withArrow ? <Icon name={iconName[withArrow]} className={styles.icon} width={12} height={12} /> : null}
         </LinkNext>
     );
 };
