@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { createWrapper } from "next-redux-wrapper";
+import authSlice from "src/redux/slices/authSlice";
 import { api } from "./api";
 
 export const makeStore = () =>
     configureStore({
         reducer: {
             [api.reducerPath]: api.reducer,
+            [authSlice.name]: authSlice.reducer,
         },
         middleware: getDefaultMiddleware => getDefaultMiddleware().concat(api.middleware),
         devTools: process.env.NODE_ENV !== "production",

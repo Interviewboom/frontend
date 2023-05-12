@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, createDraftSafeSelector } from "@reduxjs/toolkit";
 import { User } from "src/models/entities/auth-model/auth-model";
+import { RootState } from "../store";
 
 interface AuthState {
     user: User | null;
@@ -35,4 +36,8 @@ const authSlice = createSlice({
 
 export const { setUser, setToken, logout } = authSlice.actions;
 
-export default authSlice.reducer;
+// selectors
+const selectSelf = (state: RootState) => state;
+export const selectUser = createDraftSafeSelector(selectSelf, state => state.auth.user);
+
+export default authSlice;

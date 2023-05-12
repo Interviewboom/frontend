@@ -13,6 +13,8 @@ import { TestModel } from "src/models/entities/test-model/test-model";
 import { getRunningQueriesThunk, getTestCategories } from "src/redux/api/test-categories-api";
 import { wrapper } from "src/redux/store";
 import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
+import { useSelector } from "react-redux";
+import { selectUser } from "../redux/slices/authSlice";
 
 type HomePageProps = {
     categories: TestCategoryModel[];
@@ -21,6 +23,8 @@ type HomePageProps = {
 };
 
 const HomePage: NextPage<HomePageProps> = ({ categories, popularTests, error }: HomePageProps) => {
+    const user = useSelector(selectUser);
+    console.log('user==>', user)
     return (
         <DefaultLayout error={error}>
             <FrontGreetingSection />
@@ -42,8 +46,8 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async () =
 
     return {
         props: {
-            categories,
-            popularTests,
+            categories: categories || null,
+            popularTests: popularTests || null,
             error: getGenericErrorMessage([isCategoriesError, isPopularTestError]),
         },
     };
