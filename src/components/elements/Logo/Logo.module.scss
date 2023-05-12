@@ -13,4 +13,10 @@
         height: 2.5rem;
         line-height: 140%;
     }
+    .dark {
+        color: $input-primary-color;
+    }
+    .light {
+        color: $primary-light-text-color;
+    }
 }
