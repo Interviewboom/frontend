@@ -12,8 +12,6 @@ interface LogoProps {
 export const Logo: FC<LogoProps> = ({ template = "dark", redirectToHome = false }) => {
     const router = useRouter();
 
-    const themeColor = template === "dark" ? "#16161F" : "#F5F5F5";
-
     function handleClick() {
         if (redirectToHome) {
             router.push("/");
@@ -21,7 +19,11 @@ export const Logo: FC<LogoProps> = ({ template = "dark", redirectToHome = false 
     }
     return (
         <h2 className={styles.logo}>
-            <button type="button" style={{ color: themeColor }} onClick={handleClick}>
+            <button
+                type="button"
+                className={`${template === "dark" ? styles.dark : styles.light}`}
+                onClick={handleClick}
+            >
                 InterviewBoom
             </button>
         </h2>
