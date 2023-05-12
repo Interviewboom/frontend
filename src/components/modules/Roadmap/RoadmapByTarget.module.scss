@@ -16,17 +16,16 @@
 
         .roadmap_title {
             height: fit-content;
-            font-size: 46px;
+            font-size: 2.8rem;
             font-weight: 500;
-            background-color: $queaternarty_light;
+            background-color: $light-queaternarty-bg-color;
             color: #f5f5f5;
             text-align: center;
             padding: 4px 8px;
-            border-radius: 16px;
-            line-height: 50px;
+            border-radius: 1rem;
 
             @media screen and (max-width: $desktop-content-width) {
-                font-size: 42px;
+                font-size: 2.6rem;
             }
         }
 
@@ -38,18 +37,17 @@
                 width: max-content;
                 background-color: $background-secondary-light;
                 padding: 6px 12px;
-                width: max-content;
-                height: 37px;
+                height: 2.3rem;
                 text-align: center;
-                font-size: 18px;
+                font-size: 1.1rem;
                 font-weight: 500;
                 color: $input-primary-color;
-                border-radius: 10px;
+                border-radius: 0.6rem;
 
                 & > input {
-                    accent-color: $queaternarty_light;
-                    width: 14px;
-                    height: 14px;
+                    accent-color: $light-queaternarty-bg-color;
+                    width: 0.8rem;
+                    height: 0.8rem;
                     margin-left: 5px;
                 }
             }
@@ -63,11 +61,10 @@
             flex-flow: column;
             align-items: center;
             gap: 1em;
-            
+
             .roadmap_title {
                 margin: 1em 1em;
                 align-self: flex-start;
-                line-height: 39px;
                 width: fit-content;
                 padding: 4px 8px;
             }
@@ -80,8 +77,7 @@
                 .roadmap_button {
                     white-space: nowrap;
                     width: max-content;
-                    height: 37px;
-                    font-size: 16px;
+                    font-size: 1rem;
                     font-weight: 500;
                 }
             }

@@ -1,39 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Button } from "@elements/Button";
+import { useFilterOptions } from "@utils/useFilterOptions";
 
 import RenderNode from "@modules/Roadmap/RenderNode/RenderNode";
+import { RoadmapProps } from "./Roadmap.types";
 
 import styles from "./RoadmapByTarget.module.scss";
 
-interface RoadmapByTargetProps {
-    roadmapData: {
-        name: string | null;
-        markdown?: string;
-        horizontal?: boolean;
-        children?: RoadmapByTargetProps["roadmapData"][] | [];
-    };
-}
-
-export const RoadmapByTarget: React.FC<RoadmapByTargetProps> = ({ roadmapData }) => {
-    const [completedOnly, setCompletedOnly] = useState(false);
-
-    const [inProgressOnly, setInProgressOnly] = useState(false);
+export const RoadmapByTarget: React.FC<RoadmapProps> = ({ roadmapData }) => {
+    const { showCompletedOnly, showInProgressOnly, toggleCompletedOnly, toggleInProgressOnly } = useFilterOptions();
 
     return (
         <div className={styles.roadmap_container}>
             <header className={styles.header}>
                 <h1 className={styles.roadmap_title}>Roadmap for my target</h1>
                 <div className={styles.roadmap_button_group}>
-                    <Button className={styles.roadmap_button} onClick={() => setCompletedOnly(!completedOnly)}>
-                        Completed only <input type="checkbox" checked={completedOnly} />
+                    <Button className={styles.roadmap_button} onClick={toggleCompletedOnly}>
+                        Completed only <input type="checkbox" checked={showCompletedOnly} />
                     </Button>
-                    <Button className={styles.roadmap_button} onClick={() => setInProgressOnly(!inProgressOnly)}>
-                        In progress only <input type="checkbox" checked={inProgressOnly} />
+                    <Button className={styles.roadmap_button} onClick={toggleInProgressOnly}>
+                        In progress only <input type="checkbox" checked={showInProgressOnly} />
                     </Button>
                 </div>
             </header>
-            <RenderNode node={roadmapData} completedOnly={completedOnly} inProgressOnly={inProgressOnly} />
+            <RenderNode node={roadmapData} isCompletedOnly={showCompletedOnly} isInProgressOnly={showInProgressOnly} />
         </div>
     );
 };

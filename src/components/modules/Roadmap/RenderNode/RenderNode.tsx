@@ -14,43 +14,42 @@ interface RenderNodeProps {
     };
     marginLeft?: number;
     marginTop?: number;
-    completedOnly?: boolean;
-    inProgressOnly?: boolean;
+    isCompletedOnly?: boolean;
+    isInProgressOnly?: boolean;
 }
 
 const RenderNode: React.FC<RenderNodeProps> = ({
     node,
     marginLeft = 10,
     marginTop = 5,
-    completedOnly,
-    inProgressOnly,
+    isCompletedOnly,
+    isInProgressOnly,
 }) => {
-    const [isShown, setIsShown] = useState(true);
+    const [isNodeShown, setIsNodeShown] = useState(true);
 
     if (!node) return null;
 
-    const arrowIcon = isShown ? (
-        <Icon name="arrowUp" width={20} height={20} />
-    ) : (
-        <Icon name="arrowDown" width={20} height={20} />
-    );
+    const arrowIconName = isNodeShown ? "arrowUp" : "arrowDown";
 
     return (
         <div className={styles.node_list} style={{ marginLeft, marginTop }}>
             {node.name && (
-                <Button className={styles.node_name} onClick={() => setIsShown(!isShown)}>
-                    {node.name} {node.children && node.children.length ? arrowIcon : null}
+                <Button className={styles.node_name} onClick={() => setIsNodeShown(!isNodeShown)}>
+                    {node.name}{" "}
+                    {node.children && node.children.length ? (
+                        <Icon name={arrowIconName} width={20} height={20} />
+                    ) : null}
                 </Button>
             )}
-            {isShown &&
-                node.children?.map((treeNode, index) => (
+            {isNodeShown &&
+                node.children?.map(treeNode => (
                     <RenderNode
-                        key={index}
+                        key={treeNode.name}
                         node={treeNode}
                         marginLeft={marginLeft + 15}
                         marginTop={marginTop + 5}
-                        completedOnly={completedOnly}
-                        inProgressOnly={inProgressOnly}
+                        isCompletedOnly={isCompletedOnly}
+                        isInProgressOnly={isInProgressOnly}
                     />
                 ))}
         </div>

@@ -13,19 +13,19 @@
         width: fit-content;
         height: fit-content;
         padding: 6px 8px 6px 8px;
-        font-size: 18px;
+        font-size: 1.1rem;
         font-weight: 500;
         color: $input-primary-color;
         white-space: nowrap;
 
         &.finished {
             color: $background-secondary-light;
-            background-color: $queaternarty_light;
+            background-color: $light-queaternarty-bg-color;
         }
 
         &:hover {
             cursor: pointer;
-            background-color: $queaternarty_light;
+            background-color: $light-queaternarty-bg-color;
         }
     }
 
@@ -33,7 +33,7 @@
         padding: 0;
 
         .node_name {
-            font-size: 16px;
+            font-size: 1rem;
         }
     }
 }
