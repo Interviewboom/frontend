@@ -42,8 +42,8 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async () =
 
     return {
         props: {
-            categories,
-            popularTests,
+            categories: categories || null,
+            popularTests: popularTests || null,
             error: getGenericErrorMessage([isCategoriesError, isPopularTestError]),
         },
     };

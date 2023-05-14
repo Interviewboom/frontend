@@ -1,25 +1,80 @@
-import { FC } from "react";
-import Link from "next/link";
+import { FC, useCallback } from "react";
+import { useRouter } from "next/router";
+import { getClassnames } from "src/utils/getClassnames";
+import { Link } from "@elements/Link";
+import { Icon } from "@elements/Icon";
 import { formatLink } from "@utils/formatLink";
 
 import { NAVIGATION_ITEMS } from "./const";
 
 import styles from "./Navigation.module.scss";
 
-interface NavigationItem {
+interface NavigationTypes {
     name: string;
     link: string;
 }
+interface NavigationSubItem {
+    icon: string;
+}
+
+type interfaceNavigationSubItem = NavigationTypes & NavigationSubItem;
+
+interface NavigationItem {
+    subList?: Array<interfaceNavigationSubItem>;
+    moreLink?: NavigationTypes;
+}
+
+type interfaceNavigationItem = NavigationTypes & NavigationItem;
 
 export const Navigation: FC = () => {
+    const router = useRouter();
+
+    const getLinkClasses = useCallback(
+        (link: string) => {
+            return getClassnames([styles.navigationItem, router.pathname === link && styles.active]);
+        },
+        [router]
+    );
+
     return (
         <nav className={styles.navigation}>
             <ul className={styles.navigationList}>
-                {NAVIGATION_ITEMS.map((item: NavigationItem) => (
-                    <li key={item.name} className={styles.navigationItem}>
-                        <Link legacyBehavior href={formatLink(item.link)}>
+                {NAVIGATION_ITEMS.map((item: interfaceNavigationItem) => (
+                    <li key={item.name} className={getLinkClasses(item.link)}>
+                        <Link className={styles.navigationLink} href={formatLink(item.link)}>
                             {item.name}
                         </Link>
+                        {item?.subList ? (
+                            <div className={styles.navigationSubBlock}>
+                                <ul className={styles.navigationSubBlockList}>
+                                    {item.subList.map(subItem => (
+                                        <li key={subItem.name}>
+                                            <Link
+                                                href={formatLink(subItem.link)}
+                                                classNameText={styles.navigationSubBlockLink}
+                                            >
+                                                <Icon
+                                                    className={styles.icon}
+                                                    name={subItem.icon}
+                                                    width={33}
+                                                    height={33}
+                                                />
+                                                {subItem.name}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                                {item?.moreLink ? (
+                                    <Link
+                                        className={styles.moreLink}
+                                        href={formatLink(item.moreLink.link)}
+                                        withArrow="right"
+                                    >
+                                        {item.moreLink.name}
+                                    </Link>
+                                ) : null}
+                            </div>
+                        ) : null}
                     </li>
                 ))}
             </ul>

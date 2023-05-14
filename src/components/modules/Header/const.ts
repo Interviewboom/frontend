@@ -1,19 +1,45 @@
 // Navigation links
-const LINK_ALL_TESTS = "/all-tests";
-const LINK_HOW_IT_WORKS = "#how-it-works";
-const LINK_ABOUT_US = "#about-us";
-const LINK_SUPPORT_THE_PROJECT = "#support-the-project";
+const LINK_HOME = "/";
+const LINK_THE_PLATFORM = "#the-platform";
+const LINK_OUR_TESTS = "#about-us";
+const LINK_GER_IN_TOUCH = "#Get in touch";
+const LINK_OUR_TESTS_SUB_LIST_MORE = "/all-tests";
 
-const NAVIGATION_ALL_TESTS = { name: "All tests", link: LINK_ALL_TESTS };
-const NAVIGATION_HOW_IT_WORKS = { name: "How does it work?", link: LINK_HOW_IT_WORKS };
-const NAVIGATION_ABOUT_US = { name: "About the project", link: LINK_ABOUT_US };
-const NAVIGATION_SUPPORT_THE_PROJECT = { name: "Support the project", link: LINK_SUPPORT_THE_PROJECT };
+const SUB_LIST_OUR_TESTS = [
+    {
+        name: "JavaScript",
+        icon: "javascript",
+        link: "#javascript",
+    },
+    {
+        name: "PHP",
+        icon: "php",
+        link: "#php",
+    },
+    {
+        name: "C++",
+        icon: "c++",
+        link: "#c++",
+    },
+];
+
+const SUB_OUR_TESTS_LIST_MORE = { name: "Browse all", link: LINK_OUR_TESTS_SUB_LIST_MORE };
+
+const NAVIGATION_HOME = { name: "Home", link: LINK_HOME };
+const NAVIGATION_THE_PLATFORM = { name: "The platform", link: LINK_THE_PLATFORM };
+const NAVIGATION_OUR_TESTS = {
+    name: "Our tests",
+    link: LINK_OUR_TESTS,
+    subList: SUB_LIST_OUR_TESTS,
+    moreLink: SUB_OUR_TESTS_LIST_MORE,
+};
+const NAVIGATION_GER_IN_TOUCH = { name: "Support the project", link: LINK_GER_IN_TOUCH };
 
 export const NAVIGATION_ITEMS = [
-    NAVIGATION_ALL_TESTS,
-    NAVIGATION_HOW_IT_WORKS,
-    NAVIGATION_ABOUT_US,
-    NAVIGATION_SUPPORT_THE_PROJECT,
+    NAVIGATION_HOME,
+    NAVIGATION_THE_PLATFORM,
+    NAVIGATION_OUR_TESTS,
+    NAVIGATION_GER_IN_TOUCH,
 ];
 
 // Auth links

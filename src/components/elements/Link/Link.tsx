@@ -10,10 +10,11 @@ interface LinkProps {
     href: string;
     children: ReactNode;
     className?: string;
+    classNameText?: string;
     color?: "white";
 }
 
-export const Link: FC<LinkProps> = ({ href, children, withArrow, className, withBorder, color }) => {
+export const Link: FC<LinkProps> = ({ href, children, withArrow, className, classNameText, withBorder, color }) => {
     const iconName = {
         left: "arrowLeftLong",
         right: "arrowRightLong",
@@ -26,9 +27,12 @@ export const Link: FC<LinkProps> = ({ href, children, withArrow, className, with
         withArrow && styles[withArrow],
         withBorder && styles.withBorder,
     ]);
+
+    const linkClassesText = useCssClasses([styles.text, classNameText]);
+
     return (
         <LinkNext href={href} className={linkClasses}>
-            <span className={styles.text}>{children}</span>
+            <span className={linkClassesText}>{children}</span>
             {withArrow ? <Icon name={iconName[withArrow]} className={styles.icon} width={12} height={12} /> : null}
         </LinkNext>
     );
