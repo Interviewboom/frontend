@@ -1,0 +1,11 @@
+{
+    "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-prettier-scss"
+    ],
+    "rules": {
+        "scss/at-import-partial-extension": null,
+        "scss/at-import-no-partial-leading-underscore": null,
+        "media-feature-range-notation": null
+  }
+}
