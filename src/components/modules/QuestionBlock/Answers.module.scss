@@ -1,5 +1,7 @@
+@import "@sass/_media.scss";
+
 .answersWrapper {
-    max-width: 900px;
+    max-width: 9rem;
     width: 100%;
     align-self: center;
     display: flex;
@@ -7,32 +9,30 @@
 }
 
 .buttonMargin {
-    margin-top: 48px;
+    margin-top: 4.8rem;
     align-self: flex-end;
+
+    @include lte-tablet-large {
+        margin-top: 2.4rem;
+    }
 }
 
 .question {
-    padding: 14px 0;
-    margin-bottom: 12px;
-    font-size: 18px;
+    padding: 1.4rem 0;
+    margin-bottom: 1.2rem;
+    font-size: 1.8rem;
     font-weight: 800;
-    line-height: 32px;
+    line-height: 3.2rem;
+
+    @include lte-tablet-large {
+        margin: 0;
+    }
 }
 
 .questionCode {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
 .choose {
-    margin-bottom: 16px;
-}
-
-@media screen and (max-width: 992px) {
-    .question {
-        margin: 0;
-    }
-
-    .buttonMargin {
-        margin-top: 24px;
-    }
+    margin-bottom: 1.6rem;
 }

@@ -1,5 +1,5 @@
-@import "./src/sass/_colors.scss";
-@import "./src/sass/_variables.scss";
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
 
 .list {
     display: flex;
@@ -7,7 +7,7 @@
 }
 
 .linkItem {
-    padding: 0 14px;
+    padding: 0 1.4rem;
 
     &:last-child {
         padding-right: 0;
@@ -15,7 +15,7 @@
 }
 
 .home {
-    padding-right: 16px;
+    padding-right: 1.6rem;
     flex-shrink: 0;
 }
 

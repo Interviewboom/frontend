@@ -1,7 +1,14 @@
+@import "@sass/_media.scss";
+
 .tests {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
-    gap: 36px;
+    grid-template-columns: repeat(auto-fill, minmax(26.5rem, 1fr));
+    gap: 3.6rem;
+
+    @include lte-tablet-large {
+        gap: 1.6rem;
+        overflow-x: scroll;
+    }
 }
 
 .testsWrapper {
@@ -9,13 +16,8 @@
     overflow: hidden;
 }
 
-@media screen and (max-width: 992px) {
-    .tests {
-        gap: 16px;
-        overflow-x: scroll;
-    }
-
-    .noWrap {
-        grid-template-columns: repeat(4, minmax(230px, 345px));
+.noWrap {
+    @include lte-tablet-large {
+        grid-template-columns: repeat(4, minmax(23rem, 34.5rem));
     }
 }
