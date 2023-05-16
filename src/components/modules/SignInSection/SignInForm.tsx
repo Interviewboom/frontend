@@ -3,6 +3,8 @@ import { FC } from "react";
 import { useFormik } from "formik";
 
 import { useLoginMutation } from "src/redux/api/auth-api";
+import { persistedStore, persistor } from "src/redux/store";
+import { setAccessToken } from "src/redux/slices/authSlice";
 
 import { Button } from "@elements/Button";
 import { Icon } from "@elements/Icon";
@@ -20,6 +22,7 @@ interface FormValues {
 }
 
 export const SignInForm: FC = () => {
+    const { accessToken } = persistedStore.getState().auth;
     const router = useRouter();
 
     const [loginRequest] = useLoginMutation();
@@ -33,13 +36,24 @@ export const SignInForm: FC = () => {
             password: values.password,
         });
 
+        if (!accessToken) {
+            // change it manually
+            persistedStore.dispatch(setAccessToken("token..."));
+            persistor.persist();
+            router.back();
+        } else {
+            // reset persisted store, check in redux devtools
+            persistor.purge();
+            router.back();
+        }
+
         setSubmitting(false);
     };
 
     const formik = useFormik({
         initialValues: {
-            email: "",
-            password: "",
+            email: "testemail@gmail.com",
+            password: "qqqqqqqQ1@",
         },
         validationSchema: signInValidationSchema,
         onSubmit: submitHandler,
