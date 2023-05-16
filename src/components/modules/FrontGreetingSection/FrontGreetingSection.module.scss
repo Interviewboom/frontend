@@ -2,64 +2,183 @@
 @import "@sass/_variables.scss";
 
 .section {
-    min-height: 600px;
+    font-family: $font-fracktif;
+    min-height: 59rem;
     display: flex;
+    flex-flow: row wrap;
     justify-content: center;
-    width: 100%;
-    position: relative;
-    margin-bottom: 150px;
-}
+    align-items: center;
 
-.wrapper {
-    padding: 120px 15px;
-    max-width: $desktop-content-width;
-    width: 100%;
-    position: relative;
-}
+    .wrapper {
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: center;
 
-.imageContainer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-    left: 23%;
-    z-index: -10;
+        .content {
+            width: 50%;
+            display: flex;
+            justify-content: flex-start;
+            flex-flow: column;
+            gap: 1.5rem;
 
-    .gradient {
-        position: absolute;
-        z-index: 2;
-        height: 100%;
-        left: -1%;
-        right: 58%;
-        background: linear-gradient(90deg, $most-light-color 0%, rgba(255, 255, 255, 0) 100%);
-    }
-}
+            .title {
+                width: 46rem;
+                color: $input-primary-color;
+                height: 10rem;
+                font-weight: 500;
+                font-size: 5.25rem;
+                letter-spacing: -0.06rem;
+                display: flex;
+                align-items: flex-end;
 
-.content {
-    max-width: 448px;
-}
+                .imageIcon {
+                }
+            }
 
-.marginTitle {
-    margin-bottom: 20px;
-    padding: 11px 0;
-}
+            .subtitle {
+                width: 21rem;
+                height: 6.25rem;
+                font-weight: 500;
+                font-size: 1.12rem;
+            }
 
-.marginText {
-    margin-bottom: 30px;
-}
+            .buttons {
+                .contentButton {
+                    white-space: nowrap;
+                    padding: 25px 40px;
+                    border-radius: 120px;
+                    width: 208px;
+                    height: 66px;
+                    background: #74a253;
+                }
 
-@media screen and (max-width: 992px) {
-    .section {
-        min-height: 400px;
-        margin-bottom: 50px;
+                .contentArrowButton {
+                    white-space: nowrap;
+                    padding: 25px;
+                    border-radius: 120px;
+                    width: 65px;
+                    height: 65px;
+                    background: #74a2531a;
+                    border: 1.5px solid rgba(116, 162, 83, 0.1);
+                    position: relative;
 
-        .wrapper {
-            padding: 50px 15px;
+                    .arrowDown {
+                        height: 22px;
+                        width: 22px;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 18px;
+                        font-weight: 500;
+                        color: #74a253;
+                    }
+                }
+            }
+
+            .statistics {
+                display: flex;
+                gap: 2rem;
+
+                .info {
+                    white-space: nowrap;
+                    font-weight: 500;
+                    font-size: 16px;
+                    letter-spacing: -0.015rem;
+                }
+            }
+        }
+
+        .imageContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40%;
         }
     }
 
-    .imageContainer {
-        opacity: 0.5;
+    @media screen and (max-width: 65rem) {
+        .wrapper {
+            flex-flow: column-reverse;
+            align-items: center;
+            padding: 1rem;
+            gap: 7rem;
+
+            .content {
+                align-items: flex-start;
+                gap: 1rem;
+                width: 330px;
+                .title {
+                    width: 21rem;
+                    height: 5rem;
+                    font-size: 2.2rem;
+                    letter-spacing: -0.05rem;
+
+                    .imageIcon {
+                        padding: 0.8rem;
+                    }
+                }
+
+                .subtitle {
+                    margin-top: 1rem;
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                    letter-spacing: -0.015rem;
+                    height: 88px;
+                }
+
+                .buttons {
+                    width: 275px;
+                    display: flex;
+                    gap: 0.1rem;
+
+                    .contentButton {
+                        white-space: nowrap;
+                        padding: 25px 40px 25px 40px;
+                        border-radius: 120px;
+                        width: 208px;
+                        height: 66px;
+                        background: #74a253;
+                    }
+
+                    .contentArrowButton {
+                        white-space: nowrap;
+                        padding: 25px;
+                        border-radius: 120px;
+                        width: 65px;
+                        height: 65px;
+                        background: #74a2531a;
+                        border: 1.5px solid rgba(116, 162, 83, 0.1);
+                        position: relative;
+
+                        .arrowDown {
+                            transform: translate(-50%, -50%);
+                            font-size: 18px;
+                            font-weight: 500;
+                            color: #74a253;
+                        }
+                    }
+                }
+
+                .statistics {
+                    display: flex;
+                    gap: 0.5rem;
+                    margin-top: 4rem;
+                    .info {
+                        white-space: nowrap;
+                        font-weight: 500;
+                        font-size: 16px;
+                        letter-spacing: -0.015rem;
+                    }
+                }
+            }
+
+            .imageContainer {
+                width: 100%;
+                margin-top: 2rem;
+            }
+        }
     }
 }
