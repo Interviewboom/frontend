@@ -35,18 +35,17 @@ const HomePage: NextPage<HomePageProps> = ({ categories, popularTests, error }: 
 };
 
 export const getServerSideProps = wrapper.getServerSideProps(store => async () => {
-    const { data: categories, isError: isCategoriesError } = await store.dispatch(
-        getTestCategories.initiate({ limit: "4" })
-    );
-    const { data: popularTests, isError: isPopularTestError } = await store.dispatch(getTests.initiate({ limit: "4" }));
-    await Promise.all(store.dispatch(getRunningQueriesThunk()));
-
     store.dispatch(
         setToken({
             accessToken:
                 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vZGVsZmFrQGdtYWlsLmNvbSIsInN1YiI6MSwicm9sZXMiOlsiYWRtaW4iXSwiaWF0IjoxNjg0MjUzOTkyLCJleHAiOjE2ODQzNDAzOTJ9.m8C_KpaZ0qVkqfPrXO_TK_VZ_IfmwggF5uSwxwZpSKE",
         })
     );
+    const { data: categories, isError: isCategoriesError } = await store.dispatch(
+        getTestCategories.initiate({ limit: "4" })
+    );
+    const { data: popularTests, isError: isPopularTestError } = await store.dispatch(getTests.initiate({ limit: "4" }));
+    await Promise.all(store.dispatch(getRunningQueriesThunk()));
 
     return {
         props: {

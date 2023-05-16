@@ -1,14 +1,15 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { HYDRATE } from "next-redux-wrapper";
 import { REACT_APP_API_BASE_URL } from "./constants";
+// eslint-disable-next-line import/no-cycle
+import { RootState } from "../store";
 
 export const api = createApi({
     reducerPath: "api",
     baseQuery: fetchBaseQuery({
         baseUrl: REACT_APP_API_BASE_URL,
-        prepareHeaders: headers => {
-            const token =
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vZGVsZmFrQGdtYWlsLmNvbSIsInN1YiI6MSwicm9sZXMiOlsiYWRtaW4iXSwiaWF0IjoxNjg0MjUzOTkyLCJleHAiOjE2ODQzNDAzOTJ9.m8C_KpaZ0qVkqfPrXO_TK_VZ_IfmwggF5uSwxwZpSKE";
+        prepareHeaders: (headers, { getState }) => {
+            const token = (getState() as RootState).auth.accessToken;
 
             // If we have a token set in state, let's assume that we should be passing it.
             if (token) {
