@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { User } from "src/models/entities/auth-model/auth-model";
+import { HYDRATE } from "next-redux-wrapper";
 
 interface AuthState {
     user: User | null;
@@ -31,8 +32,16 @@ const authSlice = createSlice({
             return { ...state, user: null, accessToken: null };
         },
     },
+    extraReducers: {
+        [HYDRATE]: (state, action) => {
+            return {
+                ...state,
+                ...action.payload.auth,
+            };
+        },
+    },
 });
 
 export const { setUser, setToken, logout } = authSlice.actions;
 
-export default authSlice.reducer;
+export { authSlice };

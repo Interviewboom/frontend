@@ -13,6 +13,7 @@ import { TestModel } from "src/models/entities/test-model/test-model";
 import { getRunningQueriesThunk, getTestCategories } from "src/redux/api/test-categories-api";
 import { wrapper } from "src/redux/store";
 import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
+import { setToken } from "../redux/slices/authSlice";
 
 type HomePageProps = {
     categories: TestCategoryModel[];
@@ -40,10 +41,17 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async () =
     const { data: popularTests, isError: isPopularTestError } = await store.dispatch(getTests.initiate({ limit: "4" }));
     await Promise.all(store.dispatch(getRunningQueriesThunk()));
 
+    store.dispatch(
+        setToken({
+            accessToken:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vZGVsZmFrQGdtYWlsLmNvbSIsInN1YiI6MSwicm9sZXMiOlsiYWRtaW4iXSwiaWF0IjoxNjg0MjUzOTkyLCJleHAiOjE2ODQzNDAzOTJ9.m8C_KpaZ0qVkqfPrXO_TK_VZ_IfmwggF5uSwxwZpSKE",
+        })
+    );
+
     return {
         props: {
-            categories,
-            popularTests,
+            categories: categories || null,
+            popularTests: popularTests || null,
             error: getGenericErrorMessage([isCategoriesError, isPopularTestError]),
         },
     };

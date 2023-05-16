@@ -4,7 +4,20 @@ import { REACT_APP_API_BASE_URL } from "./constants";
 
 export const api = createApi({
     reducerPath: "api",
-    baseQuery: fetchBaseQuery({ baseUrl: REACT_APP_API_BASE_URL }),
+    baseQuery: fetchBaseQuery({
+        baseUrl: REACT_APP_API_BASE_URL,
+        prepareHeaders: headers => {
+            const token =
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vZGVsZmFrQGdtYWlsLmNvbSIsInN1YiI6MSwicm9sZXMiOlsiYWRtaW4iXSwiaWF0IjoxNjg0MjUzOTkyLCJleHAiOjE2ODQzNDAzOTJ9.m8C_KpaZ0qVkqfPrXO_TK_VZ_IfmwggF5uSwxwZpSKE";
+
+            // If we have a token set in state, let's assume that we should be passing it.
+            if (token) {
+                headers.set("authorization", `Bearer ${token}`);
+            }
+
+            return headers;
+        },
+    }),
     tagTypes: ["api"],
     endpoints: () => ({}),
     // eslint-disable-next-line consistent-return
