@@ -3,11 +3,11 @@ export type RequestParamsModel = {
 };
 
 export interface SignInRequest {
-    email: string;
+    username: string;
     password: string;
 }
 export interface SignUpRequest {
-    name: string;
+    fullName: string;
     email: string;
     password: string;
 }

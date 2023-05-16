@@ -32,7 +32,7 @@ const authSlice = createSlice({
 
 const selectSelf = (state: RootState) => state;
 
-export const selectAccessToken = createDraftSafeSelector(selectSelf, state => state.auth.accessToken);
+export const selectAccessToken = createDraftSafeSelector(selectSelf, (state: RootState) => state.auth?.accessToken);
 
 export const { setUser, setAccessToken, logout } = authSlice.actions;
 

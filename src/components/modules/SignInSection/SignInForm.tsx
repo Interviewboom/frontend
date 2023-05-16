@@ -1,16 +1,14 @@
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { useFormik } from "formik";
-
 import { useLoginMutation } from "src/redux/api/auth-api";
-import { persistedStore, persistor } from "src/redux/store";
-import { setAccessToken } from "src/redux/slices/authSlice";
-
+import { useAppDispatch } from "src/redux/hooks";
 import { Button } from "@elements/Button";
 import { Icon } from "@elements/Icon";
 import { Text } from "@elements/Text";
 import { TextField } from "@elements/TextField";
 import { Auth } from "@elements/Auth";
+import { setAccessToken } from "src/redux/slices/authSlice";
 
 import { signInValidationSchema } from "@utils/yupValidationSchemas";
 
@@ -22,7 +20,7 @@ interface FormValues {
 }
 
 export const SignInForm: FC = () => {
-    const { accessToken } = persistedStore.getState().auth;
+    const dispatch = useAppDispatch();
     const router = useRouter();
 
     const [loginRequest] = useLoginMutation();
@@ -31,20 +29,16 @@ export const SignInForm: FC = () => {
         values: FormValues,
         { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void } // eslint-disable-line no-unused-vars
     ) => {
-        await loginRequest({
-            email: values.email,
+        const { data }: any = await loginRequest({
+            username: values.email,
             password: values.password,
         });
 
-        if (!accessToken) {
-            // change it manually
-            persistedStore.dispatch(setAccessToken("token..."));
-            persistor.persist();
-            router.back();
+        if (!data.accessToken) {
+            router.push("/auth/sign-in");
         } else {
-            // reset persisted store, check in redux devtools
-            persistor.purge();
-            router.back();
+            dispatch(setAccessToken(data.accessToken));
+            router.push("/");
         }
 
         setSubmitting(false);
@@ -52,8 +46,8 @@ export const SignInForm: FC = () => {
 
     const formik = useFormik({
         initialValues: {
-            email: "testemail@gmail.com",
-            password: "qqqqqqqQ1@",
+            email: "test@gmail.com",
+            password: "Qwertyqwerty12!",
         },
         validationSchema: signInValidationSchema,
         onSubmit: submitHandler,
