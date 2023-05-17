@@ -1,15 +1,14 @@
 import * as Yup from "yup";
-import { PASSWORD_PATTERN, EMAIL_PATTERN } from "./regexConstants";
+import { EMAIL_PATTERN } from "./regexConstants";
 
 const emailValidation = Yup.string()
     .email("Invalid email address")
     .matches(EMAIL_PATTERN, "Invalid email address")
     .required("Email is required");
 
-const passwordValidation = Yup.string()
-    .required("Password is required")
-    .min(8, "Password must be at least 8 characters")
-    .matches(PASSWORD_PATTERN, "Password must be strong");
+const passwordValidation = Yup.string().required("Password is required");
+// .min(8, "Password must be at least 8 characters")
+// .matches(PASSWORD_PATTERN, "Password must be strong");
 
 export const signInValidationSchema = Yup.object().shape({
     email: emailValidation,
