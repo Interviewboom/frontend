@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { useLoginMutation } from "src/redux/api/auth-api";
 import { useAppDispatch } from "src/redux/hooks";
@@ -11,7 +11,6 @@ import { Auth } from "@elements/Auth";
 import { setAccessToken } from "src/redux/slices/authSlice";
 
 import { signInValidationSchema } from "@utils/yupValidationSchemas";
-import { LoginResponse } from "src/models/responses/auth-response-model/auth-response-model";
 
 import styles from "./SignInForm.module.scss";
 
@@ -26,30 +25,30 @@ export const SignInForm: FC = () => {
     const dispatch = useAppDispatch();
     const router = useRouter();
 
-    const [loginRequest] = useLoginMutation();
+    const [loginRequest, { data, isError }] = useLoginMutation();
 
-    const submitHandler = async (
+    useEffect(() => {
+        if (data?.accessToken) {
+            dispatch(setAccessToken(data.accessToken));
+            router.back();
+        }
+    }, [data]);
+
+    useEffect(() => {
+        if (isError) {
+            setIsSubmitError(true);
+        }
+    }, [isError]);
+
+    const submitHandler = (
         values: FormValues,
         { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void } // eslint-disable-line no-unused-vars
     ) => {
-        try {
-            setIsSubmitError(false);
-
-            const { data }: LoginResponse | any = await loginRequest({
-                username: values.email,
-                password: values.password,
-            });
-
-            if (data.accessToken) {
-                dispatch(setAccessToken(data.accessToken));
-                router.back();
-            }
-
-            setSubmitting(false);
-        } catch (e: any) {
-            setIsSubmitError(true);
-            throw new Error(e);
-        }
+        setIsSubmitError(false);
+        loginRequest({
+            username: values.email,
+            password: values.password,
+        });
     };
 
     const formik = useFormik({
