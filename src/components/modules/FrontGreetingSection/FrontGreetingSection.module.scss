@@ -24,7 +24,7 @@
             gap: 1.5rem;
 
             .title {
-                width: 46rem;
+                width: 47rem;
                 color: $input-primary-color;
                 height: 10rem;
                 font-weight: 500;
@@ -35,7 +35,7 @@
                 line-height: 95%;
 
                 .imageIcon {
-                    margin-bottom: 0.5rem;
+                    margin-bottom: 0.8rem;
                 }
             }
 
@@ -106,7 +106,7 @@
         }
     }
 
-    @media screen and (max-width: 85rem) {
+    @media screen and (max-width: 87rem) {
         .wrapper {
             .content {
                 .title {
@@ -117,7 +117,7 @@
 
                     .imageIcon {
                         padding: 0.5rem;
-                        margin-bottom: 0;
+                        margin-bottom: 0.1rem;
                     }
                 }
             }
@@ -141,6 +141,7 @@
                     height: 5rem;
                     font-size: 2.2rem;
                     letter-spacing: -0.05rem;
+                    line-height: 140%;
 
                     .imageIcon {
                         padding: 0.8rem;
