@@ -8,9 +8,7 @@ export const api = createApi({
         baseUrl: REACT_APP_API_BASE_URL,
         prepareHeaders: headers => {
             headers.set(
-                "Authorization",
-                "Bearer TOKEN"
-            );
+                "Authorization", "Bearer TOKEN");
             return headers;
         },
     }),
