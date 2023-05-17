@@ -33,10 +33,9 @@ export const FrontGreetingSection = () => {
                             Explore our tests
                         </Button>
                         <a href="#tests" className={styles.contentArrowButton}>
-                            <Icon name="arrowDown" className={styles.arrowDown} />
+                            <Icon name="arrowDown" stroke="#74A253" className={styles.arrowDown} />
                         </a>
                     </div>
-
                     <div className={styles.statistics}>
                         <Text isParagraph className={styles.info}>
                             Developers tested(140)
@@ -49,8 +48,8 @@ export const FrontGreetingSection = () => {
                 <div className={styles.imageContainer}>
                     <Image
                         src="/assets/images/greetingSection/greeting.svg"
-                        width={575}
-                        height={475}
+                        width={800}
+                        height={800}
                         alt="roadmap"
                         quality={100}
                         priority
