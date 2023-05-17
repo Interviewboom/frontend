@@ -13,9 +13,8 @@
         width: 100%;
         display: flex;
         flex-flow: row wrap;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 6rem;
+        justify-content: space-around;
+        align-items: center;
 
         .content {
             display: flex;
@@ -34,7 +33,6 @@
                 line-height: 95%;
 
                 .imageIcon {
-                    margin-bottom: 1.2rem;
                 }
             }
 
@@ -46,10 +44,6 @@
             }
 
             .buttons {
-                width: 35rem;
-                display: flex;
-                gap: 0.5rem;
-
                 .contentButton {
                     white-space: nowrap;
                     padding: 3rem 5rem;
@@ -67,12 +61,12 @@
 
                 .contentArrowButton {
                     white-space: nowrap;
-                    padding: 2.5rem;
-                    border-radius: 12rem;
-                    width: 7.8rem;
-                    height: 7.8rem;
-                    border: 1px solid $primary-bg-green-light;
-                    transition: border 0.2s ease-in;
+                    padding: 25px;
+                    border-radius: 120px;
+                    width: 65px;
+                    height: 65px;
+                    background: #74a2531a;
+                    border: 1.5px solid rgba(116, 162, 83, 0.1);
                     position: relative;
 
                     &:hover {
@@ -81,8 +75,8 @@
                     }
 
                     .arrowDown {
-                        height: 2.4rem;
-                        width: 2.4rem;
+                        height: 22px;
+                        width: 22px;
                         position: absolute;
                         top: 50%;
                         left: 50%;
@@ -94,7 +88,6 @@
             .statistics {
                 display: flex;
                 gap: 2rem;
-                margin-top: 28%;
 
                 .info {
                     white-space: nowrap;
@@ -152,19 +145,15 @@
         }
     }
 
-    @include lte-tablet-large {
-        padding: 1rem;
-
+    @media screen and (max-width: 65rem) {
         .wrapper {
             flex-flow: column-reverse;
             align-items: center;
 
             .content {
-                align-items: center;
-                width: 100%;
-                margin-top: 0;
-                gap: 4.5rem;
-
+                align-items: flex-start;
+                gap: 1rem;
+                width: 330px;
                 .title {
                     display: flex;
                     justify-content: center;
@@ -186,6 +175,7 @@
                     font-size: 1.8rem;
                     line-height: 140%;
                     letter-spacing: -0.015rem;
+                    height: 88px;
                 }
 
                 .buttons {
@@ -193,23 +183,42 @@
                     justify-content: center;
 
                     .contentButton {
-                        font-size: 1.6rem;
-                        width: 20.8rem;
-                        height: 6.6rem;
+                        white-space: nowrap;
+                        padding: 25px 40px 25px 40px;
+                        border-radius: 120px;
+                        width: 208px;
+                        height: 66px;
+                        background: #74a253;
                     }
 
                     .contentArrowButton {
-                        width: 6.6rem;
-                        height: 6.6rem;
+                        white-space: nowrap;
+                        padding: 25px;
+                        border-radius: 120px;
+                        width: 65px;
+                        height: 65px;
+                        background: #74a2531a;
+                        border: 1.5px solid rgba(116, 162, 83, 0.1);
+                        position: relative;
+
+                        .arrowDown {
+                            transform: translate(-50%, -50%);
+                            font-size: 18px;
+                            font-weight: 500;
+                            color: #74a253;
+                        }
                     }
                 }
 
                 .statistics {
-                    gap: 4rem;
-                    margin-top: 6rem;
-
+                    display: flex;
+                    gap: 0.5rem;
+                    margin-top: 4rem;
                     .info {
-                        font-size: 1.6rem;
+                        white-space: nowrap;
+                        font-weight: 500;
+                        font-size: 16px;
+                        letter-spacing: -0.015rem;
                     }
                 }
             }
