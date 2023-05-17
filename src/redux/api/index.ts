@@ -7,10 +7,7 @@ export const api = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: REACT_APP_API_BASE_URL,
         prepareHeaders: headers => {
-            headers.set(
-                "Authorization",
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vZGVsZmFrQGdtYWlsLmNvbSIsInN1YiI6MSwicm9sZXMiOlsiYWRtaW4iXSwiaWF0IjoxNjg0MzIwMDcwLCJleHAiOjE2ODQ0MDY0NzB9.uTFR5SGry56EZeBLEdt-X9LlYI8BLhlarz_w1q3vzUE"
-            );
+            headers.set("Authorization", "Bearer TOKEN");
             return headers;
         },
     }),
