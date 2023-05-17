@@ -65,7 +65,7 @@ export const Answers: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => 
                     <div className={styles.questionCode} dangerouslySetInnerHTML={{ __html: questionInfo.question }} />
                 )}
 
-                <Text size="small" isParagraph color="grey-text-color" className={styles.choose}>
+                <Text size="small" isParagraph color="greyTextColor" className={styles.choose}>
                     Choose one correct answer
                 </Text>
                 {answers?.map(item => {

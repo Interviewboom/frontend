@@ -12,7 +12,7 @@ interface NavigationListProps {
 export const NavigationList: FC<NavigationListProps> = ({ title, items }) => {
     return (
         <div>
-            <Text color="most-light-color" size="big" isParagraph bold>
+            <Text color="mostLightColor" size="big" isParagraph bold>
                 {title}
             </Text>
 
@@ -20,7 +20,7 @@ export const NavigationList: FC<NavigationListProps> = ({ title, items }) => {
                 <ul className={styles.list}>
                     {items.map(item => (
                         <li key={item.name} className={styles.item}>
-                            <Text color="most-light-color">{item.name}</Text>
+                            <Text color="mostLightColor">{item.name}</Text>
                         </li>
                     ))}
                 </ul>

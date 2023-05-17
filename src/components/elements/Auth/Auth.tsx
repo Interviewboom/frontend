@@ -67,7 +67,7 @@ export const Auth: React.FC<AuthProps> = ({
                     <Title level={2} className={styles.title}>
                         {title}
                     </Title>
-                    <Text size="medium" color="dark-text-color" className={styles.info} isParagraph lineHeight={17}>
+                    <Text size="medium" className={styles.info} isParagraph lineHeight={17}>
                         {description}
                     </Text>
                 </div>
@@ -91,7 +91,7 @@ export const Auth: React.FC<AuthProps> = ({
                 {showSocials && (
                     <>
                         <div className={styles.divider}>
-                            <Text isParagraph color="grey-text-color">
+                            <Text isParagraph color="greyTextColor">
                                 or
                             </Text>
                         </div>

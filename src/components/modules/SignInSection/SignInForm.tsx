@@ -76,7 +76,7 @@ export const SignInForm: FC = () => {
             }
             wrongPage={
                 <div className={styles.accountWrapper}>
-                    <Text color="grey-text-color">Don&apos;t have an account?</Text>
+                    <Text color="greyTextColor">Don&apos;t have an account?</Text>
                     <div
                         role="button"
                         tabIndex={0}

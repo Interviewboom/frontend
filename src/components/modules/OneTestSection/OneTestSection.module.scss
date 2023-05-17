@@ -9,6 +9,7 @@
     background-color: $most-light-color;
     margin-bottom: 100px;
 }
+
 .wrapper {
     padding: 0 15px;
     width: $desktop-content-width;
@@ -20,7 +21,6 @@
 
 .socialsWrapper {
     margin-bottom: 23px;
-
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -72,6 +72,7 @@
     .content {
         padding: 0;
     }
+
     .title {
         order: -1;
         margin-top: 16px;

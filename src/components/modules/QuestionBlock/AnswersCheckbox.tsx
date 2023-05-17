@@ -64,7 +64,7 @@ export const AnswersCheckbox: FC<AnswersProps> = ({ questionInfo, isLast, answer
                     <div className={styles.questionCode} dangerouslySetInnerHTML={{ __html: questionInfo.question }} />
                 )}
 
-                <Text size="small" isParagraph color="grey-text-color" className={styles.choose}>
+                <Text size="small" isParagraph color="greyTextColor" className={styles.choose}>
                     Choose several answers
                 </Text>
                 {answers?.map(item => {

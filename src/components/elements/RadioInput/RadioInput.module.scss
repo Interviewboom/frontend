@@ -6,6 +6,7 @@
     width: 0;
     height: 0;
 }
+
 .row {
     display: flex;
     border-radius: 8px;
@@ -15,17 +16,6 @@
 
     &:last-child {
         margin-bottom: 0;
-    }
-}
-
-.circle:checked ~ .customHollowInput {
-    border: 2px solid $light-green-color;
-
-    .innerCircle {
-        width: 10px;
-        height: 10px;
-        background-color: $light-green-color;
-        border-radius: 50%;
     }
 }
 
@@ -40,6 +30,18 @@
     justify-content: center;
     padding: 1px;
     margin-right: 16px;
+}
+
+
+.circle:checked ~ .customHollowInput {
+    border: 2px solid $light-green-color;
+
+    .innerCircle {
+        width: 10px;
+        height: 10px;
+        background-color: $light-green-color;
+        border-radius: 50%;
+    }
 }
 
 .checkMark {
@@ -68,7 +70,7 @@
     background: rgba($light-error-color, 0.1);
 }
 
-//close icon
+// close icon
 .close {
     position: relative;
     width: 18px;
@@ -85,9 +87,11 @@
         width: 1.4px;
         border-radius: 2px;
     }
+
     &::before {
         transform: rotate(45deg);
     }
+
     &::after {
         transform: rotate(-45deg);
     }

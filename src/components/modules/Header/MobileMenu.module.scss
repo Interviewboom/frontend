@@ -8,6 +8,7 @@
     display: none;
     z-index: 4;
 }
+
 .mobileMenuTop {
     display: grid;
     gap: 10px;
@@ -25,10 +26,7 @@
     position: fixed;
     width: 100%;
     background-color: $most-light-color;
-    bottom: 0;
-    top: 49px;
-    left: 0;
-    right: 0;
+    inset: 49px 0 0;
     padding: 0 15px;
 }
 

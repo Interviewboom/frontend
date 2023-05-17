@@ -15,7 +15,7 @@ export const FooterDown = () => {
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
-                <Text color="light-text-color">© {currentYear} InterviewBoom</Text>
+                <Text color="lightTextColor">© {currentYear} InterviewBoom</Text>
 
                 <UserPolicy />
             </div>
