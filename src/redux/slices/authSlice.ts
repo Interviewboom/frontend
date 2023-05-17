@@ -1,6 +1,10 @@
 /* eslint-disable no-param-reassign */
-import { createSlice, PayloadAction, createDraftSafeSelector } from "@reduxjs/toolkit";
+import { HYDRATE } from "next-redux-wrapper";
+import { createSlice, createDraftSafeSelector } from "@reduxjs/toolkit";
+
 import { User } from "src/models/entities/auth-model/auth-model";
+
+import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "src/redux/store";
 
 interface AuthState {
@@ -28,6 +32,12 @@ const authSlice = createSlice({
             state.accessToken = null;
         },
     },
+    extraReducers: builder => {
+        builder.addCase(
+            HYDRATE,
+            (_, action: PayloadAction<any, "__NEXT_REDUX_WRAPPER_HYDRATE__">) => action.payload.auth
+        );
+    },
 });
 
 const selectSelf = (state: RootState) => state;
@@ -36,4 +46,4 @@ export const selectAccessToken = createDraftSafeSelector(selectSelf, (state: Roo
 
 export const { setUser, setAccessToken, logout } = authSlice.actions;
 
-export default authSlice;
+export { authSlice };

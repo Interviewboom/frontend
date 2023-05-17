@@ -1,5 +1,6 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { HYDRATE } from "next-redux-wrapper";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
 import { REACT_APP_API_BASE_URL } from "./constants";
 
 export const api = createApi({
@@ -9,7 +10,7 @@ export const api = createApi({
         prepareHeaders: headers => {
             headers.set(
                 "Authorization",
-                `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vZGVsZmFrQGdtYWlsLmNvbSIsInN1YiI6MSwicm9sZXMiOlsiYWRtaW4iXSwiaWF0IjoxNjg0MjQ2NzI0LCJleHAiOjE2ODQzMzMxMjR9.cM-eGQSZP24KtB0Hrff_O9zBRBO1kbBWGJjfzv2XaU4`
+                `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vZGVsZmFrQGdtYWlsLmNvbSIsInN1YiI6MSwicm9sZXMiOlsiYWRtaW4iXSwiaWF0IjoxNjg0MzIzNTE3LCJleHAiOjE2ODQ0MDk5MTd9.l188RH7I7t5D2A4I1CgIUzYvcPtI2EGh0kQCdcze0wE`
             );
             return headers;
         },

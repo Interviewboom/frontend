@@ -11,6 +11,7 @@ import { Auth } from "@elements/Auth";
 import { setAccessToken } from "src/redux/slices/authSlice";
 
 import { signInValidationSchema } from "@utils/yupValidationSchemas";
+import { LoginResponse } from "src/models/responses/auth-response-model/auth-response-model";
 
 import styles from "./SignInForm.module.scss";
 
@@ -29,7 +30,7 @@ export const SignInForm: FC = () => {
         values: FormValues,
         { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void } // eslint-disable-line no-unused-vars
     ) => {
-        const { data }: any = await loginRequest({
+        const { data }: LoginResponse | any = await loginRequest({
             username: values.email,
             password: values.password,
         });
@@ -38,7 +39,7 @@ export const SignInForm: FC = () => {
             router.push("/auth/sign-in");
         } else {
             dispatch(setAccessToken(data.accessToken));
-            router.push("/");
+            router.back();
         }
 
         setSubmitting(false);
