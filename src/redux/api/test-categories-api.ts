@@ -1,6 +1,6 @@
 import { stringifyParams } from "@utils/api/stringifyParams";
-import { RequestParamsModel } from "src/models/requests/request-params-model/request-params-model";
 import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
+import { RequestParamsModel } from "src/models/requests/request-params-model/request-params-model";
 import { api } from "src/redux/api";
 
 export const testCategoriesApi = api.injectEndpoints({

@@ -1,8 +1,10 @@
 import React, { FC } from "react";
-import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
+
 import { useCssClasses } from "@utils/getClassnames";
-import { CategoryCard } from "./CategoryCard";
+import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
+
 import styles from "./Categories.module.scss";
+import { CategoryCard } from "./CategoryCard";
 
 type CategoriesProps = {
     categories: TestCategoryModel[];

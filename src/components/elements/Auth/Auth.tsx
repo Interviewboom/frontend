@@ -2,9 +2,9 @@ import React, { ReactNode, FC } from "react";
 
 import { Button } from "@elements/Button";
 import { Error } from "@elements/Error";
+import { SocialButton } from "@elements/SocialButton";
 import { Text } from "@elements/Text";
 import { Title } from "@elements/Title";
-import { SocialButton } from "@elements/SocialButton";
 
 import styles from "./Auth.module.scss";
 

@@ -1,7 +1,8 @@
 import React from "react";
-import { Title } from "@elements/Title/Title";
-import { Text } from "@elements/Text/Text";
+
 import { Button } from "@elements/Button/Button";
+import { Text } from "@elements/Text/Text";
+import { Title } from "@elements/Title/Title";
 
 import styles from "./DonationInfoSection.module.scss";
 

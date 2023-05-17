@@ -1,7 +1,7 @@
-import { api } from "src/redux/api";
 import { SessionModel } from "src/models/entities/session-model/session-model";
 import { SessionNextQuestionResponseModel } from "src/models/responses/session-next-question-response-model/session-next-question-response-model";
 import { TestResultsResponseModel } from "src/models/responses/test-results-response-model/test-results-response-model";
+import { api } from "src/redux/api";
 
 export interface SessionSubmitAnswersRequest {
     sessionId: string;

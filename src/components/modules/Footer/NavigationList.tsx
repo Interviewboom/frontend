@@ -1,5 +1,6 @@
-import { Text } from "@elements/Text";
 import { FC } from "react";
+
+import { Text } from "@elements/Text";
 
 import styles from "./NavigationList.module.scss";
 

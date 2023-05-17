@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 
 import { Text } from "@elements/Text";
-import { UserPolicy } from "./UserPolicy";
 
 import styles from "./FooterDown.module.scss";
+import { UserPolicy } from "./UserPolicy";
 
 export const FooterDown = () => {
     const currentYear = useMemo(() => {
