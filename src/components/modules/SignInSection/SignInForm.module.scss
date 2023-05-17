@@ -95,6 +95,11 @@
     }
 }
 
+.error {
+    margin: 1rem;
+    color: $text-error-color;
+}
+
 @media screen and (max-width: 768px) {
     .section {
         width: 100%;
@@ -104,5 +109,4 @@
     .content {
         padding: 0;
     }
-
 }

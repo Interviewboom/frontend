@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useFormik } from "formik";
 import { useLoginMutation } from "src/redux/api/auth-api";
 import { useAppDispatch } from "src/redux/hooks";
@@ -21,6 +21,8 @@ interface FormValues {
 }
 
 export const SignInForm: FC = () => {
+    const [isSubmitError, setIsSubmitError] = useState<boolean>(false);
+
     const dispatch = useAppDispatch();
     const router = useRouter();
 
@@ -30,19 +32,24 @@ export const SignInForm: FC = () => {
         values: FormValues,
         { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void } // eslint-disable-line no-unused-vars
     ) => {
-        const { data }: LoginResponse | any = await loginRequest({
-            username: values.email,
-            password: values.password,
-        });
+        try {
+            setIsSubmitError(false);
 
-        if (!data.accessToken) {
-            router.push("/auth/sign-in");
-        } else {
-            dispatch(setAccessToken(data.accessToken));
-            router.back();
+            const { data }: LoginResponse | any = await loginRequest({
+                username: values.email,
+                password: values.password,
+            });
+
+            if (data.accessToken) {
+                dispatch(setAccessToken(data.accessToken));
+                router.back();
+            }
+
+            setSubmitting(false);
+        } catch (e: any) {
+            setIsSubmitError(true);
+            throw new Error(e);
         }
-
-        setSubmitting(false);
     };
 
     const formik = useFormik({
@@ -103,6 +110,7 @@ export const SignInForm: FC = () => {
                 </div>
             }
         >
+            {isSubmitError && <p className={styles.error}>Oops! Something went wrong. Please try again later</p>}
             {textFields.map(({ type, placeholder, value, error, name }) => (
                 <TextField
                     key={placeholder}
