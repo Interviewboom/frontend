@@ -19,9 +19,9 @@
         .content {
             width: 50%;
             display: flex;
-            justify-content: flex-start;
             flex-flow: column;
             gap: 1.5rem;
+            margin-top: 5rem;
 
             .title {
                 width: 47rem;
@@ -87,7 +87,7 @@
             .statistics {
                 display: flex;
                 gap: 2rem;
-                margin-top: 40%;
+                margin-top: 30%;
 
                 .info {
                     white-space: nowrap;
@@ -135,6 +135,7 @@
                 align-items: flex-start;
                 gap: 1rem;
                 width: 20.6rem;
+                margin-top: 0;
 
                 .title {
                     width: 21rem;
