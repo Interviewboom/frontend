@@ -12,9 +12,19 @@ interface LinkProps {
     className?: string;
     classNameText?: string;
     color?: "white";
+    onClick?: () => void;
 }
 
-export const Link: FC<LinkProps> = ({ href, children, withArrow, className, classNameText, withBorder, color }) => {
+export const Link: FC<LinkProps> = ({
+    href,
+    children,
+    withArrow,
+    className,
+    classNameText,
+    withBorder,
+    color,
+    onClick,
+}) => {
     const iconName = {
         left: "arrowLeftLong",
         right: "arrowRightLong",
@@ -31,7 +41,7 @@ export const Link: FC<LinkProps> = ({ href, children, withArrow, className, clas
     const linkClassesText = useCssClasses([styles.text, classNameText]);
 
     return (
-        <LinkNext href={href} className={linkClasses}>
+        <LinkNext href={href} className={linkClasses} onClick={onClick}>
             <span className={linkClassesText}>{children}</span>
             {withArrow ? <Icon name={iconName[withArrow]} className={styles.icon} width={12} height={12} /> : null}
         </LinkNext>

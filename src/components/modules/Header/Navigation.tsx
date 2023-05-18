@@ -11,7 +11,11 @@ import styles from "./Navigation.module.scss";
 
 import { interfaceNavigationItem } from "./Header.types";
 
-export const Navigation: FC = () => {
+type NavigationProps = {
+    actionToCloseBurgerMenu: () => void;
+};
+
+export const Navigation: FC<NavigationProps> = ({ actionToCloseBurgerMenu }) => {
     const router = useRouter();
 
     const getLinkClasses = useCallback(
@@ -26,7 +30,11 @@ export const Navigation: FC = () => {
             <ul className={styles.navigationList}>
                 {NAVIGATION_ITEMS.map((item: interfaceNavigationItem) => (
                     <li key={item.name} className={getLinkClasses(item.link)}>
-                        <Link className={styles.navigationLink} href={formatLink(item.link)}>
+                        <Link
+                            className={styles.navigationLink}
+                            href={formatLink(item.link)}
+                            onClick={actionToCloseBurgerMenu}
+                        >
                             {item.name}
                         </Link>
                         {item?.subList ? (
@@ -37,6 +45,7 @@ export const Navigation: FC = () => {
                                             <Link
                                                 href={formatLink(subItem.link)}
                                                 classNameText={styles.navigationSubBlockLink}
+                                                onClick={actionToCloseBurgerMenu}
                                             >
                                                 <Icon
                                                     className={styles.icon}
@@ -54,6 +63,7 @@ export const Navigation: FC = () => {
                                         className={styles.moreLink}
                                         href={formatLink(item.moreLink.link)}
                                         withArrow="right"
+                                        onClick={actionToCloseBurgerMenu}
                                     >
                                         {item.moreLink.name}
                                     </Link>
