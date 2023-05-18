@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { FC, useState } from "react";
+import { FC, useEffect } from "react";
 import { useFormik } from "formik";
 import { useLoginMutation } from "src/redux/api/auth-api";
 import { useAppDispatch } from "src/redux/hooks";
@@ -11,7 +11,6 @@ import { Auth } from "@elements/Auth";
 import { setAccessToken } from "src/redux/slices/authSlice";
 
 import { signInValidationSchema } from "@utils/yupValidationSchemas";
-import { LoginResponse } from "src/models/responses/auth-response-model/auth-response-model";
 
 import styles from "./SignInForm.module.scss";
 
@@ -21,41 +20,35 @@ interface FormValues {
 }
 
 export const SignInForm: FC = () => {
-    const [isSubmitError, setIsSubmitError] = useState<boolean>(false);
-
     const dispatch = useAppDispatch();
     const router = useRouter();
 
-    const [loginRequest] = useLoginMutation();
+    const [loginRequest, { data, error }] = useLoginMutation();
+    const errorMsg = error?.data?.message;
 
-    const submitHandler = async (
+    useEffect(() => {
+        if (data?.accessToken) {
+            dispatch(setAccessToken(data.accessToken));
+            router.back();
+        }
+    }, [data, dispatch, router]);
+
+    const submitHandler = (
         values: FormValues,
         { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void } // eslint-disable-line no-unused-vars
     ) => {
-        try {
-            setIsSubmitError(false);
+        loginRequest({
+            email: values.email,
+            password: values.password,
+        });
 
-            const { data }: LoginResponse | any = await loginRequest({
-                username: values.email,
-                password: values.password,
-            });
-
-            if (data.accessToken) {
-                dispatch(setAccessToken(data.accessToken));
-                router.back();
-            }
-
-            setSubmitting(false);
-        } catch (e: any) {
-            setIsSubmitError(true);
-            throw new Error(e);
-        }
+        setSubmitting(false);
     };
 
     const formik = useFormik({
         initialValues: {
-            email: "",
-            password: "",
+            email: "modelfak@gmail.com",
+            password: "1234567",
         },
         validationSchema: signInValidationSchema,
         onSubmit: submitHandler,
@@ -110,8 +103,7 @@ export const SignInForm: FC = () => {
                 </div>
             }
         >
-            {isSubmitError && <p className={styles.error}>Oops! Something went wrong. Please try again later</p>}
-            {textFields.map(({ type, placeholder, value, error, name }) => (
+            {textFields.map(({ type, placeholder, value, name }) => (
                 <TextField
                     key={placeholder}
                     name={name}
@@ -119,7 +111,7 @@ export const SignInForm: FC = () => {
                     placeholder={placeholder}
                     value={value}
                     onChange={formik.handleChange}
-                    error={error}
+                    error={errorMsg}
                 />
             ))}
         </Auth>

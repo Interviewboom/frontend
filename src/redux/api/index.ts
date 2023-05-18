@@ -12,11 +12,11 @@ export const api = createApi({
             const token = (getState() as RootState).auth.accessToken;
 
             if (token) {
-                headers.set("authorization", `Bearer ${token}`);
+                headers.set("Authorization", `Bearer ${token}`);
             } else {
                 headers.set(
                     "Authorization",
-                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vZGVsZmFrQGdtYWlsLmNvbSIsInN1YiI6MSwicm9sZXMiOlsiYWRtaW4iXSwiaWF0IjoxNjg0MzIzNTE3LCJleHAiOjE2ODQ0MDk5MTd9.l188RH7I7t5D2A4I1CgIUzYvcPtI2EGh0kQCdcze0wE"
+                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vZGVsZmFrQGdtYWlsLmNvbSIsInN1YiI6MSwicm9sZXMiOlsiYWRtaW4iXSwiaWF0IjoxNjg0NDIxMTU4LCJleHAiOjE2ODQ1MDc1NTh9.FaqX9Pn2srgtyRB2V2wJk_Bv30AWbLDU679bqQIPM5w"
                 );
             }
 
