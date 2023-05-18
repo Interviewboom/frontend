@@ -1,54 +1,55 @@
 @import "@sass/_colors.scss";
 @import "@sass/_variables.scss";
+@import "@sass/_media.scss";
 
 .section {
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: 0 15px;
+    padding: 0 1.5rem;
     background: $most-light-color;
     font-family: $primary-font;
-    margin-bottom: 200px;
+    margin-bottom: 20rem;
+
+    @include lte-tablet-large {
+        margin-bottom: 10rem;
+    }
 }
 
 .wrapper {
     background-color: $light-lime-color;
     display: flex;
     justify-content: center;
-    padding: 100px 15px;
+    padding: 10rem 1.5rem;
     max-width: $desktop-content-width;
     width: 100%;
-    border-radius: 8px;
+    border-radius: 0.8rem;
     border: 1px solid $light-grey-color;
+
+    @include lte-tablet-large {
+        padding: 4rem 1.5rem;
+    }
 }
 
 .content {
-    max-width: 658px;
+    max-width: 65.8rem;
     text-align: center;
-    padding: 0 15px;
+    padding: 0 1.5rem;
 }
 
 .textMargin {
-    margin: 40px 0;
+    margin: 4rem 0;
+
+    @include lte-tablet-large {
+        margin-top: 2.4rem;
+    }
 }
 
 .paddings {
-    margin-bottom: 40px;
-    padding: 8px 0;
-}
+    margin-bottom: 4rem;
+    padding: 0.8rem 0;
 
-@media screen and (max-width: 992px) {
-    .wrapper {
-        padding: 40px 15px;
-    }
-    .paddings {
+    @include lte-tablet-large {
         margin: 0;
-    }
-
-    .textMargin {
-        margin-top: 24px;
-    }
-    .section {
-        margin-bottom: 100px;
     }
 }

@@ -1,5 +1,6 @@
-@import "./src/sass/_colors.scss";
-@import "./src/sass/_variables.scss";
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+@import "@sass/_media.scss";
 
 .mobileWrapper {
     width: 100%;
@@ -7,18 +8,22 @@
     background-color: $most-light-color;
     display: none;
     z-index: 4;
+
+    @include lte-tablet-large {
+        display: block;
+    }
 }
 .mobileMenuTop {
     display: grid;
-    gap: 10px;
-    grid-template-columns: 20px 1fr 20px;
+    gap: 1rem;
+    grid-template-columns: 2rem 1fr 2rem;
     justify-items: center;
     align-items: center;
-    padding: 14px 19px;
+    padding: 1.4rem 1.9rem;
 }
 
 .mobileLogo {
-    max-width: 166px;
+    max-width: 16.6rem;
 }
 
 .menuList {
@@ -26,22 +31,17 @@
     width: 100%;
     background-color: $most-light-color;
     bottom: 0;
-    top: 49px;
+    top: 4.9rem;
     left: 0;
     right: 0;
-    padding: 0 15px;
+    padding: 0 1.5rem;
 }
 
 .navigationItem {
-    margin-top: 24px;
+    font-size: 2.4rem;
+    margin-top: 2.4rem;
 
     &:first-child {
-        margin-top: 30px;
-    }
-}
-
-@media screen and (max-width: 992px) {
-    .mobileWrapper {
-        display: block;
+        margin-top: 3rem;
     }
 }
