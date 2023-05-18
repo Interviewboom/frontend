@@ -1,5 +1,6 @@
-@import "./src/sass/_colors.scss";
-@import "./src/sass/_variables.scss";
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+@import "@sass/_media.scss";
 
 .header {
     position: sticky;
@@ -19,10 +20,8 @@
     padding: 26px 50px;
     max-width: $desktop-content-width;
     width: 100%;
-}
 
-@media screen and (max-width: 992px) {
-    .wrapper {
+    @include lte-tablet-large {
         display: none;
     }
 }
