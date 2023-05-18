@@ -1,5 +1,5 @@
 import { Link } from "@elements/Link";
-import { AUTH_ITEMS } from "./const";
+import { AUTH_ITEMS } from "./helpers/const";
 
 import styles from "./Auth.module.scss";
 

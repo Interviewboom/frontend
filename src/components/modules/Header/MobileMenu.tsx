@@ -5,7 +5,7 @@ import { Icon } from "@elements/Icon/Icon";
 import { Logo } from "@elements/Logo";
 import { formatLink } from "@utils/formatLink";
 
-import { NAVIGATION_ITEMS } from "./const";
+import { NAVIGATION_ITEMS } from "./helpers/const";
 import { Auth } from "./Auth";
 
 import styles from "./MobileMenu.module.scss";

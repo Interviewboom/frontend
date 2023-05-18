@@ -5,26 +5,11 @@ import { Link } from "@elements/Link";
 import { Icon } from "@elements/Icon";
 import { formatLink } from "@utils/formatLink";
 
-import { NAVIGATION_ITEMS } from "./const";
+import { NAVIGATION_ITEMS } from "./helpers/const";
 
 import styles from "./Navigation.module.scss";
 
-interface NavigationTypes {
-    name: string;
-    link: string;
-}
-interface NavigationSubItem {
-    icon: string;
-}
-
-type interfaceNavigationSubItem = NavigationTypes & NavigationSubItem;
-
-interface NavigationItem {
-    subList?: Array<interfaceNavigationSubItem>;
-    moreLink?: NavigationTypes;
-}
-
-type interfaceNavigationItem = NavigationTypes & NavigationItem;
+import { interfaceNavigationItem } from "./Header.types";
 
 export const Navigation: FC = () => {
     const router = useRouter();
