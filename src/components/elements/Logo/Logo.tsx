@@ -1,4 +1,5 @@
-import Image from "next/legacy/image";
+import { FC } from "react";
+
 import { useRouter } from "next/router";
 import { FC } from "react";
 
@@ -12,20 +13,18 @@ interface LogoProps {
 export const Logo: FC<LogoProps> = ({ template = "dark", redirectToHome = false }) => {
     const router = useRouter();
 
+    const themeColor = template === "dark" ? "#16161F" : "#F5F5F5";
+
     function handleClick() {
         if (redirectToHome) {
             router.push("/");
         }
     }
     return (
-        <div className={styles.wrapper}>
-            <Image
-                alt="Logo"
-                src={`/assets/images/logo${template === "light" ? "-light" : ""}.svg`}
-                width={293}
-                height={30}
-                onClick={() => handleClick()}
-            />
-        </div>
+        <h2 className={styles.logo}>
+            <button type="button" style={{ color: themeColor }} onClick={handleClick}>
+                InterviewBoom
+            </button>
+        </h2>
     );
 };

@@ -1,28 +1,22 @@
 import { FC } from "react";
-
-import { Text } from "@elements/Text";
+import { Link } from "@elements/Link";
 
 import styles from "./NavigationList.module.scss";
 
 interface NavigationListProps {
-    title: string;
-    // TODO: add link
-    items?: Array<{ name: string }>;
+    // TODO: add links, change Text to Links
+    items?: Array<{ name: string; link: string }>;
 }
 
-export const NavigationList: FC<NavigationListProps> = ({ title, items }) => {
+export const NavigationList: FC<NavigationListProps> = ({ items }) => {
     return (
-        <div>
-            <Text color="mostLightColor" size="big" isParagraph bold>
-                {title}
-            </Text>
-
+        <div className={styles.listContainer}>
             {items && (
                 <ul className={styles.list}>
                     {items.map(item => (
-                        <li key={item.name} className={styles.item}>
-                            <Text color="mostLightColor">{item.name}</Text>
-                        </li>
+                        <Link key={item.name} href={item.link} className={styles.item}>
+                            {item.name}
+                        </Link>
                     ))}
                 </ul>
             )}
