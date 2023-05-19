@@ -1,23 +1,30 @@
 @import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
 @import "@sass/_media.scss";
 
 .list {
+    font-family: $font-fracktif;
     display: flex;
+    flex-flow: row wrap;
     color: $most-light-color;
+    width: 15rem;
+    gap: 2.5rem;
 
-    @include mobile {
-        flex-direction: column;
+    .item {
+        white-space: nowrap;
+        font-weight: 500;
+        font-size: 1.8rem;
+        letter-spacing: -0.015rem;
+        text-decoration: underline;
+        text-underline-offset: 0.25rem;
     }
-}
-
-.item {
-    padding: 0 1.6rem;
-
-    @include mobile {
-        padding: 0 0 1rem;
-
-        &:last-child {
-            padding-bottom: 2rem;
+    @include lte-desktop-large {
+        .item {
+            font-size: 1.6rem;
         }
+    }
+    @include lte-tablet-large {
+        gap: 2rem;
+        transform: translate(92%, 1rem);
     }
 }

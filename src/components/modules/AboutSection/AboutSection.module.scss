@@ -23,7 +23,7 @@
     padding: 10rem 1.5rem 6.6rem;
     width: $desktop-content-width;
 
-    @include gte-desktop-large  {
+    @include gte-desktop-large {
         grid-template-columns: 1fr;
         padding: 0 1.5rem;
     }

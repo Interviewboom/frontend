@@ -1,16 +1,23 @@
 import { useMemo } from "react";
+import { Link } from "@elements/Link";
 
 import styles from "./UserPolicy.module.scss";
 
 export const UserPolicy = () => {
-    const list = useMemo(() => [{ name: "Cookies" }, { name: "Terms of Service" }, { name: "Privacy Policy" }], []);
+    const list = useMemo(
+        () => [
+            { name: "Terms of Service", link: "/" },
+            { name: "Privacy Policy", link: "/" },
+        ],
+        []
+    );
 
     return (
         <ul className={styles.list}>
-            {list.map((item, index) => (
-                <li className={styles.item} key={index}>
+            {list.map(item => (
+                <Link key={item.name} href={item.link} className={styles.item}>
                     {item.name}
-                </li>
+                </Link>
             ))}
         </ul>
     );
