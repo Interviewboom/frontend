@@ -14,10 +14,7 @@ export const api = createApi({
             if (token) {
                 headers.set("Authorization", `Bearer ${token}`);
             } else {
-                headers.set(
-                    "Authorization",
-                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vZGVsZmFrQGdtYWlsLmNvbSIsInN1YiI6MSwicm9sZXMiOlsiYWRtaW4iXSwiaWF0IjoxNjg0NDIxMTU4LCJleHAiOjE2ODQ1MDc1NTh9.FaqX9Pn2srgtyRB2V2wJk_Bv30AWbLDU679bqQIPM5w"
-                );
+                headers.set("Authorization", "Bearer TOKEN");
             }
 
             return headers;

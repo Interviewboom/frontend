@@ -46,8 +46,8 @@ export const SignInForm: FC = () => {
 
     const formik = useFormik({
         initialValues: {
-            email: "modelfak@gmail.com",
-            password: "1234567",
+            email: "",
+            password: "",
         },
         validationSchema: signInValidationSchema,
         onSubmit: submitHandler,
