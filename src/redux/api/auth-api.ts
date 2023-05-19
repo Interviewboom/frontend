@@ -12,6 +12,9 @@ export const authApi = api.injectEndpoints({
                     body: credentials,
                 };
             },
+            // transformResponse: (rawResult: any) => {
+            //     return rawResult;
+            // },
         }),
         register: build.mutation<any, SignUpRequest>({
             query: credentials => {
