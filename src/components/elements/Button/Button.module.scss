@@ -1,17 +1,22 @@
 @import "@sass/_colors.scss";
 @import "@sass/_variables.scss";
+@import "@sass/_media.scss";
 
 .button {
-    border-radius: 120px;
+    border-radius: 12rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-family: $primary-font;
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 1.8rem;
     line-height: 100%;
-    padding: 30px 50px;
+    padding: 3rem 5rem;
+
+    @include mobile-large {
+        width: 100%;
+    }
 }
 
 .button.green {
@@ -26,7 +31,7 @@
 .button.grey {
     background-color: $button-background-color;
     color: $button-text-color;
-    font-size: 18px;
+    font-size: 1.8rem;
 
     &:hover {
         background-color: $light-grey-color;
@@ -40,27 +45,21 @@
 }
 
 .medium {
-    width: 248px;
+    width: 24.8rem;
 }
 
 .big {
-    width: 320px;
+    width: 32rem;
 }
 
 .small {
-    width: 232px;
-    height: 40px;
-    padding: 8px 18px;
-    line-height: 19.5px;
-    font-size: 16px;
+    width: 23.2rem;
+    height: 4rem;
+    padding: 0.8rem 18rem;
+    line-height: 1.9rem;
+    font-size: 1.6rem;
 }
 
 .adaptive {
     width: 100%;
-}
-
-@media screen and (max-width: 576px) {
-    .button {
-        width: 100%;
-    }
 }

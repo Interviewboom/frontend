@@ -4,13 +4,7 @@ import { REACT_APP_API_BASE_URL } from "./constants";
 
 export const api = createApi({
     reducerPath: "api",
-    baseQuery: fetchBaseQuery({
-        baseUrl: REACT_APP_API_BASE_URL,
-        prepareHeaders: headers => {
-            headers.set("Authorization", "Bearer TOKEN");
-            return headers;
-        },
-    }),
+    baseQuery: fetchBaseQuery({ baseUrl: REACT_APP_API_BASE_URL }),
     tagTypes: ["api"],
     endpoints: () => ({}),
     // eslint-disable-next-line consistent-return
