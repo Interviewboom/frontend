@@ -1,5 +1,6 @@
 @import "@sass/_colors.scss";
 @import "@sass/_variables.scss";
+@import "@sass/_media.scss";
 
 .section {
     padding: 2rem;
@@ -9,6 +10,11 @@
     align-items: center;
     width: 100%;
     min-height: 100vh;
+
+    @include mobile {
+        width: 100%;
+        padding: 0;
+    }
 }
 
 .content {
@@ -21,6 +27,10 @@
     margin-bottom: 5rem;
     max-width: 65.8rem;
     text-align: center;
+
+    @include mobile {
+        padding: 0;
+    }
 }
 
 .heading {
@@ -71,7 +81,7 @@
 }
 
 .additionalInfo {
-    max-width: 460px;
+    max-width: 46rem;
     margin: 0 auto;
 }
 
