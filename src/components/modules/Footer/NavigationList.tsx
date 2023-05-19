@@ -4,7 +4,7 @@ import { Link } from "@elements/Link";
 import styles from "./NavigationList.module.scss";
 
 interface NavigationListProps {
-    // TODO: add links, change Text to Links
+    // TODO: add links
     items?: Array<{ name: string; link: string }>;
 }
 
