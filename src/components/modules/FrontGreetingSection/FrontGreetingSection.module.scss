@@ -16,9 +16,9 @@
         flex-flow: row wrap;
         justify-content: space-around;
         align-items: flex-start;
+        gap: 1rem;
 
         .content {
-            width: 50%;
             display: flex;
             flex-flow: column;
             gap: 4rem;
@@ -113,13 +113,12 @@
             .content {
                 .title {
                     width: 55rem;
-                    color: $input-primary-color;
                     height: 10rem;
                     font-size: 6rem;
 
                     .imageIcon {
                         padding: 0.5rem;
-                        margin-bottom: 0.1rem;
+                        margin-bottom: 0.5rem;
                     }
                 }
             }
@@ -134,40 +133,41 @@
         .wrapper {
             .content {
                 .title {
-                    width: 50rem;
-                    color: $input-primary-color;
+                    width: 42rem;
                     height: 10rem;
-                    font-size: 5.5rem;
+                    font-size: 4.5rem;
+                    line-height: 130%;
 
                     .imageIcon {
-                        padding: 0.5rem;
-                        margin-bottom: 0.1rem;
+                        padding: 1rem;
+                        margin-bottom: 0.2rem;
                     }
                 }
             }
         }
     }
 
-    @include lte-desktop {
+    @include lte-tablet-large {
         padding: 1rem;
+
         .wrapper {
             flex-flow: column-reverse;
             align-items: center;
-            gap: 4rem;
 
             .content {
-                align-items: flex-start;
-                justify-content: center;
-                gap: 2rem;
-                width: 33rem;
+                align-items: center;
+                width: 100%;
                 margin-top: 0;
+                gap: 4.5rem;
 
                 .title {
-                    width: 34rem;
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
                     height: 8rem;
-                    font-size: 3.6rem;
-                    letter-spacing: -0.1rem;
-                    line-height: 140%;
+                    font-size: 5rem;
+                    letter-spacing: -0.09rem;
+                    line-height: 110%;
 
                     .imageIcon {
                         padding: 1rem;
@@ -175,7 +175,9 @@
                 }
 
                 .subtitle {
-                    font-size: 1.6rem;
+                    width: 60%;
+                    height: max-content;
+                    font-size: 1.8rem;
                     line-height: 140%;
                     letter-spacing: -0.015rem;
                 }
@@ -196,8 +198,8 @@
                 }
 
                 .statistics {
-                    gap: 0.5rem;
-                    margin-top: 4rem;
+                    gap: 4rem;
+                    margin-top: 6rem;
 
                     .info {
                         font-size: 1.6rem;
@@ -208,6 +210,55 @@
             .imageContainer {
                 width: 100%;
                 margin-top: 1rem;
+            }
+        }
+    }
+
+    @include lte-tablet {
+        .wrapper {
+            .content {
+                .title {
+                    font-size: 3.5rem;
+                }
+
+                .subtitle {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    }
+
+    @include mobile-large {
+        .wrapper {
+            .content {
+                align-items: flex-start;
+                justify-content: center;
+                gap: 2rem;
+                width: 33rem;
+                margin-top: 0;
+
+                .title {
+                    width: 34rem;
+                    height: 8rem;
+                    font-size: 3.6rem;
+                    letter-spacing: -0.1rem;
+                    line-height: 140%;
+
+                    .imageIcon {
+                        padding: 1.2rem;
+                    }
+                }
+
+                .subtitle {
+                    width: 100%;
+                    font-size: 1.6rem;
+                    line-height: 140%;
+                    letter-spacing: -0.015rem;
+                }
+
+                .statistics {
+                    gap: 0.5rem;
+                }
             }
         }
     }
