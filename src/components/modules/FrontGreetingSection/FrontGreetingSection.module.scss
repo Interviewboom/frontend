@@ -8,21 +8,21 @@
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    padding: 5rem;
+    margin-bottom: 4rem;
 
     .wrapper {
         width: 100%;
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-around;
+        justify-content: center;
         align-items: flex-start;
-        gap: 1rem;
+        gap: 6rem;
 
         .content {
             display: flex;
             flex-flow: column;
             gap: 4rem;
-            margin-top: 10rem;
+            margin-top: 17rem;
 
             .title {
                 width: 75rem;
@@ -68,7 +68,7 @@
                     border-radius: 12rem;
                     width: 7.8rem;
                     height: 7.8rem;
-                    border: 1px solid rgba(116, 162, 83, 0.1);
+                    border: 1px solid #74a253;
                     position: relative;
 
                     .arrowDown {
@@ -91,7 +91,7 @@
 
                 .info {
                     white-space: nowrap;
-                    font-weight: 500;
+                    font-weight: 600;
                     font-size: 1.8rem;
                     letter-spacing: -0.015rem;
                 }
@@ -109,7 +109,6 @@
 
     @media screen and (max-width: $desktop-content-width) {
         .wrapper {
-            gap: 6rem;
             .content {
                 .title {
                     width: 55rem;
@@ -210,6 +209,10 @@
             .imageContainer {
                 width: 100%;
                 margin-top: 1rem;
+
+                img {
+                    max-width: 70%;
+                }
             }
         }
     }
@@ -232,10 +235,8 @@
         .wrapper {
             .content {
                 align-items: flex-start;
-                justify-content: center;
                 gap: 2rem;
-                width: 33rem;
-                margin-top: 0;
+                width: 100%;
 
                 .title {
                     width: 34rem;
@@ -258,6 +259,12 @@
 
                 .statistics {
                     gap: 0.5rem;
+
+                    .statistics {
+                        .info {
+                            font-weight: 500;
+                        }
+                    }
                 }
             }
         }
