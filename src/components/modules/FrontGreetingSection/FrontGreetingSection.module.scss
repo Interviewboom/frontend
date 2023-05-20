@@ -291,10 +291,8 @@
         .wrapper {
             .content {
                 align-items: flex-start;
-                justify-content: center;
                 gap: 2rem;
-                width: 33rem;
-                margin-top: 0;
+                width: 100%;
 
                 .title {
                     width: 34rem;
@@ -317,6 +315,12 @@
 
                 .statistics {
                     gap: 0.5rem;
+
+                    .statistics {
+                        .info {
+                            font-weight: 500;
+                        }
+                    }
                 }
             }
         }
