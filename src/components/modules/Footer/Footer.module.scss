@@ -1,5 +1,6 @@
 @import "@sass/_colors.scss";
 @import "@sass/_variables.scss";
+@import "@sass/_media.scss";
 
 .footer {
     width: 100%;
@@ -7,27 +8,26 @@
 }
 
 .content {
-    padding: 100px 15px 80px;
+    padding: 10rem 1.5rem 8rem;
     max-width: $desktop-content-width;
     margin: 0 auto;
+
+    @include mobile {
+        padding: 4rem 1.5rem 5.5rem;
+        max-width: $desktop-content-width;
+    }
 }
 
 .navigation {
-    margin-top: 40px;
+    margin-top: 4rem;
     display: flex;
     justify-content: space-between;
-}
 
-@media screen and (max-width: 768px) {
-    .content {
-        padding: 40px 15px 55px;
-        max-width: $desktop-content-width;
-    }
-    .navigation {
+    @include mobile {
         flex-direction: column;
 
         div {
-            margin-top: 40px;
+            margin-top: 4rem;
         }
     }
 }

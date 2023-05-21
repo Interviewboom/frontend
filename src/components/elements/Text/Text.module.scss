@@ -1,22 +1,22 @@
-@import "./src/sass/_colors.scss";
-@import "./src/sass/_variables.scss";
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
 
 .general {
     font-family: $primary-font;
     font-weight: 400;
 }
 .big {
-    font-size: 18px;
-    line-height: 28px;
+    font-size: 1.8rem;
+    line-height: 2.8rem;
 }
 .medium {
-    font-size: 16px;
-    line-height: 28px;
+    font-size: 1.6rem;
+    line-height: 2.8rem;
 }
 
 .small {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 1.4rem;
+    line-height: 2rem;
 }
 
 .bold {
@@ -40,25 +40,25 @@
 }
 
 .lineHeight32 {
-    line-height: 32px;
+    line-height: 3.2rem;
 }
 
 .lineHeight28 {
-    line-height: 28px;
+    line-height: 2.8rem;
 }
 
 .lineHeight24 {
-    line-height: 24px;
+    line-height: 2.4rem;
 }
 
 .lineHeight22 {
-    line-height: 22px;
+    line-height: 2.2rem;
 }
 
 .lineHeight20 {
-    line-height: 20px;
+    line-height: 2rem;
 }
 
 .lineHeight17 {
-    line-height: 17px;
+    line-height: 1.7rem;
 }
