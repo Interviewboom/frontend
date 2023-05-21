@@ -6,9 +6,13 @@ interface NavigationSubItem {
     icon: string;
 }
 
-interface NavigationItem {
+export interface NavigationItem {
     subList?: Array<NavigationTypes & NavigationSubItem>;
     moreLink?: NavigationTypes;
 }
+
+export type NavigationProps = {
+    actionToCloseBurgerMenu: () => void;
+};
 
 export type interfaceNavigationItem = NavigationTypes & NavigationItem;

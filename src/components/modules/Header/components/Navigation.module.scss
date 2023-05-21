@@ -35,6 +35,27 @@
             .navigationSubBlock {
                 display: flex;
             }
+
+            @include lte-tablet-large {
+                .navigationSubBlock:not(.active) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .mobileMoreBtn {
+        display: none;
+    }
+
+    @include lte-tablet-large {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .mobileMoreBtn {
+            display: flex;
+            padding: 1rem;
         }
     }
 }
@@ -74,6 +95,31 @@
     .moreLink {
         margin-top: .8rem;
     }
+
+    .backButton {
+        display: none;
+    }
+
+    @include lte-tablet-large {
+        &.active {
+            position: fixed;
+            top: 0rem;
+            left: 0rem;
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            padding: 3rem 1.5rem;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background: $page-background-color;
+            backdrop-filter: none;
+        }
+
+        .backButton {
+            display: flex;
+        }
+    }
 }
 
 .navigationSubBlockList {
@@ -83,6 +129,15 @@
     flex-grow: 1;
     margin-right: 3rem;
     border-right: .1rem solid rgba($input-primary-color, .05);
+
+    @include lte-tablet-large {
+        flex-grow: 0;
+        width: 100%;
+        margin: 7.2rem 0px 3rem 0px;
+        padding-bottom: 3rem;
+        border-right: none;
+        border-bottom: .1rem solid rgba($input-primary-color, .05);;
+    }
 }
 
 .navigationSubBlockLink {

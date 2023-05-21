@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Logo } from "@elements/Logo";
 import { getClassnames } from "src/utils/getClassnames";
 import styles from "./Header.module.scss";
-import { Auth } from "./Auth";
-import { Navigation } from "./Navigation";
-// import MobileMenu from "./MobileMenu";
+import { Auth } from "./components/Auth";
+import { Navigation } from "./components/Navigation";
 
 export const Header = () => {
     const [showBurgerMenu, updateShowNurgerMenu] = useState(false);
@@ -16,6 +15,17 @@ export const Header = () => {
     const actionToCloseBurgerMenu = () => {
         updateShowNurgerMenu(false);
     };
+
+    useEffect(() => {
+        const bodyElem = document.querySelector("body");
+        if (bodyElem) {
+            if (showBurgerMenu) {
+                bodyElem.style.overflow = "hidden";
+            } else {
+                bodyElem.style.overflow = "initial";
+            }
+        }
+    }, [showBurgerMenu]);
 
     return (
         <header className={getClassnames([styles.header, showBurgerMenu && styles.headerShowBurger])}>
@@ -35,7 +45,6 @@ export const Header = () => {
                     aria-label="button"
                 />
             </div>
-            {/* <MobileMenu /> */}
         </header>
     );
 };

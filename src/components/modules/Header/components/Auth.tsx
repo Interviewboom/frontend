@@ -1,6 +1,6 @@
 import { Link } from "@elements/Link";
 import { formatLink } from "@utils/formatLink";
-import { AUTH_ITEMS } from "./helpers/const";
+import { AUTH_ITEMS } from "../helpers/const";
 
 import styles from "./Auth.module.scss";
 
