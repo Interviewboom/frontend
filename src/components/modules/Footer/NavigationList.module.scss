@@ -7,22 +7,25 @@
         flex-flow: row wrap;
         width: 25rem;
         gap: 2.5rem;
+        font-family: $font-fracktif;
 
         .item {
-            font-family: $font-fracktif;
-            flex-wrap: nowrap;
-            text-align: center;
-            font-style: normal;
             flex-basis: 45%;
-            font-weight: 500;
-            font-size: 1.8rem;
-            color: $primary_light;
-            letter-spacing: -0.015rem;
-            text-decoration: underline;
-            text-underline-offset: 0.25rem;
 
-            &:hover {
-                cursor: pointer;
+            .link {
+                flex-wrap: nowrap;
+                text-align: center;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 1.8rem;
+                color: $primary_light;
+                letter-spacing: -0.015rem;
+                text-decoration: underline;
+                text-underline-offset: 0.25rem;
+
+                &:hover {
+                    cursor: pointer;
+                }
             }
         }
     }
