@@ -14,9 +14,11 @@ export const NavigationList: FC<NavigationListProps> = ({ items }) => {
             {items && (
                 <ul className={styles.list}>
                     {items.map(item => (
-                        <Link key={item.name} href={item.link} className={styles.item}>
-                            {item.name}
-                        </Link>
+                        <li className={styles.item}>
+                            <Link key={item.name} href={item.link} className={styles.link}>
+                                {item.name}
+                            </Link>
+                        </li>
                     ))}
                 </ul>
             )}

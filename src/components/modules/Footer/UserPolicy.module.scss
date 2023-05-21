@@ -9,18 +9,21 @@
     color: $most-light-color;
     width: 15rem;
     gap: 2.5rem;
-
-    .item {
-        white-space: nowrap;
-        font-weight: 500;
-        font-size: 1.8rem;
-        letter-spacing: -0.015rem;
-        text-decoration: underline;
-        text-underline-offset: 0.25rem;
+    li > {
+        .link {
+            white-space: nowrap;
+            font-weight: 500;
+            font-size: 1.8rem;
+            letter-spacing: -0.015rem;
+            text-decoration: underline;
+            text-underline-offset: 0.25rem;
+        }
     }
     @include lte-desktop-large {
-        .item {
-            font-size: 1.6rem;
+        li > {
+            .link {
+                font-size: 1.6rem;
+            }
         }
     }
     @include lte-tablet-large {
