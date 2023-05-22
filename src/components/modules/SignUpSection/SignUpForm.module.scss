@@ -35,6 +35,7 @@
 
 .heading {
     margin: 1.8rem;
+
     & > h2 {
         font-weight: 600;
     }
@@ -74,6 +75,7 @@
     align-items: center;
     flex-direction: column;
     gap: 0.8rem;
+
     & > span {
         text-decoration: underline;
         text-underline-offset: 0.4rem;
@@ -107,6 +109,7 @@
 .docs {
     text-underline-offset: 0.4rem;
     text-decoration-line: underline;
+
     &:hover {
         cursor: pointer;
     }

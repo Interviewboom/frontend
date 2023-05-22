@@ -5,10 +5,12 @@
     font-family: $primary-font;
     font-weight: 400;
 }
+
 .big {
     font-size: 1.8rem;
     line-height: 2.8rem;
 }
+
 .medium {
     font-size: 1.6rem;
     line-height: 2.8rem;
@@ -23,19 +25,19 @@
     font-weight: 700;
 }
 
-.dark-text-color {
+.darkTextColor {
     color: $dark-text-color;
 }
 
-.light-text-color {
+.lightTextColor {
     color: $light-text-color;
 }
 
-.grey-text-color {
+.greyTextColor {
     color: $grey-text-color;
 }
 
-.most-light-color {
+.mostLightColor {
     color: $most-light-color;
 }
 

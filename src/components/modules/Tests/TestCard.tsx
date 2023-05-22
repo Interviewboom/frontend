@@ -35,7 +35,7 @@ export const TestCard: FC<TestCardProps> = ({ testInfo, numberOfPassings = 0 }) 
 
                     <Text
                         size="small"
-                        color="grey-text-color"
+                        color="greyTextColor"
                         className={styles.paddingsText}
                         isParagraph
                         lineHeight={17}

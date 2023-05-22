@@ -9,6 +9,7 @@
         "lint": "next lint",
         "lint:fix": "next lint --fix",
         "stylelint": "stylelint '**/*.module.scss'",
+        "stylelint:fix": "npm run stylelint --fix",
         "prepare": "husky install",
         "build-ts": "tsc"
     },
