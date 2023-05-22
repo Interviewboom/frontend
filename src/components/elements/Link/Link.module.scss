@@ -65,19 +65,7 @@ $link-hover-transform-amount: 3px;
                     transform: translateX(-$link-hover-transform-amount);
                 }
             }
-
-            .icon {
-                transform: translateX($link-hover-transform-amount);
-            }
         }
     }
 }
 
-.icon {
-    transition: transform .2s;
-    svg {
-        path {
-            fill: $dark-text-color;
-        }
-    }
-}

@@ -19,17 +19,6 @@
     }
 }
 
-.circle:checked ~ .customHollowInput {
-    border: 2px solid $light-green-color;
-
-    .innerCircle {
-        width: 1rem;
-        height: 1rem;
-        background-color: $light-green-color;
-        border-radius: 50%;
-    }
-}
-
 .customHollowInput {
     min-width: 2rem;
     width: 2rem;
@@ -43,13 +32,12 @@
     margin-right: 1.6rem;
 }
 
-
 .circle:checked ~ .customHollowInput {
     border: 2px solid $light-green-color;
 
     .innerCircle {
-        width: 10px;
-        height: 10px;
+        width: 1rem;
+        height: 1rem;
         background-color: $light-green-color;
         border-radius: 50%;
     }
