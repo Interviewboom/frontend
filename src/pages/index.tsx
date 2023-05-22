@@ -1,18 +1,18 @@
 import type { NextPage } from "next";
 
 import { DefaultLayout } from "@layouts/DefaultLayout";
-import { FrontGreetingSection } from "@modules/FrontGreetingSection";
+import { AboutSection } from "@modules/AboutSection";
+import { CategoriesSection } from "@modules/CategoriesSection";
 import { DonationInfoSection } from "@modules/DonationInfoSection";
-import { HowItWorksSection } from "@modules/HowItWorksSection/HowItWorksSection";
-import { CategoriesSection } from "@modules/CategoriesSection/CategoriesSection";
-import { TestsSection } from "@modules/TestsSection/TestsSection";
-import { AboutSection } from "@modules/AboutSection/AboutSection";
-import { getTests } from "src/redux/api/tests-api";
+import { FrontGreetingSection } from "@modules/FrontGreetingSection";
+import { HowItWorksSection } from "@modules/HowItWorksSection";
+import { TestsSection } from "@modules/TestsSection";
+import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
 import { TestModel } from "src/models/entities/test-model/test-model";
 import { getRunningQueriesThunk, getTestCategories } from "src/redux/api/test-categories-api";
+import { getTests } from "src/redux/api/tests-api";
 import { wrapper } from "src/redux/store";
-import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 
 type HomePageProps = {
     categories: TestCategoryModel[];

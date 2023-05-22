@@ -1,10 +1,12 @@
-import React, { FC, Fragment } from "react";
 import Link from "next/link";
-import { Icon } from "../Icon/Icon";
+import React, { FC, Fragment } from "react";
+
+import { Icon } from "@elements/Icon";
+import { Text } from "@elements/Text";
+import { LinkType } from "@utils/parseUrl";
+
 import styles from "./Breadcrumb.module.scss";
 import { IconLink } from "./IconLink";
-import { Text } from "../Text/Text";
-import { LinkType } from "../../../utils/parseUrl";
 
 interface BreadcrumbProps {
     links: LinkType[];

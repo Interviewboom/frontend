@@ -1,10 +1,10 @@
+import Image from "next/image";
 import React from "react";
 
-import { Title } from "@elements/Title/Title";
-import { Text } from "@elements/Text/Text";
-import Image from "next/image";
 import { Button } from "@elements/Button/Button";
 import { Icon } from "@elements/Icon";
+import { Text } from "@elements/Text/Text";
+import { Title } from "@elements/Title/Title";
 
 import styles from "./FrontGreetingSection.module.scss";
 

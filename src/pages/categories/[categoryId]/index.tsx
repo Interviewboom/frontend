@@ -1,12 +1,13 @@
-import { DefaultLayout } from "@layouts/DefaultLayout";
 import { NextPage } from "next";
-import { TestsByCategorySection } from "@modules/TestsByCategorySection/TestsByCategorySection";
-import { wrapper } from "src/redux/store";
-import { getRunningQueriesThunk, getTestCategory } from "src/redux/api/test-categories-api";
-import { getTests } from "src/redux/api/tests-api";
+
+import { DefaultLayout } from "@layouts/DefaultLayout";
+import { TestsByCategorySection } from "@modules/TestsByCategorySection";
+import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
 import { TestModel } from "src/models/entities/test-model/test-model";
-import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
+import { getRunningQueriesThunk, getTestCategory } from "src/redux/api/test-categories-api";
+import { getTests } from "src/redux/api/tests-api";
+import { wrapper } from "src/redux/store";
 
 type PageProps = {
     category: TestCategoryModel;

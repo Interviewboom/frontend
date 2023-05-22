@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
+import React, { useMemo, memo } from "react";
+
 import { Icon } from "@elements/Icon";
 import { Text } from "@elements/Text";
-import React, { useMemo, memo } from "react";
+
 import styles from "./SocialButton.module.scss";
 
 type ButtonProps = {

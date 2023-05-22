@@ -1,7 +1,7 @@
 import { Link } from "@elements/Link";
-import { AUTH_ITEMS } from "./const";
 
 import styles from "./Auth.module.scss";
+import { AUTH_ITEMS } from "./const";
 
 export const Auth = () => {
     return (

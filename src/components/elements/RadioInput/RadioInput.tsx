@@ -1,7 +1,8 @@
 import React, { ChangeEventHandler, FC, useId } from "react";
-import { Text } from "@elements/Text/Text";
+
+import { Icon } from "@elements/Icon";
+import { Text } from "@elements/Text";
 import { useCssClasses } from "src/utils/getClassnames";
-import { Icon } from "@elements/Icon/Icon";
 
 import styles from "./RadioInput.module.scss";
 
