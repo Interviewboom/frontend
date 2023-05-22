@@ -6,6 +6,7 @@ html,
 body {
     font-family: $primary-font, sans-serif;
     color: $dark-text-color;
+    font-size: 62.5%;
 }
 
 *,
@@ -44,8 +45,22 @@ label {
     line-height: inherit;
 }
 
-ul {
+ol, ul, li {
+    margin: 0;
+    padding: 0;
     list-style: none;
+}
+
+/**
+* Override Firefox's stylesheet for red box shadow on invalid fields
+* @see view-source:resource://gre-resources/forms.css
+*/
+
+:not(output):-moz-ui-invalid {
+    box-shadow: none;
+}
+:not(output):-moz-ui-invalid:-moz-focusring {
+    box-shadow: none;
 }
 
 img,

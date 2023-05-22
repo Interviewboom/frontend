@@ -1,20 +1,30 @@
 @import "@sass/_colors.scss";
 @import "@sass/_variables.scss";
+@import "@sass/_media.scss";
 
 .section {
-    min-height: 600px;
+    min-height: 60rem;
     display: flex;
     justify-content: center;
     width: 100%;
     position: relative;
-    margin-bottom: 150px;
+    margin-bottom: 15rem;
+
+    @include lte-tablet-large {
+        min-height: 40rem;
+        margin-bottom: 5rem;
+    }
 }
 
 .wrapper {
-    padding: 120px 15px;
+    padding: 12rem 1.5rem;
     max-width: $desktop-content-width;
     width: 100%;
     position: relative;
+
+    @include lte-tablet-large {
+        padding: 5rem 1.5rem;
+    }
 }
 
 .imageContainer {
@@ -31,32 +41,21 @@
         right: 58%;
         background: linear-gradient(90deg, $most-light-color 0%, rgb(255 255 255 / 0%) 100%);
     }
+
+    @include lte-tablet-large {
+        opacity: 0.5;
+    }
 }
 
 .content {
-    max-width: 448px;
+    max-width: 44.8rem;
 }
 
 .marginTitle {
-    margin-bottom: 20px;
-    padding: 11px 0;
+    margin-bottom: 2rem;
+    padding: 1.1rem 0;
 }
 
 .marginText {
-    margin-bottom: 30px;
-}
-
-@media screen and (max-width: 992px) {
-    .section {
-        min-height: 400px;
-        margin-bottom: 50px;
-
-        .wrapper {
-            padding: 50px 15px;
-        }
-    }
-
-    .imageContainer {
-        opacity: 0.5;
-    }
+    margin-bottom: 3rem;
 }

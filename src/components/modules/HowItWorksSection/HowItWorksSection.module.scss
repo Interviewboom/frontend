@@ -1,43 +1,42 @@
 @import "@sass/_colors.scss";
 @import "@sass/_variables.scss";
+@import "@sass/_media.scss";
 
 .section {
     background-color: $most-light-color;
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-bottom: 200px;
+    margin-bottom: 20rem;
+
+    @include gte-desktop-large {
+        margin-bottom: 10rem;
+    }
 }
 
 .wrapper {
-    padding: 0 15px;
+    padding: 0 1.5rem;
     max-width: $desktop-content-width;
     width: 100%;
     text-align: center;
 }
 
 .stepsContainer {
-    padding: 60px 20px;
+    padding: 6rem 2rem;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+
+    @include gte-desktop-large {
+        padding: 2.4rem 0;
+        gap: 3.2rem;
+        justify-items: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    }
 }
 
 .paddings {
     text-align: left;
-    padding: 8px 0;
-}
-
-@media screen and (max-width: 1200px) {
-    .section {
-        margin-bottom: 100px;
-    }
-
-    .stepsContainer {
-        padding: 24px 0;
-        gap: 32px;
-        justify-items: center;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    }
+    padding: 0.8rem 0;
 }

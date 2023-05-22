@@ -1,5 +1,5 @@
-@import "./src/sass/_colors.scss";
-@import "./src/sass/_variables.scss";
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
 
 $link-hover-transform-amount: 3px;
 
@@ -16,9 +16,9 @@ $link-hover-transform-amount: 3px;
 .link {
     display: inline-flex;
     align-items: center;
-    gap: 3px;
+    gap: 0.3rem;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 1.8rem;
     line-height: 1;
     letter-spacing: -0.02em;
     color: $dark-text-color;
@@ -65,6 +65,19 @@ $link-hover-transform-amount: 3px;
                     transform: translateX(-$link-hover-transform-amount);
                 }
             }
+
+            .icon {
+                transform: translateX($link-hover-transform-amount);
+            }
+        }
+    }
+}
+
+.icon {
+    transition: transform .2s;
+    svg {
+        path {
+            fill: $dark-text-color;
         }
     }
 }

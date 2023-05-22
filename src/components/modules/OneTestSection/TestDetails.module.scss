@@ -1,14 +1,29 @@
+@import "@sass/_media.scss";
+
 .infoWrapper {
     display: flex;
-    margin-top: 20px;
-    margin-bottom: 24px;
+    margin-top: 2rem;
+    margin-bottom: 2.4rem;
+
+    @include gte-desktop-large {
+        flex-direction: column;
+        margin: 1rem 0 0 0;
+    }
 }
 
 .iconCaption {
     display: flex;
     align-items: center;
-    width: 286px;
-    margin-right: 42px;
+    width: 28.6rem;
+    margin-right: 4.2rem;
+
+    @include gte-desktop-large {
+        margin-top: 1.6rem;
+
+        &:first-child {
+            margin-top: 3rem;
+        }
+    }
 }
 
 .iconCaptionLangs {
@@ -18,29 +33,15 @@
 
 .button {
     margin-top: auto;
-    padding-top: 5px;
+    padding-top: 0.5rem;
+
+    @include gte-desktop-large {
+        margin: 1rem 0 3rem;
+        order: -1;
+    }
 }
 
 .marginRight {
-    margin-right: 12px;
+    margin-right: 1.2rem;
 }
 
-@media screen and (max-width: 1200px) {
-    .infoWrapper {
-        flex-direction: column;
-        margin: 10px 0 0;
-    }
-
-    .button {
-        margin: 10px 0 30px;
-        order: -1;
-    }
-
-    .iconCaption {
-        margin-top: 16px;
-
-        &:first-child {
-            margin-top: 30px;
-        }
-    }
-}

@@ -1,5 +1,6 @@
 @import "@sass/_colors.scss";
 @import "@sass/_variables.scss";
+@import "@sass/_media.scss";
 
 .heading {
     font-weight: 800;
@@ -7,29 +8,47 @@
 }
 
 .heading1 {
-    font-size: 48px;
-    line-height: 59px;
+    font-size: 4.8rem;
+    line-height: 5.9rem;
+
+    @include gte-desktop-large  {
+        font-size: 2.6rem;
+        line-height: 4.4rem;
+    }
 }
 
 .heading2 {
-    font-size: 36px;
-    line-height: 44px;
+    font-size: 3.6rem;
+    line-height: 4.4rem;
+
+    @include gte-desktop-large  {
+        font-size: 2.4rem;
+        line-height: 3rem;
+    }
 }
 
 .heading3 {
-    font-size: 24px;
-    line-height: 30px;
+    font-size: 2.4rem;
+    line-height: 3rem;
+
+    @include mobile {
+        font-size: 1.8rem;
+    }
 }
 
 .heading4 {
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
 }
 
 .heading5 {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 1.6rem;
+    line-height: 2rem;
     font-weight: 700;
+
+    @include mobile {
+        font-size: 1.4rem;
+    }
 }
 
 .darkTextColor {
@@ -42,26 +61,4 @@
 
 .mostLightColor {
     color: $most-light-color;
-}
-
-@media screen and (max-width: 1200px) {
-    .heading1 {
-        font-size: 26px;
-        line-height: 44px;
-    }
-
-    .heading2 {
-        font-size: 24px;
-        line-height: 30px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .heading3 {
-        font-size: 18px;
-    }
-
-    .heading5 {
-        font-size: 14px;
-    }
 }

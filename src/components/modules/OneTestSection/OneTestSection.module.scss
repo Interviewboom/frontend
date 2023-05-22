@@ -1,5 +1,6 @@
 @import "@sass/_colors.scss";
 @import "@sass/_variables.scss";
+@import "@sass/_media.scss";
 
 .section {
     display: flex;
@@ -7,20 +8,21 @@
     align-items: center;
     width: 100%;
     background-color: $most-light-color;
-    margin-bottom: 100px;
+    margin-bottom: 10rem;
 }
 
 .wrapper {
-    padding: 0 15px;
+    padding: 0 1.5rem;
     width: $desktop-content-width;
 }
 
 .breadcrumbsWrapper {
-    padding: 30px 0 58px;
+    padding: 3rem 0 5.8rem;
 }
 
 .socialsWrapper {
-    margin-bottom: 23px;
+    margin-bottom: 2.3rem;
+
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -32,54 +34,53 @@
     }
 
     .favorites {
-        margin-right: 43px;
+        margin-right: 4.3rem;
         cursor: pointer;
+    }
+
+    @include mobile {
+        justify-content: space-between;
     }
 }
 
 .iconMargin {
-    margin-right: 8px;
+    margin-right: 0.8rem;
 }
 
 .title {
-    margin-bottom: 16px;
-    padding: 8px 0;
+    margin-bottom: 1.6rem;
+    padding: 0.8rem 0;
+
+    @include mobile {
+        order: -1;
+        margin-top: 1.6rem;
+        margin-bottom: 0;
+    }
 }
 
 .row {
     display: flex;
+
+    @include mobile {
+        flex-direction: column;
+    }
 }
 
 .imgWrapper {
-    max-width: 600px;
+    max-width: 60rem;
     width: 100%;
 }
 
 .content {
     flex-grow: 1;
-    max-width: 792px;
+    max-width: 79.2rem;
     display: flex;
     flex-direction: column;
-    padding-left: 40px;
+    padding-left: 4rem;
     flex-shrink: 2;
-}
 
-@media screen and (max-width: 768px) {
-    .row {
-        flex-direction: column;
-    }
-
-    .content {
+    @include mobile {
         padding: 0;
     }
-
-    .title {
-        order: -1;
-        margin-top: 16px;
-        margin-bottom: 0;
-    }
-
-    .socialsWrapper {
-        justify-content: space-between;
-    }
 }
+

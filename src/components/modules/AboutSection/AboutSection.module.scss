@@ -1,5 +1,6 @@
 @import "@sass/_colors.scss";
 @import "@sass/_variables.scss";
+@import "@sass/_media.scss";
 
 .section {
     display: flex;
@@ -7,68 +8,69 @@
     align-items: center;
     width: 100%;
     background-color: $most-light-color;
-    margin-bottom: 100px;
+    margin-bottom: 10rem;
+
+    @include gte-desktop-large {
+        margin-bottom: 8rem;
+    }
 }
 
 .wrapper {
     display: grid;
-    grid-template-columns: minmax(400px, 633px) minmax(500px, 736px);
+    grid-template-columns: minmax(40rem, 63.3rem) minmax(50rem, 73.6rem);
     justify-content: space-between;
-    column-gap: 25px;
-    padding: 100px 15px 66px;
+    column-gap: 2.5rem;
+    padding: 10rem 1.5rem 6.6rem;
     width: $desktop-content-width;
+
+    @include gte-desktop-large  {
+        grid-template-columns: 1fr;
+        padding: 0 1.5rem;
+    }
 }
 
 .titleWrapper {
     display: flex;
     align-items: center;
-    padding: 8px 0;
-    margin-bottom: 30px;
+
+    padding: 0.8rem 0;
+    margin-bottom: 3rem;
+
+    @include gte-desktop-large {
+        margin-bottom: 2rem;
+    }
 }
 
 .text {
     flex-shrink: 2;
-    max-width: 643px;
-    padding-right: 10px;
+    max-width: 64.3rem;
+    padding-right: 1rem;
 }
 
 .image {
     grid-row: 1/4;
     grid-column: 2/3;
-    border-radius: 8px;
+    border-radius: 0.8rem;
     overflow: hidden;
-    max-width: 736px;
+    max-width: 73.6rem;
+
+    @include gte-desktop-large {
+        grid-row: 2/3;
+        grid-column: unset;
+        margin-bottom: 2.4rem;
+    }
 }
 
 .titleMargin {
-    margin-right: 15px;
+    margin-right: 1.5rem;
 }
 
 .pMargin {
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
 }
 
-@media screen and (max-width: 1200px) {
-    .wrapper {
-        grid-template-columns: 1fr;
-        padding: 0 15px;
-    }
-
-    .image {
-        grid-row: 2/3;
-        grid-column: unset;
-        margin-bottom: 24px;
-    }
-
-    .logo {
-        max-width: 200px;
-    }
-
-    .titleWrapper {
-        margin-bottom: 20px;
-    }
-
-    .section {
-        margin-bottom: 80px;
+.logo {
+    @include gte-desktop-large {
+        max-width: 20rem;
     }
 }

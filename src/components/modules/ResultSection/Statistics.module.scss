@@ -1,35 +1,34 @@
 @import "@sass/_colors.scss";
+@import "@sass/_media.scss";
 
 .stats {
     display: flex;
     align-items: center;
-    margin-bottom: 100px;
-    padding: 40px;
-    border-radius: 10px;
+    margin-bottom: 10rem;
+    padding: 4rem;
+    border-radius: 1rem;
     border: 1px solid $light-grey-color;
     text-align: center;
+
+    @include lte-tablet-large {
+        flex-direction: column;
+        margin-bottom: 2.4rem;
+        padding: 2.4rem 1.5rem 1.5rem;
+    }
 }
 
 .btn {
     margin-left: auto;
+
+    @include lte-tablet-large {
+        margin: 2.4rem 0 0;
+    }
 }
 
 .iconCls {
-    margin-right: 40px;
-}
+    margin-right: 4rem;
 
-@media screen and (max-width: 992px) {
-    .stats {
-        flex-direction: column;
-        margin-bottom: 24px;
-        padding: 24px 15px 15px;
-    }
-
-    .btn {
-        margin: 24px 0 0;
-    }
-
-    .iconCls {
-        margin: 0 0 14px;
+    @include lte-tablet-large {
+        margin: 0 0 1.4rem;
     }
 }

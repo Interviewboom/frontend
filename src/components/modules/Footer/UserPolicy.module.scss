@@ -1,24 +1,23 @@
 @import "@sass/_colors.scss";
+@import "@sass/_media.scss";
 
 .list {
     display: flex;
     color: $most-light-color;
+
+    @include mobile {
+        flex-direction: column;
+    }
 }
 
 .item {
-    padding: 0 16px;
-}
+    padding: 0 1.6rem;
 
-@media screen and (max-width: 768px) {
-    .list {
-        flex-direction: column;
-    }
-
-    .item {
-        padding: 0 0 10px;
+    @include mobile {
+        padding: 0 0 1rem;
 
         &:last-child {
-            padding-bottom: 20px;
+            padding-bottom: 2rem;
         }
     }
 }
