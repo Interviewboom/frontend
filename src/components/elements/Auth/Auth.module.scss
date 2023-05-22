@@ -34,7 +34,8 @@
 }
 
 .heading {
-    margin: 0 1.8rem 3rem 1.8rem;
+    margin: 0 1.8rem 3rem;
+
     & > h2 {
         font-weight: 600;
     }
@@ -76,10 +77,12 @@
     align-items: center;
     flex-direction: column;
     gap: 0.8rem;
+
     & span {
         text-underline-offset: 0.4rem;
         text-decoration-line: underline;
     }
+
     &:hover {
         cursor: pointer;
     }
