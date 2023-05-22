@@ -1,9 +1,8 @@
-import { FC } from "react";
 import { useFormik } from "formik";
+import { FC } from "react";
 
-import { TextField } from "@elements/TextField";
 import { Auth } from "@elements/Auth";
-
+import { TextField } from "@elements/TextField";
 import { resetPasswordValidationSchema } from "@utils/yupValidationSchemas";
 
 interface FormValues {

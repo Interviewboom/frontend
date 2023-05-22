@@ -1,8 +1,9 @@
 import React, { FC } from "react";
-import { TestModel } from "src/models/entities/test-model/test-model";
-import { useCssClasses } from "@utils/getClassnames";
-import { TestCard } from "./TestCard";
 
+import { useCssClasses } from "@utils/getClassnames";
+import { TestModel } from "src/models/entities/test-model/test-model";
+
+import { TestCard } from "./TestCard";
 import styles from "./Tests.module.scss";
 
 type TestsProps = {

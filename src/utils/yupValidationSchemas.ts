@@ -1,4 +1,5 @@
 import * as Yup from "yup";
+
 import { EMAIL_PATTERN } from "./regexConstants";
 
 const emailValidation = Yup.string()

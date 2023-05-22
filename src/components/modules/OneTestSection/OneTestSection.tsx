@@ -1,16 +1,16 @@
+import Image from "next/legacy/image";
 import { FC } from "react";
 
-import Image from "next/legacy/image";
-import { Text } from "@elements/Text";
-import { Title } from "@elements/Title/Title";
+import { Breadcrumb } from "@elements/Breadcrumb/Breadcrumb";
 import { Icon } from "@elements/Icon";
 import { ShareButton } from "@elements/ShareButton";
-import { Breadcrumb } from "@elements/Breadcrumb/Breadcrumb";
+import { Text } from "@elements/Text";
+import { Title } from "@elements/Title/Title";
 import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
 import { TestModel } from "src/models/entities/test-model/test-model";
-import { TestDetails } from "./TestDetails";
 
 import styles from "./OneTestSection.module.scss";
+import { TestDetails } from "./TestDetails";
 
 type OneTestSectionProps = {
     category: TestCategoryModel;

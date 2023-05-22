@@ -1,8 +1,8 @@
 import Image from "next/legacy/image";
 
-import { Text } from "@elements/Text";
-import { Title } from "@elements/Title/Title";
 import { Logo } from "@elements/Logo";
+import { Text } from "@elements/Text";
+import { Title } from "@elements/Title";
 
 import styles from "./AboutSection.module.scss";
 

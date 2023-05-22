@@ -1,6 +1,7 @@
 import React, { FC } from "react";
+
+import { Icon } from "@elements/Icon";
 import { Text } from "@elements/Text";
-import { Icon } from "../../elements/Icon/Icon";
 
 import styles from "./Step.module.scss";
 

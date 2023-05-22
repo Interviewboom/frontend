@@ -1,13 +1,12 @@
-import React, { useState } from "react";
 import Link from "next/link";
+import React, { useState } from "react";
 
 import { Icon } from "@elements/Icon/Icon";
 import { Logo } from "@elements/Logo";
 import { formatLink } from "@utils/formatLink";
 
-import { NAVIGATION_ITEMS } from "./const";
 import { Auth } from "./Auth";
-
+import { NAVIGATION_ITEMS } from "./const";
 import styles from "./MobileMenu.module.scss";
 
 const MobileMenu = () => {

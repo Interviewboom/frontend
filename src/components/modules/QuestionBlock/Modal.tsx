@@ -1,7 +1,8 @@
+import { useRouter } from "next/router";
 import React, { Dispatch, FC, SetStateAction } from "react";
+
 import { Button } from "@elements/Button";
 import { Title } from "@elements/Title/Title";
-import { useRouter } from "next/router";
 
 import styles from "./Modal.module.scss";
 

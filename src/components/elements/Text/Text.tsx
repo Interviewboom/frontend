@@ -1,6 +1,8 @@
 import React, { FC, ReactNode } from "react";
+
+import { useCssClasses } from "@utils/getClassnames";
+
 import styles from "./Text.module.scss";
-import { useCssClasses } from "../../../utils/getClassnames";
 
 interface TextProps {
     children: ReactNode;

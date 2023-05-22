@@ -1,12 +1,13 @@
 import React, { FC, useState } from "react";
-import { LoadBar } from "@elements/LoadBar/LoadBar";
-import { QuestionModel } from "src/models/entities/question-model/question-model";
-import { AnswerModel } from "src/models/entities/answer-model/answer-model";
-import { AnswersCheckbox } from "./AnswersCheckbox";
-import { Answers } from "./Answers";
 
-import styles from "./QuestionBlock.module.scss";
+import { LoadBar } from "@elements/LoadBar/LoadBar";
+import { AnswerModel } from "src/models/entities/answer-model/answer-model";
+import { QuestionModel } from "src/models/entities/question-model/question-model";
+
+import { Answers } from "./Answers";
+import { AnswersCheckbox } from "./AnswersCheckbox";
 import { Modal } from "./Modal";
+import styles from "./QuestionBlock.module.scss";
 
 type QuestionBlockProps = {
     questionData: { question: QuestionModel; count: number; countAnswered: number; test_id: number };

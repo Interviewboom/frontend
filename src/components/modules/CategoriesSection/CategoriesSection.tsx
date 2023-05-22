@@ -1,7 +1,7 @@
 import { FC } from "react";
 
-import { Title } from "@elements/Title/Title";
-import { Button } from "@elements/Button/Button";
+import { Button } from "@elements/Button";
+import { Title } from "@elements/Title";
 import { Categories } from "@modules/Categories/Categories";
 import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
 

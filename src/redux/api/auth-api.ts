@@ -1,6 +1,6 @@
-import { api } from "src/redux/api";
 import { SignUpRequest, SignInRequest } from "src/models/requests/request-params-model/request-params-model";
 import { LoginResponse } from "src/models/responses/auth-response-model/auth-response-model";
+import { api } from "src/redux/api";
 
 export const authApi = api.injectEndpoints({
     endpoints: build => ({

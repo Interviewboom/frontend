@@ -1,13 +1,14 @@
-import { DefaultLayout } from "@layouts/DefaultLayout";
-import { OneTestSection } from "@modules/OneTestSection/OneTestSection";
-import { DonationInfoSection } from "@modules/DonationInfoSection/DonationInfoSection";
 import { NextPage } from "next";
-import { wrapper } from "src/redux/store";
-import { getRunningQueriesThunk, getTestCategory } from "src/redux/api/test-categories-api";
-import { getTest } from "src/redux/api/tests-api";
+
+import { DefaultLayout } from "@layouts/DefaultLayout";
+import { DonationInfoSection } from "@modules/DonationInfoSection";
+import { OneTestSection } from "@modules/OneTestSection";
+import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
 import { TestModel } from "src/models/entities/test-model/test-model";
-import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
+import { getRunningQueriesThunk, getTestCategory } from "src/redux/api/test-categories-api";
+import { getTest } from "src/redux/api/tests-api";
+import { wrapper } from "src/redux/store";
 
 type PageProps = {
     category: TestCategoryModel;

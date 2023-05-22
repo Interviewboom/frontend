@@ -1,7 +1,9 @@
 import React from "react";
+
 import { Text } from "@elements/Text";
+import { useCssClasses } from "@utils/getClassnames";
+
 import styles from "./Error.module.scss";
-import { useCssClasses } from "../../../utils/getClassnames";
 
 type ErrorProps = {
     description: string;

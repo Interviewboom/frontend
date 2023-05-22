@@ -1,16 +1,14 @@
+import { useFormik } from "formik";
 import { useRouter } from "next/router";
 import { FC } from "react";
-import { useFormik } from "formik";
 
-import { useLoginMutation } from "src/redux/api/auth-api";
-
+import { Auth } from "@elements/Auth";
 import { Button } from "@elements/Button";
 import { Icon } from "@elements/Icon";
 import { Text } from "@elements/Text";
 import { TextField } from "@elements/TextField";
-import { Auth } from "@elements/Auth";
-
 import { signInValidationSchema } from "@utils/yupValidationSchemas";
+import { useLoginMutation } from "src/redux/api/auth-api";
 
 import styles from "./SignInForm.module.scss";
 

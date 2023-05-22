@@ -1,9 +1,11 @@
 import React, { FC } from "react";
-import { Title } from "@elements/Title/Title";
-import { Tests } from "@modules/Tests/Tests";
+
 import { Breadcrumb } from "@elements/Breadcrumb/Breadcrumb";
+import { Title } from "@elements/Title/Title";
+import { Tests } from "@modules/Tests";
 import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
 import { TestModel } from "src/models/entities/test-model/test-model";
+
 import styles from "./TestsByCategorySection.module.scss";
 
 type TestsByCategorySectionProps = {
