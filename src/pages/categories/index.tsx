@@ -1,15 +1,14 @@
-import React from "react";
 import type { NextPage } from "next";
+import React from "react";
+
 import { DefaultLayout } from "@layouts/DefaultLayout";
+import { AllCategoriesSection } from "@modules/AllCategoriesSection";
 import { DonationInfoSection } from "@modules/DonationInfoSection";
-import { AllCategoriesSection } from "@modules/AllCategoriesSection/AllCategoriesSection";
-import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
-
-import { errorObjectType } from "@utils/errorHandler";
-
-import { wrapper } from "src/redux/store";
-import { getTestCategories, getRunningQueriesThunk } from "src/redux/api/test-categories-api";
 import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
+import { errorObjectType } from "@utils/errorHandler";
+import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
+import { getTestCategories, getRunningQueriesThunk } from "src/redux/api/test-categories-api";
+import { wrapper } from "src/redux/store";
 
 type PageProps = {
     categories: TestCategoryModel[] & errorObjectType;

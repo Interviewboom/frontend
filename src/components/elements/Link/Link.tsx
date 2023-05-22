@@ -1,7 +1,9 @@
-import { FC, ReactNode } from "react";
-import { useCssClasses } from "src/utils/getClassnames";
 import LinkNext from "next/link";
+import { FC, ReactNode } from "react";
+
 import { Icon } from "@elements/Icon";
+import { useCssClasses } from "@utils/getClassnames";
+
 import styles from "./Link.module.scss";
 
 interface LinkProps {

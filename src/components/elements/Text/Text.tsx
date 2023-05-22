@@ -1,12 +1,14 @@
 import React, { FC, ReactNode } from "react";
+
+import { useCssClasses } from "@utils/getClassnames";
+
 import styles from "./Text.module.scss";
-import { useCssClasses } from "../../../utils/getClassnames";
 
 interface TextProps {
     children: ReactNode;
     isParagraph?: boolean;
     size?: "big" | "medium" | "small";
-    color?: "dark-text-color" | "light-text-color" | "grey-text-color" | "most-light-color";
+    color?: "darkTextColor" | "lightTextColor" | "greyTextColor" | "mostLightColor";
     bold?: true | false;
     className?: string;
     lineHeight?: 17 | 20 | 22 | 24 | 28 | 32;
@@ -16,7 +18,7 @@ export const Text: FC<TextProps> = ({
     children,
     isParagraph,
     size = "medium",
-    color = "dark-text-color",
+    color = "darkTextColor",
     bold = false,
     lineHeight = "",
     className,

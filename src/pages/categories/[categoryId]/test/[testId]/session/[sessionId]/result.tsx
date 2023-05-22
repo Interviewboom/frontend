@@ -1,12 +1,12 @@
-import { DefaultLayout } from "@layouts/DefaultLayout";
-import { ResultSection } from "@modules/ResultSection/ResultSection";
-
 import { NextPage } from "next";
+
+import { DefaultLayout } from "@layouts/DefaultLayout";
+import { ResultSection } from "@modules/ResultSection";
+import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
+import { TestResultsResponseModel } from "src/models/responses/test-results-response-model/test-results-response-model";
 import { getTestResults } from "src/redux/api/sessions-api";
 import { getRunningQueriesThunk } from "src/redux/api/test-categories-api";
 import { wrapper } from "src/redux/store";
-import { TestResultsResponseModel } from "src/models/responses/test-results-response-model/test-results-response-model";
-import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 
 type PageProps = {
     testResults: TestResultsResponseModel;
