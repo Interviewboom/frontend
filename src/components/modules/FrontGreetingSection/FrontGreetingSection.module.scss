@@ -14,8 +14,9 @@
         width: 100%;
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-around;
-        align-items: center;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 6rem;
 
         .content {
             display: flex;
@@ -35,6 +36,7 @@
                 line-height: 95%;
 
                 .imageIcon {
+                    margin-bottom: 1.2rem;
                 }
             }
 
@@ -42,38 +44,41 @@
                 width: 28.8rem;
                 height: 10rem;
                 font-weight: 500;
-                font-size: 1.12rem;
+                font-size: 1.8rem;
+                letter-spacing: -0.02rem;
             }
 
             .buttons {
+                width: 35rem;
+                display: flex;
+                gap: 0.5rem;
+
                 .contentButton {
-                    padding: 1.56rem 2.5rem 1.56rem 2.5rem;
                     white-space: nowrap;
-                    padding: 25px 40px;
-                    border-radius: 120px;
-                    width: 208px;
-                    height: 66px;
-                    background: #74a253;
+                    padding: 3rem 5rem;
+                    border-radius: 7.5rem;
+                    width: 24.3rem;
+                    height: 7.8rem;
+                    background-color: $light-queaternarty-bg-color;
                 }
 
                 .contentArrowButton {
                     white-space: nowrap;
-                    padding: 25px;
-                    border-radius: 120px;
-                    width: 65px;
-                    height: 65px;
-                    background: #74a2531a;
-                    border: 1.5px solid rgba(116, 162, 83, 0.1);
+                    padding: 2.5rem;
+                    border-radius: 12rem;
+                    width: 7.8rem;
+                    height: 7.8rem;
+                    border: 1px solid #74a253;
                     position: relative;
 
                     .arrowDown {
-                        height: 22px;
-                        width: 22px;
+                        height: 2.4rem;
+                        width: 2.4rem;
                         position: absolute;
                         top: 50%;
                         left: 50%;
                         transform: translate(-50%, -50%);
-                        font-size: 18px;
+                        font-size: 1.8rem;
                         font-weight: 500;
                     }
                 }
@@ -82,11 +87,12 @@
             .statistics {
                 display: flex;
                 gap: 2rem;
+                margin-top: 28%;
 
                 .info {
                     white-space: nowrap;
-                    font-weight: 500;
-                    font-size: 16px;
+                    font-weight: 600;
+                    font-size: 1.8rem;
                     letter-spacing: -0.015rem;
                 }
             }
@@ -140,15 +146,19 @@
         }
     }
 
-    @media screen and (max-width: 65rem) {
+    @include lte-tablet-large {
+        padding: 1rem;
+
         .wrapper {
             flex-flow: column-reverse;
             align-items: center;
 
             .content {
-                align-items: flex-start;
-                gap: 1rem;
-                width: 330px;
+                align-items: center;
+                width: 100%;
+                margin-top: 0;
+                gap: 4.5rem;
+
                 .title {
                     display: flex;
                     justify-content: center;
@@ -169,51 +179,29 @@
                     font-size: 1.8rem;
                     line-height: 140%;
                     letter-spacing: -0.015rem;
-                    height: 88px;
                 }
 
                 .buttons {
-                    width: 275px;
-                    display: flex;
-                    gap: 0.1rem;
+                    width: 30rem;
 
                     .contentButton {
-                        white-space: nowrap;
-                        padding: 25px 40px 25px 40px;
-                        border-radius: 120px;
-                        width: 208px;
-                        height: 66px;
-                        background: #74a253;
+                        font-size: 1.6rem;
+                        width: 20.8rem;
+                        height: 6.6rem;
                     }
 
                     .contentArrowButton {
-                        white-space: nowrap;
-                        padding: 25px;
-                        border-radius: 120px;
-                        width: 65px;
-                        height: 65px;
-                        background: #74a2531a;
-                        border: 1.5px solid rgba(116, 162, 83, 0.1);
-                        position: relative;
-
-                        .arrowDown {
-                            transform: translate(-50%, -50%);
-                            font-size: 18px;
-                            font-weight: 500;
-                            color: #74a253;
-                        }
+                        width: 6.6rem;
+                        height: 6.6rem;
                     }
                 }
 
                 .statistics {
-                    display: flex;
-                    gap: 0.5rem;
-                    margin-top: 4rem;
+                    gap: 4rem;
+                    margin-top: 6rem;
+
                     .info {
-                        white-space: nowrap;
-                        font-weight: 500;
-                        font-size: 16px;
-                        letter-spacing: -0.015rem;
+                        font-size: 1.6rem;
                     }
                 }
             }
