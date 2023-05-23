@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+
 import { Link } from "@elements/Link";
 
 import styles from "./UserPolicy.module.scss";

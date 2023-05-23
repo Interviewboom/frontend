@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import { Link } from "@elements/Link";
 
 import styles from "./NavigationList.module.scss";

@@ -1,11 +1,11 @@
 import { useMemo } from "react";
 
-import { Logo } from "@elements/Logo";
 import { Icon } from "@elements/Icon";
-import { NavigationList } from "./NavigationList";
-import { UserPolicy } from "./UserPolicy";
+import { Logo } from "@elements/Logo";
 
 import styles from "./Footer.module.scss";
+import { NavigationList } from "./NavigationList";
+import { UserPolicy } from "./UserPolicy";
 
 export const Footer = () => {
     const companyItems = useMemo(

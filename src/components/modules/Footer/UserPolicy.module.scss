@@ -9,6 +9,7 @@
     color: $most-light-color;
     width: 15rem;
     gap: 2.5rem;
+
     li > {
         .link {
             white-space: nowrap;
@@ -19,6 +20,7 @@
             text-underline-offset: 0.25rem;
         }
     }
+
     @include lte-desktop-large {
         li > {
             .link {
@@ -26,6 +28,7 @@
             }
         }
     }
+
     @include lte-tablet-large {
         gap: 2rem;
         transform: translate(92%, 1rem);
