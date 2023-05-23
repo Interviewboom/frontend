@@ -35,7 +35,6 @@ export const Footer = () => {
                             color="white"
                         />
                     </span>
-
                     <div className={styles.description}>
                         <p>With love from UKRAINE</p>
                         <span>#UADevs</span>
