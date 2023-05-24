@@ -1,9 +1,8 @@
-import React from "react";
 import { NextPage } from "next";
+import React from "react";
 
-import { RoadmapProps } from "@modules/Roadmap/Roadmap.types";
 import { RoadmapByTarget } from "@modules/Roadmap/index";
-
+import { RoadmapProps } from "@modules/Roadmap/Roadmap.types";
 import roadMapData from "@modules/Roadmap/roadmapData.json";
 
 const Roadmap: NextPage<RoadmapProps> = ({ roadmapData }: RoadmapProps) => {

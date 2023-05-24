@@ -1,11 +1,10 @@
 import React from "react";
 
 import { Button } from "@elements/Button";
+import RenderNode from "@modules/Roadmap/RenderNode/RenderNode";
 import { useFilterOptions } from "@utils/useFilterOptions";
 
-import RenderNode from "@modules/Roadmap/RenderNode/RenderNode";
 import { RoadmapProps } from "./Roadmap.types";
-
 import styles from "./RoadmapByTarget.module.scss";
 
 export const RoadmapByTarget: React.FC<RoadmapProps> = ({ roadmapData }) => {
