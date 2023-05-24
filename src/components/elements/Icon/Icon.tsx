@@ -1,8 +1,10 @@
 import dynamic from "next/dynamic";
 import React, { ComponentType, FC, SVGProps, useMemo } from "react";
-import { useCssClasses } from "src/utils/getClassnames";
-import DefaultIcon from "./icons/defaultIcon.svg";
+
+import { useCssClasses } from "@utils/getClassnames";
+
 import styles from "./Icon.module.scss";
+import DefaultIcon from "./icons/defaultIcon.svg";
 
 interface IconProps {
     name: string;

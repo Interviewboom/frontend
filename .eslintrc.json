@@ -1,6 +1,6 @@
 {
     "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint"],
+    "plugins": ["@typescript-eslint", "import"],
     "extends": ["next/core-web-vitals", "next", "airbnb", "plugin:prettier/recommended"],
     "overrides": [
         {
@@ -24,6 +24,17 @@
                     {
                         "namedComponents": "arrow-function",
                         "unnamedComponents": "arrow-function"
+                    }
+                ],
+                "import/order": [
+                    "error",
+                    {
+                      "groups": [["builtin", "external"], "internal", ["parent", "sibling", "index"]],
+                      "newlines-between": "always",
+                      "alphabetize": {
+                        "order": "asc",
+                        "caseInsensitive": true
+                      }
                     }
                 ]
             }

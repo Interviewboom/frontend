@@ -1,8 +1,9 @@
 import { Logo } from "@elements/Logo";
+
 import { Auth } from "./Auth";
-import { Navigation } from "./Navigation";
 import styles from "./Header.module.scss";
 import MobileMenu from "./MobileMenu";
+import { Navigation } from "./Navigation";
 
 export const Header = () => {
     return (

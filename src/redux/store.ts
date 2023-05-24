@@ -1,6 +1,6 @@
-import { createWrapper } from "next-redux-wrapper";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { nextReduxCookieMiddleware, wrapMakeStore } from "next-redux-cookie-wrapper";
+import { createWrapper } from "next-redux-wrapper";
 
 import { api } from "./api";
 import { authSlice } from "./slices/authSlice";

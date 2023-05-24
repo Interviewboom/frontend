@@ -1,7 +1,9 @@
+import React, { MouseEventHandler } from "react";
+
 import { Icon } from "@elements/Icon";
 import { Text } from "@elements/Text";
 import { useCssClasses } from "@utils/getClassnames";
-import React, { MouseEventHandler } from "react";
+
 import styles from "./ShareButton.module.scss";
 
 type ButtonProps = {

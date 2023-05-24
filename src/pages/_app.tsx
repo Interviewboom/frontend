@@ -1,5 +1,5 @@
-import { Provider } from "react-redux";
 import { AppProps } from "next/app";
+import { Provider } from "react-redux";
 
 import "tinymce/skins/ui/oxide-dark/content.css";
 

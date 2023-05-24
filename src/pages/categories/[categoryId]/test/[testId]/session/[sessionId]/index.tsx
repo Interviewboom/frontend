@@ -1,13 +1,14 @@
-import { DefaultLayout } from "@layouts/DefaultLayout";
 import { NextPage } from "next";
-import { QuestionBlock } from "@modules/QuestionBlock/QuestionBlock";
+
+import { DefaultLayout } from "@layouts/DefaultLayout";
+import { QuestionBlock } from "@modules/QuestionBlock";
+import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
+import { AnswerModel } from "src/models/entities/answer-model/answer-model";
+import { QuestionModel } from "src/models/entities/question-model/question-model";
 import { getNextSessionQuestion } from "src/redux/api/sessions-api";
+import { getRunningQueriesThunk } from "src/redux/api/test-categories-api";
 import { getTestQuestionAnswers } from "src/redux/api/tests-api";
 import { wrapper } from "src/redux/store";
-import { getRunningQueriesThunk } from "src/redux/api/test-categories-api";
-import { QuestionModel } from "src/models/entities/question-model/question-model";
-import { AnswerModel } from "src/models/entities/answer-model/answer-model";
-import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 
 type PageProps = {
     questionData: { question: QuestionModel; count: number; countAnswered: number; test_id: number };

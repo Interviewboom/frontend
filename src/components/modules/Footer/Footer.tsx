@@ -1,10 +1,10 @@
 import { useMemo } from "react";
+
 import { Logo } from "@elements/Logo";
 
+import styles from "./Footer.module.scss";
 import { FooterDown } from "./FooterDown";
 import { NavigationList } from "./NavigationList";
-
-import styles from "./Footer.module.scss";
 
 export const Footer = () => {
     const companyItems = useMemo(

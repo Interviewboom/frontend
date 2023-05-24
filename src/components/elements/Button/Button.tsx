@@ -1,7 +1,9 @@
-import React, { ReactNode, MouseEventHandler } from "react";
 import Link from "next/link";
+import React, { ReactNode, MouseEventHandler } from "react";
+
+import { useCssClasses } from "@utils/getClassnames";
+
 import styles from "./Button.module.scss";
-import { useCssClasses } from "../../../utils/getClassnames";
 import { ButtonLink } from "./ButtonLink";
 
 type ButtonProps = {

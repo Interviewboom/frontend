@@ -1,8 +1,9 @@
 import React, { useMemo } from "react";
 
+import { Button } from "@elements/Button/Button";
+import { Title } from "@elements/Title/Title";
+
 import styles from "./HowItWorksSection.module.scss";
-import { Button } from "../../elements/Button/Button";
-import { Title } from "../../elements/Title/Title";
 import { Step } from "./Step";
 
 export const HowItWorksSection = () => {

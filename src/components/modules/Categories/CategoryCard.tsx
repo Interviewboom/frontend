@@ -1,8 +1,8 @@
 import Image from "next/legacy/image";
-import React, { FC } from "react";
 import Link from "next/link";
+import React, { FC } from "react";
 
-import { Title } from "@elements/Title/Title";
+import { Title } from "@elements/Title";
 import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
 
 import styles from "./CategoryCard.module.scss";

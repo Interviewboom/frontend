@@ -1,10 +1,9 @@
 /* eslint-disable no-param-reassign */
-import { HYDRATE } from "next-redux-wrapper";
 import { createSlice, createDraftSafeSelector } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import { HYDRATE } from "next-redux-wrapper";
 
 import { User } from "src/models/entities/auth-model/auth-model";
-
-import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "src/redux/store";
 
 interface AuthState {

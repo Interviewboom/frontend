@@ -1,9 +1,9 @@
-import { FC } from "react";
 import Link from "next/link";
+import { FC } from "react";
+
 import { formatLink } from "@utils/formatLink";
 
 import { NAVIGATION_ITEMS } from "./const";
-
 import styles from "./Navigation.module.scss";
 
 interface NavigationItem {

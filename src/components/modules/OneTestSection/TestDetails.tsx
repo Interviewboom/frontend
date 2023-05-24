@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 
-import { Text } from "@elements/Text";
-import { Icon } from "@elements/Icon";
 import { Button } from "@elements/Button/Button";
+import { Icon } from "@elements/Icon";
+import { Text } from "@elements/Text";
 import { useNewSession } from "@utils/useNewSession";
 
 import styles from "./TestDetails.module.scss";
