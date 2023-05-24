@@ -1,39 +1,95 @@
 @import "@sass/_colors.scss";
 @import "@sass/_variables.scss";
+@import "@sass/_media.scss";
 
 .node_list {
     display: flex;
     flex-flow: column;
     font-family: $primary-font;
     list-style-type: none;
+    padding: 0.5rem;
+    position: relative;
 
-    .node_name {
-        background-color: $background-secondary-light;
-        border-radius: 10px;
-        width: fit-content;
-        height: fit-content;
-        padding: 6px 8px 6px 8px;
-        font-size: 1.1rem;
-        font-weight: 500;
-        color: $input-primary-color;
-        white-space: nowrap;
+    .nodeItem {
+        display: flex;
+        align-items: center;
 
-        &.finished {
-            color: $background-secondary-light;
-            background-color: $light-queaternarty-bg-color;
+        .markdown {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $background-secondary-light;
+            height: 2.8rem;
+            width: 2.8rem;
+            border-radius: 3.8rem;
+            font-weight: 500;
+            padding: 0.6rem 1.2rem;
+            line-height: 1.4rem;
+            z-index: 7;
+            transform: translate(90%, 2%);
+            font-size: 0.8rem;
         }
 
-        &:hover {
-            cursor: pointer;
-            background-color: $light-queaternarty-bg-color;
+        .verticalDash {
+            min-width: 4rem;
+            border-bottom: 2px dotted $background-secondary-light;
+            content: "";
+            z-index: 3;
+            position: relative;
+        }
+
+        .node_name {
+            background-color: $background-secondary-light;
+            border-radius: 1rem;
+            max-width: fit-content;
+            min-width: max-content;
+            padding: 0.6rem 1.2rem;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: $input-primary-color;
+            white-space: nowrap;
+            position: relative;
+            text-align: center;
+            border: none;
+            z-index: 5;
+
+            &.finished {
+                color: $background-secondary-light;
+                background-color: $light-queaternarty-bg-color;
+            }
+
+            &:hover {
+                cursor: pointer;
+                background-color: $light-queaternarty-bg-color;
+            }
         }
     }
 
-    @media screen and (max-width: 450px) {
-        padding: 0;
+    .horizontalDash {
+        position: absolute;
+        content: "";
+        border-left: 2px dotted $background-secondary-light;
+        top: 2.5%;
+        z-index: 3;
 
-        .node_name {
-            font-size: 1rem;
+        // &:before {
+        //     position: absolute;
+        //     left: -0.5rem;
+        //     top: 0;
+        //     content: "";
+        //     background-color: $light-queaternarty-bg-color;
+        //     width: 0.8rem;
+        //     height: 0.8rem;
+        //     padding: 0.5rem;
+        //     border-radius: 50%;
+        // }
+    }
+
+    @include lte-desktop {
+        .nodeItem {
+            .node_name {
+                font-size: 1.6rem;
+            }
         }
     }
 }

@@ -1,83 +1,84 @@
 @import "@sass/colors.scss";
 @import "@sass/variables.scss";
+@import "@sass/_media.scss";
 
-.roadmap_container {
+.roadmapContainer {
     width: 100%;
     display: flex;
     flex-flow: column;
     justify-content: space-around;
-    gap: 4em;
-    padding: 1em;
+    gap: 4rem;
+    padding: 1rem;
 
     .header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 2rem;
+        padding: 1rem;
 
-        .roadmap_title {
+        .roadmapTitle {
             height: fit-content;
-            font-size: 2.8rem;
+            font-size: 4.6rem;
+            line-height: 5.6rem;
             font-weight: 500;
             background-color: $light-queaternarty-bg-color;
-            color: #f5f5f5;
+            color: $primary-light;
             text-align: center;
-            padding: 4px 8px;
-            border-radius: 1rem;
-
-            @media screen and (max-width: $desktop-content-width) {
-                font-size: 2.6rem;
-            }
+            padding: 0.4rem 0.8rem;
+            border-radius: 1.6rem;
         }
 
-        .roadmap_button_group {
+        .roadmapButtonGroup {
             display: flex;
             gap: 0.5em;
 
-            .roadmap_button {
+            .roadmapButton {
                 width: max-content;
                 background-color: $background-secondary-light;
-                padding: 6px 12px;
-                height: 2.3rem;
+                padding: 0.6rem 1.2rem;
+                height: 3.7rem;
                 text-align: center;
-                font-size: 1.1rem;
+                font-size: 1.8rem;
                 font-weight: 500;
                 color: $input-primary-color;
-                border-radius: 0.6rem;
+                border-radius: 1rem;
 
                 & > input {
                     accent-color: $light-queaternarty-bg-color;
-                    width: 0.8rem;
-                    height: 0.8rem;
-                    margin-left: 5px;
+                    width: 1.4rem;
+                    height: 1.4rem;
+                    margin-left: 0.5rem;
                 }
             }
         }
     }
 
-    @media screen and (max-width: 1020px) {
+    @include lte-desktop {
         padding: 0;
 
         .header {
             flex-flow: column;
             align-items: center;
-            gap: 1em;
+            gap: 1rem;
 
-            .roadmap_title {
-                margin: 1em 1em;
+            .roadmapTitle {
+                font-size: 4.2rem;
+                margin: 1rem 1rem;
                 align-self: flex-start;
                 width: fit-content;
-                padding: 4px 8px;
+                padding: 0.4rem 0.8rem;
             }
 
-            .roadmap_button_group {
-                margin-right: 1em;
+            .roadmapButtonGroup {
+                margin-right: 1rem;
                 flex-flow: column;
                 align-self: flex-end;
 
-                .roadmap_button {
+                .roadmapButton {
                     white-space: nowrap;
                     width: max-content;
-                    font-size: 1rem;
+                    font-size: 1.6rem;
                     font-weight: 500;
                 }
             }
