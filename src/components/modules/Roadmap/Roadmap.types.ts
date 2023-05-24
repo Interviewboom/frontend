@@ -1,19 +1,16 @@
+export interface NodeData {
+    name: string | null;
+    markdown?: string;
+    horizontal?: boolean;
+    children?: NodeData[] | [];
+}
+
 export interface RoadmapProps {
-    roadmapData: {
-        name: string | null;
-        markdown?: string;
-        horizontal?: boolean;
-        children?: RoadmapProps["roadmapData"][] | [];
-    };
+    roadmapData: NodeData;
 }
 
 export interface RenderNodeProps {
-    node: {
-        name: string | null;
-        markdown?: string;
-        horizontal?: boolean;
-        children?: RenderNodeProps["node"][] | [];
-    };
+    node: NodeData;
     marginLeft?: number;
     marginTop?: number;
     isCompletedOnly?: boolean;

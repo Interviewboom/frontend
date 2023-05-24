@@ -3,11 +3,11 @@ import React from "react";
 import { Button } from "@elements/Button";
 import { Icon } from "@elements/Icon";
 
-import { RenderNodeProps } from "../Roadmap.types";
+import { NodeData } from "../Roadmap.types";
 
 interface NodeNameProps {
-    name: RenderNodeProps["node"]["name"];
-    treeNode: RenderNodeProps["node"]["children"];
+    name: NodeData["name"];
+    treeNode: NodeData["children"];
     arrowIconName: string;
     styles: string;
     setIsNodeShown: React.Dispatch<React.SetStateAction<boolean>>;

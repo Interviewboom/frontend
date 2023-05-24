@@ -1,9 +1,9 @@
 import React from "react";
 
-import { RenderNodeProps } from "../Roadmap.types";
+import { NodeData } from "../Roadmap.types";
 
 interface VerticalLineProps {
-    treeNode: RenderNodeProps["node"]["children"];
+    treeNode: NodeData["children"];
     marginLeft: number;
     marginTop: number;
     height: number;
