@@ -15,8 +15,8 @@
 }
 
 .wrapper {
-    padding: 10rem 1.5rem 5.0rem;
-    max-width: $desktop-content-width;
+    padding: 10rem 1.5rem 5rem;
+    max-width: $breakpoint-desktop-content;
     width: 100%;
     display: flex;
     flex-direction: column;
