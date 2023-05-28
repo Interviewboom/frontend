@@ -14,10 +14,10 @@ export const NavigationList: FC<NavigationListProps> = ({ items }) => {
         <div className={styles.listContainer}>
             {items && (
                 <ul className={styles.list}>
-                    {items.map(item => (
-                        <li className={styles.item}>
-                            <Link key={item.name} href={item.link} className={styles.link}>
-                                {item.name}
+                    {items.map(({ name, link }) => (
+                        <li className={styles.item} key={name}>
+                            <Link href={link} className={styles.link}>
+                                {name}
                             </Link>
                         </li>
                     ))}
