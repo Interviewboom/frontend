@@ -3,31 +3,139 @@
 @import "@sass/_media.scss";
 
 .footer {
-    width: 100%;
-    background-color: $dark-background;
-}
-
-.content {
-    padding: 10rem 1.5rem 8rem;
-    max-width: $desktop-content-width;
-    margin: 0 auto;
-
-    @include mobile {
-        padding: 4rem 1.5rem 5.5rem;
-        max-width: $desktop-content-width;
-    }
-}
-
-.navigation {
-    margin-top: 4rem;
+    background-color: $background_secondary_dark;
     display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: center;
 
-    @include mobile {
-        flex-direction: column;
+    .content {
+        max-width: $desktop-content-width;
+        display: flex;
+        flex-flow: row wrap;
+        gap: 8rem;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        padding: 8rem 0;
 
-        div {
-            margin-top: 4rem;
+        .ua {
+            display: flex;
+            flex-flow: row;
+            align-items: flex-start;
+            justify-content: center;
+            cursor: pointer;
+            color: $primary-light;
+
+            .heartContainer {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid $most-light-color;
+                border-radius: 50%;
+                height: 3.5rem;
+                width: 3.5rem;
+                margin-right: 0.5rem;
+
+                .heart {
+                    padding: 1rem;
+                }
+            }
+
+            .description {
+                width: max-content;
+                display: flex;
+                flex-flow: column;
+                white-space: nowrap;
+
+                & > p {
+                    font-size: 1.8rem;
+                }
+
+                & > span {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+
+        .navigation {
+            position: relative;
+            display: flex;
+            flex-flow: row;
+            align-items: flex-start;
+        }
+
+        .rights {
+            align-self: flex-start;
+            font-size: 1.2rem;
+            color: $primary-light;
+            font-weight: 500;
+            opacity: 0.3;
+        }
+    }
+
+    .designer {
+        white-space: nowrap;
+        position: absolute;
+        transform: translateY(5.5rem);
+        bottom: 0;
+        left: 0;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: $primary-light;
+
+        .designerLink {
+            text-decoration: underline;
+            text-underline-offset: 0.25rem;
+            color: $primary-light;
+            font-weight: 700;
+            margin-left: 0.5rem;
+        }
+    }
+
+    @include lte-desktop-large {
+        .content {
+            gap: 2rem;
+        }
+    }
+
+    @include lte-desktop {
+        .content {
+            flex-flow: column;
+            align-items: flex-start;
+            gap: 3rem;
+            
+            .navigation {
+                position: relative;
+                display: flex;
+                flex-flow: row;
+                align-items: flex-start;
+            }
+
+            .rights {
+                align-self: flex-start;
+                font-size: 1.2rem;
+                color: $primary-light;
+                font-weight: 500;
+                opacity: 0.3;
+            }
+        }
+
+        .designer {
+            white-space: nowrap;
+            position: absolute;
+            transform: translateY(5.5rem);
+            bottom: 0;
+            left: 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: $primary-light;
+
+            .designerLink {
+                text-decoration: underline;
+                text-underline-offset: 0.25rem;
+                color: $primary-light;
+                font-weight: 700;
+                margin-left: 0.5rem;
+            }
         }
     }
 }
