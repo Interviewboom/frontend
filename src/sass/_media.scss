@@ -22,6 +22,12 @@ $breakpoint-large-desktop: 1200px;
     }
 }
 
+@mixin tablet {
+  @media screen and (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
 @mixin lte-tablet {
     @media screen and (max-width: $breakpoint-tablet) {
         @content;
