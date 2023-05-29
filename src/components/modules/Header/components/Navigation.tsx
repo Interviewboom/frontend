@@ -5,10 +5,12 @@ import { Link } from "@elements/Link";
 import { formatLink } from "@utils/formatLink";
 import { getClassnames } from "src/utils/getClassnames";
 
-import { interfaceNavigationItem, NavigationProps } from "../Header.types";
-import { NAVIGATION_ITEMS } from "../helpers/const";
 import styles from "./Navigation.module.scss";
 import { NavigationSubBlock } from "./NavigationSubBlock";
+// eslint-disable-next-line import/order
+import type { interfaceNavigationItem, NavigationProps } from "../Header.types";
+// eslint-disable-next-line import/order
+import { NAVIGATION_ITEMS } from "../helpers/const";
 
 export const Navigation: FC<NavigationProps> = ({ actionToCloseBurgerMenu }) => {
     const router = useRouter();

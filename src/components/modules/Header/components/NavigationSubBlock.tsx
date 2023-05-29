@@ -5,8 +5,9 @@ import { ButtonLikeLink, Link } from "@elements/Link";
 import { formatLink } from "@utils/formatLink";
 import { getClassnames } from "src/utils/getClassnames";
 
-import { NavigationItem, NavigationProps } from "../Header.types";
 import styles from "./Navigation.module.scss";
+// eslint-disable-next-line import/order
+import { NavigationItem, NavigationProps } from "../Header.types";
 
 export const NavigationSubBlock: FC<NavigationItem & NavigationProps> = ({
     subList,
