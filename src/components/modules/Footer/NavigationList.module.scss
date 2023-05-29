@@ -1,7 +1,32 @@
-.list {
-    margin-bottom: 0.5rem;
-}
+@import "@sass/colors.scss";
+@import "@sass/variables.scss";
 
-.item {
-    padding: 0.5rem 0;
+.listContainer {
+    .list {
+        display: flex;
+        flex-flow: row wrap;
+        width: 25rem;
+        gap: 2.5rem;
+        font-family: $fracktif-medium;
+
+        .item {
+            flex-basis: 45%;
+
+            .link {
+                flex-wrap: nowrap;
+                text-align: center;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 1.8rem;
+                color: $primary_light;
+                letter-spacing: -0.015rem;
+                text-decoration: underline;
+                text-underline-offset: 0.25rem;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
 }

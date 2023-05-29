@@ -1,6 +1,8 @@
+import React, { FC } from "react";
+
 import { Icon } from "@elements/Icon";
 import { Text } from "@elements/Text";
-import React, { FC } from "react";
+
 import styles from "./LoadBar.module.scss";
 
 interface LoadBarProps {

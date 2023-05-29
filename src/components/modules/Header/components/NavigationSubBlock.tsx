@@ -1,10 +1,12 @@
 import { FC, useState } from "react";
-import { ButtonLikeLink, Link } from "@elements/Link";
+
 import { Icon } from "@elements/Icon";
+import { ButtonLikeLink, Link } from "@elements/Link";
 import { formatLink } from "@utils/formatLink";
 import { getClassnames } from "src/utils/getClassnames";
-import styles from "./Navigation.module.scss";
+
 import { NavigationItem, NavigationProps } from "../Header.types";
+import styles from "./Navigation.module.scss";
 
 export const NavigationSubBlock: FC<NavigationItem & NavigationProps> = ({
     subList,

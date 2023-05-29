@@ -7,7 +7,7 @@
 
     @include gte-desktop-large {
         flex-direction: column;
-        margin: 1rem 0 0 0;
+        margin: 1rem 0 0;
     }
 }
 
@@ -16,11 +16,6 @@
     align-items: center;
     width: 28.6rem;
     margin-right: 4.2rem;
-}
-
-.iconCaptionLangs {
-    display: flex;
-    align-items: center;
 
     @include gte-desktop-large {
         margin-top: 1.6rem;
@@ -29,6 +24,11 @@
             margin-top: 3rem;
         }
     }
+}
+
+.iconCaptionLangs {
+    display: flex;
+    align-items: center;
 }
 
 .button {

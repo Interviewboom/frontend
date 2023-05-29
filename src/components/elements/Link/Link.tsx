@@ -1,9 +1,11 @@
-import { FC } from "react";
-import { useCssClasses } from "src/utils/getClassnames";
 import LinkNext from "next/link";
+import { FC } from "react";
+
 import { Icon } from "@elements/Icon";
-import styles from "./Link.module.scss";
+import { useCssClasses } from "@utils/getClassnames";
+
 import { iconsName } from "./helpers/const";
+import styles from "./Link.module.scss";
 import { LinkTypes } from "./Link.types";
 
 export const Link: FC<LinkTypes> = ({

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+
 import { Logo } from "@elements/Logo";
 import { getClassnames } from "src/utils/getClassnames";
-import styles from "./Header.module.scss";
+
 import { Auth } from "./components/Auth";
 import { Navigation } from "./components/Navigation";
+import styles from "./Header.module.scss";
 
 export const Header = () => {
     const [showBurgerMenu, updateShowNurgerMenu] = useState(false);

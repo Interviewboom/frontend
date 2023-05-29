@@ -1,15 +1,15 @@
-import React, { FC } from "react";
 import { FormikProps, useFormik, Form, Formik } from "formik";
 import { useRouter } from "next/router";
+import React, { FC } from "react";
 
-import { RadioInput } from "@elements/RadioInput/RadioInput";
 import { Button } from "@elements/Button";
-import { Title } from "@elements/Title/Title";
+import { RadioInput } from "@elements/RadioInput";
 import { Text } from "@elements/Text";
-
-import { useSubmitSessionAnswersMutation } from "src/redux/api/sessions-api";
-import { QuestionModel } from "src/models/entities/question-model/question-model";
+import { Title } from "@elements/Title";
 import { AnswerModel } from "src/models/entities/answer-model/answer-model";
+import { QuestionModel } from "src/models/entities/question-model/question-model";
+import { useSubmitSessionAnswersMutation } from "src/redux/api/sessions-api";
+
 import styles from "./Answers.module.scss";
 
 const initialValues = { answerId: 0 };
@@ -65,7 +65,7 @@ export const Answers: FC<AnswersProps> = ({ questionInfo, isLast, answers }) => 
                     <div className={styles.questionCode} dangerouslySetInnerHTML={{ __html: questionInfo.question }} />
                 )}
 
-                <Text size="small" isParagraph color="grey-text-color" className={styles.choose}>
+                <Text size="small" isParagraph color="greyTextColor" className={styles.choose}>
                     Choose one correct answer
                 </Text>
                 {answers?.map(item => {

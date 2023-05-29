@@ -1,7 +1,5 @@
-import { FC } from "react";
-import Image from "next/legacy/image";
-
 import { useRouter } from "next/router";
+import { FC } from "react";
 
 import styles from "./Logo.module.scss";
 
@@ -19,14 +17,14 @@ export const Logo: FC<LogoProps> = ({ template = "dark", redirectToHome = false 
         }
     }
     return (
-        <div className={styles.wrapper}>
-            <Image
-                alt="Logo"
-                src={`/assets/images/logo${template === "light" ? "-light" : ""}.svg`}
-                width={293}
-                height={30}
-                onClick={() => handleClick()}
-            />
-        </div>
+        <h2 className={styles.logo}>
+            <button
+                type="button"
+                className={`${template === "dark" ? styles.dark : styles.light}`}
+                onClick={handleClick}
+            >
+                InterviewBoom
+            </button>
+        </h2>
     );
 };

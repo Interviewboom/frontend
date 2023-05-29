@@ -10,9 +10,10 @@
     background-color: $most-light-color;
     margin-bottom: 10rem;
 }
+
 .wrapper {
     padding: 0 1.5rem;
-    width: $desktop-content-width;
+    width: $breakpoint-desktop-content;
 }
 
 .breadcrumbsWrapper {
@@ -21,7 +22,6 @@
 
 .socialsWrapper {
     margin-bottom: 2.3rem;
-
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -82,4 +82,3 @@
         padding: 0;
     }
 }
-

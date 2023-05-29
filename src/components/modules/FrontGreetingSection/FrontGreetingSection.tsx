@@ -1,8 +1,9 @@
-import React from "react";
-import { Title } from "@elements/Title/Title";
-import { Text } from "@elements/Text/Text";
 import Image from "next/legacy/image";
+import React from "react";
+
 import { Button } from "@elements/Button/Button";
+import { Text } from "@elements/Text/Text";
+import { Title } from "@elements/Title/Title";
 
 import styles from "./FrontGreetingSection.module.scss";
 

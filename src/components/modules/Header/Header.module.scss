@@ -22,7 +22,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 2.6rem 5rem;
-    max-width: $desktop-content-width;
+    max-width: $breakpoint-desktop-content;
+
     width: 100%;
 
     @include lte-tablet-large {

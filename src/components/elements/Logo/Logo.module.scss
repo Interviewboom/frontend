@@ -1,3 +1,24 @@
-.wrapper {
-    cursor: pointer;
+@import "./src/sass/_colors.scss";
+@import "./src/sass/_variables.scss";
+
+.logo {
+    & > button {
+        font-family: $fracktif-medium;
+        font-style: normal;
+        cursor: pointer;
+        color: $primary_light;
+        font-size: 1.8rem;
+        font-weight: 600;
+        width: 12.6rem;
+        height: 2.5rem;
+        line-height: 140%;
+    }
+
+    .dark {
+        color: $input-primary-color;
+    }
+    
+    .light {
+        color: $primary-light;
+    }
 }

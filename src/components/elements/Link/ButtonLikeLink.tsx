@@ -1,9 +1,11 @@
 import { FC } from "react";
-import { useCssClasses } from "src/utils/getClassnames";
+
 import { Icon } from "@elements/Icon";
-import styles from "./Link.module.scss";
+import { useCssClasses } from "src/utils/getClassnames";
+
 import { ButtonLikeLinkTypes } from "./ButtonLikeLink.types";
 import { iconsName } from "./helpers/const";
+import styles from "./Link.module.scss";
 
 export const ButtonLikeLink: FC<ButtonLikeLinkTypes> = ({
     children,

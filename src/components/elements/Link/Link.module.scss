@@ -1,7 +1,17 @@
 @import "@sass/_colors.scss";
 @import "@sass/_variables.scss";
 
-$link-hover-transform-amount: 0.3rem;
+$link-hover-transform-amount: 3px;
+
+.icon {
+    transition: transform .2s;
+
+    svg {
+        path {
+            fill: $dark-text-color;
+        }
+    }
+}
 
 .link {
     display: inline-flex;
@@ -46,24 +56,16 @@ $link-hover-transform-amount: 0.3rem;
                 }
             }
 
+            .icon {
+                transform: translateX($link-hover-transform-amount);
+            }
+
             &.left {
                 .icon {
                     transform: translateX(-$link-hover-transform-amount);
                 }
             }
-
-            .icon {
-                transform: translateX($link-hover-transform-amount);
-            }
         }
     }
 }
 
-.icon {
-    transition: transform .2s;
-    svg {
-        path {
-            fill: $dark-text-color;
-        }
-    }
-}

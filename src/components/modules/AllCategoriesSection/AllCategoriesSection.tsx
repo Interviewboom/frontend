@@ -1,7 +1,8 @@
 import React, { FC } from "react";
+
+import { Breadcrumb } from "@elements/Breadcrumb";
+import { Title } from "@elements/Title";
 import { Categories } from "@modules/Categories/Categories";
-import { Title } from "@elements/Title/Title";
-import { Breadcrumb } from "@elements/Breadcrumb/Breadcrumb";
 import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
 
 import styles from "./AllCategoriesSection.module.scss";

@@ -4,7 +4,7 @@
 .inputWrapper {
     position: relative;
     padding: 0.5rem 2rem;
-    font-family: $font-fracktif;
+    font-family: $fracktif-medium;
 
     .input {
         position: relative;
@@ -58,6 +58,6 @@
     }
 
     .inputRemoveExtraRightPadding {
-        padding: 2rem 4rem 2rem 4rem;
+        padding: 2rem 4rem;
     }
 }

@@ -1,15 +1,14 @@
-import { FC, useCallback } from "react";
 import { useRouter } from "next/router";
-import { getClassnames } from "src/utils/getClassnames";
-import { formatLink } from "@utils/formatLink";
+import { FC, useCallback } from "react";
+
 import { Link } from "@elements/Link";
-import { NavigationSubBlock } from "./NavigationSubBlock";
-
-import { NAVIGATION_ITEMS } from "../helpers/const";
-
-import styles from "./Navigation.module.scss";
+import { formatLink } from "@utils/formatLink";
+import { getClassnames } from "src/utils/getClassnames";
 
 import { interfaceNavigationItem, NavigationProps } from "../Header.types";
+import { NAVIGATION_ITEMS } from "../helpers/const";
+import styles from "./Navigation.module.scss";
+import { NavigationSubBlock } from "./NavigationSubBlock";
 
 export const Navigation: FC<NavigationProps> = ({ actionToCloseBurgerMenu }) => {
     const router = useRouter();
