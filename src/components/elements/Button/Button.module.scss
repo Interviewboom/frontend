@@ -16,7 +16,6 @@
     margin: 0 auto;
 
     @include mobile-large {
-        min-width: 100%;
         width: 100%;
     }
 }
@@ -64,4 +63,10 @@
 
 .adaptive {
     width: 100%;
+}
+
+@media screen and (max-width: 576px) {
+    .button {
+        width: 100%;
+    }
 }
