@@ -3,7 +3,7 @@
 @import "@sass/_media.scss";
 
 .section {
-    font-family: $font-fracktif;
+    font-family: $fracktif-medium;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -107,7 +107,7 @@
         }
     }
 
-    @media screen and (max-width: $desktop-content-width) {
+    @media screen and (max-width: $breakpoint-desktop-content) {
         .wrapper {
             .content {
                 .title {
@@ -127,7 +127,7 @@
             }
         }
     }
-  
+
     @include lte-desktop-large {
         .wrapper {
             .content {
@@ -144,8 +144,7 @@
                 }
             }
         }
-     }
-   }
+    }
 
     @include lte-tablet-large {
         padding: 1rem;
