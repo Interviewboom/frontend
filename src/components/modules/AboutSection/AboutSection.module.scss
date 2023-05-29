@@ -21,7 +21,7 @@
     justify-content: space-between;
     column-gap: 2.5rem;
     padding: 10rem 1.5rem 6.6rem;
-    width: $desktop-content-width;
+    width: $breakpoint-desktop-content;
 
     @include gte-desktop-large {
         grid-template-columns: 1fr;

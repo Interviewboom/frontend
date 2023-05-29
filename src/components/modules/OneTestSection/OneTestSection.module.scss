@@ -13,7 +13,7 @@
 
 .wrapper {
     padding: 0 1.5rem;
-    width: $desktop-content-width;
+    width: $breakpoint-desktop-content;
 }
 
 .breadcrumbsWrapper {
@@ -82,4 +82,3 @@
         padding: 0;
     }
 }
-

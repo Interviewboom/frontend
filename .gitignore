@@ -40,3 +40,4 @@ yarn-error.log*
 /.idea/interviewboom.iml
 /.idea/modules.xml
 /.idea/vcs.xml
+/.idea/aws.xml
