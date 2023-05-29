@@ -1,14 +1,15 @@
-/* Media Query Breakpoints */
+// Media Query Breakpoints
 $breakpoint-mobile: 375px;
 $breakpoint-mobile-large: 576px;
 $breakpoint-tablet: 768px;
 $breakpoint-tablet-large: 992px;
 $breakpoint-desktop: 1024px;
 $breakpoint-large-desktop: 1200px;
+$breakpoint-desktop-content: 1496px;
 
-/* Media Query Mixins */
-/* lte - less than equals */
-/* gte - greater than equals */
+// Media Query Mixins
+// lte - less than equals
+// gte - greater than equals
 
 @mixin mobile {
     @media screen and (max-width: $breakpoint-mobile) {

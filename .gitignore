@@ -33,4 +33,11 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-.idea
+/.idea/codeStyles/codeStyleConfig.xml
+/.idea/codeStyles/Project.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/.gitignore
+/.idea/interviewboom.iml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/aws.xml

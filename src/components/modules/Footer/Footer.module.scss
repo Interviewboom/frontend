@@ -9,7 +9,7 @@
     justify-content: center;
 
     .content {
-        max-width: $desktop-content-width;
+        max-width: $breakpoint-desktop-content;
         display: flex;
         flex-flow: row wrap;
         gap: 8rem;
@@ -102,7 +102,7 @@
             flex-flow: column;
             align-items: flex-start;
             gap: 3rem;
-            
+
             .navigation {
                 position: relative;
                 display: flex;

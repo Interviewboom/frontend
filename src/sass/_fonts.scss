@@ -1,9 +1,13 @@
-// Fracktif
+// Fracktif Medium
 @font-face {
-    font-family: Fracktif;
-    font-style: normal;
-    font-weight: 400;
-    font-stretch: normal;
-    font-display: swap;
-    src: local("Fracktif"), url("../assets/fonts/Fracktif/Fontspring-DEMO-fracktif-regular.otf") format("opentype");
+    font-family: "FracktifMedium";
+    src: url("../assets/fonts/FracktifMedium/font.woff2") format("woff2"),
+        url("../assets/fonts/FracktifMedium/font.woff") format("woff");
+}
+
+// Fracktif Semi Bold
+@font-face {
+    font-family: "FracktifSemiBold";
+    src: url("../assets/fonts/FracktifSemiBold/font.woff2") format("woff2"),
+        url("../assets/fonts/FracktifSemiBold/font.woff") format("woff");
 }
