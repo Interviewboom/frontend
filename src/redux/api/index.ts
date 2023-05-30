@@ -5,7 +5,16 @@ import { REACT_APP_API_BASE_URL } from "./constants";
 
 export const api = createApi({
     reducerPath: "api",
-    baseQuery: fetchBaseQuery({ baseUrl: REACT_APP_API_BASE_URL }),
+    baseQuery: fetchBaseQuery({
+        baseUrl: REACT_APP_API_BASE_URL,
+        prepareHeaders: headers => {
+            headers.set(
+                "authorization",
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vZGVsZmFrQGdtYWlsLmNvbSIsInN1YiI6MSwicm9sZXMiOlsiYWRtaW4iXSwiaWF0IjoxNjg1NDQwNDU2LCJleHAiOjE2ODU1MjY4NTZ9.Y4M4Slx_MadVWl0XCbjazIRIDQODN9rGGwZHRMy5VA8"
+            );
+            return headers;
+        },
+    }),
     tagTypes: ["api"],
     endpoints: () => ({}),
     // eslint-disable-next-line consistent-return
