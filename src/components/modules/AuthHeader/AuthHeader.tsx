@@ -31,9 +31,7 @@ export const AuthHeader: FC<AuthHeaderProps> = ({ logoComponent }) => {
                 role="button"
             >
                 <Icon name="arrowLeft" width={10} height={10} className={styles.arrowLeftIcon} />
-                <button type="button" className={styles.backBtnText}>
-                    back
-                </button>
+                <span className={styles.backBtnText}>back</span>
             </div>
             <div className={styles.logo}>{logoComponent}</div>
         </div>

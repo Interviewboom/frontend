@@ -84,7 +84,7 @@ export const SignUpForm: FC = () => {
     return (
         <Auth
             title="Create account"
-            description="Once you’re done you’ll get access to the your personalised roadmap"
+            description="Once you’re done you’ll get access to your personalised roadmap"
             isSubmitting={formik.isSubmitting}
             onSubmit={formik.handleSubmit}
             afterContent={

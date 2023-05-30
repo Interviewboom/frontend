@@ -21,18 +21,16 @@
         }
 
         .backBtnText {
+            font-family: $fracktif-medium;
+            font-size: 1.6rem;
             color: $primary-dark;
-            border-bottom: 0.1rem $primary-dark solid;
-
-            &:not(:hover) {
-                margin-top: 0.1rem;
-                padding-bottom: 0rem;
-                transition: all 0.1s ease-out;
-            }
+            border-bottom: 1px $primary-dark solid;
+            margin-top: 1px;
+            transition: all 0.1s ease-out;
 
             &:hover {
-                margin-top: 0.3rem;
-                padding-bottom: 0.2rem;
+                margin-top: 4px;
+                padding-bottom: 3px;
                 transition: all 0.1s ease-in-out;
             }
         }
