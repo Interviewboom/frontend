@@ -25,18 +25,14 @@
             font-size: 1.6rem;
             color: $primary-dark;
             border-bottom: 1px $primary-dark solid;
-            margin-top: 1px;
+            margin-top: 0.1rem;
             transition: all 0.1s ease-out;
 
             &:hover {
-                margin-top: 4px;
-                padding-bottom: 3px;
+                margin-top: 0.4rem;
+                padding-bottom: 0.3rem;
                 transition: all 0.1s ease-in-out;
             }
-        }
-
-        @include mobile {
-            display: none;
         }
     }
 
