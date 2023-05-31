@@ -50,8 +50,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.2rem;
-    margin: 1rem;
+    gap: 2.7rem;
+    margin: 1.5rem;
 
     & > .signIn {
         width: 100%;
@@ -76,28 +76,15 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1.5rem;
 
     & span {
+        font-size: 1.8rem;
+    }
+
+    & span:hover {
+        cursor: pointer;
         text-underline-offset: 0.4rem;
         text-decoration-line: underline;
     }
-
-    &:hover {
-        cursor: pointer;
-    }
-}
-
-.accountWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.textIconWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.4rem;
 }

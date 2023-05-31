@@ -1,10 +1,8 @@
 import { useFormik } from "formik";
-import { useRouter } from "next/router";
 import { FC } from "react";
 
 import { Auth } from "@elements/Auth";
-import { Button } from "@elements/Button";
-import { Icon } from "@elements/Icon";
+import { Link } from "@elements/Link";
 import { Text } from "@elements/Text";
 import { TextField } from "@elements/TextField";
 import { signInValidationSchema } from "@utils/yupValidationSchemas";
@@ -18,8 +16,6 @@ interface FormValues {
 }
 
 export const SignInForm: FC = () => {
-    const router = useRouter();
-
     const [loginRequest] = useLoginMutation();
 
     const submitHandler = async (
@@ -68,27 +64,18 @@ export const SignInForm: FC = () => {
             description="Welcome back!"
             onSubmit={formik.handleSubmit}
             beforeContent={
-                <Button link="/auth/reset-password" size="small" color="transparent">
+                <Link href="/auth/reset-password" className={styles.forgotPassword}>
                     Forgot password?
-                </Button>
+                </Link>
             }
             wrongPage={
                 <div className={styles.accountWrapper}>
-                    <Text color="greyTextColor">Don&apos;t have an account?</Text>
-                    <div
-                        role="button"
-                        tabIndex={0}
-                        onKeyDown={e => {
-                            if (e.key === "Enter" || e.key === " ") {
-                                router.push("/auth/sign-up");
-                            }
-                        }}
-                        className={styles.textIconWrapper}
-                        onClick={() => router.push("/auth/sign-up")}
-                    >
-                        <Text>Create account</Text>
-                        <Icon name="arrowDashRight" width={10} height={10} />
-                    </div>
+                    <Text size="big" color="greyTextColor">
+                        Don&apos;t have an account?
+                    </Text>
+                    <Link href="/auth/sign-up" className={styles.textIconWrapper} withArrow="right">
+                        Create account
+                    </Link>
                 </div>
             }
         >
