@@ -4,9 +4,9 @@ import { DefaultLayout } from "@layouts/DefaultLayout";
 import { AboutSection } from "@modules/AboutSection";
 import { CategoriesSection } from "@modules/CategoriesSection";
 import { DonationInfoSection } from "@modules/DonationInfoSection";
-import { FrontGreetingSection } from "@modules/FrontGreetingSection";
 import { HowItWorksSection } from "@modules/HowItWorksSection";
 import { TestsSection } from "@modules/TestsSection";
+import { WhySection } from "@modules/WhySection";
 import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
 import { TestModel } from "src/models/entities/test-model/test-model";
@@ -23,7 +23,7 @@ type HomePageProps = {
 const HomePage: NextPage<HomePageProps> = ({ categories, popularTests, error }: HomePageProps) => {
     return (
         <DefaultLayout error={error}>
-            <FrontGreetingSection />
+            <WhySection />
             <CategoriesSection categories={categories} />
             <TestsSection popularTests={popularTests} />
             <HowItWorksSection />

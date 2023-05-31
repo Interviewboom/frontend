@@ -1,0 +1,131 @@
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+@import "@sass/_media.scss";
+
+.section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 8rem 0;
+    background-color: $main-background-color;
+
+    @include gte-tablet-large {
+        padding: 18rem 0;
+    }
+}
+
+.wrapper {
+    width: 100%;
+
+    @include gte-desktop-large {
+        padding: 0 6rem;
+    }
+}
+
+.blockFirst {
+    position: relative;
+    background-color: #CFDFCE;
+    border-radius: 1.6rem;
+    height: 2rem;
+    margin: 0 auto;
+    width: 90%;
+    z-index: 2;
+    transform: translateY(-1rem);
+}
+
+.blockSecond {
+    position: relative;
+    background-color: #94B790;
+    border-radius: 1.6rem;
+    height: 2rem;
+    margin: 0 auto;
+    width: 80%;
+    z-index: 1;
+    transform: translateY(-2rem);
+}
+
+.imageContainer {
+    margin-bottom: 4rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.5rem;
+    justify-content: center;
+    align-items: center;
+
+    @include gte-tablet-large {
+        padding: 0 18.9rem;
+        margin-bottom: 14rem;
+    }
+
+    img {
+        border-radius: 2.4rem;
+        z-index: 3;
+
+    }
+}
+
+.overview {
+    color: $why-section-text-color;
+    font-size: 1rem;
+    text-align: center;
+
+    @include gte-tablet-large {
+        font-size: 1.2rem;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 0 3rem;
+
+    @include lte-tablet {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    @include gte-tablet {
+        flex-direction: row;
+        gap: 5rem;
+    }
+
+    @include gte-desktop-large {
+        gap: 10rem;
+        justify-content: center;
+    }
+}
+
+.title {
+    font-size: 1.6rem;
+    margin-top: 0;
+    font-weight: 600;
+    line-height: 2.5rem;
+    color: $why-section-text-color;
+    white-space: nowrap;
+
+    @include gte-tablet-large {
+        margin-top: 1rem;
+        font-size: 1.8rem;
+    }
+}
+
+.description {
+    font-size: 2.4rem;
+    inline-size: 100%;
+    line-height: 115%;
+    color: $why-section-text-color;
+    overflow-wrap: break-word;
+
+    @include gte-tablet-large {
+        font-size: 3.8rem;
+        inline-size: 70rem;
+        line-height: 110%;
+    }
+
+    @include gte-desktop-large {
+        inline-size: 100rem;
+    }
+}
