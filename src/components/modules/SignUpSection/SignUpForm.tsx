@@ -28,7 +28,7 @@ export const SignUpForm: FC = () => {
         { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void } // eslint-disable-line no-unused-vars
     ) => {
         await registerRequest({
-            name: values.name,
+            fullName: values.name,
             email: values.email,
             password: values.password,
         });

@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { useRouter } from "next/router";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 
 import { Auth } from "@elements/Auth";
 import { Button } from "@elements/Button";
@@ -9,6 +9,8 @@ import { Text } from "@elements/Text";
 import { TextField } from "@elements/TextField";
 import { signInValidationSchema } from "@utils/yupValidationSchemas";
 import { useLoginMutation } from "src/redux/api/auth-api";
+import { useAppDispatch } from "src/redux/hooks";
+import { setAccessToken } from "src/redux/slices/authSlice";
 
 import styles from "./SignInForm.module.scss";
 
@@ -18,15 +20,23 @@ interface FormValues {
 }
 
 export const SignInForm: FC = () => {
+    const dispatch = useAppDispatch();
     const router = useRouter();
 
-    const [loginRequest] = useLoginMutation();
+    const [loginRequest, { data, isError }] = useLoginMutation();
 
-    const submitHandler = async (
+    useEffect(() => {
+        if (data?.accessToken) {
+            dispatch(setAccessToken(data.accessToken));
+            router.back();
+        }
+    }, [data, dispatch, router]);
+
+    const submitHandler = (
         values: FormValues,
         { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void } // eslint-disable-line no-unused-vars
     ) => {
-        await loginRequest({
+        loginRequest({
             email: values.email,
             password: values.password,
         });
@@ -92,7 +102,7 @@ export const SignInForm: FC = () => {
                 </div>
             }
         >
-            {textFields.map(({ type, placeholder, value, error, name }) => (
+            {textFields.map(({ type, placeholder, error, value, name }) => (
                 <TextField
                     key={placeholder}
                     name={name}
@@ -100,7 +110,7 @@ export const SignInForm: FC = () => {
                     placeholder={placeholder}
                     value={value}
                     onChange={formik.handleChange}
-                    error={error}
+                    error={error || (isError ? "Error" : "")}
                 />
             ))}
         </Auth>
