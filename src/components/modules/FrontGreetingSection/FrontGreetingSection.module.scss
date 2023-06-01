@@ -3,59 +3,270 @@
 @import "@sass/_media.scss";
 
 .section {
-    min-height: 60rem;
+    font-family: $fracktif-medium;
     display: flex;
+    flex-flow: row wrap;
     justify-content: center;
-    width: 100%;
-    position: relative;
-    margin-bottom: 15rem;
+    align-items: center;
+    margin-bottom: 4rem;
+
+    .wrapper {
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 6rem;
+
+        .content {
+            display: flex;
+            flex-flow: column;
+            gap: 4rem;
+            margin-top: 17rem;
+
+            .title {
+                width: 75rem;
+                color: $input-primary-color;
+                height: 16rem;
+                font-weight: 500;
+                font-size: 8.4rem;
+                letter-spacing: -0.06rem;
+                display: flex;
+                align-items: flex-end;
+                line-height: 95%;
+
+                .imageIcon {
+                    margin-bottom: 1.2rem;
+                }
+            }
+
+            .subtitle {
+                width: 28.8rem;
+                height: 10rem;
+                font-weight: 500;
+                font-size: 1.8rem;
+                letter-spacing: -0.02rem;
+            }
+
+            .buttons {
+                width: 35rem;
+                display: flex;
+                gap: 0.5rem;
+
+                .contentButton {
+                    white-space: nowrap;
+                    padding: 3rem 5rem;
+                    border-radius: 7.5rem;
+                    width: 24.3rem;
+                    height: 7.8rem;
+                    background-color: $light-queaternarty-bg-color;
+                }
+
+                .contentArrowButton {
+                    white-space: nowrap;
+                    padding: 2.5rem;
+                    border-radius: 12rem;
+                    width: 7.8rem;
+                    height: 7.8rem;
+                    border: 1px solid #74a253;
+                    position: relative;
+
+                    .arrowDown {
+                        height: 2.4rem;
+                        width: 2.4rem;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 1.8rem;
+                        font-weight: 500;
+                    }
+                }
+            }
+
+            .statistics {
+                display: flex;
+                gap: 2rem;
+                margin-top: 28%;
+
+                .info {
+                    white-space: nowrap;
+                    font-weight: 600;
+                    font-size: 1.8rem;
+                    letter-spacing: -0.015rem;
+                }
+            }
+        }
+
+        .imageContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40%;
+            margin-top: 2rem;
+        }
+    }
+
+    @media screen and (max-width: $breakpoint-desktop-content) {
+        .wrapper {
+            .content {
+                .title {
+                    width: 55rem;
+                    height: 10rem;
+                    font-size: 6rem;
+
+                    .imageIcon {
+                        padding: 0.5rem;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+            }
+
+            .imageContainer {
+                margin-top: 5rem;
+            }
+        }
+    }
+
+    @include lte-desktop-large {
+        .wrapper {
+            .content {
+                .title {
+                    width: 42rem;
+                    height: 10rem;
+                    font-size: 4.5rem;
+                    line-height: 130%;
+
+                    .imageIcon {
+                        padding: 1rem;
+                        margin-bottom: 0.2rem;
+                    }
+                }
+            }
+        }
+    }
 
     @include lte-tablet-large {
-        min-height: 40rem;
-        margin-bottom: 5rem;
+        padding: 1rem;
+
+        .wrapper {
+            flex-flow: column-reverse;
+            align-items: center;
+
+            .content {
+                align-items: center;
+                width: 100%;
+                margin-top: 0;
+                gap: 4.5rem;
+
+                .title {
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                    height: 8rem;
+                    font-size: 5rem;
+                    letter-spacing: -0.09rem;
+                    line-height: 110%;
+
+                    .imageIcon {
+                        padding: 1rem;
+                    }
+                }
+
+                .subtitle {
+                    width: 60%;
+                    height: max-content;
+                    font-size: 1.8rem;
+                    line-height: 140%;
+                    letter-spacing: -0.015rem;
+                }
+
+                .buttons {
+                    width: 30rem;
+
+                    .contentButton {
+                        font-size: 1.6rem;
+                        width: 20.8rem;
+                        height: 6.6rem;
+                    }
+
+                    .contentArrowButton {
+                        width: 6.6rem;
+                        height: 6.6rem;
+                    }
+                }
+
+                .statistics {
+                    gap: 4rem;
+                    margin-top: 6rem;
+
+                    .info {
+                        font-size: 1.6rem;
+                    }
+                }
+            }
+
+            .imageContainer {
+                width: 100%;
+                margin-top: 1rem;
+
+                img {
+                    max-width: 70%;
+                }
+            }
+        }
     }
-}
 
-.wrapper {
-    padding: 12rem 1.5rem;
-    max-width: $breakpoint-desktop-content;
-    width: 100%;
-    position: relative;
+    @include lte-tablet {
+        .wrapper {
+            .content {
+                .title {
+                    font-size: 3.5rem;
+                }
 
-    @include lte-tablet-large {
-        padding: 5rem 1.5rem;
-    }
-}
-
-.imageContainer {
-    position: absolute;
-    inset: 0 0 0 23%;
-    height: 100%;
-    z-index: -10;
-
-    .gradient {
-        position: absolute;
-        z-index: 2;
-        height: 100%;
-        left: -1%;
-        right: 58%;
-        background: linear-gradient(90deg, $most-light-color 0%, rgb(255 255 255 / 0%) 100%);
+                .subtitle {
+                    font-size: 1.6rem;
+                }
+            }
+        }
     }
 
-    @include lte-tablet-large {
-        opacity: 0.5;
+    @include mobile-large {
+        .wrapper {
+            .content {
+                align-items: flex-start;
+                gap: 2rem;
+                width: 100%;
+
+                .title {
+                    width: 34rem;
+                    height: 8rem;
+                    font-size: 3.6rem;
+                    letter-spacing: -0.1rem;
+                    line-height: 140%;
+
+                    .imageIcon {
+                        padding: 1.2rem;
+                    }
+                }
+
+                .subtitle {
+                    width: 100%;
+                    font-size: 1.6rem;
+                    line-height: 140%;
+                    letter-spacing: -0.015rem;
+                }
+
+                .statistics {
+                    gap: 0.5rem;
+
+                    .statistics {
+                        .info {
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+        }
     }
-}
-
-.content {
-    max-width: 44.8rem;
-}
-
-.marginTitle {
-    margin-bottom: 2rem;
-    padding: 1.1rem 0;
-}
-
-.marginText {
-    margin-bottom: 3rem;
 }
