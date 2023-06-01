@@ -1,0 +1,28 @@
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+@import "@sass/_media.scss";
+
+.stepContainer {
+    display: flex;
+    flex-flow: column;
+    gap: 0.5rem;
+    width: 40rem;
+
+    & > * {
+        color: $primary_light;
+    }
+
+    .step {
+        font: 600 1.8rem/140% $fracktif-medium;
+    }
+
+    .stepTitle {
+        white-space: pre-wrap;
+        font: 500 4.6rem/110% $fracktif-medium;
+    }
+
+    .stepSubtitle {
+        font: 500 1.8rem/140% $fracktif-medium;
+        opacity: 0.3;
+    }
+}
