@@ -38,10 +38,10 @@ export const FrontGreetingSection = () => {
                     </div>
                     <div className={styles.statistics}>
                         <Text isParagraph className={styles.info}>
-                            Developers tested(140)
+                            Developers tested (140)
                         </Text>
                         <Text isParagraph className={styles.info}>
-                            Average score(0.88)
+                            Average score (0.88)
                         </Text>
                     </div>
                 </div>
