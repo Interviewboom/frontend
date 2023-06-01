@@ -94,6 +94,12 @@
         }
     }
 
+    @include lte-desktop-large {
+        .content {
+            gap: 2rem;
+        }
+    }
+
     @include lte-desktop {
         .content {
             flex-flow: column;
@@ -101,10 +107,20 @@
             gap: 3rem;
 
             .navigation {
-                position: relative;
-                display: flex;
-                flex-flow: row;
-                align-items: flex-start;
+                gap: 3rem;
+                flex-direction: column;
+            }
+
+            .designer {
+                letter-spacing: -0.015rem;
+                transform: translate(1rem, 4.6rem);
+                width: 9rem;
+                left: 50%;
+                font-size: 1rem;
+
+                .designerLink {
+                    white-space: nowrap;
+                }
             }
 
             .rights {
@@ -118,7 +134,7 @@
         .designer {
             white-space: nowrap;
             position: absolute;
-            transform: translateY(4.5rem,);
+            transform: translateY(4.5rem);
             bottom: 0;
             left: 0;
             font-size: 1.2rem;
