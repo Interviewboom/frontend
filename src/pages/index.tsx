@@ -4,6 +4,7 @@ import { DefaultLayout } from "@layouts/DefaultLayout";
 import { AboutSection } from "@modules/AboutSection";
 import { CategoriesSection } from "@modules/CategoriesSection";
 import { DonationInfoSection } from "@modules/DonationInfoSection";
+import { FrontGreetingSection } from "@modules/FrontGreetingSection";
 import { HowItWorksSection } from "@modules/HowItWorksSection";
 import { TestsSection } from "@modules/TestsSection";
 import { WhySection } from "@modules/WhySection";
@@ -23,6 +24,7 @@ type HomePageProps = {
 const HomePage: NextPage<HomePageProps> = ({ categories, popularTests, error }: HomePageProps) => {
     return (
         <DefaultLayout error={error}>
+            <FrontGreetingSection />
             <WhySection />
             <CategoriesSection categories={categories} />
             <TestsSection popularTests={popularTests} />
