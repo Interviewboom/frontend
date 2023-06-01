@@ -1,6 +1,5 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 
-import { Logo } from "@elements/Logo";
 import { Text } from "@elements/Text";
 import { Title } from "@elements/Title";
 
@@ -9,30 +8,32 @@ import styles from "./AboutSection.module.scss";
 export const AboutSection = () => {
     return (
         <section className={styles.section} id="about-us">
-            <div className={styles.wrapper}>
-                <div className={styles.titleWrapper}>
-                    <Title level={2} className={styles.titleMargin}>
-                        About
-                    </Title>
-                    <div className={styles.logo}>
-                        <Logo />
-                    </div>
-                </div>
-
-                <Text isParagraph className={styles.pMargin}>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic typesetting, remaining essentially unchanged.
+            <div className={styles.info}>
+                <Text isParagraph>Join us and we’ll take you to the next level.</Text>
+                <Title level={2}>
+                    Our platform offers a wide range of benefits for coders looking to test their skills. With
+                    comprehensive assessments, you can thoroughly evaluate your coding abilities and knowledge.
+                </Title>
+                <Text>
+                    A career showcase feature allows you to professionally showcase your expertise to potential
+                    employers, giving you a competitive advantage in a job market!
                 </Text>
-                <Text isParagraph>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic typesetting, remaining essentially unchanged.
+                <Text>
+                    The flexibility and convenience of our platform enable you to test skills at your own pace from
+                    anywhere and anytime. Additionally you can connect with the best community of coders for networking
+                    and of course learning opportunities.
                 </Text>
-                <div className={styles.image}>
-                    <Image src="/assets/images/about.png" alt="laptop" width={736} height={356} />
+                <Image
+                    src="/assets/images/about/aboutCodeSample.png"
+                    alt="IntreviewBoom about section code snippet"
+                    width={500}
+                    height={500}
+                />
+            </div>
+            <div className={styles.journey}>
+                <div className={styles.journeyWrapper}>
+                    <Text>InterviewBoom will help you</Text>
+                    <div className={styles.guide}>123</div>
                 </div>
             </div>
         </section>
