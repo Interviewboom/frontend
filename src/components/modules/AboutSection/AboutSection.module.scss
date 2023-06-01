@@ -73,5 +73,41 @@
         max-width: 20rem;
     }
 
-    
+    .info {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-start;
+        justify-content: center;
+        & > * {
+            color: $primary_light;
+        }
+
+        .infoLeftParagraph {
+            font-size: 1.8rem;
+        }
+
+        .infoRight {
+            flex: 0.5;
+            & > * {
+                color: $primary_light;
+            }
+            .infoTitle {
+                white-space: pre-wrap;
+                font-size: 4.6rem;
+                font-weight: 500;
+                line-height: 110%;
+            }
+
+            .infoSmallParagraph {
+                font-size: 1.2rem;
+            }
+
+            .infoParagraph {
+                font-size: 1.8rem;
+            }
+
+            .infoSampleImg {
+            }
+        }
+    }
 }
