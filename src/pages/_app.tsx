@@ -1,9 +1,11 @@
 import { AppProps } from "next/app";
-import "tinymce/skins/ui/oxide-dark/content.css";
 import { Provider } from "react-redux";
 
-import { wrapper } from "src/redux/store";
+import "tinymce/skins/ui/oxide-dark/content.css";
+
 import "../styles/globals.scss";
+
+import { wrapper } from "src/redux/store";
 
 const App = ({ Component, ...rest }: AppProps) => {
     const { store, props } = wrapper.useWrappedStore(rest);

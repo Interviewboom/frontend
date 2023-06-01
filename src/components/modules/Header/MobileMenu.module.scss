@@ -38,6 +38,7 @@
 .navigationItem {
     font-size: 2.4rem;
     margin-top: 2.4rem;
+    transition: text-decoration 0.2s ease-in;
 
     &:hover {
         text-decoration: underline;

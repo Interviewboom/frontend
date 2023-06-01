@@ -22,6 +22,7 @@
 .wrapper {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0 1.5rem;
     max-width: $breakpoint-desktop-content;
     width: 100%;
