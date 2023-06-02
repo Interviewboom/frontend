@@ -1,9 +1,8 @@
 import { useFormik } from "formik";
-import { useRouter } from "next/router";
 import { FC } from "react";
 
 import { Auth } from "@elements/Auth";
-import { Icon } from "@elements/Icon";
+import { Link } from "@elements/Link";
 import { Text } from "@elements/Text";
 import { TextField } from "@elements/TextField";
 import { signUpValidationSchema } from "@utils/yupValidationSchemas";
@@ -19,8 +18,6 @@ interface FormValues {
 }
 
 export const SignUpForm: FC = () => {
-    const router = useRouter();
-
     const [registerRequest] = useRegisterMutation();
 
     const submitHandler = async (
@@ -95,21 +92,12 @@ export const SignUpForm: FC = () => {
             }
             wrongPage={
                 <div className={styles.accountWrapper}>
-                    <Text color="greyTextColor">Already have an account?</Text>
-                    <div
-                        role="button"
-                        tabIndex={0}
-                        onKeyDown={e => {
-                            if (e.key === "Enter" || e.key === " ") {
-                                router.push("/auth/sign-up");
-                            }
-                        }}
-                        className={styles.textIconWrapper}
-                        onClick={() => router.push("/auth/sign-in")}
-                    >
-                        <Text>Sign in</Text>
-                        <Icon name="arrowDashRight" width={10} height={10} />
-                    </div>
+                    <Text size="big" color="greyTextColor">
+                        Already have an account?
+                    </Text>
+                    <Link href="/auth/sign-in" className={styles.textIconWrapper} withArrow="right">
+                        Sign in
+                    </Link>
                 </div>
             }
         >

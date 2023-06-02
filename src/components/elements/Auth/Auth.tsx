@@ -64,10 +64,10 @@ export const Auth: React.FC<AuthProps> = ({
         <section className={styles.section}>
             <div className={styles.content}>
                 <div className={styles.heading}>
-                    <Title level={2} className={styles.title}>
+                    <Title level={1} className={styles.title}>
                         {title}
                     </Title>
-                    <Text size="medium" className={styles.info} isParagraph lineHeight={17}>
+                    <Text size="small" className={styles.info} isParagraph lineHeight={17}>
                         {description}
                     </Text>
                 </div>
@@ -96,7 +96,7 @@ export const Auth: React.FC<AuthProps> = ({
                             </Text>
                         </div>
 
-                        <div className={styles.socialButtons}>
+                        <div>
                             <SocialButtons buttons={socialButtons} keyword={keyword} />
                         </div>
                     </>

@@ -37,6 +37,11 @@
         padding-right: 0;
     }
 
+    & > a:hover {
+        text-decoration: underline;
+        text-underline-offset: 0.4rem;
+    }
+
     @include lte-tablet-large {
         padding: 1.2rem 0;
 

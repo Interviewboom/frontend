@@ -60,6 +60,12 @@
                     width: 24.3rem;
                     height: 7.8rem;
                     background-color: $light-queaternarty-bg-color;
+                    transition: background-color .2s ease-in;
+
+                    &:hover {
+                        cursor: pointer;
+                        background-color: $button-hover-bg-color;
+                    }
                 }
 
                 .contentArrowButton {
@@ -68,8 +74,14 @@
                     border-radius: 12rem;
                     width: 7.8rem;
                     height: 7.8rem;
-                    border: 1px solid #74a253;
+                    border: 1px solid $light-queaternarty-bg-color;
+                    transition: border .2s ease-in;
                     position: relative;
+
+                    &:hover {
+                        cursor: pointer;
+                        border: 1px solid $button-hover-bg-color;
+                    }
 
                     .arrowDown {
                         height: 2.4rem;

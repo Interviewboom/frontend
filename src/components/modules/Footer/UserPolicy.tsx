@@ -16,8 +16,8 @@ export const UserPolicy = () => {
     return (
         <ul className={styles.list}>
             {list.map(({ name, link }) => (
-                <li>
-                    <Link key={name} href={link} className={styles.link}>
+                <li key={name}>
+                    <Link href={link} className={styles.link}>
                         {name}
                     </Link>
                 </li>

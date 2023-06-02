@@ -20,20 +20,24 @@
 }
 
 .button.green {
-    background-color: $button-default-color;
+    background-color: $light-queaternarty-bg-color;
     color: $button-default-text-color;
+    transition: background-color 0.2s ease-in;
 
     &:hover {
-        background-color: $button-hover-color;
+        cursor: pointer;
+        background-color: $button-hover-bg-color;
     }
 }
 
 .button.grey {
     background-color: $button-background-color;
     color: $button-text-color;
+    transition: background-color 0.2s ease-in;
     font-size: 1.8rem;
 
     &:hover {
+        cursor: pointer;
         background-color: $light-grey-color;
     }
 }
