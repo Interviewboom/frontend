@@ -15,10 +15,10 @@ export const UserPolicy = () => {
 
     return (
         <ul className={styles.list}>
-            {list.map(item => (
-                <li>
-                    <Link key={item.name} href={item.link} className={styles.link}>
-                        {item.name}
+            {list.map(({ name, link }) => (
+                <li key={name}>
+                    <Link href={link} className={styles.link}>
+                        {name}
                     </Link>
                 </li>
             ))}

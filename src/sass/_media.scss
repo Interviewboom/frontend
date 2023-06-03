@@ -23,16 +23,46 @@ $breakpoint-desktop-content: 1496px;
     }
 }
 
-@mixin tablet {
+@mixin lte-tablet {
+    @media screen and (max-width: $breakpoint-tablet) {
+        @content;
+    }
+}
+
+@mixin gte-tablet {
     @media screen and (min-width: $breakpoint-tablet) {
         @content;
     }
+}
+
+@mixin gte-tablet {
+  @media screen and (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin lte-tablet {
+  @media screen and (max-width: $breakpoint-tablet) {
+    @content;
+  }
 }
 
 @mixin lte-tablet-large {
     @media screen and (max-width: $breakpoint-tablet-large) {
         @content;
     }
+}
+
+@mixin gte-tablet-large {
+  @media screen and (min-width: $breakpoint-tablet-large) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $breakpoint-desktop) {
+    @content;
+  }
 }
 
 @mixin gte-desktop {

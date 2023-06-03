@@ -12,10 +12,11 @@ interface IconProps {
     height?: number;
     color?: string;
     stroke?: string;
+    strokeWidth?: number;
     className?: string;
 }
 
-export const Icon: FC<IconProps> = ({ name, width = 24, height = 24, color, stroke, className }) => {
+export const Icon: FC<IconProps> = ({ name, width = 24, height = 24, color, stroke, strokeWidth, className }) => {
     let IconComponent: ComponentType<SVGProps<SVGElement>>;
     const defaultComponent = useMemo(() => <DefaultIcon width={width} height={height} />, [height, width]);
 
@@ -31,7 +32,7 @@ export const Icon: FC<IconProps> = ({ name, width = 24, height = 24, color, stro
 
     return (
         <span className={iconClasses}>
-            <IconComponent width={width} height={height} fill={color} stroke={stroke} />
+            <IconComponent width={width} height={height} fill={color} stroke={stroke} strokeWidth={strokeWidth} />
         </span>
     );
 };

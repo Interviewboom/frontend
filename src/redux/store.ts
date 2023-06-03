@@ -1,16 +1,29 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { nextReduxCookieMiddleware, wrapMakeStore } from "next-redux-cookie-wrapper";
 import { createWrapper } from "next-redux-wrapper";
 
 import { api } from "./api";
+import { authSlice } from "./slices/authSlice";
 
-export const makeStore = () =>
+const rootReducers = combineReducers({
+    [api.reducerPath]: api.reducer,
+    [authSlice.name]: authSlice.reducer,
+});
+
+export const makeStore = wrapMakeStore(() =>
     configureStore({
-        reducer: {
-            [api.reducerPath]: api.reducer,
-        },
-        middleware: getDefaultMiddleware => getDefaultMiddleware().concat(api.middleware),
+        reducer: rootReducers,
+        middleware: getDefaultMiddleware =>
+            getDefaultMiddleware()
+                .prepend(
+                    nextReduxCookieMiddleware({
+                        subtrees: [authSlice.name],
+                    })
+                )
+                .concat(api.middleware),
         devTools: process.env.NODE_ENV !== "production",
-    });
+    })
+);
 
 export type AppStore = ReturnType<typeof makeStore>;
 export type RootState = ReturnType<AppStore["getState"]>;

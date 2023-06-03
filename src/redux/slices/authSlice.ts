@@ -1,39 +1,48 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+/* eslint-disable no-param-reassign */
+import { createSlice, createDraftSafeSelector } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import { HYDRATE } from "next-redux-wrapper";
 
 import { User } from "src/models/entities/auth-model/auth-model";
+import type { RootState } from "src/redux/store";
 
 interface AuthState {
     user: User | null;
     accessToken: string | null;
 }
 
-interface SetUserPayload {
-    user: User | null;
-}
-
-interface SetAccessTokenPayload {
-    accessToken: string | null;
-}
+const initialState: AuthState = {
+    user: null,
+    accessToken: null,
+};
 
 const authSlice = createSlice({
     name: "auth",
-    initialState: {
-        user: null,
-        accessToken: null,
-    } as AuthState,
+    initialState,
     reducers: {
-        setUser: (state: AuthState, action: PayloadAction<SetUserPayload>) => {
-            return { ...state, user: action.payload.user };
+        setUser: (state: AuthState, action: PayloadAction<User>) => {
+            state.user = action.payload;
         },
-        setToken: (state: AuthState, action: PayloadAction<SetAccessTokenPayload>) => {
-            return { ...state, accessToken: action.payload.accessToken };
+        setAccessToken: (state: AuthState, action: PayloadAction<string>) => {
+            state.accessToken = action.payload;
         },
         logout: (state: AuthState) => {
-            return { ...state, user: null, accessToken: null };
+            state.user = null;
+            state.accessToken = null;
         },
+    },
+    extraReducers: builder => {
+        builder.addCase(
+            HYDRATE,
+            (_, action: PayloadAction<any, "__NEXT_REDUX_WRAPPER_HYDRATE__">) => action.payload.auth
+        );
     },
 });
 
-export const { setUser, setToken, logout } = authSlice.actions;
+const selectSelf = (state: RootState) => state;
 
-export default authSlice.reducer;
+export const selectAccessToken = createDraftSafeSelector(selectSelf, (state: RootState) => state.auth?.accessToken);
+
+export const { setUser, setAccessToken, logout } = authSlice.actions;
+
+export { authSlice };

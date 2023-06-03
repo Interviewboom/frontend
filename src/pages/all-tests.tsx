@@ -24,6 +24,17 @@ const AllTestsPage: NextPage<PageProps> = ({ allTests, error }: PageProps) => {
 export default AllTestsPage;
 
 export const getServerSideProps = wrapper.getServerSideProps(store => async () => {
+    const { accessToken } = store.getState().auth;
+
+    if (!accessToken) {
+        return {
+            redirect: {
+                destination: "/auth/sign-in",
+                permanent: false,
+            },
+        };
+    }
+
     const { data: allTests, isError: isAllTestsError } = await store.dispatch(getTests.initiate({}));
 
     await Promise.all(store.dispatch(getRunningQueriesThunk()));

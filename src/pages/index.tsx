@@ -7,6 +7,7 @@ import { DonationInfoSection } from "@modules/DonationInfoSection";
 import { FrontGreetingSection } from "@modules/FrontGreetingSection";
 import { HowItWorksSection } from "@modules/HowItWorksSection";
 import { TestsSection } from "@modules/TestsSection";
+import { WhySection } from "@modules/WhySection";
 import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
 import { TestModel } from "src/models/entities/test-model/test-model";
@@ -24,6 +25,7 @@ const HomePage: NextPage<HomePageProps> = ({ categories, popularTests, error }: 
     return (
         <DefaultLayout error={error}>
             <FrontGreetingSection />
+            <WhySection />
             <CategoriesSection categories={categories} />
             <TestsSection popularTests={popularTests} />
             <HowItWorksSection />
@@ -42,8 +44,8 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async () =
 
     return {
         props: {
-            categories,
-            popularTests,
+            categories: categories || null,
+            popularTests: popularTests || null,
             error: getGenericErrorMessage([isCategoriesError, isPopularTestError]),
         },
     };

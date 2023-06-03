@@ -1,0 +1,42 @@
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+@import "@sass/_media.scss";
+
+.container {
+    display: flex;
+    align-items: center;
+    padding: 2rem 4rem;
+    color: $primary-dark;
+    background-color: $page-background-color;
+
+    .backBtnContainer {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+        cursor: pointer;
+
+        .arrowLeftIcon path {
+            fill: $primary-dark;
+        }
+
+        .backBtnText {
+            font-family: $fracktif-medium;
+            font-size: 1.6rem;
+            color: $primary-dark;
+            border-bottom: 1px $primary-dark solid;
+            margin-top: 0.1rem;
+            transition: all 0.1s ease-out;
+
+            &:hover {
+                margin-top: 0.4rem;
+                padding-bottom: 0.3rem;
+                transition: all 0.1s ease-in-out;
+            }
+        }
+    }
+
+    .logo {
+        margin: 0 auto;
+    }
+}
