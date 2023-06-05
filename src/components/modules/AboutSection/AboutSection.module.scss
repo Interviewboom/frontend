@@ -4,74 +4,9 @@
 
 .section {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background-color: $white;
-    margin-bottom: 10rem;
-
-    @include gte-desktop-large {
-        margin-bottom: 8rem;
-    }
-}
-
-.wrapper {
-    display: grid;
-    grid-template-columns: minmax(40rem, 63.3rem) minmax(50rem, 73.6rem);
-    justify-content: space-between;
-    column-gap: 2.5rem;
-    padding: 10rem 1.5rem 6.6rem;
-    width: $breakpoint-desktop-content;
-
-    @include gte-desktop-large {
-        grid-template-columns: 1fr;
-        padding: 0 1.5rem;
-    }
-}
-
-.titleWrapper {
-    display: flex;
-    align-items: center;
-    padding: 0.8rem 0;
-    margin-bottom: 3rem;
-
-    @include gte-desktop-large {
-        margin-bottom: 2rem;
-    }
-}
-
-.text {
-    flex-shrink: 2;
-    max-width: 64.3rem;
-    padding-right: 1rem;
-}
-
-.image {
-    grid-row: 1/4;
-    grid-column: 2/3;
-    border-radius: 0.8rem;
-    overflow: hidden;
-    max-width: 73.6rem;
-
-    @include gte-desktop-large {
-        grid-row: 2/3;
-        grid-column: unset;
-        margin-bottom: 2.4rem;
-    }
-}
-
-.titleMargin {
-    margin-right: 1.5rem;
-}
-
-.pMargin {
-    margin-bottom: 3rem;
-}
-
-.logo {
-    @include gte-desktop-large {
-        max-width: 20rem;
-    }
+    flex-flow: column;
+    background-color: $primary-text-dark;
+    padding: 4rem;
 
     .info {
         margin: 7% 0 0 5%;
@@ -82,7 +17,7 @@
         gap: 1%;
 
         & > * {
-            color: $primary_light;
+            color: $primary-text-light;
         }
 
         .infoLeftParagraph {
@@ -98,7 +33,7 @@
             gap: 4rem;
 
             & > * {
-                color: $primary_light;
+                color: $primary-text-light;
             }
 
             .infoTitle {
@@ -114,7 +49,7 @@
 
                 .infoSmallParagraph {
                     width: 36rem;
-                    color: $primary_light;
+                    color: $primary-text-light;
                     font-size: 1.2rem;
                 }
 
@@ -125,7 +60,7 @@
                     gap: 5rem;
 
                     .infoParagraph {
-                        color: $primary_light;
+                        color: $primary-text-light;
                         font-size: 1.8rem;
                     }
                 }
@@ -255,7 +190,7 @@
 
             .journeyLeft {
                 flex: 0.25;
-                color: $primary_light;
+                color: $primary-text-light;
                 font: 600 1.8rem/140% $fracktif-medium;
                 margin: 2rem 0 0;
             }

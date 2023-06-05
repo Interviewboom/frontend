@@ -9,7 +9,7 @@
     width: 40rem;
 
     & > * {
-        color: $primary_light;
+        color: $primary-text-light;
     }
 
     .step {
@@ -46,16 +46,8 @@
         gap: 0.5rem;
         width: 32.5rem;
 
-        .step {
-            font: 600 1.6rem/140% $fracktif-medium;
-        }
-
         .stepTitle {
             font: 500 4rem/110% $fracktif-medium;
-        }
-
-        .stepSubtitle {
-            font: 500 1.6rem/140% $fracktif-medium;
         }
     }
 
@@ -63,16 +55,8 @@
         gap: 0.5rem;
         width: 26rem;
 
-        .step {
-            font: 600 1.6rem/140% $fracktif-medium;
-        }
-
         .stepTitle {
             font: 500 2.4rem/110% $fracktif-medium;
-        }
-
-        .stepSubtitle {
-            font: 500 1.6rem/140% $fracktif-medium;
         }
     }
 }

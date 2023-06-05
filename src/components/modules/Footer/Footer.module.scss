@@ -124,27 +124,10 @@
             }
 
             .rights {
-                align-self: flex-start;
-                font-size: 1.2rem;
-                color: $primary-text-light;
-                opacity: 0.3;
-            }
-        }
-
-        .designer {
-            white-space: nowrap;
-            position: absolute;
-            transform: translateY(4.5rem);
-            bottom: 0;
-            left: 0;
-            font-size: 1.2rem;
-            color: $primary-text-light;
-
-            .designerLink {
-                text-decoration: underline;
-                text-underline-offset: 0.25rem;
-                color: $primary-text-light;
-                margin-left: 0.5rem;
+                letter-spacing: -0.015rem;
+                word-wrap: break-word;
+                font-size: 1rem;
+                width: 10rem;
             }
         }
     }
