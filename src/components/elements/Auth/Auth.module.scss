@@ -4,7 +4,7 @@
 
 .section {
     padding: 2rem;
-    background-color: $background-secondary-light;
+    background-color: $primary-bg-light;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,8 +23,6 @@
     justify-content: center;
     width: 100%;
     padding: 0 1.5rem;
-    font-family: $primary-font;
-    margin-bottom: 5rem;
     max-width: 65.8rem;
     text-align: center;
 
@@ -35,14 +33,9 @@
 
 .heading {
     margin: 0 1.8rem 3rem;
-
-    & > h2 {
-        font-weight: 600;
-    }
 }
 
 .title {
-    font-weight: 500;
     margin-bottom: 1rem;
 }
 
@@ -50,8 +43,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 2.7rem;
-    margin: 1.5rem;
+    gap: 2rem;
+    margin: 2rem 2rem 0 2rem;
 
     & > .signIn {
         width: 100%;

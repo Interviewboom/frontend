@@ -1,14 +1,18 @@
 @import "@sass/_colors.scss";
 @import "@sass/_variables.scss";
 
-$link-hover-transform-amount: 3px;
+$link-hover-transform-amount: 6px;
 
 .icon {
-    transition: transform .2s;
+    transition: transform 0.2s ease-out;
+
+    &:hover {
+        transition: transform 0.2s ease-in;
+    }
 
     svg {
         path {
-            fill: $dark-text-color;
+            fill: $secondary-dark;
         }
     }
 }
@@ -17,19 +21,18 @@ $link-hover-transform-amount: 3px;
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
-    font-weight: 500;
     font-size: 1.8rem;
     line-height: 1;
     letter-spacing: -0.02em;
-    color: $dark-text-color;
+    color: $secondary-dark;
 
     &.white {
-        color: $most-light-color;
+        color: $white;
 
         .icon {
             svg {
                 path {
-                    fill: $most-light-color;
+                    fill: $white;
                 }
             }
         }
@@ -37,18 +40,18 @@ $link-hover-transform-amount: 3px;
 
     &.left {
         .icon {
-            order: -1
+            order: -1;
         }
     }
 
     &.withBorder {
         .text {
             border-bottom: 1px solid;
-            transition: border .2s;
+            transition: border 0.2s;
         }
     }
 
-    @media (hover:hover) {
+    @media (hover: hover) {
         &:hover {
             &.withBorder {
                 .text {
@@ -68,4 +71,3 @@ $link-hover-transform-amount: 3px;
         }
     }
 }
-

@@ -7,20 +7,18 @@
     align-items: center;
     margin: 0.5rem 2rem;
     padding: 1.9rem 1.2rem;
-    background-color: $bg-error-color;
+    background-color: $error-bg;
     border-radius: 1.6rem;
-    font-family: $primary-font;
+    font-family: $fracktif-semi-bold;
     font-style: normal;
-    font-weight: 700;
     font-size: 1.8rem;
     line-height: 2.2rem;
-  }
+}
 
 .errorMessage {
     text-align: center;
 
     & > span {
-        color: $text-error-color;
-        font-weight: 600;
+        color: $error;
     }
-  }
+}

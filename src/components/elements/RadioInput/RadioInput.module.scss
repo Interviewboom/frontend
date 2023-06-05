@@ -10,7 +10,7 @@
 .row {
     display: flex;
     border-radius: 0.8rem;
-    border: 1px solid $light-grey-color;
+    border: 1px solid $grey-light;
     padding: 1.6rem;
     margin-bottom: 1.6rem;
 
@@ -23,7 +23,7 @@
     min-width: 2rem;
     width: 2rem;
     height: 2rem;
-    border: 2px solid $grey-text-color;
+    border: 2px solid $grey-dark;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -33,12 +33,12 @@
 }
 
 .circle:checked ~ .customHollowInput {
-    border: 2px solid $light-green-color;
+    border: 2px solid $green-light;
 
     .innerCircle {
         width: 1rem;
         height: 1rem;
-        background-color: $light-green-color;
+        background-color: $green-light;
         border-radius: 50%;
     }
 }
@@ -53,7 +53,7 @@
 }
 
 .highlightedBorder {
-    border: 1px solid $light-green-color;
+    border: 1px solid $green-light;
 }
 
 .green,
@@ -62,11 +62,11 @@
 }
 
 .green {
-    background: rgba($light-green-color, 0.1);
+    background: rgba($green-light, 0.1);
 }
 
 .red {
-    background: rgba($light-error-color, 0.1);
+    background: rgba($error, 0.1);
 }
 
 // close icon
@@ -80,7 +80,7 @@
     &::after {
         position: absolute;
         left: 0.8rem;
-        background-color: $light-error-color;
+        background-color: $error;
         content: "";
         height: 2rem;
         width: 0.14rem;
@@ -104,7 +104,7 @@
 
     &::before,
     &::after {
-        background: $light-green-color;
+        background: $green-light;
         position: absolute;
         content: " ";
         border-radius: 0.2rem;

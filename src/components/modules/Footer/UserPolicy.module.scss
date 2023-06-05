@@ -3,17 +3,15 @@
 @import "@sass/_media.scss";
 
 .list {
-    font-family: $fracktif-medium;
     display: flex;
     flex-flow: row wrap;
-    color: $most-light-color;
+    color: $white;
     width: 15rem;
     gap: 2.5rem;
 
     li > {
         .link {
             white-space: nowrap;
-            font-weight: 500;
             font-size: 1.8rem;
             letter-spacing: -0.015rem;
             text-decoration: underline;

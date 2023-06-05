@@ -7,7 +7,7 @@
     justify-content: center;
     width: 100%;
     padding: 8rem 0;
-    background-color: $main-background-color;
+    background-color: $primary-bg-green-light;
 
     @include gte-tablet-large {
         padding: 18rem 0;
@@ -24,7 +24,7 @@
 
 .blockFirst {
     position: relative;
-    background-color: #CFDFCE;
+    background-color: #cfdfce;
     border-radius: 1.6rem;
     height: 2rem;
     margin: 0 auto;
@@ -35,7 +35,7 @@
 
 .blockSecond {
     position: relative;
-    background-color: #94B790;
+    background-color: #94b790;
     border-radius: 1.6rem;
     height: 2rem;
     margin: 0 auto;
@@ -61,12 +61,11 @@
     img {
         border-radius: 2.4rem;
         z-index: 3;
-
     }
 }
 
 .overview {
-    color: $why-section-text-color;
+    color: $primary-text-light;
     font-size: 1rem;
     text-align: center;
 
@@ -101,9 +100,8 @@
 .title {
     font-size: 1.6rem;
     margin-top: 0;
-    font-weight: 600;
     line-height: 2.5rem;
-    color: $why-section-text-color;
+    color: $primary-text-light;
     white-space: nowrap;
 
     @include gte-tablet-large {
@@ -116,7 +114,7 @@
     font-size: 2.4rem;
     inline-size: 100%;
     line-height: 115%;
-    color: $why-section-text-color;
+    color: $primary-text-light;
     overflow-wrap: break-word;
 
     @include gte-tablet-large {

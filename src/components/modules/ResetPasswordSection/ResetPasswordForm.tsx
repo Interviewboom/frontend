@@ -2,8 +2,11 @@ import { useFormik } from "formik";
 import { FC } from "react";
 
 import { Auth } from "@elements/Auth";
+import { Text } from "@elements/Text";
 import { TextField } from "@elements/TextField";
 import { resetPasswordValidationSchema } from "@utils/yupValidationSchemas";
+
+import styles from "./ResetPasswordForm.module.scss";
 
 interface FormValues {
     email: string;
@@ -43,6 +46,11 @@ export const ResetPasswordForm: FC = () => {
             showSocials={false}
             isSubmitting={formik.isSubmitting}
             title="Reset password"
+            afterContent={
+                <Text className={styles.termsOfService}>
+                    <u>Terms of Service</u>, <u>Privacy Policy</u>
+                </Text>
+            }
             description="Enter your email address and we will send you instructions to reset your password."
             onSubmit={formik.handleSubmit}
         >
