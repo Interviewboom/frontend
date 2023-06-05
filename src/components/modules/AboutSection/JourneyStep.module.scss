@@ -25,4 +25,54 @@
         font: 500 1.8rem/140% $fracktif-medium;
         opacity: 0.3;
     }
+
+    @media screen and (max-width: $breakpoint-desktop-content) {
+        width: 38rem;
+
+        .step {
+            font: 600 1.6rem/140% $fracktif-medium;
+        }
+
+        .stepTitle {
+            font: 500 4.3rem/110% $fracktif-medium;
+        }
+
+        .stepSubtitle {
+            font: 500 1.6rem/140% $fracktif-medium;
+        }
+    }
+
+    @include lte-desktop-large {
+        gap: 0.5rem;
+        width: 33.5rem;
+
+        .step {
+            font: 600 1.6rem/140% $fracktif-medium;
+        }
+
+        .stepTitle {
+            font: 500 4rem/110% $fracktif-medium;
+        }
+
+        .stepSubtitle {
+            font: 500 1.6rem/140% $fracktif-medium;
+        }
+    }
+
+    @include lte-tablet {
+        gap: 0.5rem;
+        width: 26rem;
+
+        .step {
+            font: 600 1.6rem/140% $fracktif-medium;
+        }
+
+        .stepTitle {
+            font: 500 2.4rem/110% $fracktif-medium;
+        }
+
+        .stepSubtitle {
+            font: 500 1.6rem/140% $fracktif-medium;
+        }
+    }
 }

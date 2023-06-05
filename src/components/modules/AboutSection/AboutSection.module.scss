@@ -103,7 +103,6 @@
 
             .infoTitle {
                 width: 89rem;
-                white-space: pre-wrap;
                 font: 500 4.6rem/110% $fracktif-medium;
                 letter-spacing: -0.03rem;
             }
@@ -111,16 +110,16 @@
             .infoRightDescription {
                 display: flex;
                 flex-flow: row wrap;
-                gap: 11%;
+                gap: 6%;
 
                 .infoSmallParagraph {
-                    flex-basis: 25%;
+                    width: 36rem;
                     color: $primary_light;
                     font-size: 1.2rem;
                 }
 
                 .infoRightWithSnippet {
-                    flex-basis: 35%;
+                    width: 36rem;
                     display: flex;
                     flex-flow: column wrap;
                     gap: 5rem;
@@ -128,6 +127,117 @@
                     .infoParagraph {
                         color: $primary_light;
                         font-size: 1.8rem;
+                    }
+                }
+            }
+        }
+        @media screen and (max-width: $breakpoint-desktop-content) {
+            margin: 4rem 0;
+
+            .infoLeftParagraph {
+                font-size: 1.6rem;
+            }
+
+            .infoRight {
+                flex: 0.7;
+                gap: 4rem;
+
+                .infoTitle {
+                    width: 80rem;
+                    font: 500 4rem/110% $fracktif-medium;
+                }
+
+                .infoRightDescription {
+                    gap: 6%;
+
+                    .infoSmallParagraph {
+                        width: 36rem;
+                        font-size: 1.2rem;
+                    }
+
+                    .infoRightWithSnippet {
+                        gap: 4rem;
+
+                        .infoParagraph {
+                            font-size: 1.6rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include lte-desktop-large {
+            margin: 4rem 0 0;
+            gap: 4rem;
+            flex-flow: column;
+            align-items: flex-start;
+
+            .infoLeftParagraph {
+                min-width: 30rem;
+                font-size: 1.6rem;
+            }
+
+            .infoRight {
+                flex: 0.7;
+                gap: 4rem;
+
+                .infoTitle {
+                    width: 74rem;
+                    font: 500 4rem/110% $fracktif-medium;
+                }
+
+                .infoRightDescription {
+                    gap: 4%;
+
+                    .infoSmallParagraph {
+                        width: 33rem;
+                        font-size: 1.2rem;
+                    }
+
+                    .infoRightWithSnippet {
+                        gap: 4rem;
+                        width: 33rem;
+
+                        .infoParagraph {
+                            font-size: 1.6rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include lte-tablet {
+            margin-top: 4rem;
+            align-items: flex-start;
+            gap: 2rem;
+
+            .infoLeftParagraph {
+                padding: 0;
+            }
+
+            .infoRight {
+                .infoTitle {
+                    width: 34.5rem;
+                    font: 500 2.4rem/115% $fracktif-medium;
+                }
+
+                .infoRightDescription {
+                    gap: 3rem;
+                    flex-flow: column;
+
+                    .infoSmallParagraph {
+                        width: 30rem;
+                        font-size: 1rem;
+                    }
+
+                    .infoRightWithSnippet {
+                        gap: 4rem;
+                        width: 27rem;
+
+                        .infoParagraph {
+                            font-size: 1.6rem;
+                            line-height: 140%;
+                        }
                     }
                 }
             }
@@ -145,13 +255,13 @@
 
             .journeyLeft {
                 flex: 0.25;
-                width: max-content;
                 color: $primary_light;
                 font: 600 1.8rem/140% $fracktif-medium;
-                margin: 2rem 0 0 0;
+                margin: 2rem 0 0;
             }
 
             .guide {
+                max-width: 95rem;
                 flex: 0.7;
                 display: flex;
                 flex-flow: row wrap;
@@ -160,11 +270,68 @@
 
                 .journeyButton {
                     width: 36rem;
+                    font-weight: 500;
+                    white-space: nowrap;
                     margin: 0;
                     align-self: flex-start;
                     justify-self: flex-start;
+                    font-family: $fracktif-medium;
                 }
             }
         }
+
+        @media screen and (max-width: $breakpoint-desktop-content) {
+            margin: 0;
+
+            .journeyWrapper {
+                .journeyLeft {
+                    flex: 0.25;
+                    font: 600 1.6rem/140% $fracktif-medium;
+                }
+
+                .guide {
+                    flex: 0.75;
+                    gap: 5rem;
+                }
+            }
+        }
+
+        @include lte-desktop-large {
+            margin: 4rem 0 0;
+
+            .journeyWrapper {
+                flex-flow: column;
+                align-items: center;
+                gap: 4rem;
+
+                .journeyLeft {
+                    align-self: flex-start;
+                    min-width: 30rem;
+                    font: 600 1.6rem/140% $fracktif-medium;
+                }
+
+                .guide {
+                    gap: 4rem;
+                    justify-content: flex-start;
+                }
+            }
+        }
+
+        @include lte-tablet {
+            margin: 0;
+
+            .journeyWrapper {
+                .guide {
+                    .journeyButton {
+                        max-width: 26rem;
+                        font-size: 1.6rem;
+                    }
+                }
+            }
+        }
+    }
+    @include lte-desktop-large {
+        padding: 4rem;
+        gap: 6rem;
     }
 }
