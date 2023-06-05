@@ -12,7 +12,7 @@
     @include lte-tablet-large {
         flex-direction: column;
         padding: 0 1.5rem;
-        background-color: $most-light-color;
+        background-color: $white;
         position: fixed;
         top: 4.8rem;
         width: 100vw;
@@ -23,9 +23,7 @@
 
 .navigationItem {
     padding: 0 1.6rem;
-    font-family: $primary-font;
     font-style: normal;
-    font-weight: 400;
     font-size: 1.6rem;
     line-height: 2rem;
 

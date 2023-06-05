@@ -7,7 +7,6 @@
         flex-flow: row wrap;
         width: 25rem;
         gap: 2.5rem;
-        font-family: $fracktif-medium;
 
         .item {
             flex-basis: 45%;
@@ -16,9 +15,8 @@
                 flex-wrap: nowrap;
                 text-align: center;
                 font-style: normal;
-                font-weight: 500;
                 font-size: 1.8rem;
-                color: $primary_light;
+                color: $primary-text-light;
                 letter-spacing: -0.015rem;
                 text-decoration: underline;
                 text-underline-offset: 0.25rem;

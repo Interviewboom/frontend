@@ -2,16 +2,11 @@
 @import "@sass/_variables.scss";
 @import "@sass/_media.scss";
 
-.heading {
-    font-weight: 800;
-    font-family: $primary-font;
-}
-
 .heading1 {
     font-size: 4.8rem;
     line-height: 5.9rem;
 
-    @include gte-desktop-large  {
+    @include gte-desktop-large {
         font-size: 2.6rem;
         line-height: 4.4rem;
     }
@@ -21,7 +16,7 @@
     font-size: 3.6rem;
     line-height: 4.4rem;
 
-    @include gte-desktop-large  {
+    @include gte-desktop-large {
         font-size: 2.4rem;
         line-height: 3rem;
     }
@@ -44,7 +39,6 @@
 .heading5 {
     font-size: 1.6rem;
     line-height: 2rem;
-    font-weight: 700;
 
     @include mobile {
         font-size: 1.4rem;
@@ -52,13 +46,13 @@
 }
 
 .darkTextColor {
-    color: $dark-text-color;
+    color: $secondary-dark;
 }
 
 .lightTextColor {
-    color: $light-text-color;
+    color: $silver;
 }
 
 .mostLightColor {
-    color: $most-light-color;
+    color: $white;
 }

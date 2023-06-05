@@ -9,9 +9,8 @@
     justify-content: center;
     width: 100%;
     height: 8rem;
-    background: $most-light-color;
+    background: $white;
     box-shadow: 0 1px 4px rgb(0 0 0 / 25%);
-    font-family: $primary-font;
     z-index: 999;
 
     @include lte-tablet-large {

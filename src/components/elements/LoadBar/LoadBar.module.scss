@@ -23,24 +23,24 @@
     margin: 0 5.1rem 0 3.8rem;
 
     &::-webkit-progress-bar {
-        background-color: $button-background-color;
+        background-color: $secondary-light;
         border-radius: 1rem;
         overflow: hidden;
     }
 
     &::-webkit-progress-value {
         border-radius: 1rem 0 0 1rem;
-        background-color: $light-green-color;
+        background-color: $green-light;
     }
 
     &::-moz-progress-bar {
-        background-color: $button-background-color;
+        background-color: $secondary-light;
         border-radius: 1rem;
     }
 
     &::-moz-progress-value {
         border-radius: 1rem 0 0 1rem;
-        background-color: $light-green-color;
+        background-color: $green-light;
     }
 
     @include mobile {
@@ -63,7 +63,7 @@
     width: 2.4rem;
     position: absolute;
     border-radius: 0.14rem;
-    background-color: $dark-text-color;
+    background-color: $secondary-dark;
 }
 
 .rightLeft {

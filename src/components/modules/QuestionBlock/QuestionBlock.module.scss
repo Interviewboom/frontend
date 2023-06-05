@@ -3,14 +3,13 @@
 @import "@sass/_media.scss";
 
 .question {
-    background-color: $most-light-color;
+    background-color: $white;
     display: flex;
     justify-content: center;
     width: 100%;
     padding: 1.4rem 0;
     margin-bottom: 1.2rem;
     font-size: 1.8rem;
-    font-weight: 800;
     line-height: 3.2rem;
 }
 

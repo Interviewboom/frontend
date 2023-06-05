@@ -37,10 +37,10 @@ export const FrontGreetingSection = () => {
                         </a>
                     </div>
                     <div className={styles.statistics}>
-                        <Text isParagraph className={styles.info}>
+                        <Text isParagraph semiBold className={styles.info}>
                             Developers tested (140)
                         </Text>
-                        <Text isParagraph className={styles.info}>
+                        <Text isParagraph semiBold className={styles.info}>
                             Average score (0.88)
                         </Text>
                     </div>
