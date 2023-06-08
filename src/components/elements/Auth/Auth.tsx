@@ -1,4 +1,4 @@
-import React, { ReactNode, FC } from "react";
+import { ReactNode, FC } from "react";
 
 import { Button } from "@elements/Button";
 import { Error } from "@elements/Error";
@@ -35,7 +35,7 @@ const SocialButtons: FC<SocialButtonProps> = ({ buttons, keyword }) => (
     </div>
 );
 
-export const Auth: React.FC<AuthProps> = ({
+export const Auth: FC<AuthProps> = ({
     keyword = "Continue",
     isSubmitting,
     title,

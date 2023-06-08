@@ -1,4 +1,5 @@
 import { AppProps } from "next/app";
+import { SessionProvider } from "next-auth/react";
 import { Provider } from "react-redux";
 
 import "tinymce/skins/ui/oxide-dark/content.css";
@@ -11,7 +12,9 @@ const App = ({ Component, ...rest }: AppProps) => {
     const { store, props } = wrapper.useWrappedStore(rest);
     return (
         <Provider store={store}>
-            <Component {...props.pageProps} />
+            <SessionProvider session={props.pageProps.session}>
+                <Component {...props.pageProps} />
+            </SessionProvider>
         </Provider>
     );
 };
