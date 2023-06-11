@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 
 type ButtonLinkProps = {
-    className: string;
+    className?: string;
     children: ReactNode;
     href?: string;
 };
