@@ -2,6 +2,22 @@
 @import "@sass/_variables.scss";
 @import "@sass/_media.scss";
 
+.mobileWarpper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 3rem 1.5rem;
+
+    @include lte-tablet-large {
+        display: flex;
+    }
+}
+
 .header {
     position: sticky;
     top: 0;
@@ -9,11 +25,16 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    background: $most-light-color;
-    box-shadow: 0rem .1rem .4rem rgba($shadow-color, .25);
+    height: 8rem;
+    background: $white;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 25%);
 
     &.headerShowBurger {
-        background: $page-background-color;
+        background: $primary-bg-light;
+
+        .mobileWarpper {
+            background: $primary-bg-light;
+        }
     }
 }
 
@@ -27,18 +48,18 @@
 
     @include lte-tablet-large {
         position: fixed;
-        top: 9rem;
-        left: 0rem;
+        top: 7rem;
+        left: 0;
         z-index: 12;
         display: none;
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
-        padding: 0rem 1.5rem 3rem;
+        padding: 2rem 1.5rem 3rem;
         width: 100%;
-        height: calc(100% - 9rem);
+        height: calc(100% - 7rem);
         overflow: auto;
-        background: $page-background-color;
+        background: $primary-bg-light;
 
         .headerShowBurger & {
             display: flex;
@@ -47,21 +68,6 @@
         .logoWrapper {
             display: none;
         }
-    }
-}
-
-
-.mobileWarpper {
-    position: relative;
-    z-index: 11;
-    display: none;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 3rem 1.5rem;
-
-    @include lte-tablet-large {
-        display: flex;
     }
 }
 
@@ -78,7 +84,7 @@
         content: '';
         width: 100%;
         height: 0.2rem;
-        background-color: $input-primary-color;
+        background-color: $primary-text-dark;
         transition: opacity .2s, transform .2s;
     }
 

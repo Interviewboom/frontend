@@ -12,7 +12,7 @@ export interface NavigationItem {
 }
 
 export type NavigationProps = {
-    actionToCloseBurgerMenu: () => void;
+    closeBurgerMenu: () => void;
 };
 
 export type interfaceNavigationItem = NavigationTypes & NavigationItem;

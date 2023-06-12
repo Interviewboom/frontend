@@ -10,16 +10,16 @@ import styles from "./Header.module.scss";
 import { AuthHeader } from "../AuthHeader";
 
 export const Header = () => {
-    const [showBurgerMenu, updateShowNurgerMenu] = useState(false);
+    const [showBurgerMenu, updateShowBurgerMenu] = useState(false);
     const router = useRouter();
     const isAuthPages = router.asPath.slice(1, 5) === "auth";
 
-    const actionToShowBurgerMenu = () => {
-        updateShowNurgerMenu(value => !value);
+    const toggleBurgerMenu = () => {
+        updateShowBurgerMenu(value => !value);
     };
 
-    const actionToCloseBurgerMenu = () => {
-        updateShowNurgerMenu(false);
+    const closeBurgerMenu = () => {
+        updateShowBurgerMenu(false);
     };
 
     useEffect(() => {
@@ -42,14 +42,14 @@ export const Header = () => {
                         <div className={styles.logoWrapper}>
                             <Logo redirectToHome />
                         </div>
-                        <Navigation actionToCloseBurgerMenu={actionToCloseBurgerMenu} />
+                        <Navigation closeBurgerMenu={closeBurgerMenu} />
                         <Auth />
                     </div>
                     <div className={styles.mobileWarpper}>
                         <Logo redirectToHome />
                         <button
                             className={styles.burgerBtn}
-                            onClick={actionToShowBurgerMenu}
+                            onClick={toggleBurgerMenu}
                             type="button"
                             aria-label="button"
                         />

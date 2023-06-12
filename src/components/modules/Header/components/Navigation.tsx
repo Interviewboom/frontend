@@ -7,12 +7,10 @@ import { getClassnames } from "src/utils/getClassnames";
 
 import styles from "./Navigation.module.scss";
 import { NavigationSubBlock } from "./NavigationSubBlock";
-// eslint-disable-next-line import/order
 import type { interfaceNavigationItem, NavigationProps } from "../Header.types";
-// eslint-disable-next-line import/order
 import { NAVIGATION_ITEMS } from "../helpers/const";
 
-export const Navigation: FC<NavigationProps> = ({ actionToCloseBurgerMenu }) => {
+export const Navigation: FC<NavigationProps> = ({ closeBurgerMenu }) => {
     const router = useRouter();
 
     const getLinkClasses = useCallback(
@@ -27,17 +25,13 @@ export const Navigation: FC<NavigationProps> = ({ actionToCloseBurgerMenu }) => 
             <ul className={styles.navigationList}>
                 {NAVIGATION_ITEMS.map((item: interfaceNavigationItem) => (
                     <li key={item.name} className={getLinkClasses(item.link)}>
-                        <Link
-                            className={styles.navigationLink}
-                            href={formatLink(item.link)}
-                            onClick={actionToCloseBurgerMenu}
-                        >
+                        <Link className={styles.navigationLink} href={formatLink(item.link)} onClick={closeBurgerMenu}>
                             {item.name}
                         </Link>
                         <NavigationSubBlock
                             subList={item.subList}
                             moreLink={item.moreLink}
-                            actionToCloseBurgerMenu={actionToCloseBurgerMenu}
+                            closeBurgerMenu={closeBurgerMenu}
                         />
                     </li>
                 ))}

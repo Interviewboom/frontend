@@ -7,9 +7,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: $primary-font;
+    font-family: inherit;
     font-style: normal;
-    font-weight: 500;
     font-size: 1.8rem;
     line-height: 100%;
     padding: 3rem 5rem;
@@ -20,31 +19,31 @@
 }
 
 .button.green {
-    background-color: $light-queaternarty-bg-color;
-    color: $button-default-text-color;
+    background-color: $primary-bg-green-light;
+    color: $primary-text-light;
     transition: background-color 0.2s ease-in;
 
     &:hover {
         cursor: pointer;
-        background-color: $button-hover-bg-color;
+        background-color: $btn-hover-bg;
     }
 }
 
 .button.grey {
-    background-color: $button-background-color;
-    color: $button-text-color;
+    background-color: $secondary-light;
+    color: $grey-darker;
     transition: background-color 0.2s ease-in;
     font-size: 1.8rem;
 
     &:hover {
         cursor: pointer;
-        background-color: $light-grey-color;
+        background-color: $grey-light;
     }
 }
 
 .button:disabled {
-    background-color: $button-disabled-color;
-    color: $button-disabled-text-color;
+    background-color: $disabled;
+    color: $silver;
     pointer-events: none;
 }
 

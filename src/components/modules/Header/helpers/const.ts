@@ -1,8 +1,8 @@
 // Navigation links
 const LINK_HOME = "/";
-const LINK_THE_PLATFORM = "#the-platform";
-const LINK_OUR_TESTS = "#about-us";
-const LINK_GER_IN_TOUCH = "#Get in touch";
+const ANCHOR_THE_PLATFORM = "#about";
+const LINK_OUR_TESTS = "/all-tests";
+const ANCHOR_GET_IN_TOUCH = "#contact";
 const LINK_OUR_TESTS_SUB_LIST_MORE = "/all-tests";
 
 const SUB_LIST_OUR_TESTS = [
@@ -26,20 +26,20 @@ const SUB_LIST_OUR_TESTS = [
 const SUB_OUR_TESTS_LIST_MORE = { name: "Browse all", link: LINK_OUR_TESTS_SUB_LIST_MORE };
 
 const NAVIGATION_HOME = { name: "Home", link: LINK_HOME };
-const NAVIGATION_THE_PLATFORM = { name: "The platform", link: LINK_THE_PLATFORM };
+const NAVIGATION_THE_PLATFORM = { name: "The platform", link: ANCHOR_THE_PLATFORM };
 const NAVIGATION_OUR_TESTS = {
     name: "Our tests",
     link: LINK_OUR_TESTS,
     subList: SUB_LIST_OUR_TESTS,
     moreLink: SUB_OUR_TESTS_LIST_MORE,
 };
-const NAVIGATION_GER_IN_TOUCH = { name: "Support the project", link: LINK_GER_IN_TOUCH };
+const NAVIGATION_GET_IN_TOUCH = { name: "Support the project", link: ANCHOR_GET_IN_TOUCH };
 
 export const NAVIGATION_ITEMS = [
     NAVIGATION_HOME,
     NAVIGATION_THE_PLATFORM,
     NAVIGATION_OUR_TESTS,
-    NAVIGATION_GER_IN_TOUCH,
+    NAVIGATION_GET_IN_TOUCH,
 ];
 
 // Auth links

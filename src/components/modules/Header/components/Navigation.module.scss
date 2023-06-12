@@ -12,12 +12,26 @@
     }
 }
 
+.navigationLink {
+    line-height: 140%;
+    padding: 0.6rem 0.8rem;
+    border-radius: 1rem;
+    transition: background-color .2s;
+
+    @include lte-tablet-large {
+        font-size: 2.4rem;
+        line-height: 1.15;
+        padding: 0;
+        border-radius: none;
+    }
+}
+
 .navigationItem {
     position: relative;
 
     &:is(&:hover, &.active) {
         .navigationLink {
-            background-color: $page-background-color;
+            background-color: $primary-bg-light;
         }
     }
 
@@ -26,7 +40,7 @@
             &::after {
                 content: '';
                 position: absolute;
-                left: 0rem;
+                left: 0;
                 top: 100%;
                 width: 100%;
                 height: 1rem;
@@ -60,30 +74,16 @@
     }
 }
 
-.navigationLink {
-    line-height: 140%;
-    padding: 0.6rem 0.8rem;
-    border-radius: 1rem;
-    transition: background-color .2s;
-
-    @include lte-tablet-large {
-        font-size: 2.4rem;
-        line-height: 1.15;
-        padding: 0px;
-        border-radius: none;
-    }
-}
-
 .navigationSubBlock {
     position: absolute;
     top: calc(100% + .5rem);
-    left: 0rem;
+    left: 0;
     display: none;
     align-items: flex-start;
     width: 58.5rem;
     padding: 4rem 6rem;
-    background: rgba($page-background-color, 0.8);
-    box-shadow: 0rem 0rem 6rem 2rem rgba($shadow-color, 0.1);
+    background: rgba($primary-bg-light, 0.8);
+    box-shadow: 0 0 6rem 2rem rgb(0 0 0 / 10%);
     backdrop-filter: blur(2.2rem);
     border-radius: 1rem;
 
@@ -103,8 +103,8 @@
     @include lte-tablet-large {
         &.active {
             position: fixed;
-            top: 0rem;
-            left: 0rem;
+            top: 0;
+            left: 0;
             z-index: 20;
             display: flex;
             flex-direction: column;
@@ -112,7 +112,7 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background: $page-background-color;
+            background: $primary-bg-light;
             backdrop-filter: none;
         }
 
@@ -128,15 +128,15 @@
     gap: 1.5rem;
     flex-grow: 1;
     margin-right: 3rem;
-    border-right: .1rem solid rgba($input-primary-color, .05);
+    border-right: .1rem solid rgba($primary-text-dark, .05);
 
     @include lte-tablet-large {
         flex-grow: 0;
         width: 100%;
-        margin: 7.2rem 0px 3rem 0px;
+        margin: 7.2rem 0 3rem;
         padding-bottom: 3rem;
         border-right: none;
-        border-bottom: .1rem solid rgba($input-primary-color, .05);;
+        border-bottom: .1rem solid rgba($primary-text-dark, .05);;
     }
 }
 

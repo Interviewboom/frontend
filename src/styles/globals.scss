@@ -4,8 +4,8 @@
 
 html,
 body {
-    font-family: $primary-font, sans-serif;
-    color: $dark-text-color;
+    font-family: $fracktif-medium;
+    color: $primary-text-dark;
     font-size: 62.5%;
 }
 
@@ -39,7 +39,9 @@ h4,
 h5,
 h6,
 p,
+span,
 label {
+    font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
     line-height: inherit;

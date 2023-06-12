@@ -1,0 +1,28 @@
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+
+
+.navigationList {
+    display: flex;
+}
+
+.navigationItem {
+    padding: 0 2.4rem;
+    font-style: normal;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    transition: text-decoration 0.2s ease-in;
+
+    &:first-child {
+        padding-left: 0;
+    }
+
+    &:last-child {
+        padding-right: 0;
+    }
+
+    &:hover {
+        text-decoration: underline;
+        text-underline-offset: 0.4rem;
+    }
+}

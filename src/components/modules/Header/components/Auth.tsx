@@ -2,7 +2,6 @@ import { Link } from "@elements/Link";
 import { formatLink } from "@utils/formatLink";
 
 import styles from "./Auth.module.scss";
-// eslint-disable-next-line import/order
 import { AUTH_ITEMS } from "../helpers/const";
 
 export const Auth = () => {

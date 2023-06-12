@@ -6,14 +6,9 @@ import { formatLink } from "@utils/formatLink";
 import { getClassnames } from "src/utils/getClassnames";
 
 import styles from "./Navigation.module.scss";
-// eslint-disable-next-line import/order
 import { NavigationItem, NavigationProps } from "../Header.types";
 
-export const NavigationSubBlock: FC<NavigationItem & NavigationProps> = ({
-    subList,
-    moreLink,
-    actionToCloseBurgerMenu,
-}) => {
+export const NavigationSubBlock: FC<NavigationItem & NavigationProps> = ({ subList, moreLink, closeBurgerMenu }) => {
     const [showMobileSubMenu, updateShowMobileSubMenu] = useState(false);
 
     const getBlockClasses = () => {
@@ -41,7 +36,7 @@ export const NavigationSubBlock: FC<NavigationItem & NavigationProps> = ({
                                 <Link
                                     href={formatLink(subItem.link)}
                                     classNameText={styles.navigationSubBlockLink}
-                                    onClick={actionToCloseBurgerMenu}
+                                    onClick={closeBurgerMenu}
                                 >
                                     <Icon className={styles.icon} name={subItem.icon} width={33} height={33} />
                                     {subItem.name}
@@ -54,7 +49,7 @@ export const NavigationSubBlock: FC<NavigationItem & NavigationProps> = ({
                             className={styles.moreLink}
                             href={formatLink(moreLink.link)}
                             withArrow="right"
-                            onClick={actionToCloseBurgerMenu}
+                            onClick={closeBurgerMenu}
                         >
                             {moreLink.name}
                         </Link>

@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 
 import { useCssClasses } from "@utils/getClassnames";
 
@@ -9,7 +9,7 @@ interface TextProps {
     isParagraph?: boolean;
     size?: "big" | "medium" | "small";
     color?: "darkTextColor" | "lightTextColor" | "greyTextColor" | "mostLightColor";
-    bold?: true | false;
+    semiBold?: true | false;
     className?: string;
     lineHeight?: 17 | 20 | 22 | 24 | 28 | 32;
 }
@@ -19,14 +19,13 @@ export const Text: FC<TextProps> = ({
     isParagraph,
     size = "medium",
     color = "darkTextColor",
-    bold = false,
+    semiBold = false,
     lineHeight = "",
     className,
 }) => {
     const textClasses = useCssClasses([
-        styles.general,
         styles[size],
-        bold && styles.bold,
+        semiBold && styles.semiBold,
         styles[color],
         styles[`lineHeight${lineHeight}`],
         className,
