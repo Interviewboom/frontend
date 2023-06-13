@@ -1,0 +1,54 @@
+@import "@sass/_colors.scss";
+
+.wraper {
+    max-width: 80rem;
+    background: #FFFFFF;
+    border-radius: 44px;
+    padding: 30px 60px;
+
+    .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+        background-color: rgba($primary-bg-light, 0.6);
+        border-radius: 16px;
+    }
+
+    .nameWrapper {
+        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .name {
+            color: $primary-text-dark;
+            font-size: 4.6rem;
+            letter-spacing: -0.09rem;
+        }
+
+        .target {
+            color: $primary-bg-green-light;
+        }
+
+        .infoWrapper {
+            display: flex;
+            gap: 10px;
+
+            .progressBar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+
+                .progressText {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}
