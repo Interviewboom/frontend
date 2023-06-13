@@ -103,9 +103,9 @@
 
         @include lte-desktop-large {
             margin: 4rem 0 0;
-            gap: 4rem;
+            gap: 3.5rem;
             flex-flow: column;
-            align-items: flex-start;
+            align-items: center;
 
             .infoLeftParagraph {
                 min-width: 30rem;
@@ -122,7 +122,7 @@
                 }
 
                 .infoRightDescription {
-                    gap: 4%;
+                    gap: 5rem;
 
                     .infoSmallParagraph {
                         width: 33rem;
@@ -140,25 +140,31 @@
                 }
             }
         }
-
         @include lte-tablet {
             margin-top: 4rem;
+            flex-flow: row wrap;
             align-items: flex-start;
-            gap: 2rem;
+            justify-content: center;
+            gap: 6rem;
 
             .infoLeftParagraph {
+                min-width: 30rem;
                 padding: 0;
             }
 
             .infoRight {
+                width: 45%;
+
                 .infoTitle {
-                    width: 34.5rem;
+                    align-self: center;
+                    width: 30rem;
                     font: 500 2.4rem/115% $fracktif-medium;
                 }
 
                 .infoRightDescription {
                     gap: 3rem;
-                    flex-flow: column;
+                    align-items: center;
+                    justify-content: center;
 
                     .infoSmallParagraph {
                         width: 30rem;
@@ -166,13 +172,43 @@
                     }
 
                     .infoRightWithSnippet {
-                        gap: 4rem;
-                        width: 27rem;
+                        width: 30rem;
 
                         .infoParagraph {
                             font-size: 1.6rem;
                             line-height: 140%;
                         }
+                    }
+                }
+            }
+        }
+
+        @include mobile-large {
+            flex-flow: column;
+            align-items: center;
+            gap: 2rem;
+
+            .infoLeftParagraph {
+                min-width: 0;
+                width: 25rem;
+            }
+
+            .infoRight {
+                width: 25rem;
+
+                .infoTitle {
+                    width: 25rem;
+                    font: 500 2.4rem/115% $fracktif-medium;
+                }
+
+                .infoRightDescription {
+
+                    .infoSmallParagraph {
+                        width: 25rem;
+                    }
+
+                    .infoRightWithSnippet {
+                        width: 25rem;
                     }
                 }
             }
@@ -189,6 +225,7 @@
             justify-content: flex-start;
 
             .journeyLeft {
+                text-align: center;
                 flex: 0.25;
                 color: $primary-text-light;
                 font: 600 1.8rem/140% $fracktif-medium;
@@ -240,14 +277,14 @@
                 gap: 4rem;
 
                 .journeyLeft {
-                    align-self: flex-start;
+                    align-self: center;
                     min-width: 30rem;
                     font: 600 1.6rem/140% $fracktif-medium;
                 }
 
                 .guide {
                     gap: 4rem;
-                    justify-content: flex-start;
+                    justify-content: center;
                 }
             }
         }
@@ -256,7 +293,16 @@
             margin: 0;
 
             .journeyWrapper {
+                .journeyLeft {
+                    min-width: 0;
+                    width: fit-content;
+                    align-self: center;
+                    justify-self: center;
+                }
+
                 .guide {
+                    justify-content: center;
+
                     .journeyButton {
                         max-width: 26rem;
                         font-size: 1.6rem;
@@ -268,5 +314,9 @@
     @include lte-desktop-large {
         padding: 3rem;
         gap: 6rem;
+    }
+
+    @include mobile-large {
+        padding: 1rem;
     }
 }
