@@ -33,7 +33,7 @@ const NAVIGATION_OUR_TESTS = {
     subList: SUB_LIST_OUR_TESTS,
     moreLink: SUB_OUR_TESTS_LIST_MORE,
 };
-const NAVIGATION_GET_IN_TOUCH = { name: "Support the project", link: ANCHOR_GET_IN_TOUCH };
+const NAVIGATION_GET_IN_TOUCH = { name: "Get in touch", link: ANCHOR_GET_IN_TOUCH };
 
 export const NAVIGATION_ITEMS = [
     NAVIGATION_HOME,
@@ -44,9 +44,9 @@ export const NAVIGATION_ITEMS = [
 
 // Auth links
 const LINK_SIGN_IN = "/auth/sign-in";
-const LINK_SIGN_UP = "/auth/sign-up";
+// const LINK_SIGN_UP = "/auth/sign-up";
 
 const AUTH_SIGN_IN = { name: "Sign in", link: LINK_SIGN_IN };
-const AUTH_SIGN_UP = { name: "Sign up", link: LINK_SIGN_UP };
+// const AUTH_SIGN_UP = { name: "Sign up", link: LINK_SIGN_UP };
 
-export const AUTH_ITEMS = [AUTH_SIGN_IN, AUTH_SIGN_UP];
+export const AUTH_ITEMS = [AUTH_SIGN_IN];

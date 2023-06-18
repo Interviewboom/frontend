@@ -45,7 +45,7 @@ export const Header = () => {
                         <Navigation closeBurgerMenu={closeBurgerMenu} />
                         <Auth />
                     </div>
-                    <div className={styles.mobileWarpper}>
+                    <div className={styles.mobileWrapper}>
                         <Logo redirectToHome />
                         <button
                             className={styles.burgerBtn}

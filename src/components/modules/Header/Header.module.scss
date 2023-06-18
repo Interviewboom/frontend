@@ -2,7 +2,7 @@
 @import "@sass/_variables.scss";
 @import "@sass/_media.scss";
 
-.mobileWarpper {
+.mobileWrapper {
     position: fixed;
     top: 0;
     left: 0;
@@ -32,7 +32,7 @@
     &.headerShowBurger {
         background: $primary-bg-light;
 
-        .mobileWarpper {
+        .mobileWrapper {
             background: $primary-bg-light;
         }
     }
@@ -75,17 +75,17 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: .6rem;
+    gap: 0.6rem;
     width: 4.8rem;
     height: 1rem;
 
     &::before,
     &::after {
-        content: '';
+        content: "";
         width: 100%;
         height: 0.2rem;
         background-color: $primary-text-dark;
-        transition: opacity .2s, transform .2s;
+        transition: opacity 0.2s, transform 0.2s;
     }
 
     .headerShowBurger & {
