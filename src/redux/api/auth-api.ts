@@ -1,4 +1,8 @@
-import { SignUpRequest, SignInRequest } from "src/models/requests/request-params-model/request-params-model";
+import {
+    SignUpRequest,
+    SignInRequest,
+    ResetPasswordRequest,
+} from "src/models/requests/request-params-model/request-params-model";
 import { LoginResponse } from "src/models/responses/auth-response-model/auth-response-model";
 import { api } from "src/redux/api";
 
@@ -22,11 +26,20 @@ export const authApi = api.injectEndpoints({
                 };
             },
         }),
+        resetPassword: build.mutation<any, ResetPasswordRequest>({
+            query: credentials => {
+                return {
+                    url: "auth/reset",
+                    method: "POST",
+                    body: credentials,
+                };
+            },
+        }),
     }),
 });
 
 // Export hooks for usage in functional components
-export const { useLoginMutation, useRegisterMutation } = authApi;
+export const { useLoginMutation, useRegisterMutation, useResetPasswordMutation } = authApi;
 
 // export endpoints for use in SSR
 // export const { getNextSessionQuestion, getTestResults } = sessionsApi.endpoints;
