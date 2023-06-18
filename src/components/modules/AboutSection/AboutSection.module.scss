@@ -4,72 +4,319 @@
 
 .section {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background-color: $white;
-    margin-bottom: 10rem;
+    flex-flow: column;
+    background-color: $primary-text-dark;
+    padding: 4rem;
 
-    @include gte-desktop-large {
-        margin-bottom: 8rem;
+    .info {
+        margin: 7% 0 0 5%;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 1%;
+
+        & > * {
+            color: $primary-text-light;
+        }
+
+        .infoLeftParagraph {
+            flex: 0.25;
+            padding: 0.5rem;
+            font-size: 1.8rem;
+        }
+
+        .infoRight {
+            flex: 0.7;
+            display: flex;
+            flex-flow: column wrap;
+            gap: 4rem;
+
+            & > * {
+                color: $primary-text-light;
+            }
+
+            .infoTitle {
+                width: 89rem;
+                font: 500 4.6rem/110% $fracktif-medium;
+                letter-spacing: -0.03rem;
+            }
+
+            .infoRightDescription {
+                display: flex;
+                flex-flow: row wrap;
+                gap: 6%;
+
+                .infoSmallParagraph {
+                    width: 36rem;
+                    color: $primary-text-light;
+                    font-size: 1.2rem;
+                }
+
+                .infoRightWithSnippet {
+                    width: 36rem;
+                    display: flex;
+                    flex-flow: column wrap;
+                    gap: 5rem;
+
+                    .infoParagraph {
+                        color: $primary-text-light;
+                        font-size: 1.8rem;
+                    }
+                }
+            }
+        }
+        @media screen and (max-width: $breakpoint-desktop-content) {
+            margin: 4rem 0;
+
+            .infoLeftParagraph {
+                font-size: 1.6rem;
+            }
+
+            .infoRight {
+                flex: 0.7;
+                gap: 4rem;
+
+                .infoTitle {
+                    width: 80rem;
+                    font: 500 4rem/110% $fracktif-medium;
+                }
+
+                .infoRightDescription {
+                    gap: 6%;
+
+                    .infoSmallParagraph {
+                        width: 36rem;
+                        font-size: 1.2rem;
+                    }
+
+                    .infoRightWithSnippet {
+                        gap: 4rem;
+
+                        .infoParagraph {
+                            font-size: 1.6rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include lte-desktop-large {
+            margin: 4rem 0 0;
+            gap: 3.5rem;
+            flex-flow: column;
+            align-items: center;
+
+            .infoLeftParagraph {
+                min-width: 30rem;
+                font-size: 1.6rem;
+            }
+
+            .infoRight {
+                flex: 0.7;
+                gap: 4rem;
+
+                .infoTitle {
+                    width: 74rem;
+                    font: 500 4rem/110% $fracktif-medium;
+                }
+
+                .infoRightDescription {
+                    gap: 5rem;
+
+                    .infoSmallParagraph {
+                        width: 33rem;
+                        font-size: 1.2rem;
+                    }
+
+                    .infoRightWithSnippet {
+                        gap: 4rem;
+                        width: 33rem;
+
+                        .infoParagraph {
+                            font-size: 1.6rem;
+                        }
+                    }
+                }
+            }
+        }
+        @include lte-tablet {
+            margin-top: 4rem;
+            flex-flow: row wrap;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 6rem;
+
+            .infoLeftParagraph {
+                min-width: 30rem;
+                padding: 0;
+            }
+
+            .infoRight {
+                width: 45%;
+
+                .infoTitle {
+                    align-self: center;
+                    width: 30rem;
+                    font: 500 2.4rem/115% $fracktif-medium;
+                }
+
+                .infoRightDescription {
+                    gap: 3rem;
+                    align-items: center;
+                    justify-content: center;
+
+                    .infoSmallParagraph {
+                        width: 30rem;
+                        font-size: 1rem;
+                    }
+
+                    .infoRightWithSnippet {
+                        width: 30rem;
+
+                        .infoParagraph {
+                            font-size: 1.6rem;
+                            line-height: 140%;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include mobile-large {
+            flex-flow: column;
+            align-items: center;
+            gap: 2rem;
+
+            .infoLeftParagraph {
+                min-width: 0;
+                width: 25rem;
+            }
+
+            .infoRight {
+                width: 25rem;
+
+                .infoTitle {
+                    width: 25rem;
+                    font: 500 2.4rem/115% $fracktif-medium;
+                }
+
+                .infoRightDescription {
+
+                    .infoSmallParagraph {
+                        width: 25rem;
+                    }
+
+                    .infoRightWithSnippet {
+                        width: 25rem;
+                    }
+                }
+            }
+        }
     }
-}
 
-.wrapper {
-    display: grid;
-    grid-template-columns: minmax(40rem, 63.3rem) minmax(50rem, 73.6rem);
-    justify-content: space-between;
-    column-gap: 2.5rem;
-    padding: 10rem 1.5rem 6.6rem;
-    width: $breakpoint-desktop-content;
+    .journey {
+        margin: 7% 0 0 5%;
 
-    @include gte-desktop-large {
-        grid-template-columns: 1fr;
-        padding: 0 1.5rem;
+        .journeyWrapper {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: flex-start;
+            justify-content: flex-start;
+
+            .journeyLeft {
+                text-align: center;
+                flex: 0.25;
+                color: $primary-text-light;
+                font: 600 1.8rem/140% $fracktif-medium;
+                margin: 2rem 0 0;
+            }
+
+            .guide {
+                max-width: 95rem;
+                flex: 0.7;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: flex-start;
+                gap: 5rem;
+
+                .journeyButton {
+                    width: 36rem;
+                    font-weight: 500;
+                    white-space: nowrap;
+                    margin: 0;
+                    align-self: flex-start;
+                    justify-self: flex-start;
+                    font-family: $fracktif-medium;
+                }
+            }
+        }
+
+        @media screen and (max-width: $breakpoint-desktop-content) {
+            margin: 0;
+
+            .journeyWrapper {
+                .journeyLeft {
+                    flex: 0.25;
+                    font: 600 1.6rem/140% $fracktif-medium;
+                }
+
+                .guide {
+                    flex: 0.75;
+                    gap: 5rem;
+                }
+            }
+        }
+
+        @include lte-desktop-large {
+            margin: 4rem 0 0;
+
+            .journeyWrapper {
+                flex-flow: column;
+                align-items: center;
+                gap: 4rem;
+
+                .journeyLeft {
+                    align-self: center;
+                    min-width: 30rem;
+                    font: 600 1.6rem/140% $fracktif-medium;
+                }
+
+                .guide {
+                    gap: 4rem;
+                    justify-content: center;
+                }
+            }
+        }
+
+        @include lte-tablet {
+            margin: 0;
+
+            .journeyWrapper {
+                .journeyLeft {
+                    min-width: 0;
+                    width: fit-content;
+                    align-self: center;
+                    justify-self: center;
+                }
+
+                .guide {
+                    justify-content: center;
+
+                    .journeyButton {
+                        max-width: 26rem;
+                        font-size: 1.6rem;
+                    }
+                }
+            }
+        }
     }
-}
-
-.titleWrapper {
-    display: flex;
-    align-items: center;
-    padding: 0.8rem 0;
-    margin-bottom: 3rem;
-
-    @include gte-desktop-large {
-        margin-bottom: 2rem;
+    @include lte-desktop-large {
+        padding: 3rem;
+        gap: 6rem;
     }
-}
 
-.text {
-    flex-shrink: 2;
-    max-width: 64.3rem;
-    padding-right: 1rem;
-}
-
-.image {
-    grid-row: 1/4;
-    grid-column: 2/3;
-    border-radius: 0.8rem;
-    overflow: hidden;
-    max-width: 73.6rem;
-
-    @include gte-desktop-large {
-        grid-row: 2/3;
-        grid-column: unset;
-        margin-bottom: 2.4rem;
-    }
-}
-
-.titleMargin {
-    margin-right: 1.5rem;
-}
-
-.pMargin {
-    margin-bottom: 3rem;
-}
-
-.logo {
-    @include gte-desktop-large {
-        max-width: 20rem;
+    @include mobile-large {
+        padding: 1rem;
     }
 }

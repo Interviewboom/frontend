@@ -1,0 +1,78 @@
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+@import "@sass/_media.scss";
+
+.stepContainer {
+    display: flex;
+    flex-flow: column;
+    gap: 0.5rem;
+    width: 40rem;
+
+    & > * {
+        color: $primary-text-light;
+    }
+
+    .step {
+        font-weight: 600;
+        font-size: 1.8rem;
+        line-height: 140%;
+    }
+
+    .stepTitle {
+        white-space: pre-wrap;
+        font-weight: 500;
+        font-size: 4.6rem;
+        line-height: 110%;
+    }
+
+    .stepSubtitle {
+        font-weight: 500;
+        font-size: 1.8rem;
+        line-height: 140%;
+        opacity: 0.3;
+    }
+
+    @media screen and (max-width: $breakpoint-desktop-content) {
+        width: 38rem;
+
+        .step {
+            font-weight: 600;
+            font-size: 1.6rem;
+            line-height: 140%;
+        }
+
+        .stepTitle {
+            font-weight: 500;
+            font-size: 4.3rem;
+            line-height: 110%;
+        }
+
+        .stepSubtitle {
+            font-weight: 500;
+            font-size: 1.6rem;
+            line-height: 140%;
+        }
+    }
+
+    @include lte-desktop-large {
+        gap: 0.5rem;
+        width: 32.5rem;
+
+        .stepTitle {
+            font-weight: 500;
+            font-size: 4rem;
+            line-height: 110%;
+        }
+    }
+
+    @include lte-tablet {
+        gap: 0.5rem;
+        width: 26rem;
+
+        .stepTitle {
+            font-weight: 500;
+            font-size: 2.4rem;
+            line-height: 110%;
+        }
+    }
+}
