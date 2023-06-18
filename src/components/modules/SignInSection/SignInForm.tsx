@@ -22,7 +22,7 @@ export const SignInForm: FC = () => {
     const dispatch = useAppDispatch();
     const router = useRouter();
 
-    const [loginRequest, { data, isError }] = useLoginMutation();
+    const [loginRequest, { data, error, isError }] = useLoginMutation();
 
     useEffect(() => {
         if (data?.accessToken) {
@@ -92,7 +92,12 @@ export const SignInForm: FC = () => {
                 </div>
             }
         >
-            {textFields.map(({ type, placeholder, error, value, name }) => (
+            {isError && (
+                <div className={styles.errorWrapper}>
+                    <Text size="big">{error?.data?.message}</Text>
+                </div>
+            )}
+            {textFields.map(({ type, placeholder, error: err, value, name }) => (
                 <TextField
                     key={placeholder}
                     name={name}
@@ -100,7 +105,7 @@ export const SignInForm: FC = () => {
                     placeholder={placeholder}
                     value={value}
                     onChange={formik.handleChange}
-                    error={error || (isError ? "Error" : "")}
+                    err={err}
                 />
             ))}
         </Auth>

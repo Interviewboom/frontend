@@ -18,7 +18,7 @@ interface FormValues {
 }
 
 export const SignUpForm: FC = () => {
-    const [registerRequest] = useRegisterMutation();
+    const [registerRequest, { error, isError }] = useRegisterMutation();
 
     const submitHandler = async (
         values: FormValues,
@@ -101,7 +101,12 @@ export const SignUpForm: FC = () => {
                 </div>
             }
         >
-            {textFields.map(({ type, placeholder, value, error, name }) => (
+            {isError && (
+                <div className={styles.errorWrapper}>
+                    <Text size="big">{error?.data?.message}</Text>
+                </div>
+            )}
+            {textFields.map(({ type, placeholder, value, error: err, name }) => (
                 <TextField
                     key={placeholder}
                     name={name}
@@ -109,7 +114,7 @@ export const SignUpForm: FC = () => {
                     placeholder={placeholder}
                     value={value}
                     onChange={formik.handleChange}
-                    error={error}
+                    err={err}
                 />
             ))}
         </Auth>

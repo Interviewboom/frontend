@@ -32,3 +32,17 @@
         cursor: pointer;
     }
 }
+
+.errorWrapper {
+    display: flex;
+    align-items: center;
+    height: 7.4rem;
+    margin: 0.5rem 2rem;
+    padding: 2rem 4rem;
+    border-radius: 1.6rem;
+    background-color: $error-bg;
+
+    span {
+        color: $error-text;
+    }
+}
