@@ -69,7 +69,7 @@ export const TextField: FC<TextFieldProps> = ({
                     }`}
                     {...getExistingAttributes(conditionalAttributes)}
                 />
-                {type === "password" && !error && (
+                {type === "password" && !error && value && (
                     <button type="button" className={styles.inputToggler} onClick={toggleVisibility}>
                         {isPasswordVisible ? (
                             <Icon name="eye-crossed" width={30} height={30} />

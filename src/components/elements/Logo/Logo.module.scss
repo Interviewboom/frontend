@@ -3,22 +3,21 @@
 
 .logo {
     & > button {
-        font-family: $fracktif-medium;
+        font-family: $fracktif-semi-bold;
         font-style: normal;
         cursor: pointer;
-        color: $primary_light;
+        color: $primary-text-light;
         font-size: 1.8rem;
-        font-weight: 600;
         width: 12.6rem;
         height: 2.5rem;
         line-height: 140%;
     }
 
     .dark {
-        color: $primary-dark;
+        color: $primary-text-dark;
     }
 
     .light {
-        color: $primary-light;
+        color: $primary-text-light;
     }
 }

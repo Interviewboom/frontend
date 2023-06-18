@@ -11,7 +11,7 @@ type TestsSectionsProps = {
 };
 
 const TestsSection: FC<TestsSectionsProps> = () => {
-    const { lteLarge } = useBreakpoint();
+    const { lteMedium } = useBreakpoint();
 
     const badges = [
         "Objects",
@@ -60,7 +60,7 @@ const TestsSection: FC<TestsSectionsProps> = () => {
             test_category_id: 3,
         },
     ];
-    return lteLarge ? <TestsSectionMobile popularTests={tests} /> : <TestsSectionDesktop popularTests={tests} />;
+    return lteMedium ? <TestsSectionMobile popularTests={tests} /> : <TestsSectionDesktop popularTests={tests} />;
 };
 
 export default TestsSection;

@@ -7,8 +7,7 @@
     justify-content: center;
     width: 100%;
     padding: 0 1.5rem;
-    background: $most-light-color;
-    font-family: $primary-font;
+    background: $white;
     margin-bottom: 20rem;
 
     @include lte-tablet-large {
@@ -17,14 +16,14 @@
 }
 
 .wrapper {
-    background-color: $light-lime-color;
+    background-color: $lime-light;
     display: flex;
     justify-content: center;
     padding: 10rem 1.5rem;
     max-width: $breakpoint-desktop-content;
     width: 100%;
     border-radius: 0.8rem;
-    border: 1px solid $light-grey-color;
+    border: 1px solid $grey-light;
 
     @include lte-tablet-large {
         padding: 4rem 1.5rem;

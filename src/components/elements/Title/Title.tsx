@@ -13,7 +13,7 @@ interface TitleProps {
 type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 export const Title: FC<TitleProps> = ({ level = 3, children, color = "darkTextColor", className }) => {
-    const titleClasses = useCssClasses([styles.heading, styles[`heading${level}`], styles[color], className]);
+    const titleClasses = useCssClasses([styles[`heading${level}`], styles[color], className]);
     const Tag = `h${level}` as HeadingTag;
 
     return <Tag className={titleClasses}>{children}</Tag>;

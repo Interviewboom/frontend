@@ -6,8 +6,8 @@
     display: flex;
     align-items: center;
     padding: 2rem 4rem;
-    color: $primary-dark;
-    background-color: $page-background-color;
+    color: $primary-text-dark;
+    background-color: $primary-bg-light;
 
     .backBtnContainer {
         position: absolute;
@@ -17,21 +17,20 @@
         cursor: pointer;
 
         .arrowLeftIcon path {
-            fill: $primary-dark;
+            fill: $primary-text-dark;
         }
 
         .backBtnText {
-            font-family: $fracktif-medium;
-            font-size: 1.6rem;
-            color: $primary-dark;
-            border-bottom: 1px $primary-dark solid;
+            font-size: 1.8rem;
+            color: $primary-text-dark;
+            border-bottom: 1px $primary-text-dark solid;
             margin-top: 0.1rem;
-            transition: all 0.1s ease-out;
+            transition: all 0.2s ease-out;
 
             &:hover {
                 margin-top: 0.4rem;
                 padding-bottom: 0.3rem;
-                transition: all 0.1s ease-in-out;
+                transition: all 0.2s ease-in;
             }
         }
     }

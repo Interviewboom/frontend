@@ -1,11 +1,6 @@
 @import "@sass/_colors.scss";
 @import "@sass/_variables.scss";
 
-.general {
-    font-family: $primary-font;
-    font-weight: 400;
-}
-
 .big {
     font-size: 1.8rem;
     line-height: 2.8rem;
@@ -21,24 +16,24 @@
     line-height: 2rem;
 }
 
-.bold {
-    font-weight: 700;
+.semiBold {
+    font-family: $fracktif-semi-bold;
 }
 
 .darkTextColor {
-    color: $dark-text-color;
+    color: $secondary-dark;
 }
 
 .lightTextColor {
-    color: $light-text-color;
+    color: $primary-text-light;
 }
 
 .greyTextColor {
-    color: $grey-text-color;
+    color: $grey-dark;
 }
 
 .mostLightColor {
-    color: $most-light-color;
+    color: $white;
 }
 
 .lineHeight32 {

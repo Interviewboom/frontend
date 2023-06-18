@@ -1,32 +1,30 @@
-$most-light-color: #fff;
-$why-section-text-color: #f5f5f5;
-$light-text-color: #bdbdbd;
-$dark-text-color: #333;
-$input-background-color: #fafafa;
-$primary-dark: #16161f;
-$light-grey-color: #e0e0e0;
-$input-focus-color: #5d8f54;
-$input-error-color: #ea4335;
-$light-error-color: #eb5757;
-$text-error-color: #f57052;
-$bg-error-color: rgb(245 112 82 / 10%);
-$light-lime-color: #f5fff9;
-$dark-green-color: #219653;
-$light-green-color: #27ae60;
-$button-default-color: #7ca376;
-$button-hover-color: #62895c;
-$button-disabled-color: #eaeaea;
-$button-default-text-color: #f8f8f8;
-$button-disabled-text-color: #16161f30;
-$button-background-color: #f1f1f1;
-$button-text-color: #777;
-$grey-text-color: #828282;
-$dark-background: #161616;
+// Plain
+$white: #fff;
 $black: #000;
-$main-background-color: #74A253;
-$image-background: #fbfaf9;
-$primary-light: #f5f5f5;
-$background-secondary-dark: #0d0d12;
-$background-secondary-light: #f3f3f1;
-$light-queaternarty-bg-color: #74a253;
-$button-hover-bg-color: #4c742f;
+
+// Primary
+$primary-text-light: #f5f5f5;
+$primary-text-dark: #16161f;
+$primary-bg-light: #f3f3f1;
+$primary-bg-dark: #0d0d12;
+$primary-bg-green-light: #74a253;
+
+// Secondary
+$secondary-light: #f1f1f1;
+$secondary-dark: #333;
+
+// Error
+$error-bg: rgb(245 112 82 / 10%);
+$error: #eb5757;
+
+// Other
+$btn-hover-bg: #4c742f;
+$disabled: #eaeaea;
+$green-light: #27ae60;
+$grey-light: #e0e0e0;
+$grey-dark: #828282;
+$grey-darker: #777;
+$image-bg: #fbfaf9;
+$lime-light: #f5fff9;
+$silver: #bdbdbd;
+$badge-yellow: #f6e01e;

@@ -60,7 +60,7 @@ const TestsSectionMobile: FC<TestsSectionsProps> = ({ popularTests }) => {
                                 </div>
                                 <div className={styles.description}>
                                     {/* <ButtonLink href={`/categories/${test_category_id}/test/${id}`}>{title}</ButtonLink> */}
-                                    <Text>{title}</Text>
+                                    <Text className={styles.testTitle}>{title}</Text>
                                     {type ? (
                                         <Image
                                             src="/assets/images/greetingSection/icon.png"
@@ -91,7 +91,7 @@ const TestsSectionMobile: FC<TestsSectionsProps> = ({ popularTests }) => {
                                             </>
                                         ) : null}
                                     </div>
-                                    <Text>{description}</Text>
+                                    <Text className={styles.text}>{description}</Text>
                                     <Button>Let’s start testing</Button>
                                 </div>
                             </div>
