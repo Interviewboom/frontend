@@ -94,6 +94,12 @@
         }
     }
 
+    @include lte-desktop-large {
+        .content {
+            gap: 2rem;
+        }
+    }
+
     @include lte-desktop {
         .content {
             flex-flow: column;
@@ -101,34 +107,27 @@
             gap: 3rem;
 
             .navigation {
-                position: relative;
-                display: flex;
-                flex-flow: row;
-                align-items: flex-start;
+                gap: 3rem;
+                flex-direction: column;
+            }
+
+            .designer {
+                letter-spacing: -0.015rem;
+                transform: translate(1rem, 4.6rem);
+                width: 9rem;
+                left: 50%;
+                font-size: 1rem;
+
+                .designerLink {
+                    white-space: nowrap;
+                }
             }
 
             .rights {
-                align-self: flex-start;
-                font-size: 1.2rem;
-                color: $primary-text-light;
-                opacity: 0.3;
-            }
-        }
-
-        .designer {
-            white-space: nowrap;
-            position: absolute;
-            transform: translateY(5.5rem);
-            bottom: 0;
-            left: 0;
-            font-size: 1.2rem;
-            color: $primary-text-light;
-
-            .designerLink {
-                text-decoration: underline;
-                text-underline-offset: 0.25rem;
-                color: $primary-text-light;
-                margin-left: 0.5rem;
+                letter-spacing: -0.015rem;
+                word-wrap: break-word;
+                font-size: 1rem;
+                width: 10rem;
             }
         }
     }
