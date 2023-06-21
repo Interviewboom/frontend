@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import React, { ComponentType, FC, SVGProps, useMemo } from "react";
+import { ComponentType, FC, SVGProps, useMemo } from "react";
 
 import { useCssClasses } from "@utils/getClassnames";
 

@@ -81,3 +81,10 @@
         text-decoration-line: underline;
     }
 }
+
+.bgBlur {
+    filter: blur(22px);
+    background: $secondary-bg-light;
+    user-select: none;
+    pointer-events: none;
+}

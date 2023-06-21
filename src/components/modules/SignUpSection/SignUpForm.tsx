@@ -1,3 +1,4 @@
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { useFormik } from "formik";
 import { FC } from "react";
 
@@ -18,7 +19,11 @@ interface FormValues {
 }
 
 export const SignUpForm: FC = () => {
-    const [registerRequest, { error, isError }] = useRegisterMutation();
+    const [registerRequest, { error, isLoading }] = useRegisterMutation();
+
+    const isFetchBaseQueryError = (err: unknown): err is FetchBaseQueryError => {
+        return typeof err === "object" && err !== null && "status" in err;
+    };
 
     const submitHandler = async (
         values: FormValues,
@@ -82,7 +87,9 @@ export const SignUpForm: FC = () => {
         <Auth
             title="Create account"
             description="Once you’re done you’ll get access to your personalised roadmap"
+            error={isFetchBaseQueryError(error) && error}
             isSubmitting={formik.isSubmitting}
+            isLoading={isLoading}
             onSubmit={formik.handleSubmit}
             afterContent={
                 <Text className={styles.additionalInfo}>
@@ -101,11 +108,6 @@ export const SignUpForm: FC = () => {
                 </div>
             }
         >
-            {isError && (
-                <div className={styles.errorWrapper}>
-                    <Text size="big">{error?.data?.message}</Text>
-                </div>
-            )}
             {textFields.map(({ type, placeholder, value, error: err, name }) => (
                 <TextField
                     key={placeholder}

@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FC, useCallback, useId, useState } from "react";
+import { ChangeEventHandler, FC, useCallback, useId, useState } from "react";
 
 import { Icon } from "@elements/Icon";
 
