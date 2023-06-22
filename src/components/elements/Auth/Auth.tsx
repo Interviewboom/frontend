@@ -1,4 +1,3 @@
-import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { ReactNode, FC, useState, useEffect } from "react";
 
 import { Button } from "@elements/Button";
@@ -25,7 +24,7 @@ interface AuthProps {
     children: ReactNode;
     title: string;
     description: string;
-    error?: ErrorProps | any;
+    error?: ErrorProps;
     beforeContent?: ReactNode;
     afterContent?: ReactNode;
     onSubmit: () => void;
@@ -63,11 +62,7 @@ export const Auth: FC<AuthProps> = ({
 }: AuthProps) => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(true);
 
-    const isFetchBaseQueryError = (err: unknown): err is FetchBaseQueryError => {
-        return typeof err === "object" && err !== null && "status" in err;
-    };
-
-    const are500thsErrors = FIVE_HUNDRED_ERRORS.test((isFetchBaseQueryError(error) && error?.status.toString()) || "");
+    const are500thsErrors = FIVE_HUNDRED_ERRORS.test(error?.status.toString() || "");
 
     useEffect(() => {
         if (!are500thsErrors) {

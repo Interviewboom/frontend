@@ -1,4 +1,4 @@
-import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { useFormik } from "formik";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
@@ -24,10 +24,6 @@ export const SignInForm: FC = () => {
     const router = useRouter();
 
     const [loginRequest, { data, error, isLoading }] = useLoginMutation();
-
-    const isFetchBaseQueryError = (err: unknown): err is FetchBaseQueryError => {
-        return typeof err === "object" && err !== null && "status" in err;
-    };
 
     useEffect(() => {
         if (data?.accessToken) {
@@ -80,7 +76,7 @@ export const SignInForm: FC = () => {
             isSubmitting={formik.isSubmitting}
             title="Sign in"
             description="Welcome back!"
-            error={isFetchBaseQueryError(error) && error}
+            error={error as FetchBaseQueryError | any}
             isLoading={isLoading}
             onSubmit={formik.handleSubmit}
             beforeContent={

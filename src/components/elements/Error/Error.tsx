@@ -6,7 +6,7 @@ import { useCssClasses } from "@utils/getClassnames";
 import styles from "./Error.module.scss";
 
 type ErrorProps = {
-    semiBold?: true | false;
+    semiBold?: boolean;
     description: string;
     isAdaptive?: boolean;
     className?: string;

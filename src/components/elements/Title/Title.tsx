@@ -8,7 +8,7 @@ interface TitleProps {
     level?: 1 | 2 | 3 | 4 | 5;
     children: ReactNode;
     color?: "darkTextColor" | "lightTextColor" | "mostLightColor";
-    semiBold?: true | false;
+    semiBold?: boolean;
     className?: string;
 }
 type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
