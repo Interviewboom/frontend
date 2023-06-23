@@ -5,7 +5,6 @@
 .nodeList {
     display: flex;
     flex-flow: column;
-    font-family: $primary-font;
     list-style-type: none;
     padding: 0.5rem;
     position: relative;
@@ -18,7 +17,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: $background-secondary-light;
+            background-color: $primary-bg-light;
             height: 2.8rem;
             width: 2.8rem;
             border-radius: 3.8rem;
@@ -33,14 +32,14 @@
         .horizontalDash {
             min-width: 5rem;
             max-width: 5rem;
-            border-bottom: 2px dotted $background-secondary-light;
+            border-bottom: 2px dotted $primary-bg-light;
             content: "";
             z-index: 3;
             position: relative;
         }
 
         .nodeName {
-            background-color: $background-secondary-light;
+            background-color: $primary-bg-light;
             border-radius: 1rem;
             max-width: fit-content;
             min-width: fit-content;
@@ -48,7 +47,7 @@
             padding: 0.6rem 1.2rem;
             font-size: 1.8rem;
             font-weight: 500;
-            color: $input-primary-color;
+            color: $primary-text-dark;
             white-space: nowrap;
             position: relative;
             text-align: center;
@@ -56,13 +55,13 @@
             z-index: 5;
 
             &.finished {
-                color: $background-secondary-light;
-                background-color: $light-queaternarty-bg-color;
+                color: $primary-bg-light;
+                background-color: $primary-bg-green-light;
             }
 
             &:hover {
                 cursor: pointer;
-                background-color: $light-queaternarty-bg-color;
+                background-color: $primary-bg-green-light;
             }
         }
     }
@@ -70,7 +69,7 @@
     .verticalDash {
         position: absolute;
         content: "";
-        border-left: 2px dotted $background-secondary-light;
+        border-left: 2px dotted $primary-bg-light;
         top: 3.5rem;
         z-index: 3;
     }
