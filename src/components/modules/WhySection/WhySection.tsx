@@ -14,8 +14,9 @@ export const WhySection = () => {
                     <div>
                         <Image
                             src="/assets/images/dashboard.png"
-                            width={1400}
-                            height={780}
+                            width={1182}
+                            height={688}
+                            quality={100}
                             alt="Developer’s roadmap"
                             priority
                         />

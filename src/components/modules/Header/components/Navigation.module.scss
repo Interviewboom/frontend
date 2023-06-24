@@ -1,0 +1,152 @@
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+@import "@sass/_media.scss";
+
+.navigationList {
+    display: flex;
+    gap: 1.5rem;
+
+    @include lte-tablet-large {
+        flex-direction: column;
+        gap: .5rem;
+    }
+}
+
+.navigationLink {
+    line-height: 140%;
+    padding: 0.6rem 0.8rem;
+    border-radius: 1rem;
+    transition: background-color .2s;
+
+    @include lte-tablet-large {
+        font-size: 2.4rem;
+        line-height: 1.15;
+        padding: 0;
+        border-radius: none;
+    }
+}
+
+.navigationItem {
+    position: relative;
+
+    &:is(&:hover, &.active) {
+        .navigationLink {
+            background-color: $primary-bg-light;
+        }
+    }
+
+    @media (hover:hover) {
+        &:hover {
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 100%;
+                width: 100%;
+                height: 1rem;
+            }
+
+            .navigationSubBlock {
+                display: flex;
+            }
+
+            @include lte-tablet-large {
+                .navigationSubBlock:not(.active) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .mobileMoreBtn {
+        display: none;
+    }
+
+    @include lte-tablet-large {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .mobileMoreBtn {
+            display: flex;
+            padding: 1rem;
+        }
+    }
+}
+
+.navigationSubBlock {
+    position: absolute;
+    top: calc(100% + .5rem);
+    left: 0;
+    display: none;
+    align-items: flex-start;
+    width: 58.5rem;
+    padding: 4rem 6rem;
+    background: rgba($primary-bg-light, 0.8);
+    box-shadow: 0 0 6rem 2rem rgb(0 0 0 / 10%);
+    backdrop-filter: blur(2.2rem);
+    border-radius: 1rem;
+
+    @media screen and (max-width: 1400px) {
+        padding: 2rem 4rem;
+        width: 46rem;
+    }
+
+    .moreLink {
+        margin-top: .8rem;
+    }
+
+    .backButton {
+        display: none;
+    }
+
+    @include lte-tablet-large {
+        &.active {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            padding: 3rem 1.5rem;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background: $primary-bg-light;
+            backdrop-filter: none;
+        }
+
+        .backButton {
+            display: flex;
+        }
+    }
+}
+
+.navigationSubBlockList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex-grow: 1;
+    margin-right: 3rem;
+    border-right: .1rem solid rgba($primary-text-dark, .05);
+
+    @include lte-tablet-large {
+        flex-grow: 0;
+        width: 100%;
+        margin: 7.2rem 0 3rem;
+        padding-bottom: 3rem;
+        border-right: none;
+        border-bottom: .1rem solid rgba($primary-text-dark, .05);;
+    }
+}
+
+.navigationSubBlockLink {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    .icon {
+        overflow: hidden;
+        border-radius: .8rem;
+    }
+}

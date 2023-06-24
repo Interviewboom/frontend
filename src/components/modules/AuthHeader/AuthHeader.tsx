@@ -30,8 +30,10 @@ export const AuthHeader: FC<AuthHeaderProps> = ({ logoComponent }) => {
                 onKeyDown={handleKeyDown}
                 role="button"
             >
-                <Icon name="arrowLeft" width={12} height={12} className={styles.arrowLeftIcon} />
-                <span className={styles.backBtnText}>back</span>
+                <Icon name="arrowLeft" width={10} height={10} className={styles.arrowLeftIcon} />
+                <button type="button" className={styles.backBtnText}>
+                    back
+                </button>
             </div>
             <div className={styles.logo}>{logoComponent}</div>
         </div>
