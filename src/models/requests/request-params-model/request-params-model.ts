@@ -14,3 +14,6 @@ export interface SignUpRequest {
 export interface ResetPasswordRequest {
     email: string;
 }
+export interface ChangePasswordRequest {
+    password: string;
+}
