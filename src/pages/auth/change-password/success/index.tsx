@@ -2,14 +2,14 @@ import { NextPage } from "next";
 import React, { FC } from "react";
 
 import { DefaultLayout } from "@layouts/DefaultLayout";
-import { ChangePasswordForm } from "@modules/ChangePasswordSection";
+import { ResetPasswordSuccess } from "@modules/ResetPasswordSection";
 
-const ChangePasswordPage: NextPage<FC> = () => {
+const ResetPasswordSuccessPage: NextPage<FC> = () => {
     return (
         <DefaultLayout>
-            <ChangePasswordForm />
+            <ResetPasswordSuccess />
         </DefaultLayout>
     );
 };
 
-export default ChangePasswordPage;
+export default ResetPasswordSuccessPage;
