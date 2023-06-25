@@ -28,3 +28,10 @@ export const signUpValidationSchema = Yup.object().shape({
 export const resetPasswordValidationSchema = Yup.object().shape({
     email: emailValidation,
 });
+
+export const changePasswordValidationSchema = Yup.object().shape({
+    password: passwordValidation,
+    confirmPassword: passwordValidation
+        .oneOf([Yup.ref("password")], "Passwords must match")
+        .required("Please confirm your password"),
+});

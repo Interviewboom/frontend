@@ -1,10 +1,14 @@
 import { useFormik } from "formik";
-import { FC } from "react";
+import { useRouter } from "next/router";
+import { FC, useEffect } from "react";
 
 import { Auth } from "@elements/Auth";
 import { Text } from "@elements/Text";
 import { TextField } from "@elements/TextField";
 import { resetPasswordValidationSchema } from "@utils/yupValidationSchemas";
+import { useResetPasswordMutation } from "src/redux/api/auth-api";
+import { useAppDispatch } from "src/redux/hooks";
+import { setAccessToken } from "src/redux/slices/authSlice";
 
 import styles from "./ResetPasswordForm.module.scss";
 
@@ -13,11 +17,24 @@ interface FormValues {
 }
 
 export const ResetPasswordForm: FC = () => {
+    const dispatch = useAppDispatch();
+    const router = useRouter();
+    const [resetRequest, { data }] = useResetPasswordMutation();
+
+    useEffect(() => {
+        if (data?.accessToken) {
+            dispatch(setAccessToken(data.accessToken));
+            router.push("reset-password");
+        }
+    }, [data, dispatch, router]);
+
     const submitHandler = async (
         values: FormValues,
         { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void } // eslint-disable-line no-unused-vars
     ) => {
-        // Perform form submission logic here
+        resetRequest({
+            email: values.email,
+        });
 
         setSubmitting(false);
     };
