@@ -1,28 +1,66 @@
 import React, { FC } from "react";
 
-import { Button } from "@elements/Button/Button";
-import { Title } from "@elements/Title/Title";
-import { Tests } from "@modules/Tests/Tests";
+import { useBreakpoint } from "src/hooks/useBreakpoint";
 import { TestModel } from "src/models/entities/test-model/test-model";
 
-import styles from "./TestsSection.module.scss";
+import TestsSectionDesktop from "./TestsSectionDesktop";
+import TestsSectionMobile from "./TestsSectionMobile";
 
 type TestsSectionsProps = {
     popularTests: TestModel[];
 };
 
-export const TestsSection: FC<TestsSectionsProps> = ({ popularTests }) => {
-    return (
-        <section className={styles.section} id="popular-tests">
-            <div className={styles.wrapper}>
-                <Title level={2} className={styles.titleMargin}>
-                    Popular tests
-                </Title>
-                <Tests testsArray={popularTests} areScrollable />
-                <div className={styles.btnWrapper}>
-                    <Button link="/all-tests">More tests</Button>
-                </div>
-            </div>
-        </section>
-    );
+const TestsSection: FC<TestsSectionsProps> = () => {
+    const { lteMedium } = useBreakpoint();
+
+    const badges = [
+        "Objects",
+        "NPM modules",
+        "Type casting",
+        "Promises",
+        "DOM",
+        "Memory management",
+        "Closures",
+        "Patterns",
+        "Comparisons",
+        "Event loop",
+        "Algorithms",
+        "Prototypes",
+    ];
+
+    const tests = [
+        {
+            id: 1,
+            title: "Javascript",
+            description:
+                "Check your abilities and showcase the expertise in JavaScript coding with our platform, join us to take the JavaScript knowledge to the next level!",
+            type: "Express Test",
+            level: "Junior",
+            badges,
+            test_category_id: 1,
+        },
+        {
+            id: 2,
+            title: "PHP",
+            description:
+                "From fundamental PHP concepts to advanced techniques, InterviewBoom assessments will test your proficiency and help you excel in coding.",
+            type: undefined,
+            level: undefined,
+            badges,
+            test_category_id: 2,
+        },
+        {
+            id: 3,
+            title: "C++",
+            description:
+                "From data structures to algorithms, the assessments will challenge and improve your proficiency.",
+            type: undefined,
+            level: undefined,
+            badges,
+            test_category_id: 3,
+        },
+    ];
+    return lteMedium ? <TestsSectionMobile popularTests={tests} /> : <TestsSectionDesktop popularTests={tests} />;
 };
+
+export default TestsSection;
