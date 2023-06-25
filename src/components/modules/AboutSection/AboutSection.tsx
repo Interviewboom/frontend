@@ -49,7 +49,7 @@ export const AboutSection = () => {
                     </Title>
                     <div className={styles.guide}>
                         {journeyData.map(({ step, title, subtitle }) => {
-                            return <JourneyStep step={step} title={title} subtitle={subtitle} />;
+                            return <JourneyStep key={title} step={step} title={title} subtitle={subtitle} />;
                         })}
                         <Button link="/auth/sign-up" className={styles.journeyButton}>
                             Begin my coding journey

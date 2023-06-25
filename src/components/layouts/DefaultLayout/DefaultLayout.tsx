@@ -3,6 +3,8 @@ import type { FC, ReactNode } from "react";
 import { Footer } from "@modules/Footer";
 import { Header } from "@modules/Header";
 
+import styles from "./DefaultLayout.module.scss";
+
 interface DefaultLayoutProps {
     children: ReactNode;
     error?: string;
@@ -10,7 +12,7 @@ interface DefaultLayoutProps {
 
 export const DefaultLayout: FC<DefaultLayoutProps> = ({ children, error }) => {
     return (
-        <div>
+        <div className={styles.main}>
             <Header />
             <div>{error || children}</div>
             <Footer />
