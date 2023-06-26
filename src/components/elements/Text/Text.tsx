@@ -36,6 +36,7 @@ export const Text: FC<TextProps> = ({
     if (isParagraph) {
         return <p className={textClasses}>{children}</p>;
     }
+
     return (
         <span {...(onClick ? { onClick } : {})} className={textClasses}>
             {children}

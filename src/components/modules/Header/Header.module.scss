@@ -25,9 +25,9 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 8rem;
+    height: 9rem;
     background: $white;
-    box-shadow: 0 1px 4px rgb(0 0 0 / 25%);
+    // box-shadow: 0 1px 4px rgb(0 0 0 / 25%);
 
     &.headerShowBurger {
         background: $primary-bg-light;

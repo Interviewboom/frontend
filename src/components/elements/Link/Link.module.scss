@@ -71,3 +71,19 @@ $link-hover-transform-amount: 6px;
         }
     }
 }
+
+.darkTextColor {
+    color: $primary-text-dark;
+}
+
+.lightTextColor {
+    color: $primary-text-light;
+}
+
+.greyTextColor {
+    color: $grey-dark;
+}
+
+.mostLightColor {
+    color: $white;
+}

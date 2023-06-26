@@ -2,17 +2,59 @@
 @import "@sass/_variables.scss";
 @import "@sass/_media.scss";
 
-
 .navigationList {
     display: flex;
+    align-items: center;
     gap: 2.5rem;
     white-space: nowrap;
-}
+    position: relative;
 
+    img {
+        position: relative;
+        border-radius: 1.6rem;
+        cursor: pointer;
+    }
 
-.navigationLink {
+    ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        bottom: -15rem;
+        right: 0;
+        padding: 2rem;
+        font-size: 1.8rem;
+        border-radius: 1rem;
+        background-color: $white;
+        border: 1px solid $border-light;
+
+        li {
+            padding: 0.8rem;
+
+            & span:hover {
+                cursor: pointer;
+                text-underline-offset: 0.4rem;
+                text-decoration-line: underline;
+            }
+        }
+    }
+
+    @include lte-mobile {
+        .userName {
+            display: none;
+        }
+    }
+
     @include lte-tablet-large {
         font-size: 2.4rem;
         line-height: 1.15;
+
+        ul {
+            right: -16rem;
+            bottom: 0;
+        }
     }
+}
+
+.opacity {
+    opacity: 0.7;
 }

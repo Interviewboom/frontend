@@ -2,6 +2,7 @@ interface NavigationTypes {
     name: string;
     link: string;
 }
+
 interface NavigationSubItem {
     icon: string;
 }

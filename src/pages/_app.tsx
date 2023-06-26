@@ -8,10 +8,13 @@ import { wrapper } from "src/redux/store";
 import "../styles/globals.scss";
 
 const App = ({ Component, ...rest }: AppProps) => {
-    const { store, props } = wrapper.useWrappedStore(rest);
+    const {
+        store,
+        props: { session, ...props },
+    } = wrapper.useWrappedStore(rest);
     return (
         <Provider store={store}>
-            <SessionProvider session={props.pageProps.session}>
+            <SessionProvider session={session}>
                 <Component {...props.pageProps} />
             </SessionProvider>
         </Provider>

@@ -1,4 +1,5 @@
 // Media Query Breakpoints
+$breakpoint-mobile-small: 374px;
 $breakpoint-mobile: 375px;
 $breakpoint-mobile-large: 576px;
 $breakpoint-tablet: 768px;
@@ -10,6 +11,12 @@ $breakpoint-desktop-content: 1496px;
 // Media Query Mixins
 // lte - less than equals
 // gte - greater than equals
+
+@mixin lte-mobile {
+    @media screen and (max-width: $breakpoint-mobile-small) {
+        @content;
+    }
+}
 
 @mixin mobile {
     @media screen and (max-width: $breakpoint-mobile) {
@@ -36,15 +43,15 @@ $breakpoint-desktop-content: 1496px;
 }
 
 @mixin gte-tablet {
-  @media screen and (min-width: $breakpoint-tablet) {
-    @content;
-  }
+    @media screen and (min-width: $breakpoint-tablet) {
+        @content;
+    }
 }
 
 @mixin lte-tablet {
-  @media screen and (max-width: $breakpoint-tablet) {
-    @content;
-  }
+    @media screen and (max-width: $breakpoint-tablet) {
+        @content;
+    }
 }
 
 @mixin lte-tablet-large {
@@ -54,15 +61,15 @@ $breakpoint-desktop-content: 1496px;
 }
 
 @mixin gte-tablet-large {
-  @media screen and (min-width: $breakpoint-tablet-large) {
-    @content;
-  }
+    @media screen and (min-width: $breakpoint-tablet-large) {
+        @content;
+    }
 }
 
 @mixin desktop {
-  @media screen and (min-width: $breakpoint-desktop) {
-    @content;
-  }
+    @media screen and (min-width: $breakpoint-desktop) {
+        @content;
+    }
 }
 
 @mixin gte-desktop {

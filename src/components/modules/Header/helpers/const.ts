@@ -44,9 +44,19 @@ export const NAVIGATION_ITEMS = [
 
 // Auth links
 const LINK_SIGN_IN = "/auth/sign-in";
-// const LINK_SIGN_UP = "/auth/sign-up";
+const LINK_SIGN_UP = "/auth/sign-up";
 
 const AUTH_SIGN_IN = { name: "Sign in", link: LINK_SIGN_IN };
-// const AUTH_SIGN_UP = { name: "Sign up", link: LINK_SIGN_UP };
+const AUTH_SIGN_UP = { name: "Sign up", link: LINK_SIGN_UP };
 
-export const AUTH_ITEMS = [AUTH_SIGN_IN];
+export const AUTH_ITEMS = [AUTH_SIGN_IN, AUTH_SIGN_UP];
+
+// Menu links
+const LINK_DASHBOARD = "/dashboard";
+const LINK_SETTINGS = "/settings";
+
+const MENU_DASHBOARD = { name: "Dashboard", link: LINK_DASHBOARD };
+const MENU_SETTINGS = { name: "Settings", link: LINK_SETTINGS };
+const MENU_LOGOUT = { name: "Log Out", link: "/" };
+
+export const MENU_ITEMS = [MENU_DASHBOARD, MENU_SETTINGS, MENU_LOGOUT];
