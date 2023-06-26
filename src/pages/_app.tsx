@@ -1,4 +1,6 @@
 import { AppProps } from "next/app";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { appWithTranslation } from "next-i18next";
 import { Provider } from "react-redux";
 
 import "tinymce/skins/ui/oxide-dark/content.css";
@@ -15,4 +17,4 @@ const App = ({ Component, ...rest }: AppProps) => {
     );
 };
 
-export default App;
+export default appWithTranslation(App);
