@@ -23,7 +23,7 @@ const SocialButton: FC<ButtonProps> = ({ keyword, width, height, name }) => {
             {name === "google" && (
                 <>
                     <Icon name={name} width={width} height={height} />
-                    <Text className={styles.inlineBLock}>
+                    <Text onClick={() => signIn("google")} className={styles.inlineBLock}>
                         {keyword} with {uppercaseName}
                     </Text>
                     <Icon name="arrowDashRight" width={10} height={10} />
