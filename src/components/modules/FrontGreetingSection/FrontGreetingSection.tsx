@@ -1,8 +1,4 @@
 import Image from "next/image";
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { useTranslation } from "next-i18next";
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React from "react";
 
 import { Button } from "@elements/Button/Button";
@@ -12,23 +8,13 @@ import { Title } from "@elements/Title/Title";
 
 import styles from "./FrontGreetingSection.module.scss";
 
-export async function getStaticProps({ locale }: any) {
-    return {
-        props: {
-            ...(await serverSideTranslations(locale, ["FrontGreetingSection"])),
-        },
-    };
-}
-
 export const FrontGreetingSection = () => {
-    const { t } = useTranslation();
     return (
         <section className={styles.section}>
             <div className={styles.wrapper}>
                 <div className={styles.content}>
                     <Title level={1} className={styles.title}>
-                        {/* Prove Your Coding Aptitude */}
-                        {t("FrontGreetingSection:welcome_msg")}
+                        Prove Your Coding Aptitude
                         <Image
                             src="/assets/images/greetingSection/icon.png"
                             width={50}
