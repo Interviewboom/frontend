@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { FC, ReactNode } from "react";
+import { FC, ReactNode, KeyboardEvent, MouseEventHandler } from "react";
 
 import { Icon } from "@elements/Icon";
 
@@ -12,15 +12,11 @@ interface AuthHeaderProps {
 export const AuthHeader: FC<AuthHeaderProps> = ({ logoComponent }) => {
     const router = useRouter();
 
-    function handleBack() {
-        router.back();
-    }
+    const handleBack = (): MouseEventHandler<HTMLButtonElement> | void => router.back();
 
-    function handleKeyDown(e: React.KeyboardEvent<HTMLDivElement>) {
-        if (e.key === "Enter") {
-            handleBack();
-        }
-    }
+    const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+        if (e.key === "Enter") handleBack();
+    };
     return (
         <div className={styles.container}>
             <div

@@ -17,7 +17,7 @@ export const signInValidationSchema = Yup.object().shape({
 });
 
 export const signUpValidationSchema = Yup.object().shape({
-    name: Yup.string().required(),
+    name: Yup.string().required("Name is required"),
     email: emailValidation,
     password: passwordValidation,
     repeatPassword: passwordValidation
