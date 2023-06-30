@@ -3,11 +3,15 @@ import React from "react";
 import { Button } from "@elements/Button";
 import RenderNode from "@modules/Roadmap/RenderNode/RenderNode";
 import { useFilterOptions } from "@utils/useFilterOptions";
+import { RoadmapModel } from "src/models/entities/roadmap-model/roadmap-model";
 
-import { RoadmapProps } from "./Roadmap.types";
 import styles from "./RoadmapByTarget.module.scss";
 
-export const RoadmapByTarget: React.FC<RoadmapProps> = ({ roadmapData }) => {
+interface RoadmapByTargetProps {
+    roadmap: RoadmapModel;
+}
+
+export const RoadmapByTarget: React.FC<RoadmapByTargetProps> = ({ roadmap }) => {
     const { showCompletedOnly, showInProgressOnly, toggleCompletedOnly, toggleInProgressOnly } = useFilterOptions();
 
     return (
@@ -23,7 +27,7 @@ export const RoadmapByTarget: React.FC<RoadmapProps> = ({ roadmapData }) => {
                     </Button>
                 </div>
             </header>
-            <RenderNode node={roadmapData} isCompletedOnly={showCompletedOnly} isInProgressOnly={showInProgressOnly} />
+            <RenderNode node={roadmap} isCompletedOnly={showCompletedOnly} isInProgressOnly={showInProgressOnly} />
         </div>
     );
 };

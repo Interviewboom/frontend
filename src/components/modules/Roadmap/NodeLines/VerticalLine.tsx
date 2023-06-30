@@ -1,9 +1,9 @@
 import React from "react";
 
-import { NodeData } from "../Roadmap.types";
+import { RoadmapModel } from "src/models/entities/roadmap-model/roadmap-model";
 
 interface VerticalLineProps {
-    treeNode: NodeData["children"];
+    treeNode: RoadmapModel["children"];
     marginLeft: number;
     marginTop: number;
     height: number;
@@ -16,7 +16,7 @@ const VerticalLine: React.FC<VerticalLineProps> = ({ treeNode, marginLeft, margi
             className={styles}
             style={{
                 left: marginLeft + 63,
-                height: treeNode?.length === 1 ? marginTop * 2 : `${height - marginTop - 25}px`,
+                height: treeNode?.length === 1 ? marginTop * 4 : `${height - marginTop + 40}px`,
             }}
         />
     );

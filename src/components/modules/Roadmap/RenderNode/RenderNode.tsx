@@ -1,12 +1,20 @@
 import React, { useState, useRef } from "react";
 
 import { useNodeHeight } from "@utils/useNodeHeight";
+import { RoadmapModel as Node } from "src/models/entities/roadmap-model/roadmap-model";
 
 import styles from "./RenderNode.module.scss";
-import MarkdownLine from "../NodeLines/MarkdownLine";
+import HorizontalLine from "../NodeLines/HorizontalLine";
 import VerticalLine from "../NodeLines/VerticalLine";
 import NodeName from "../NodeName/NodeName";
-import { RenderNodeProps } from "../Roadmap.types";
+
+interface RenderNodeProps {
+    node: Node;
+    marginLeft?: number;
+    marginTop?: number;
+    isCompletedOnly?: boolean;
+    isInProgressOnly?: boolean;
+}
 
 const RenderNode: React.FC<RenderNodeProps> = ({
     node,
@@ -29,11 +37,7 @@ const RenderNode: React.FC<RenderNodeProps> = ({
         <div className={styles.nodeList} style={{ marginLeft, marginTop }} ref={ref}>
             {hasName && (
                 <div className={styles.nodeItem}>
-                    <MarkdownLine
-                        markdown={node.markdown}
-                        markdownStyle={styles.markdown}
-                        horizontalDashStyle={styles.horizontalDash}
-                    />
+                    <HorizontalLine id={node.id} styles={styles.markdown} horizontalDashStyle={styles.horizontalDash} />
                     <NodeName
                         name={node.name}
                         treeNode={node.children}
@@ -43,7 +47,7 @@ const RenderNode: React.FC<RenderNodeProps> = ({
                     />
                 </div>
             )}
-            {node.children?.length! >= 1 && hasName && isNodeShown ? (
+            {node.children && node.children?.length >= 1 && hasName && isNodeShown ? (
                 <VerticalLine
                     treeNode={node.children}
                     marginLeft={marginLeft}
@@ -53,7 +57,8 @@ const RenderNode: React.FC<RenderNodeProps> = ({
                 />
             ) : null}
             {isNodeShown &&
-                node.children?.length! >= 1 &&
+                node.children &&
+                node.children?.length >= 1 &&
                 node.children?.map(treeNode => (
                     <RenderNode
                         key={treeNode.name}
