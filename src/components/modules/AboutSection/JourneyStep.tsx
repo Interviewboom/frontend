@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 
 import { Text } from "@elements/Text";
 import { Title } from "@elements/Title";
@@ -11,7 +11,7 @@ interface JourneyStepProps {
     subtitle: string;
 }
 
-const JourneyStep: React.FC<JourneyStepProps> = ({ step, title, subtitle }) => {
+const JourneyStep: FC<JourneyStepProps> = ({ step, title, subtitle }) => {
     return (
         <div className={styles.stepContainer}>
             <Text isParagraph className={styles.step}>

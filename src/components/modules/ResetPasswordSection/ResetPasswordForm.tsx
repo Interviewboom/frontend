@@ -54,7 +54,7 @@ export const ResetPasswordForm: FC = () => {
             description="Enter your email address and we will send you instructions to reset your password."
             onSubmit={formik.handleSubmit}
         >
-            {textFields.map(({ type, placeholder, value, error, name }) => (
+            {textFields.map(({ type, placeholder, value, error: err, name }) => (
                 <TextField
                     key={placeholder}
                     name={name}
@@ -62,7 +62,7 @@ export const ResetPasswordForm: FC = () => {
                     placeholder={placeholder}
                     value={value}
                     onChange={formik.handleChange}
-                    error={error}
+                    err={err}
                 />
             ))}
         </Auth>

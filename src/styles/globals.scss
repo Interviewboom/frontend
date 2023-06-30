@@ -85,6 +85,7 @@ select {
 input[type="submit"],
 button {
     display: inline-block;
+    font-family: inherit;
     background-color: transparent;
     background: none;
     cursor: pointer;

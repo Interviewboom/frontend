@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FC, useCallback, useId, useState } from "react";
+import { ChangeEventHandler, FC, useCallback, useId, useState } from "react";
 
 import { Icon } from "@elements/Icon";
 
@@ -12,7 +12,7 @@ interface TextFieldProps {
     placeholder?: string;
     isDisable?: boolean;
     isReadonly?: boolean;
-    error?: string;
+    err?: string;
     onChange: ChangeEventHandler<HTMLInputElement>;
 }
 
@@ -31,7 +31,7 @@ export const TextField: FC<TextFieldProps> = ({
     caption,
     isDisable,
     isReadonly,
-    error,
+    err,
 }) => {
     const id = useId();
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -64,12 +64,12 @@ export const TextField: FC<TextFieldProps> = ({
                     name={name}
                     value={value}
                     onChange={onChange}
-                    className={`${styles.input} ${error && styles.inputError} ${
-                        type !== "password" && !error && styles.inputRemoveExtraRightPadding
+                    className={`${styles.input} ${err && styles.inputError} ${
+                        type !== "password" && !err && styles.inputRemoveExtraRightPadding
                     }`}
                     {...getExistingAttributes(conditionalAttributes)}
                 />
-                {type === "password" && !error && value && (
+                {type === "password" && !err && value && (
                     <button type="button" className={styles.inputToggler} onClick={toggleVisibility}>
                         {isPasswordVisible ? (
                             <Icon name="eye-crossed" width={30} height={30} />
@@ -78,7 +78,7 @@ export const TextField: FC<TextFieldProps> = ({
                         )}
                     </button>
                 )}
-                {error && <span className={styles.errorWrapper}>{error}</span>}
+                {err && <span className={styles.errorWrapper}>{err}</span>}
             </div>
         </div>
     );
@@ -90,5 +90,5 @@ TextField.defaultProps = {
     placeholder: "",
     isDisable: false,
     isReadonly: false,
-    error: "",
+    err: "",
 };

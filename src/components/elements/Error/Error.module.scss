@@ -3,22 +3,18 @@
 
 .error {
     display: flex;
-    justify-content: center;
     align-items: center;
+    height: 7.4rem;
     margin: 0.5rem 2rem;
-    padding: 1.9rem 1.2rem;
-    background-color: $error-bg;
+    padding: 2rem 4rem;
     border-radius: 1.6rem;
-    font-family: $fracktif-semi-bold;
-    font-style: normal;
-    font-size: 1.8rem;
-    line-height: 2.2rem;
+    background-color: $error-bg;
+
+    span {
+        color: $error-text;
+    }
 }
 
-.errorMessage {
-    text-align: center;
-
-    & > span {
-        color: $error;
-    }
+.semiBold {
+    font-family: $fracktif-semi-bold;
 }
