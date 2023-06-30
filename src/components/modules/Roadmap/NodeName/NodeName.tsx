@@ -2,12 +2,11 @@ import React from "react";
 
 import { Button } from "@elements/Button";
 import { Icon } from "@elements/Icon";
-
-import { NodeData } from "../Roadmap.types";
+import { RoadmapModel } from "src/models/entities/roadmap-model/roadmap-model";
 
 interface NodeNameProps {
-    name: NodeData["name"];
-    treeNode: NodeData["children"];
+    name: RoadmapModel["name"];
+    treeNode: RoadmapModel["children"];
     arrowIconName: string;
     styles: string;
     setIsNodeShown: React.Dispatch<React.SetStateAction<boolean>>;
