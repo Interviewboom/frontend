@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { FC, useState, useRef } from "react";
 
 import { useNodeHeight } from "@utils/useNodeHeight";
 import { RoadmapModel as Node } from "src/models/entities/roadmap-model/roadmap-model";
@@ -17,7 +17,7 @@ interface RenderNodeProps {
     isLast?: boolean;
 }
 
-const RenderNode: React.FC<RenderNodeProps> = ({
+const RenderNode: FC<RenderNodeProps> = ({
     node,
     marginLeft = 10,
     marginTop = 5,

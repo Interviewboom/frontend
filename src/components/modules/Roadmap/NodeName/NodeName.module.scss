@@ -30,6 +30,10 @@
         padding: 0;
         width: max-content;
 
+        &:hover {
+            background-color: transparent;
+        }
+
         @include lte-desktop {
             font-size: 1.6rem;
         }
@@ -42,13 +46,20 @@
         margin-right: 0.5rem;
         z-index: 9;
         cursor: pointer;
-        accent-color: $primary-bg-green-light;
-        color: $primary-bg-light;
+        accent-color: $primary-bg-light;
+        border: 1px solid $primary-bg-light;
+
+        &:checked::before {
+            background-color: $primary-bg-light;
+        }
     }
 
     &.completed {
-        color: $primary-bg-light;
         background-color: $primary-bg-green-light;
+        opacity: 0.8;
+        & > * {
+            color: $primary-bg-light;
+        }
     }
 
     &.inactive {
