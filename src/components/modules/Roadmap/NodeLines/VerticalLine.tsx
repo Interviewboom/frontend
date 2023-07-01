@@ -16,7 +16,7 @@ const VerticalLine: React.FC<VerticalLineProps> = ({ treeNode, marginLeft, margi
             className={styles}
             style={{
                 left: marginLeft + 63,
-                height: treeNode?.length === 1 ? marginTop * 4 : `${height - marginTop + 40}px`,
+                height: treeNode?.length === 1 ? marginTop * 3.5 : `${height - marginTop}px`,
             }}
         />
     );

@@ -27,6 +27,17 @@
             z-index: 7;
             transform: translate(90%, 2%);
             font-size: 0.8rem;
+
+            &.hidden::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                height: 150%;
+                background-color: rgba(255, 255, 255, 1);
+                z-index: 55;
+            }
         }
 
         .horizontalDash {
@@ -36,33 +47,6 @@
             content: "";
             z-index: 3;
             position: relative;
-        }
-
-        .nodeName {
-            background-color: $primary-bg-light;
-            border-radius: 1rem;
-            max-width: fit-content;
-            min-width: fit-content;
-            height: 4rem;
-            padding: 0.6rem 1.2rem;
-            font-size: 1.8rem;
-            font-weight: 500;
-            color: $primary-text-dark;
-            white-space: nowrap;
-            position: relative;
-            text-align: center;
-            border: none;
-            z-index: 5;
-
-            &.finished {
-                color: $primary-bg-light;
-                background-color: $primary-bg-green-light;
-            }
-
-            &:hover {
-                cursor: pointer;
-                background-color: $primary-bg-green-light;
-            }
         }
     }
 

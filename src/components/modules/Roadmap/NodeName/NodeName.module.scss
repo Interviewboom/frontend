@@ -1,0 +1,52 @@
+@import "@sass/_colors.scss";
+@import "@sass/_variables.scss";
+@import "@sass/_media.scss";
+
+.nodeNameContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: $primary-bg-light;
+    border-radius: 1rem;
+    max-width: fit-content;
+    min-width: fit-content;
+    height: 4rem;
+    padding: 0.6rem 1.2rem;
+    z-index: 5;
+
+    .nodeName {
+        display: flex;
+        height: inherit;
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: $primary-text-dark;
+        white-space: nowrap;
+        border: none;
+        padding: 0;
+        width: max-content;
+
+        @include lte-desktop {
+            font-size: 1.6rem;
+        }
+    }
+    
+    .checkBox {
+        height: 1.6rem;
+        width: 1.6rem;
+        margin-bottom: 0.4rem;
+        margin-right: 0.5rem;
+        z-index: 9;
+        cursor: pointer;
+        accent-color: $primary-bg-green-light;
+        color: $primary-bg-light;
+    }
+
+    &.finished {
+        color: $primary-bg-light;
+        background-color: $primary-bg-green-light;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}

@@ -14,6 +14,7 @@ interface RenderNodeProps {
     marginTop?: number;
     isCompletedOnly?: boolean;
     isInProgressOnly?: boolean;
+    isLast?: boolean;
 }
 
 const RenderNode: React.FC<RenderNodeProps> = ({
@@ -22,6 +23,7 @@ const RenderNode: React.FC<RenderNodeProps> = ({
     marginTop = 5,
     isCompletedOnly,
     isInProgressOnly,
+    isLast,
 }) => {
     const [isNodeShown, setIsNodeShown] = useState(true);
 
@@ -30,24 +32,34 @@ const RenderNode: React.FC<RenderNodeProps> = ({
     const height = useNodeHeight(ref);
 
     const hasName = node.name !== null;
-
+    const hasChildren = node.children && node.children?.length >= 1;
     const arrowIconName = isNodeShown ? "arrowUp" : "arrowDown";
+
+    const shouldShowNodeItem =
+        hasName && ((node.status === "active" && isInProgressOnly) || (node.status === "completed" && isCompletedOnly));
+
+    const showAll = !isInProgressOnly && !isCompletedOnly;
 
     return (
         <div className={styles.nodeList} style={{ marginLeft, marginTop }} ref={ref}>
-            {hasName && (
+            {shouldShowNodeItem || showAll ? (
                 <div className={styles.nodeItem}>
-                    <HorizontalLine id={node.id} styles={styles.markdown} horizontalDashStyle={styles.horizontalDash} />
+                    <HorizontalLine
+                        id={node.id}
+                        styles={`${styles.markdown} 
+                        ${isLast ? `${styles.hidden}` : ``}`}
+                        horizontalDashStyle={styles.horizontalDash}
+                    />
                     <NodeName
                         name={node.name}
                         treeNode={node.children}
                         arrowIconName={arrowIconName}
-                        styles={styles.nodeName}
+                        status={node.status}
                         setIsNodeShown={setIsNodeShown}
                     />
                 </div>
-            )}
-            {node.children && node.children?.length >= 1 && hasName && isNodeShown ? (
+            ) : null}
+            {hasChildren && hasName && isNodeShown && shouldShowNodeItem ? (
                 <VerticalLine
                     treeNode={node.children}
                     marginLeft={marginLeft}
@@ -57,16 +69,16 @@ const RenderNode: React.FC<RenderNodeProps> = ({
                 />
             ) : null}
             {isNodeShown &&
-                node.children &&
-                node.children?.length >= 1 &&
-                node.children?.map(treeNode => (
+                hasChildren &&
+                node.children?.map((treeNode, index) => (
                     <RenderNode
                         key={treeNode.name}
                         node={treeNode}
                         marginLeft={marginLeft + 15}
-                        marginTop={marginTop + 5}
+                        marginTop={marginTop + 10}
                         isCompletedOnly={isCompletedOnly}
                         isInProgressOnly={isInProgressOnly}
+                        isLast={node.children && node.children.length ? index === node.children.length - 1 : false}
                     />
                 ))}
         </div>
