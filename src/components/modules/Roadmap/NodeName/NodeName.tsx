@@ -17,7 +17,7 @@ interface NodeNameProps {
 const NodeName: FC<NodeNameProps> = ({ name, treeNode, arrowIconName, status, setIsNodeShown }) => {
     const type = status;
     let color: "green" | "transparent" | "grey" = "transparent";
-    let isCompleted;
+    let isCompleted = false;
     let isInactive = false;
 
     switch (status) {
@@ -37,7 +37,7 @@ const NodeName: FC<NodeNameProps> = ({ name, treeNode, arrowIconName, status, se
     }
 
     return (
-        <div className={`${styles.nodeNameContainer} ${isCompleted ? styles[type] : ""}`}>
+        <div className={`${styles.nodeNameContainer} ${styles[type]}`}>
             {isInactive && <Icon className={styles.lock} name="lock" width={20} height={20} />}
             {isCompleted && <input className={styles.checkBox} type="checkbox" checked={status === "completed"} />}
             <Button

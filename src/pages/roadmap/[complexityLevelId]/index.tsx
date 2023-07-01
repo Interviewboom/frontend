@@ -18,6 +18,16 @@ const RoadmapByComplexityLevelId: NextPage<RoadmapByComplexityLevelIdProps> = ({
 };
 
 export const getServerSideProps = wrapper.getServerSideProps(store => async context => {
+    const { accessToken } = store.getState().auth;
+    if (!accessToken) {
+        return {
+            redirect: {
+                destination: "/auth/sign-in",
+                permanent: false,
+            },
+        };
+    }
+
     const complexityLevelId = context.params?.complexityLevelId as string | number;
 
     if (typeof complexityLevelId === "string" || "number") {
