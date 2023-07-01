@@ -14,6 +14,11 @@
     padding: 0.6rem 1.2rem;
     z-index: 5;
 
+    .lock {
+        margin-bottom: 0.7rem;
+        margin-right: 0.5rem;
+    }
+
     .nodeName {
         display: flex;
         height: inherit;
@@ -29,7 +34,7 @@
             font-size: 1.6rem;
         }
     }
-    
+
     .checkBox {
         height: 1.6rem;
         width: 1.6rem;
@@ -41,12 +46,12 @@
         color: $primary-bg-light;
     }
 
-    &.finished {
+    &.completed {
         color: $primary-bg-light;
         background-color: $primary-bg-green-light;
     }
 
-    &:hover {
-        cursor: pointer;
+    &.inactive {
+        opacity: 0.3;
     }
 }

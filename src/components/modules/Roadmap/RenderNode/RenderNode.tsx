@@ -59,7 +59,7 @@ const RenderNode: React.FC<RenderNodeProps> = ({
                     />
                 </div>
             ) : null}
-            {hasChildren && hasName && isNodeShown && shouldShowNodeItem ? (
+            {hasChildren && hasName && isNodeShown && showAll ? (
                 <VerticalLine
                     treeNode={node.children}
                     marginLeft={marginLeft}
