@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 
 import { Text } from "@elements/Text";
 import { useCssClasses } from "@utils/getClassnames";
@@ -6,13 +6,19 @@ import { useCssClasses } from "@utils/getClassnames";
 import styles from "./Error.module.scss";
 
 type ErrorProps = {
+    semiBold?: boolean;
     description: string;
     isAdaptive?: boolean;
     className?: string;
 };
 
-export const Error: React.FC<ErrorProps> = ({ description, isAdaptive = false, className }) => {
-    const errorClasses = useCssClasses([styles.error, isAdaptive && styles.adaptive, className]);
+export const Error: FC<ErrorProps> = ({ semiBold = false, description, isAdaptive = false, className }) => {
+    const errorClasses = useCssClasses([
+        styles.error,
+        semiBold && styles.semiBold,
+        isAdaptive && styles.adaptive,
+        className,
+    ]);
 
     return (
         <div className={errorClasses}>

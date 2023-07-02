@@ -12,7 +12,7 @@ export const AboutSection = () => {
     return (
         <section className={styles.section} id="about-us">
             <div className={styles.info}>
-                <Title level={3} className={styles.infoLeftParagraph}>
+                <Title level={3} semiBold className={styles.infoLeftParagraph}>
                     Join us and we’ll take you to the next level.
                 </Title>
                 <div className={styles.infoRight}>
@@ -33,7 +33,7 @@ export const AboutSection = () => {
                             </Text>
                             <Image
                                 src="/assets/images/about/aboutCodeSample.png"
-                                alt="IntreviewBoom about section code snippet"
+                                alt="InterviewBoom about section code snippet"
                                 className={styles.infoSampleImg}
                                 width={288}
                                 height={170}
@@ -44,12 +44,12 @@ export const AboutSection = () => {
             </div>
             <div className={styles.journey}>
                 <div className={styles.journeyWrapper}>
-                    <Title level={3} className={styles.journeyLeft}>
+                    <Title level={3} semiBold className={styles.journeyLeft}>
                         InterviewBoom will help you
                     </Title>
                     <div className={styles.guide}>
-                        {journeyData.map(({ step, title, subtitle }) => {
-                            return <JourneyStep key={title} step={step} title={title} subtitle={subtitle} />;
+                        {journeyData?.map(({ step, title, subtitle }) => {
+                            return <JourneyStep key={step} step={step} title={title} subtitle={subtitle} />;
                         })}
                         <Button link="/auth/sign-up" className={styles.journeyButton}>
                             Begin my coding journey

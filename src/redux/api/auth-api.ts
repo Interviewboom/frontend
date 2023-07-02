@@ -2,6 +2,9 @@ import { SignUpRequest, SignInRequest } from "src/models/requests/request-params
 import { LoginResponse } from "src/models/responses/auth-response-model/auth-response-model";
 import { api } from "src/redux/api";
 
+// Testing url for 500 status code
+// https://api.interviewboom.com/api/test-categories?page=1&limit=1000000000000000000000
+
 export const authApi = api.injectEndpoints({
     endpoints: build => ({
         login: build.mutation<LoginResponse, SignInRequest>({

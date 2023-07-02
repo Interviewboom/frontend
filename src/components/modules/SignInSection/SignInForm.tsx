@@ -1,3 +1,4 @@
+import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { useFormik } from "formik";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
@@ -22,7 +23,7 @@ export const SignInForm: FC = () => {
     const dispatch = useAppDispatch();
     const router = useRouter();
 
-    const [loginRequest, { data, isError }] = useLoginMutation();
+    const [loginRequest, { data, error, isLoading }] = useLoginMutation();
 
     useEffect(() => {
         if (data?.accessToken) {
@@ -31,11 +32,11 @@ export const SignInForm: FC = () => {
         }
     }, [data, dispatch, router]);
 
-    const submitHandler = (
+    const submitHandler = async (
         values: FormValues,
         { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void } // eslint-disable-line no-unused-vars
     ) => {
-        loginRequest({
+        await loginRequest({
             email: values.email,
             password: values.password,
         });
@@ -75,6 +76,8 @@ export const SignInForm: FC = () => {
             isSubmitting={formik.isSubmitting}
             title="Sign in"
             description="Welcome back!"
+            error={error as FetchBaseQueryError | any}
+            isLoading={isLoading}
             onSubmit={formik.handleSubmit}
             beforeContent={
                 <Link href="/auth/reset-password" className={styles.forgotPassword}>
@@ -92,7 +95,7 @@ export const SignInForm: FC = () => {
                 </div>
             }
         >
-            {textFields.map(({ type, placeholder, error, value, name }) => (
+            {textFields.map(({ type, placeholder, error: err, value, name }) => (
                 <TextField
                     key={placeholder}
                     name={name}
@@ -100,7 +103,7 @@ export const SignInForm: FC = () => {
                     placeholder={placeholder}
                     value={value}
                     onChange={formik.handleChange}
-                    error={error || (isError ? "Error" : "")}
+                    err={err}
                 />
             ))}
         </Auth>
