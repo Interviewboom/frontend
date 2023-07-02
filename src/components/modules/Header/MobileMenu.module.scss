@@ -3,14 +3,13 @@
 @import "@sass/_media.scss";
 
 .mobileWrapper {
+    display: block;
     width: 100%;
     height: 100%;
     background-color: $white;
-    display: none;
-    z-index: 4;
 
-    @include lte-tablet-large {
-        display: block;
+    @include gte-tablet-large {
+        display: none;
     }
 }
 
