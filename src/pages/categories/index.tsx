@@ -3,7 +3,6 @@ import React from "react";
 
 import { DefaultLayout } from "@layouts/DefaultLayout";
 import { AllCategoriesSection } from "@modules/AllCategoriesSection";
-import { DonationInfoSection } from "@modules/DonationInfoSection";
 import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 import { errorObjectType } from "@utils/errorHandler";
 import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
@@ -19,7 +18,6 @@ const AllCategoriesPage: NextPage<PageProps> = ({ categories, error }: PageProps
     return (
         <DefaultLayout error={error}>
             <AllCategoriesSection categories={categories} />
-            <DonationInfoSection />
         </DefaultLayout>
     );
 };

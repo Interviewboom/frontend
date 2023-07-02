@@ -3,10 +3,7 @@ import dynamic from "next/dynamic";
 
 import { DefaultLayout } from "@layouts/DefaultLayout";
 import { AboutSection } from "@modules/AboutSection";
-import { CategoriesSection } from "@modules/CategoriesSection";
-import { DonationInfoSection } from "@modules/DonationInfoSection";
 import { FrontGreetingSection } from "@modules/FrontGreetingSection";
-import { HowItWorksSection } from "@modules/HowItWorksSection";
 import { WhySection } from "@modules/WhySection";
 import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
@@ -18,24 +15,20 @@ import { wrapper } from "src/redux/store";
 const TestsSection = dynamic(() => import("@modules/TestsSection/TestsSection"), { ssr: false });
 
 type HomePageProps = {
+    /* eslint-disable react/no-unused-prop-types */
     categories: TestCategoryModel[];
     popularTests: TestModel[];
     error?: string;
 };
 
-const HomePage: NextPage<HomePageProps> = ({ categories, popularTests, error }: HomePageProps) => {
-    return (
-        <DefaultLayout error={error}>
-            <FrontGreetingSection />
-            <WhySection />
-            <CategoriesSection categories={categories} />
-            <TestsSection popularTests={popularTests} />
-            <HowItWorksSection />
-            <DonationInfoSection />
-            <AboutSection />
-        </DefaultLayout>
-    );
-};
+const HomePage: NextPage<HomePageProps> = ({ popularTests, error }: HomePageProps) => (
+    <DefaultLayout error={error}>
+        <FrontGreetingSection />
+        <WhySection />
+        <TestsSection popularTests={popularTests} />
+        <AboutSection />
+    </DefaultLayout>
+);
 
 export const getServerSideProps = wrapper.getServerSideProps(store => async () => {
     const { data: categories, isError: isCategoriesError } = await store.dispatch(

@@ -1,7 +1,6 @@
 import { NextPage } from "next";
 
 import { DefaultLayout } from "@layouts/DefaultLayout";
-import { DonationInfoSection } from "@modules/DonationInfoSection";
 import { OneTestSection } from "@modules/OneTestSection";
 import { getGenericErrorMessage } from "@utils/api/getGenericErrorMessage";
 import { TestCategoryModel } from "src/models/entities/test-category-model/test-category-model";
@@ -20,7 +19,6 @@ const TestDetailsPage: NextPage<PageProps> = ({ oneTestInfo, category, error }: 
     return (
         <DefaultLayout error={error}>
             <OneTestSection oneTestInfo={oneTestInfo} category={category} />
-            <DonationInfoSection />
         </DefaultLayout>
     );
 };
