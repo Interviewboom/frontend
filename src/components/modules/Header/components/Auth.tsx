@@ -11,7 +11,7 @@ import styles from "./Auth.module.scss";
 import { AUTH_ITEMS, MENU_ITEMS } from "../helpers/const";
 
 export const Auth: FC = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const { data: session } = useSession();
 

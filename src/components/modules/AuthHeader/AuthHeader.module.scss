@@ -5,7 +5,7 @@
 .container {
     display: flex;
     align-items: center;
-    padding: 2rem 4rem;
+    padding: 2rem;
     color: $primary-text-dark;
     background-color: $primary-bg-light;
 
@@ -37,5 +37,9 @@
 
     .logo {
         margin: 0 auto;
+    }
+
+    @include gte-mobile-large {
+        padding: 2rem 4rem;
     }
 }

@@ -10,7 +10,7 @@ import styles from "./Header.module.scss";
 import { AuthHeader } from "../AuthHeader";
 
 export const Header = () => {
-    const [showBurgerMenu, updateShowBurgerMenu] = useState<boolean>(false);
+    const [showBurgerMenu, updateShowBurgerMenu] = useState(false);
     const router = useRouter();
     const isAuthPages = router.asPath.slice(1, 5) === "auth";
 

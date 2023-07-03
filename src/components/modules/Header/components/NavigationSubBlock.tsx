@@ -9,7 +9,7 @@ import styles from "./Navigation.module.scss";
 import { NavigationItem, NavigationProps } from "../Header.types";
 
 export const NavigationSubBlock: FC<NavigationItem & NavigationProps> = ({ subList, moreLink, closeBurgerMenu }) => {
-    const [showMobileSubMenu, updateShowMobileSubMenu] = useState<boolean>(false);
+    const [showMobileSubMenu, updateShowMobileSubMenu] = useState(false);
 
     const getBlockClasses = () => {
         return getClassnames([styles.navigationSubBlock, showMobileSubMenu && styles.active]);
