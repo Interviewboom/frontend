@@ -7,6 +7,6 @@ export type LinkTypes = {
     children: ReactNode;
     className?: string;
     classNameText?: string;
-    color?: "white";
+    color?: "darkTextColor" | "lightTextColor" | "greyTextColor" | "mostLightColor";
     onClick?: () => void;
 };

@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, MouseEventHandler } from "react";
 
 import { useCssClasses } from "@utils/getClassnames";
 
@@ -10,6 +10,7 @@ interface TextProps {
     size?: "big" | "medium" | "small";
     color?: "darkTextColor" | "lightTextColor" | "greyTextColor" | "mostLightColor";
     semiBold?: true | false;
+    onClick?: MouseEventHandler<HTMLParagraphElement | HTMLSpanElement>;
     className?: string;
     lineHeight?: 17 | 20 | 22 | 24 | 28 | 32;
 }
@@ -20,6 +21,7 @@ export const Text: FC<TextProps> = ({
     size = "medium",
     color = "darkTextColor",
     semiBold = false,
+    onClick,
     lineHeight = "",
     className,
 }) => {
@@ -34,5 +36,10 @@ export const Text: FC<TextProps> = ({
     if (isParagraph) {
         return <p className={textClasses}>{children}</p>;
     }
-    return <span className={textClasses}>{children}</span>;
+
+    return (
+        <span {...(onClick ? { onClick } : {})} className={textClasses}>
+            {children}
+        </span>
+    );
 };

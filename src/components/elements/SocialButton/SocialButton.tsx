@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
-import React, { useMemo, memo } from "react";
+import { signIn } from "next-auth/react";
+import { FC, useMemo, memo } from "react";
 
 import { Icon } from "@elements/Icon";
 import { Text } from "@elements/Text";
@@ -15,16 +15,29 @@ type ButtonProps = {
 
 const upperCaseFirst = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
-const SocialButton: React.FC<ButtonProps> = ({ keyword, width, height, name }) => {
+const SocialButton: FC<ButtonProps> = ({ keyword, width, height, name }) => {
     const uppercaseName = useMemo(() => upperCaseFirst(name), [name]);
 
     return (
         <div className={styles.textIconWrapper}>
-            <Icon name={name} width={width} height={height} />
-            <Text className={styles.inlineBLock}>
-                {keyword} with {uppercaseName}
-            </Text>
-            <Icon name="arrowDashRight" width={10} height={10} />
+            {name === "google" && (
+                <>
+                    <Icon name={name} width={width} height={height} />
+                    <Text onClick={() => signIn("google")} className={styles.inlineBLock}>
+                        {keyword} with {uppercaseName}
+                    </Text>
+                    <Icon name="arrowDashRight" width={10} height={10} />
+                </>
+            )}
+            {name === "github" && (
+                <>
+                    <Icon name={name} width={width} height={height} />
+                    <Text onClick={() => signIn("github")} className={styles.inlineBLock}>
+                        {keyword} with {name === "github" ? "GitHub" : uppercaseName}
+                    </Text>
+                    <Icon name="arrowDashRight" width={10} height={10} />
+                </>
+            )}
         </div>
     );
 };

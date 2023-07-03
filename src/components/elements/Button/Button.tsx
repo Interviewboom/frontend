@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { ReactNode, MouseEventHandler } from "react";
+import { FC, ReactNode, MouseEventHandler } from "react";
 
 import { useCssClasses } from "@utils/getClassnames";
 
@@ -18,7 +18,7 @@ type ButtonProps = {
     disabled?: boolean;
 };
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
     children,
     type = "button",
     onClick,

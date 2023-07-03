@@ -60,7 +60,7 @@ export const Auth: FC<AuthProps> = ({
     showSocials = true,
     wrongPage,
 }: AuthProps) => {
-    const [isModalOpen, setIsModalOpen] = useState<boolean>(true);
+    const [isModalOpen, setIsModalOpen] = useState(true);
 
     const are500thsErrors = FIVE_HUNDRED_ERRORS.test(error?.status.toString() || "");
 
