@@ -4,7 +4,10 @@ import { Button } from "@elements/Button";
 import RenderNode from "@modules/Roadmap/RenderNode/RenderNode";
 import { useFilterOptions } from "@utils/useFilterOptions";
 import { RoadmapModel } from "src/models/entities/roadmap-model/roadmap-model";
+import { useAppSelector } from "src/redux/hooks";
+import { selectIsShown } from "src/redux/slices/roadmapSlice";
 
+import Popup from "./Popup/Popup";
 import styles from "./RoadmapByTarget.module.scss";
 
 interface RoadmapByTargetProps {
@@ -13,6 +16,7 @@ interface RoadmapByTargetProps {
 
 export const RoadmapByTarget: React.FC<RoadmapByTargetProps> = ({ roadmap }) => {
     const { showCompletedOnly, showInProgressOnly, toggleCompletedOnly, toggleInProgressOnly } = useFilterOptions();
+    const isShown = useAppSelector(selectIsShown) || false;
 
     return (
         <div className={styles.roadmapContainer}>
@@ -28,6 +32,7 @@ export const RoadmapByTarget: React.FC<RoadmapByTargetProps> = ({ roadmap }) => 
                 </div>
             </header>
             <RenderNode node={roadmap} isCompletedOnly={showCompletedOnly} isInProgressOnly={showInProgressOnly} />
+            {isShown && <Popup />}
         </div>
     );
 };

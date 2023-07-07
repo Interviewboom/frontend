@@ -1,0 +1,107 @@
+@import "@sass/colors.scss";
+@import "@sass/variables.scss";
+@import "@sass/_media.scss";
+
+.container {
+    background-color: rgb(232 232 232 / 80%);
+    backdrop-filter: blur(2.2rem);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 70;
+
+    .close {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        right: 5rem;
+        top: 3rem;
+        height: 8rem;
+        width: 8rem;
+        border-radius: 50%;
+        background-color: $primary-bg-light;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $grey-dark;
+        }
+    }
+
+    .wrapper {
+        background-color: $primary-bg-light;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 2rem;
+        width: 75rem;
+        box-shadow: 0 2px 6px rgb(0 0 0 / 20%);
+        padding: 6rem 23.4rem 5.7rem 8rem;
+
+        .status {
+            .title {
+                font-size: 4.6rem;
+                line-height: 110%;
+                letter-spacing: -0.138rem;
+            }
+
+            .skill {
+                color: $primary-bg-green-light;
+                font-size: 4.6rem;
+                line-height: 110%;
+                letter-spacing: -0.138rem;
+            }
+        }
+
+        .topic {
+            display: flex;
+            flex-flow: column;
+            gap: 0.2rem;
+        }
+    }
+
+    @include lte-tablet {
+        .close {
+            right: 2rem;
+            top: 2rem;
+            height: 6rem;
+            width: 6rem;
+        }
+
+        .wrapper {
+            max-width: 31.5rem;
+            padding: 2rem;
+
+            .status {
+                .title {
+                    font-size: 2.4rem;
+                    line-height: 115%;
+                    letter-spacing: -0.048rem;
+                }
+
+                .skill {
+                    font-size: 2.4rem;
+                    line-height: 115%;
+                    letter-spacing: -0.048rem;
+                }
+            }
+
+            .topic {
+                .point {
+                    font-size: 1rem;
+                }
+
+                .info {
+                    font-size: 1.6rem;
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+            }
+        }
+    }
+}

@@ -57,6 +57,7 @@
     &.completed {
         background-color: $primary-bg-green-light;
         opacity: 0.8;
+
         & > * {
             color: $primary-bg-light;
         }
@@ -64,5 +65,9 @@
 
     &.inactive {
         opacity: 0.3;
+    }
+
+    &:hover {
+        cursor: pointer;
     }
 }
