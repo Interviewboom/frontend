@@ -1,0 +1,215 @@
+{
+    "name": null,
+    "children": [
+        {
+            "name": "Web Development",
+            "markdown": "01",
+            "children": [
+                {
+                    "name": "Front-End Developer",
+                    "markdown": "1",
+                    "children": [
+                        {
+                            "name": "Javascript [Basic]",
+                            "markdown": "1.1",
+                            "children": [
+                                {
+                                    "name": "Fundamentals",
+                                    "markdown": "A",
+                                    "children": [
+                                        {
+                                            "name": "Data Types",
+                                            "markdown": "A1",
+                                            "children": [
+                                                {
+                                                    "name": "Basic data Types",
+                                                    "horizontal": true,
+                                                    "markdown": null,
+                                                    "children": [
+                                                        {
+                                                            "name": "Numbers"
+                                                        },
+                                                        {
+                                                            "name": "Strings"
+                                                        },
+                                                        {
+                                                            "name": "Arrays",
+                                                            "children": [
+                                                                {
+                                                                    "name": "Array methods",
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "name": "JSON"
+                                                        },
+                                                        {
+                                                            "name": "Date and time"
+                                                        },
+                                                        {
+                                                            "name": "Symbols"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Type Conversions",
+                                            "markdown": "A2"
+                                        },
+                                        {
+                                            "name": "Comparisons",
+                                            "markdown": "A3"
+                                        },
+                                        {
+                                            "name": "Conditional branching",
+                                            "markdown": "A4"
+                                        },
+                                        {
+                                            "name": "Functions",
+                                            "markdown": "A5"
+                                        },
+                                        {
+                                            "name": "Loops: while and for",
+                                            "markdown": "A6"
+                                        },
+                                        {
+                                            "name": "Variables",
+                                            "markdown": "A7"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "JS in Frontend Development",
+                            "markdown": "1.2",
+                            "children": [
+                                {
+                                    "name": "Basic [using JS in browsers]",
+                                    "markdown": "A",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Tools for JS frontend development",
+                                    "markdown": "B",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Libs and frameworks",
+                                    "markdown": "C",
+                                    "children": [
+                                        {
+                                            "name": "React",
+                                            "markdown": "C1",
+                                            "children": [
+                                                {
+                                                    "name": "React basics"
+                                                },
+                                                {
+                                                    "name": "React router"
+                                                },
+                                                {
+                                                    "name": "Redux"
+                                                },
+                                                {
+                                                    "name": "React Native"
+                                                },
+                                                {
+                                                    "name": "NextJS"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Vue"
+                                        },
+                                        {
+                                            "name": "Angular"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "CSS",
+                            "markdown": "1.3",
+                            "children": [
+                                {
+                                    "name": "Flexbox",
+                                    "markdown": "A"
+                                },
+                                {
+                                    "name": "Grid",
+                                    "markdown": "B"
+                                },
+                                {
+                                    "name": "CSS Preprocessors",
+                                    "markdown": "C"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "HTML",
+                            "markdown": "1.4",
+                            "children": [
+                                {
+                                    "name": "Basics of SEO",
+                                    "markdown": "A"
+                                },
+                                {
+                                    "name": "Forms and Validations",
+                                    "markdown": "B"
+                                },
+                                {
+                                    "name": "Semantics",
+                                    "markdown": "C"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Backed-End Developer",
+                    "markdown": "2"
+                },
+                {
+                    "name": "Full-Stack Developer",
+                    "markdown": "3"
+                }
+            ]
+        },
+        {
+            "name": "DevOps",
+            "markdown": "02",
+            "children": [
+                {
+                    "name": "CI / CI deployments",
+                    "markdown": "1"
+                },
+                {
+                    "name": "Networking protocols",
+                    "markdown": "2"
+                },
+                {
+                    "name": "Email SMPT",
+                    "markdown": "3"
+                },
+                {
+                    "name": "Python",
+                    "markdown": "4"
+                },
+                {
+                    "name": "Linux OS",
+                    "markdown": "5",
+                    "children": [
+                        {
+                            "name": "Basic commands",
+                            "markdown": "5.1"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

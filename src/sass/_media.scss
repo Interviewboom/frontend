@@ -53,10 +53,10 @@ $breakpoint-desktop-content: 1496px;
   }
 }
 
-@mixin desktop {
-  @media screen and (min-width: $breakpoint-desktop) {
-    @content;
-  }
+@mixin gte-desktop {
+    @media screen and (min-width: $breakpoint-desktop) {
+        @content;
+    }
 }
 
 @mixin gte-desktop {

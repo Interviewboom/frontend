@@ -1,0 +1,85 @@
+@import "@sass/colors.scss";
+@import "@sass/variables.scss";
+@import "@sass/_media.scss";
+
+.roadmapContainer {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    gap: 4rem;
+    padding: 1rem;
+    overflow-y: hidden;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+        padding: 1rem;
+
+        .roadmapTitle {
+            height: fit-content;
+            font-size: 4.6rem;
+            line-height: 5.6rem;
+            background-color: $primary-bg-green-light;
+            color: $primary-text-light;
+            text-align: center;
+            padding: 0.4rem 0.8rem;
+            border-radius: 1.6rem;
+        }
+
+        .roadmapButtonGroup {
+            display: flex;
+            gap: 0.5em;
+
+            .roadmapButton {
+                width: max-content;
+                background-color: $primary-bg-light;
+                padding: 0.6rem 1.2rem;
+                height: 3.7rem;
+                text-align: center;
+                font-size: 1.8rem;
+                color: $primary-text-dark;
+                border-radius: 1rem;
+
+                & > input {
+                    accent-color: $primary-bg-green-light;
+                    width: 1.4rem;
+                    height: 1.4rem;
+                    margin-left: 0.5rem;
+                }
+            }
+        }
+    }
+
+    @include lte-desktop {
+        padding: 0;
+
+        .header {
+            flex-flow: column;
+            align-items: center;
+            gap: 1rem;
+
+            .roadmapTitle {
+                font-size: 4.2rem;
+                margin: 1rem;
+                align-self: flex-start;
+                width: fit-content;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .roadmapButtonGroup {
+                margin-right: 1rem;
+                flex-flow: column;
+                align-self: flex-end;
+
+                .roadmapButton {
+                    white-space: nowrap;
+                    width: max-content;
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    }
+}

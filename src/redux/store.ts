@@ -4,10 +4,12 @@ import { createWrapper } from "next-redux-wrapper";
 
 import { api } from "./api";
 import { authSlice } from "./slices/authSlice";
+import { roadmapSlice } from "./slices/roadmapSlice";
 
 const rootReducers = combineReducers({
     [api.reducerPath]: api.reducer,
     [authSlice.name]: authSlice.reducer,
+    [roadmapSlice.name]: roadmapSlice.reducer,
 });
 
 export const makeStore = wrapMakeStore(() =>
